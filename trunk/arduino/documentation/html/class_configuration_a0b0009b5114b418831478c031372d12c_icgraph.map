@@ -1,3 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="294,5,559,32"/>
+<area shape="rect" id="node5" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="608,5,829,32"/>
+<area shape="rect" id="node7" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="877,5,1032,32"/>
 </map>

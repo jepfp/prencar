@@ -4,7 +4,7 @@ var searchData=
   ['_5fcalibrationsensorblackmin',['_calibrationSensorBlackMin',['../class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e',1,'LineFollow']]],
   ['_5fcalibrationsensorwhitemax',['_calibrationSensorWhiteMax',['../class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6',1,'LineFollow']]],
   ['_5fcalibrationsensorwhitemin',['_calibrationSensorWhiteMin',['../class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a',1,'LineFollow']]],
-  ['_5fcom',['_com',['../class_command.html#ad5f557155c936d002ff3fb647c55bb85',1,'Command::_com()'],['../class_line_follow.html#a8c494126e578f00240532b866b051718',1,'LineFollow::_com()'],['../class_move.html#ae9e6d0860fc8dcf67798b19b961044cc',1,'Move::_com()']]],
+  ['_5fcom',['_com',['../class_line_follow.html#a8c494126e578f00240532b866b051718',1,'LineFollow::_com()'],['../class_move.html#ae9e6d0860fc8dcf67798b19b961044cc',1,'Move::_com()']]],
   ['_5fcommandmaxparameteramount',['_COMMANDMAXPARAMETERAMOUNT',['../class_command.html#af0aca7db3a739923260c8a8a35820b7f',1,'Command']]],
   ['_5fconf',['_conf',['../class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f',1,'LineFollow::_conf()'],['../class_move.html#ad5c8392b7540a9b46adf66918ef83fdb',1,'Move::_conf()']]],
   ['_5fconfig',['_config',['../class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9',1,'Communication']]],

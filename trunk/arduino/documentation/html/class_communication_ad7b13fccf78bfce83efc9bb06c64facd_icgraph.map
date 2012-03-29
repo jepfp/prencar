@@ -1,5 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_command.html#a18df2d81039392daeb0b78c346a70537" title="Command::Command" alt="" coords="271,5,419,32"/>
-<area shape="rect" id="node5" href="$class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="240,56,451,83"/>
-<area shape="rect" id="node8" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="284,107,407,133"/>
+<area shape="rect" id="node3" href="$class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="240,5,451,32"/>
+<area shape="rect" id="node6" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="284,56,407,83"/>
 </map>

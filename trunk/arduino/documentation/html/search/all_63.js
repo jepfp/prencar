@@ -2,6 +2,7 @@ var searchData=
 [
   ['calibratesensors',['calibrateSensors',['../class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39',1,'LineFollow']]],
   ['changemotorspeed',['changeMotorSpeed',['../class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c',1,'Move']]],
+  ['checkcommands',['checkCommands',['../class_communication.html#a43c8f2812f29ab78f7213838e715cf49',1,'Communication']]],
   ['command',['Command',['../class_command.html',1,'Command'],['../class_command.html#a18df2d81039392daeb0b78c346a70537',1,'Command::Command()']]],
   ['command_2ecpp',['Command.cpp',['../_command_8cpp.html',1,'']]],
   ['command_2eh',['Command.h',['../_command_8h.html',1,'']]],

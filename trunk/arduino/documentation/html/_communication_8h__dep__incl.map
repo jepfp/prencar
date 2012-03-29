@@ -1,9 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_command_8h.html" title="D:/Workspace/Arduino/prencar/Command.h" alt="" coords="340,80,615,107"/>
-<area shape="rect" id="node7" href="$_communication_8cpp.html" title="D:/Workspace/Arduino/prencar/Communication.cpp" alt="" coords="318,155,636,181"/>
-<area shape="rect" id="node10" href="$_line_follow_8h.html" title="D:/Workspace/Arduino/prencar/LineFollow.h" alt="" coords="661,155,936,181"/>
-<area shape="rect" id="node14" href="$_move_8h.html" title="D:/Workspace/Arduino/prencar/Move.h" alt="" coords="841,80,1087,107"/>
-<area shape="rect" id="node18" href="$_move_8cpp.html" title="D:/Workspace/Arduino/prencar/Move.cpp" alt="" coords="1012,155,1271,181"/>
-<area shape="rect" id="node5" href="$_command_8cpp.html" title="D:/Workspace/Arduino/prencar/Command.cpp" alt="" coords="5,155,293,181"/>
-<area shape="rect" id="node12" href="$_line_follow_8cpp.html" title="D:/Workspace/Arduino/prencar/LineFollow.cpp" alt="" coords="741,229,1032,256"/>
+<area shape="rect" id="node3" href="$_communication_8cpp.html" title="D:/Workspace/Arduino/prencar/Communication.cpp" alt="" coords="5,80,323,107"/>
+<area shape="rect" id="node5" href="$_line_follow_8h.html" title="D:/Workspace/Arduino/prencar/LineFollow.h" alt="" coords="207,155,483,181"/>
+<area shape="rect" id="node9" href="$_move_8h.html" title="D:/Workspace/Arduino/prencar/Move.h" alt="" coords="399,80,644,107"/>
+<area shape="rect" id="node13" href="$_move_8cpp.html" title="D:/Workspace/Arduino/prencar/Move.cpp" alt="" coords="559,155,817,181"/>
+<area shape="rect" id="node7" href="$_line_follow_8cpp.html" title="D:/Workspace/Arduino/prencar/LineFollow.cpp" alt="" coords="288,229,579,256"/>
 </map>

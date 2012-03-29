@@ -115,7 +115,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Command Class Reference</div>  </div>
@@ -126,20 +125,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="class_command.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_command_8h_source.html">Command.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Command:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_command__coll__graph.png" border="0" usemap="#_command_coll__map" alt="Collaboration graph"/></div>
-<map name="_command_coll__map" id="_command_coll__map">
-<area shape="rect" id="node2" href="class_communication.html" title="Communication" alt="" coords="5,96,117,123"/><area shape="rect" id="node5" href="class_configuration.html" title="Configuration" alt="" coords="13,5,109,32"/></map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_command-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a18df2d81039392daeb0b78c346a70537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a18df2d81039392daeb0b78c346a70537">Command</a> ()</td></tr>
-<tr class="memitem:acbc1ac5649bc7c464d24ff98f219e0a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#acbc1ac5649bc7c464d24ff98f219e0a3">parse</a> (byte *commandString, int commandSize)</td></tr>
+<tr class="memitem:adbc9f2539741be419397502840f3740c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#adbc9f2539741be419397502840f3740c">parse</a> (byte *commandString)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a31842ee183ae2cd06ce6ad8f7533ff02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a31842ee183ae2cd06ce6ad8f7533ff02">commandCode</a></td></tr>
@@ -148,10 +140,6 @@ Public Attributes</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ad23d2c8f8c6c24b71bae06c5aefcc537"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537">copyBytesUntil</a> (byte *const source, int sourceStart, byte *target, int targetSize, byte stopCharacter)</td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ad5f557155c936d002ff3fb647c55bb85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#ad5f557155c936d002ff3fb647c55bb85">_com</a></td></tr>
-<tr class="memdesc:ad5f557155c936d002ff3fb647c55bb85"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the serial communication class.  <a href="#ad5f557155c936d002ff3fb647c55bb85"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:af0aca7db3a739923260c8a8a35820b7f"><td class="memItemLeft" align="right" valign="top">static int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#af0aca7db3a739923260c8a8a35820b7f">_COMMANDMAXPARAMETERAMOUNT</a> = 10</td></tr>
@@ -166,8 +154,14 @@ Static Private Attributes</h2></td></tr>
  <code>205-0:\n</code></p>
 <h3>Possible Commands</h3>
 <p>Below all possible commands are listed. </p>
+<table class="doxtable">
+<tr>
+<th>Code</th><th>Name</th><th>Parameters</th><th>Description </th></tr>
+<tr>
+<td>100</td><td>Send current configuration</td><td>See function <a class="el" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">Communication::sendCurrentConfiguration()</a></td><td>Sends the whole configuration over the serial interface. </td></tr>
+</table>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00022">22</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00026">26</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18df2d81039392daeb0b78c346a70537"></a>
 <div class="memitem">
@@ -185,15 +179,6 @@ Static Private Attributes</h2></td></tr>
 <p>Creates a new command object. </p>
 
 <p>Definition at line <a class="el" href="_command_8cpp_source.html#l00006">6</a> of file <a class="el" href="_command_8cpp_source.html">Command.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_command_a18df2d81039392daeb0b78c346a70537_cgraph.png" border="0" usemap="#class_command_a18df2d81039392daeb0b78c346a70537_cgraph" alt=""/></div>
-<map name="class_command_a18df2d81039392daeb0b78c346a70537_cgraph" id="class_command_a18df2d81039392daeb0b78c346a70537_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="203,5,389,32"/><area shape="rect" id="node5" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="437,5,648,32"/><area shape="rect" id="node8" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066" title="Configuration::getSerialSpeed" alt="" coords="697,5,890,32"/></map>
-</div>
-</p>
 
 </div>
 </div>
@@ -241,48 +226,29 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8cpp_source.html#l00061">61</a> of file <a class="el" href="_command_8cpp_source.html">Command.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_cgraph.png" border="0" usemap="#class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_cgraph" alt=""/></div>
-<map name="class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_cgraph" id="class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85" title="Communication::sendString" alt="" coords="233,5,415,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="250,56,398,83"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="464,56,699,83"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_command_8cpp_source.html#l00053">53</a> of file <a class="el" href="_command_8cpp_source.html">Command.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_icgraph.png" border="0" usemap="#class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_icgraph" alt=""/></div>
 <map name="class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_icgraph" id="class_command_ad23d2c8f8c6c24b71bae06c5aefcc537_icgraph">
-<area shape="rect" id="node3" href="class_command.html#acbc1ac5649bc7c464d24ff98f219e0a3" title="Command::parse" alt="" coords="233,5,354,32"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="403,5,557,32"/></map>
+<area shape="rect" id="node3" href="class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="233,5,354,32"/><area shape="rect" id="node5" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="403,5,695,32"/><area shape="rect" id="node7" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="744,5,899,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="acbc1ac5649bc7c464d24ff98f219e0a3"></a>
+<a class="anchor" id="adbc9f2539741be419397502840f3740c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_command.html#acbc1ac5649bc7c464d24ff98f219e0a3">Command::parse</a> </td>
+          <td class="memname">void <a class="el" href="class_command.html#adbc9f2539741be419397502840f3740c">Command::parse</a> </td>
           <td>(</td>
           <td class="paramtype">byte *&#160;</td>
-          <td class="paramname"><em>commandString</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>commandString</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>commandSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -291,7 +257,6 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">commandString</td><td>The start position of the command string. </td></tr>
-    <tr><td class="paramname">commandSize</td><td>The length of the command inclusive \n character. </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,41 +266,24 @@ Here is the caller graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_command_acbc1ac5649bc7c464d24ff98f219e0a3_cgraph.png" border="0" usemap="#class_command_acbc1ac5649bc7c464d24ff98f219e0a3_cgraph" alt=""/></div>
-<map name="class_command_acbc1ac5649bc7c464d24ff98f219e0a3_cgraph" id="class_command_acbc1ac5649bc7c464d24ff98f219e0a3_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85" title="Communication::sendString" alt="" coords="403,5,586,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="421,68,569,95"/><area shape="rect" id="node9" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="177,31,354,57"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="635,68,869,95"/></map>
+<div class="center"><img src="class_command_adbc9f2539741be419397502840f3740c_cgraph.png" border="0" usemap="#class_command_adbc9f2539741be419397502840f3740c_cgraph" alt=""/></div>
+<map name="class_command_adbc9f2539741be419397502840f3740c_cgraph" id="class_command_adbc9f2539741be419397502840f3740c_cgraph">
+<area shape="rect" id="node3" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="177,5,354,32"/></map>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_command_acbc1ac5649bc7c464d24ff98f219e0a3_icgraph.png" border="0" usemap="#class_command_acbc1ac5649bc7c464d24ff98f219e0a3_icgraph" alt=""/></div>
-<map name="class_command_acbc1ac5649bc7c464d24ff98f219e0a3_icgraph" id="class_command_acbc1ac5649bc7c464d24ff98f219e0a3_icgraph">
-<area shape="rect" id="node3" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="176,5,331,32"/></map>
+<div class="center"><img src="class_command_adbc9f2539741be419397502840f3740c_icgraph.png" border="0" usemap="#class_command_adbc9f2539741be419397502840f3740c_icgraph" alt=""/></div>
+<map name="class_command_adbc9f2539741be419397502840f3740c_icgraph" id="class_command_adbc9f2539741be419397502840f3740c_icgraph">
+<area shape="rect" id="node3" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="177,5,469,32"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="517,5,672,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ad5f557155c936d002ff3fb647c55bb85"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_communication.html">Communication</a>* <a class="el" href="class_command.html#ad5f557155c936d002ff3fb647c55bb85">Command::_com</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>The reference to the serial communication class. </p>
-
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00025">25</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="af0aca7db3a739923260c8a8a35820b7f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +297,7 @@ Here is the caller graph for this function:</div>
 
 <p>Defines, how many parameters a command can have. </p>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00026">26</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00030">30</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -364,7 +312,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00032">32</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00036">36</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -379,7 +327,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00030">30</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00034">34</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -394,7 +342,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00031">31</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00035">35</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +356,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_command.html">Command</a>      </li>
 
-    <li class="footer">Generated on Thu Mar 29 2012 01:07:05 for prencar by
+    <li class="footer">Generated on Thu Mar 29 2012 15:24:17 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

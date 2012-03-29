@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getandremovecommandfromreadycommands',['getAndRemoveCommandFromReadyCommands',['../class_communication.html#a17bff838a0404ae06482f17bcecd3784',1,'Communication']]],
   ['getconfigurationversion',['getConfigurationVersion',['../class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e',1,'Configuration']]],
   ['getcurrentconfiguration',['getCurrentConfiguration',['../class_configuration.html#a0b0009b5114b418831478c031372d12c',1,'Configuration']]],
   ['getinstance',['getInstance',['../class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd',1,'Communication::getInstance()'],['../class_configuration.html#ae327d26e81014cf46b25802478fe9b8e',1,'Configuration::getInstance()'],['../class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850',1,'Move::getInstance()']]],
