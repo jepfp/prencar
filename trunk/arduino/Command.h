@@ -18,6 +18,10 @@
  * 
  * <h3>Possible Commands</h3>
  * Below all possible commands are listed.
+ * <table>
+ * <tr><th>Code</th><th>Name</th><th>Parameters</th><th>Description</th></tr>
+ * <tr><td>100</td><td>Send current configuration</td><td>See function Communication::sendCurrentConfiguration()</td><td>Sends the whole configuration over the serial interface.</td></tr>
+ * </table>
  */
 class Command
 {

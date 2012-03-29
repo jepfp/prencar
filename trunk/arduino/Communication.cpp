@@ -47,6 +47,8 @@ void Communication::doJob(){
     _lastBufferCharacter++;
     amountAvailableBytes--;
   }
+
+  checkCommands();
 }
 
 /**
@@ -66,13 +68,58 @@ void Communication::parseAndPutCommandOnList(byte* commandString){
     send(150);
     return;
   }
-  readyCommands[i].parse(commandString);
+  Command c;
+  c.parse(commandString);
+
+  readyCommands[i] = c;
 
   int parameters[3];
-  parameters[0] = readyCommands[i].commandCode;
+  parameters[0] = c.commandCode;
   parameters[1] = i;
   parameters[2] = _READYCOMMANDSSIZE;
   send(61, parameters, 3);
+}
+
+/**
+ * Checks the array readyCommands for commands that have to be exectued here and executes them.
+ */
+void Communication::checkCommands(){
+  Command c;
+
+  //check for command 100
+  if(getAndRemoveCommandFromReadyCommands(&c, 100)){
+    sendCurrentConfiguration();
+  }
+
+}
+
+/**
+ * Checks the array readyCommands if the given commandCode is in the list. If so it copies the values
+ * from the command in the list to the space of the given reference and removes the command from the
+ * readyCommands array.
+ * @param c Command that will be filled, if the command is in the list. "c.commandCode" will be set to 0 if the command is not in the list
+ * @param commandCode The code of the command to look for inside the readyCommands array.
+ * @return Returns true if the command was found and removed from the list otherwise false.
+ */
+boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int commandCode){
+  for(int i = 0; i < _READYCOMMANDSSIZE; i++){
+    if(readyCommands[i].commandCode == commandCode){
+      *c = readyCommands[i];
+      
+      //remove command from the list
+      readyCommands[i].commandCode = 0;
+      
+      int parameters[3];
+      parameters[0] = c->commandCode;
+      parameters[1] = i;
+      send(62, parameters, 2);
+      return true;
+    } 
+  }
+
+  //if the command was not found set the commandCode of the given object to 0
+  c->commandCode = 0;
+  return false;
 }
 
 /**
@@ -164,10 +211,13 @@ void Communication::sendString(char* message){
  * Gets the current configuration from the Configuraton instance and sends it over the serial port.
  */
 void Communication::sendCurrentConfiguration(){
-  long currentConfiguration[17];
+  long currentConfiguration[18];
   _config->getCurrentConfiguration(currentConfiguration);
-  send(204, currentConfiguration, 17);
+  send(204, currentConfiguration, 18);
 }
+
+
+
 
 
 

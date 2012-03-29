@@ -166,7 +166,7 @@ void Configuration::setMoveModeSecondRightPin(byte value){
 
 /**
  * Sends the whole current configuration as it is stored on the microcontroller at the moment.
- * @param spaceForConfigValues Pointer to a long array with 17 spaces to store the current configuration.
+ * @param spaceForConfigValues Pointer to a long array with 18 spaces to store the current configuration.
  */
 void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[0] = ((long)_CONFIGURATIONVERSION);
@@ -178,15 +178,17 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[6] = _moveModeSecondLeftPin;
   spaceForConfigValues[7] = _moveModeFirstRightPin;
   spaceForConfigValues[8] = _moveModeSecondRightPin;
-  spaceForConfigValues[9] = lineCorrectionDuration;
-  spaceForConfigValues[10] = lineFollowCorrectionPlus;
-  spaceForConfigValues[11] = lineFollowCorrectionMinus;
-  spaceForConfigValues[12] = lineFollowWhiteThreshold;
-  spaceForConfigValues[13] = lineFollowLeftSensorPin;
-  spaceForConfigValues[14] = lineFollowRightSensorPin;
-  spaceForConfigValues[15] = lineFollowLeftFrontSensorPin;
-  spaceForConfigValues[16] = lineFollowRightFrontSensorPin;
+  spaceForConfigValues[9] = lineFollowInitialSpeed;
+  spaceForConfigValues[10] = lineCorrectionDuration;
+  spaceForConfigValues[11] = lineFollowCorrectionPlus;
+  spaceForConfigValues[12] = lineFollowCorrectionMinus;
+  spaceForConfigValues[13] = lineFollowWhiteThreshold;
+  spaceForConfigValues[14] = lineFollowLeftSensorPin;
+  spaceForConfigValues[15] = lineFollowRightSensorPin;
+  spaceForConfigValues[16] = lineFollowLeftFrontSensorPin;
+  spaceForConfigValues[17] = lineFollowRightFrontSensorPin;
 }
+
 
 
 

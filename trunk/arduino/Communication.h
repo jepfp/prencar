@@ -17,6 +17,7 @@ private:
   byte _incomingDataBuffer[_INCOMINGDATABUFFERSIZE]; ///< Buffer to store ONE incoming line which is not yet completely transmitted
   int _lastBufferCharacter; ///< The position of the last character in the buffer (lastBufferChar + 1 will be the next empty spot)
   void parseAndPutCommandOnList(byte* commandString);
+  void checkCommands();
 public:
   static Communication* getInstance();
   void doJob();
@@ -33,6 +34,7 @@ public:
    * this class has to remove the command from that array by setting the space to null.
    */
   Command readyCommands[_READYCOMMANDSSIZE];
+  boolean getAndRemoveCommandFromReadyCommands(Command* c, int commandCode);
 };
 
 #endif
