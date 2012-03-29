@@ -1,0 +1,188 @@
+#include "Communication.h"
+#include "Configuration.h"
+#include "Command.h"
+
+Communication Communication::_instance; ///< Static reference to the singleton object
+boolean Communication::_instanceCreated = false;
+
+/**
+ * Get the Communication instance
+ * @return the Communication instance
+ */
+Communication* Communication::getInstance()
+{
+  if ( !_instanceCreated ){
+    _instance = Communication();
+    _instanceCreated = true;
+  }
+  return &_instance;
+}
+/**
+ * Constructor
+ */
+Communication::Communication(){
+  //get a reference to the configuration
+  _config = Configuration::getInstance();
+
+  _lastBufferCharacter = 0;
+
+  Serial.begin(_config->getSerialSpeed());
+}
+
+/**
+ * Does the job which this class has to do in regular intervals.
+ * Therefore this method has to be called in regular intervals (as short as possible).<br>
+ *
+ * 1. Checks if data is available to read.
+ */
+void Communication::doJob(){
+  int amountAvailableBytes = Serial.available();
+  while(amountAvailableBytes > 0){
+    _incomingDataBuffer[_lastBufferCharacter] = Serial.read();
+    //if one line is completely transmitted create a command
+    if(_incomingDataBuffer[_lastBufferCharacter] == '\n'){
+      parseAndPutCommandOnList(_incomingDataBuffer);
+      _lastBufferCharacter = -1;
+    }
+    _lastBufferCharacter++;
+    amountAvailableBytes--;
+  }
+}
+
+/**
+ * Returns a pointer to the first free spot in readyCommands (free = command is set to 0)
+ */
+void Communication::parseAndPutCommandOnList(byte* commandString){
+  //find the first free spot
+  int i;
+  boolean spotFound = false;
+  for(i = 0; i < _READYCOMMANDSSIZE; i++){
+    if(readyCommands[i].commandCode == 0){
+      spotFound = true;
+      break;
+    } 
+  }
+  if(spotFound == false){
+    send(150);
+    return;
+  }
+  readyCommands[i].parse(commandString);
+
+  int parameters[3];
+  parameters[0] = readyCommands[i].commandCode;
+  parameters[1] = i;
+  parameters[2] = _READYCOMMANDSSIZE;
+  send(61, parameters, 3);
+}
+
+/**
+ * Sends the message code over the configured serial interface.<br>
+ * The message will be filtered according to the configured filter level in the configuration.
+ * @see Configuration::getMessageFilterLevel()
+ * @param messageId Id of the message that will be sent.
+ */
+void Communication::send(byte messageId){
+  if(messageId > _config->getMessageFilterLevel()){
+    Serial.println(messageId);
+  }
+}
+
+/**
+ * \overload
+ * @param messageId Id of the message that will be sent.
+ * @param param Parameter that will be sent with this message.
+ */
+void Communication::send(byte messageId, int param){
+  if(messageId > _config->getMessageFilterLevel()){
+    Serial.print(messageId);
+    Serial.print(":");
+    Serial.println(param);
+  }
+}
+
+/**
+ * Sends the message code over the configured serial interface.<br>
+ * The message will be filtered according to the configured filter level in the configuration.<br><br>
+ * The message will be sent in the following format:<br>
+ * <code>202-4:12,323,4399,2292\\n</code><br>
+ * <code>[messageId]-[sizeOfParameters]:[parameter 1],[parameter 2],[parameter 3],[parameter n]\\n</code>
+ * @param messageId Id of the message that will be sent.
+ * @param params[] Parameters that will be sent with this message.
+ * @param paramSize Size of params[].
+ */
+void Communication::send(byte messageId, const long params[], byte paramSize){
+  if(messageId > _config->getMessageFilterLevel()){
+    Serial.print(messageId);
+    Serial.print("-");
+    Serial.print(paramSize);
+    Serial.print(":");
+    byte i;
+    for(i = 0; i < (paramSize - 1); i++){
+      ///@todo: make sure the receiver of the serial message can work with negative parameters
+      Serial.print(params[i], DEC);
+      Serial.print(",");
+    }
+    //the last one is sent without a comma but with a new line
+    Serial.println(params[i]);
+  }
+}
+/**
+ * \overload
+ * @param messageId Id of the message that will be sent.
+ * @param params[] Parameters that will be sent with this message.
+ * @param paramSize Size of params[].
+ * @todo Find a better implementation so that we don't have a copy of code.
+ */
+void Communication::send(byte messageId, const int params[], byte paramSize){
+  if(messageId > _config->getMessageFilterLevel()){
+    Serial.print(messageId);
+    Serial.print("-");
+    Serial.print(paramSize);
+    Serial.print(":");
+    byte i;
+    for(i = 0; i < (paramSize - 1); i++){
+      ///@todo: make sure the receiver of the serial message can work with negative parameters
+      Serial.print(params[i]);
+      Serial.print(",");
+    }
+    //the last one is sent without a comma but with a new line
+    Serial.println(params[i]);
+  }
+}
+
+/**
+ * Sends a plain string message for debug reasons.
+ * 
+ * Note: This method should only temporarly be used to test the library.
+ * @param message Message to send.
+ */
+void Communication::sendString(char* message){
+  Serial.println(message);
+}
+
+/*
+ * Gets the current configuration from the Configuraton instance and sends it over the serial port.
+ */
+void Communication::sendCurrentConfiguration(){
+  long currentConfiguration[17];
+  _config->getCurrentConfiguration(currentConfiguration);
+  send(204, currentConfiguration, 17);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

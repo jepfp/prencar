@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="289,309,437,336"/>
+<area shape="rect" id="node5" href="$class_command.html#acbc1ac5649bc7c464d24ff98f219e0a3" title="Command::parse" alt="" coords="849,31,970,57"/>
+<area shape="rect" id="node9" href="$class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="530,5,707,32"/>
+<area shape="rect" id="node12" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="486,107,751,133"/>
+<area shape="rect" id="node14" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="1081,259,1207,285"/>
+<area shape="rect" id="node16" href="$class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="800,360,1019,387"/>
+<area shape="rect" id="node19" href="$class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="815,157,1003,184"/>
+<area shape="rect" id="node22" href="$class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="525,309,713,336"/>
+<area shape="rect" id="node24" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="541,360,697,387"/>
+<area shape="rect" id="node26" href="$class_move.html#addc21b7bfdc00d789c9a0eb31e3dabf7" title="Move::controlMotors" alt="" coords="840,487,979,513"/>
+<area shape="rect" id="node31" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="527,512,710,539"/>
+<area shape="rect" id="node34" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="523,563,715,589"/>
+<area shape="rect" id="node37" href="$class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="823,208,995,235"/>
+<area shape="rect" id="node40" href="$class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692" title="Move::equalizeMotorsSpeed" alt="" coords="526,613,711,640"/>
+<area shape="rect" id="node7" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="1067,31,1221,57"/>
+<area shape="rect" id="node28" href="$class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="1082,487,1206,513"/>
+</map>

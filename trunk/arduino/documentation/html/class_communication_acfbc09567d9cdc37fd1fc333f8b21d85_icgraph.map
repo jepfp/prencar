@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_command.html#acbc1ac5649bc7c464d24ff98f219e0a3" title="Command::parse" alt="" coords="465,26,586,53"/>
+<area shape="rect" id="node5" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="635,52,789,78"/>
+<area shape="rect" id="node7" href="$class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="238,26,415,53"/>
+<area shape="rect" id="node11" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="264,128,389,154"/>
+</map>
