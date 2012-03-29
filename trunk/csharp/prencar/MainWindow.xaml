@@ -1,0 +1,76 @@
+﻿<Window x:Class="prencar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+        Title="MainWindow" Height="557" Width="870" Icon="/prencar;component/prencar.ico" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="592*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Name="grid1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="288*" />
+                <RowDefinition Height="230*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Name="grid2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="344*" />
+                    <ColumnDefinition Width="248*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Name="tbSerialInput" AcceptsReturn="True" Text="nothing to display yet..." FontFamily="Courier New" FontSize="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+                <Label Content="Send command to controller:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label3" VerticalAlignment="Top" Grid.Column="1" />
+                <TextBox Height="23" Margin="6,40,61,0" Name="tbDebugSerialCommand" Text="" VerticalAlignment="Top" Grid.Column="1" />
+                <Button Content="Send" Height="23" Margin="0,40,6,0" Name="btnSendDebugSerialCommand" VerticalAlignment="Top" Grid.Column="1" Click="btnSendDebugSerialCommand_Click" HorizontalAlignment="Right" Width="49" />
+            </Grid>
+            <Grid Name="grid3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="186" />
+                    <ColumnDefinition Width="406*" />
+                </Grid.ColumnDefinitions>
+                <ListBox Name="lbState">
+                    <ListBoxItem Content="Not started" IsSelected="True" />
+                    <ListBoxItem Content="Following the 1st line" />
+                    <ListBoxItem Content="Found pylon" />
+                    <ListBoxItem Content="1st turn" />
+                    <ListBoxItem Content="Following 2nd line" />
+                    <ListBoxItem Content="2nd turn" />
+                    <ListBoxItem Content="Following 3rd line to cube" />
+                    <ListBoxItem Content="Recognize cube" />
+                    <ListBoxItem Content="Align car" />
+                    <ListBoxItem Content="Move to cube" />
+                    <ListBoxItem Content="Lift cube" />
+                    <ListBoxItem Content="Move back to line" />
+                    <ListBoxItem Content="Following 3rd line to finish" />
+                    <ListBoxItem Content="Finished" />
+                </ListBox>
+                <Grid Grid.Column="1" Name="gridStateRecognizeCube">
+                    <d3:ChartPlotter Name="plotter">
+                        <d3:Header TextBlock.FontSize="15">
+                            Infrared Sensore - Mesured Distances
+                        </d3:Header>
+
+                        <d3:VerticalAxisTitle>Distance</d3:VerticalAxisTitle>
+                        <d3:HorizontalAxisTitle>Degrees</d3:HorizontalAxisTitle>
+                    </d3:ChartPlotter>
+                </Grid>
+            </Grid>
+        </Grid>
+        <StackPanel Name="stackPanel1">
+            <Expander Header="Board connection" Name="expBoardConnection" IsExpanded="True">
+                <Grid>
+                    <Label Content="Com port:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" />
+                    <TextBox Height="23" Margin="75,8,6,0" Name="tbComport" VerticalAlignment="Top" Text="COM20" />
+                    <Button Height="23" Margin="75,40,6,0" Name="btnSerialConnectDisconnect" VerticalAlignment="Top" Content="Connect" Click="btnSerialConnectDisconnect_Click" />
+                </Grid>
+            </Expander>
+            <Expander Header="Chip Configuration" Height="100" Name="expander2" IsExpanded="True">
+                <Grid>
+                    <Button Content="Edit Configuration" Height="23" Margin="6,50,6,0" Name="btnOpenMcConfigurationView" VerticalAlignment="Top" Click="btnOpenMcConfigurationView_Click" />
+                    <Label Content="Configuration Version:" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Label Content="n.a." Height="28" Margin="0,0,6,0" Name="lblConfigurationVersion" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                </Grid>
+            </Expander>
+        </StackPanel>
+    </Grid>
+</Window>

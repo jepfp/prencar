@@ -1,0 +1,17 @@
+_CONFIGURATIONVERSION:1
+_SERIALSPEED:9600
+messageFilterLevel:0
+movePwmLeftPin:2
+movePwmRightPin:3
+moveModeFirstLeftPin:22
+moveModeSecondLeftPin:23
+moveModeFirstRightPin:24
+moveModeSecondRightPin:25
+lineCorrectionDuration:50
+lineFollowCorrectionPlus:30
+lineFollowCorrectionMinus:50
+lineFollowWhiteThreshold:300
+lineFollowLeftSensorPin:59
+lineFollowRightSensorPin:58
+lineFollowLeftFrontSensorPin:60
+lineFollowRightFrontSensorPin:61
