@@ -41,6 +41,8 @@ Configuration::Configuration(){
   lineFollowRightSensorPin = A4;
   lineFollowLeftFrontSensorPin = A6;
   lineFollowRightFrontSensorPin = A7;
+  lineFollowKp = 0.5;
+  lineFollowKd = 1;
 }
 
 /**

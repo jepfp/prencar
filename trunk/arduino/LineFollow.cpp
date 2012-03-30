@@ -8,7 +8,7 @@
  */
 LineFollow::LineFollow()
 {
-  
+
 }
 
 /**
@@ -31,6 +31,10 @@ void LineFollow::begin(){
   digitalWrite(_conf->lineFollowRightSensorPin, LOW);
   digitalWrite(_conf->lineFollowLeftFrontSensorPin, LOW);
   digitalWrite(_conf->lineFollowRightFrontSensorPin, LOW);
+  
+  _deltasensor = 0;
+  _sensoralt = 20;
+  _deltaPWM = 0;
 
   hasReachedLine = false;
 }
@@ -80,7 +84,7 @@ void LineFollow::doJob(){
 
   //Check - if a correction (driving a courve to get back to the line) is in progress - if it's already time to drive
   //straight forward again.
-  if(_timeSinceCorrectionStarted != 0 && millis() >= _timeSinceCorrectionStarted + _conf->lineCorrectionDuration){
+  if(_timeSinceCorrectionStarted != 12 && millis() >= _timeSinceCorrectionStarted + _conf->lineCorrectionDuration){
     //    _com->sendString("after correction - moving forward again");
     _move->controlMotors(forward, _conf->lineFollowInitialSpeed, forward, _conf->lineFollowInitialSpeed);
     _timeSinceCorrectionStarted = 0;
@@ -90,24 +94,41 @@ void LineFollow::doJob(){
   //correction is needed. If so a correction will be started.
   //We do this only if no correction is in progress
   if(_timeSinceCorrectionStarted == 0){
-    //    _com->sendString("check line sensors");
-    readLineSensors(sensorValues);
 
-    //left sensor
-    if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
-      _com->sendString("korrigiere nach rechts.");
-      _move->changeMotorSpeed(((-1)*((int)_conf->lineFollowCorrectionMinus)), ((int)_conf->lineFollowCorrectionPlus));
-      _timeSinceCorrectionStarted = millis();
-      _com->send(56, sensorValues[0]);
-    }
 
-    //right sensor
-    if(sensorValues[1] < _conf->lineFollowWhiteThreshold){
-      _com->sendString("korrigiere nach links.");
-      _move->changeMotorSpeed(((int)_conf->lineFollowCorrectionPlus), ((-1)*((int)_conf->lineFollowCorrectionMinus)));
-      _timeSinceCorrectionStarted = millis();
-      _com->send(57, sensorValues[1]);
-    }
+sensorValues[0]=sensorValues[0]*1;
+
+sensorValues[1]=sensorValues[1]*1;
+
+    _deltasensor = sensorValues[0]-sensorValues[1];
+    _com->send(3,sensorValues[0]);
+
+    _deltaPWM = (_conf->lineFollowKp*((float)_deltasensor)) + (_conf->lineFollowKd*(float)(_deltasensor-_sensoralt));
+    _sensoralt = _deltasensor; 
+
+    _move->changeMotorSpeed(_deltaPWM,(-1)*_deltaPWM);  
+
+
+
+    /*{
+     //    _com->sendString("check line sensors");
+     readLineSensors(sensorValues);
+     
+     //left sensor
+     if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
+     _com->sendString("korrigiere nach rechts.");
+     _move->changeMotorSpeed(((-1)*((int)_conf->lineFollowCorrectionMinus)), ((int)_conf->lineFollowCorrectionPlus));
+     _timeSinceCorrectionStarted = millis();
+     _com->send(56, sensorValues[0]);
+     }
+     
+     //right sensor
+     if(sensorValues[1] < _conf->lineFollowWhiteThreshold){
+     _com->sendString("korrigiere nach links.");
+     _move->changeMotorSpeed(((int)_conf->lineFollowCorrectionPlus), ((-1)*((int)_conf->lineFollowCorrectionMinus)));
+     _timeSinceCorrectionStarted = millis();
+     _com->send(57, sensorValues[1]);
+     }*/
   }
 
 
@@ -204,14 +225,15 @@ void LineFollow::calibrateSensors(){
   //(We know that the calculation doesn't use float even though a division is made here.)
   int oneThirdOfRange = rangeWhiteMaxToBlackMin/3;
   _conf->lineFollowWhiteThreshold = _calibrationSensorWhiteMax + oneThirdOfRange;
-  
+
   int measurements[] = {
     _calibrationSensorBlackMin, _calibrationSensorBlackMax, _calibrationSensorWhiteMin, _calibrationSensorWhiteMax,
     oneThirdOfRange, _conf->lineFollowWhiteThreshold
   };
-  
+
   _com->send(203, measurements, 6);
 }
+
 
 
 

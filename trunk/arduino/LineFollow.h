@@ -21,6 +21,9 @@ private:
   int _calibrationSensorBlackMax; ///< Holds the maximum value that was measured during the calibration for "black".
 
   unsigned long _timestampLineCorrection; ///< Holds the timestamp of the time when a line correction was started. @see doJob()
+  int _deltasensor; ///< todo: write comment
+  int _sensoralt; ///< todo: write comment
+  int _deltaPWM; ///< todo: write comment
 
   Communication* _com; ///< The reference to the serial communication class.
   Move* _move; ///< The reference to the move class to control the motors.
@@ -37,6 +40,7 @@ private:
   void readLineSensors(int* resultArray);
 };
 #endif
+
 
 
 

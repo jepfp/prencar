@@ -72,6 +72,15 @@ public:
    */
   int lineFollowWhiteThreshold;
   
+  /**
+   * 
+   */
+  float lineFollowKp;
+  /**
+  *
+  */
+  float lineFollowKd;
+  
   void getCurrentConfiguration(long* spaceForConfigValues);
   
   
