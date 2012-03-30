@@ -20,7 +20,11 @@
  * Below all possible commands are listed.
  * <table>
  * <tr><th>Code</th><th>Name</th><th>Parameters</th><th>Description</th></tr>
- * <tr><td>100</td><td>Send current configuration</td><td>See function Communication::sendCurrentConfiguration()</td><td>Sends the whole configuration over the serial interface.</td></tr>
+ * <tr><td>100</td><td>Send current configuration</td><td>-</td><td>Tell the MC to send the whole configuration over the serial interface.</td></tr>
+ * <tr><td>101</td><td>Update configuration</td><td>See Configuration::updateConfiguration()</td><td>Updates the configuration of the microcontroller with the given parameters.</td></tr>
+ * <tr><td>200</td><td>Calibrate line sensors</td><td>-</td><td>Starts the calibration of the line sensors.</td></tr>
+ * <tr><td>300</td><td>Start parcours</td><td>-</td><td>Starts the parcours</td></tr>
+ * <tr><td>301</td><td>Stop parcours</td><td>-</td><td>Stops the parcours and the car performing a fast stop.</td></tr>
  * </table>
  */
 class Command

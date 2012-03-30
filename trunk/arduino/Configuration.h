@@ -82,7 +82,7 @@ public:
   float lineFollowKd;
   
   void getCurrentConfiguration(long* spaceForConfigValues);
-  
+  void updateConfiguration(long* parameters);
   
 };
 

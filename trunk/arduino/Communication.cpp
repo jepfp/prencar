@@ -26,7 +26,7 @@ Communication::Communication(){
 
   _lastBufferCharacter = 0;
 
-  Serial.begin(_config->getSerialSpeed());
+  Serial1.begin(_config->getSerialSpeed());
 }
 
 /**
@@ -36,9 +36,9 @@ Communication::Communication(){
  * 1. Checks if data is available to read.
  */
 void Communication::doJob(){
-  int amountAvailableBytes = Serial.available();
+  int amountAvailableBytes = Serial1.available();
   while(amountAvailableBytes > 0){
-    _incomingDataBuffer[_lastBufferCharacter] = Serial.read();
+    _incomingDataBuffer[_lastBufferCharacter] = Serial1.read();
     //if one line is completely transmitted create a command
     if(_incomingDataBuffer[_lastBufferCharacter] == '\n'){
       parseAndPutCommandOnList(_incomingDataBuffer);
@@ -130,7 +130,7 @@ boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int comm
  */
 void Communication::send(byte messageId){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial.println(messageId);
+    Serial1.println(messageId);
   }
 }
 
@@ -141,9 +141,9 @@ void Communication::send(byte messageId){
  */
 void Communication::send(byte messageId, int param){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial.print(messageId);
-    Serial.print(":");
-    Serial.println(param);
+    Serial1.print(messageId);
+    Serial1.print(":");
+    Serial1.println(param);
   }
 }
 
@@ -159,18 +159,18 @@ void Communication::send(byte messageId, int param){
  */
 void Communication::send(byte messageId, const long params[], byte paramSize){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial.print(messageId);
-    Serial.print("-");
-    Serial.print(paramSize);
-    Serial.print(":");
+    Serial1.print(messageId);
+    Serial1.print("-");
+    Serial1.print(paramSize);
+    Serial1.print(":");
     byte i;
     for(i = 0; i < (paramSize - 1); i++){
       ///@todo: make sure the receiver of the serial message can work with negative parameters
-      Serial.print(params[i], DEC);
-      Serial.print(",");
+      Serial1.print(params[i], DEC);
+      Serial1.print(",");
     }
     //the last one is sent without a comma but with a new line
-    Serial.println(params[i]);
+    Serial1.println(params[i]);
   }
 }
 /**
@@ -182,18 +182,18 @@ void Communication::send(byte messageId, const long params[], byte paramSize){
  */
 void Communication::send(byte messageId, const int params[], byte paramSize){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial.print(messageId);
-    Serial.print("-");
-    Serial.print(paramSize);
-    Serial.print(":");
+    Serial1.print(messageId);
+    Serial1.print("-");
+    Serial1.print(paramSize);
+    Serial1.print(":");
     byte i;
     for(i = 0; i < (paramSize - 1); i++){
       ///@todo: make sure the receiver of the serial message can work with negative parameters
-      Serial.print(params[i]);
-      Serial.print(",");
+      Serial1.print(params[i]);
+      Serial1.print(",");
     }
     //the last one is sent without a comma but with a new line
-    Serial.println(params[i]);
+    Serial1.println(params[i]);
   }
 }
 
@@ -204,7 +204,7 @@ void Communication::send(byte messageId, const int params[], byte paramSize){
  * @param message Message to send.
  */
 void Communication::sendString(char* message){
-  Serial.println(message);
+  Serial1.println(message);
 }
 
 /*

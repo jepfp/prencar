@@ -21,7 +21,7 @@ Configuration* Configuration::getInstance()
 
 Configuration::Configuration(){
   //set default values
-  _messageFilterLevel = 0;
+  _messageFilterLevel = 99;
   lineFollowWhiteThreshold = 300;
   /*lineCorrectionDuration = 200;
    lineFollowInitialSpeed = 150; //150 out of 255
@@ -165,7 +165,6 @@ void Configuration::setMoveModeSecondRightPin(byte value){
   _moveModeSecondRightPin = value;
 }
 
-
 /**
  * Sends the whole current configuration as it is stored on the microcontroller at the moment.
  * @param spaceForConfigValues Pointer to a long array with 18 spaces to store the current configuration.
@@ -182,8 +181,8 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[8] = _moveModeSecondRightPin;
   spaceForConfigValues[9] = lineFollowInitialSpeed;
   spaceForConfigValues[10] = lineCorrectionDuration;
-  spaceForConfigValues[11] = lineFollowCorrectionPlus;
-  spaceForConfigValues[12] = lineFollowCorrectionMinus;
+  spaceForConfigValues[11] = lineFollowKp;
+  spaceForConfigValues[12] = lineFollowKd;
   spaceForConfigValues[13] = lineFollowWhiteThreshold;
   spaceForConfigValues[14] = lineFollowLeftSensorPin;
   spaceForConfigValues[15] = lineFollowRightSensorPin;
@@ -191,7 +190,30 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[17] = lineFollowRightFrontSensorPin;
 }
 
-
+/**
+ * Updates all configuration values according to the given parameters.
+ * @param parameters Pointer to a long array with 18 parameters.
+ */
+void Configuration::updateConfiguration(long* parameters){
+  /*spaceForConfigValues[0] = ((long)_CONFIGURATIONVERSION);
+  spaceForConfigValues[1] = _SERIALSPEED;
+  spaceForConfigValues[2] = _messageFilterLevel;
+  spaceForConfigValues[3] = _movePwmLeftPin;
+  spaceForConfigValues[4] = _movePwmRightPin;
+  spaceForConfigValues[5] = _moveModeFirstLeftPin;
+  spaceForConfigValues[6] = _moveModeSecondLeftPin;
+  spaceForConfigValues[7] = _moveModeFirstRightPin;
+  spaceForConfigValues[8] = _moveModeSecondRightPin;
+  spaceForConfigValues[9] = lineFollowInitialSpeed;
+  spaceForConfigValues[10] = lineCorrectionDuration;
+  spaceForConfigValues[11] = lineFollowKp;
+  spaceForConfigValues[12] = lineFollowKd;
+  spaceForConfigValues[13] = lineFollowWhiteThreshold;
+  spaceForConfigValues[14] = lineFollowLeftSensorPin;
+  spaceForConfigValues[15] = lineFollowRightSensorPin;
+  spaceForConfigValues[16] = lineFollowLeftFrontSensorPin;
+  spaceForConfigValues[17] = lineFollowRightFrontSensorPin;*/
+}
 
 
 
