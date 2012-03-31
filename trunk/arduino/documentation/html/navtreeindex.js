@@ -8,6 +8,7 @@ var NAVTREEINDEX =
 "class_configuration.html":[1,0,2],
 "class_line_follow.html":[1,0,3],
 "class_move.html":[1,0,4],
+"class_state_maschine.html":[1,0,5],
 "classes.html":[1,1],
 "functions.html":[1,2,0],
 "functions_func.html":[1,2,1],
@@ -23,6 +24,8 @@ var NAVTREEINDEX =
 "_line_follow_8h.html":[2,0,7],
 "_move_8cpp.html":[2,0,8],
 "_move_8h.html":[2,0,9],
+"_state_maschine_8cpp.html":[2,0,10],
+"_state_maschine_8h.html":[2,0,11],
 "globals.html":[2,1,0],
 "globals_enum.html":[2,1,1],
 "globals_eval.html":[2,1,2]

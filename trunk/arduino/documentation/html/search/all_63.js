@@ -2,7 +2,7 @@ var searchData=
 [
   ['calibratesensors',['calibrateSensors',['../class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39',1,'LineFollow']]],
   ['changemotorspeed',['changeMotorSpeed',['../class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c',1,'Move']]],
-  ['checkcommands',['checkCommands',['../class_communication.html#a43c8f2812f29ab78f7213838e715cf49',1,'Communication']]],
+  ['checkcommands',['checkCommands',['../class_communication.html#a43c8f2812f29ab78f7213838e715cf49',1,'Communication::checkCommands()'],['../class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a',1,'StateMaschine::checkCommands()']]],
   ['command',['Command',['../class_command.html',1,'Command'],['../class_command.html#a18df2d81039392daeb0b78c346a70537',1,'Command::Command()']]],
   ['command_2ecpp',['Command.cpp',['../_command_8cpp.html',1,'']]],
   ['command_2eh',['Command.h',['../_command_8h.html',1,'']]],
@@ -14,5 +14,6 @@ var searchData=
   ['configuration_2ecpp',['Configuration.cpp',['../_configuration_8cpp.html',1,'']]],
   ['configuration_2eh',['Configuration.h',['../_configuration_8h.html',1,'']]],
   ['controlmotors',['controlMotors',['../class_move.html#addc21b7bfdc00d789c9a0eb31e3dabf7',1,'Move']]],
-  ['copybytesuntil',['copyBytesUntil',['../class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537',1,'Command']]]
+  ['copybytesuntil',['copyBytesUntil',['../class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537',1,'Command']]],
+  ['cubeapproach',['cubeApproach',['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f',1,'StateMaschine.h']]]
 ];
