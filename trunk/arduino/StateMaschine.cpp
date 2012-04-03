@@ -49,7 +49,7 @@ void StateMaschine::doJob(){
 
   checkCommands();
 
-  //delay(1000);
+  delay(1000);
   if(parcoursState == followingFirstLine){
     lineFollow.doJob();
   }

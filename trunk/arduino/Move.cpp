@@ -72,22 +72,34 @@ void Move::performFastStop()
 }
 
 /**
- * Set the diraction and the speed of both motors.
+ * Set the direction and the speed of both motors. If the value speedLeftMotor or speedRightMotor is not in the range
+ * between 0 and 255, the maximum / minimum value of 255 or 0 will be set.
  * First the speed is set then the direction. First the left motor is set then the right.
  * @param dirLeftMotor direction of left motor
  * @param speedLeftMotor speed of left motor (0-255)
  * @param dirRightMotor direction of right motor
  * @param speedRightMotor speed of right motor (0-255)
  */
-void Move::controlMotors(TMotorDirection dirLeftMotor, byte speedLeftMotor, TMotorDirection dirRightMotor, byte speedRightMotor){
-  //_com = Communication::getInstance();
+void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMotorDirection dirRightMotor, int speedRightMotor){
+  if(speedLeftMotor > 255) speedLeftMotor = 255;
+  if(speedRightMotor > 255) speedRightMotor = 255;
+
+  if(speedLeftMotor < 0) speedLeftMotor = 0;
+  if(speedRightMotor < 0) speedRightMotor = 0;
+
   _speedLeft = speedLeftMotor;
   _speedRight = speedRightMotor;
+  
+  int parameters[4];
+  parameters[0] = _speedLeft;
+  parameters[1] = dirLeftMotor;
+  parameters[2] = _speedRight;
+  parameters[3] = dirRightMotor;
 
-  _com->send(58, _speedLeft);
+  _com->send(58, parameters, 4);
+  
   analogWrite(_pwmLeftPin, _speedLeft);
   setLeftMotorDirection(dirLeftMotor);
-  _com->send(59, _speedLeft);
   analogWrite(_pwmRightPin, _speedRight);
   setRightMotorDirection(dirRightMotor);
 }
@@ -120,7 +132,7 @@ void Move::setLeftMotorDirection(enum TMotorDirection dir){
     dirCode = 3;
   }
 
-  _com->send(51, dirCode);
+  //_com->send(51, dirCode);
 }
 
 /**
@@ -151,11 +163,11 @@ void Move::setRightMotorDirection(TMotorDirection dir){
     dirCode = 3;
   }
 
-  _com->send(52, dirCode);
+  //_com->send(52, dirCode);
 }
 
 /**
- * Changes the speed of the two motors according to the difference which can be a positiv or negativ value. The speed will not be less than 0 or more than 255 at the end.
+ * Changes the <b>current</b> speed of the two motors according to the given difference which can be positiv or negativ. The speed will not be less than 0 or more than 255 at the end.
  * The direction of both motors is not affected. If they are not moving at the moment, a call to this method will not cause them rotating.
  * @param changeLeftMotor The value that shall be added to the current speed of the left motor. Can be a positive or negativ value.
  * @param changeRightMotor The value that shall be added to the current speed of the right motor. Can be a positive or negativ value.
@@ -167,28 +179,35 @@ void Move::changeMotorSpeed(int changeLeftMotor, int changeRightMotor){
   parameters[3] = _speedRight;
   parameters[4] = changeRightMotor;
 
-  if(changeLeftMotor > 0 && ((int)_speedLeft) + changeLeftMotor > 255){
-    changeLeftMotor = 255 - _speedLeft; 
-  }
-  else if(changeLeftMotor < 0 && ((int)_speedLeft) + changeLeftMotor < 0){
-    changeLeftMotor = _speedLeft * (-1); 
-  }
-  if(changeRightMotor > 0 && ((int)_speedRight) + changeRightMotor > 255){
-    changeRightMotor = 255 - _speedRight; 
-  }
-  else if(changeRightMotor < 0 && ((int)_speedRight) + changeRightMotor < 0){
-    changeRightMotor = _speedRight * (-1); 
-  }
-
-  _speedLeft += changeLeftMotor;
-  _speedRight += changeRightMotor;
-  analogWrite(_pwmLeftPin, _speedLeft);
-  analogWrite(_pwmRightPin, _speedRight);
-
-  parameters[2] = _speedLeft;
-  parameters[5] = _speedRight;
+  parameters[2] = _speedLeft + changeLeftMotor;
+  parameters[5] = _speedRight + changeRightMotor;
 
   _com->send(53, parameters, 6);
+
+  controlMotors(_dirLeftMotor, parameters[2], _dirRightMotor, parameters[5]);
+}
+
+/**
+ * Sets the speed of the left motor by taking the value from Configuration::lineFollowInitialSpeedLeft + changeLeftMotor and the
+ * right motor by taking the value from Configuration::lineFollowInitialSpeedRight + changeRightMotor.
+ * The speed will not be less than 0 or more than 255 at the end.
+ * The direction of both motors is not affected. If they are not moving at the moment, a call to this method will not cause them rotating.
+ * @param changeLeftMotor The value that shall be added to Configuration::lineFollowInitialSpeedLeft and assigned to the left motor. Can be a positive or negativ value.
+ * @param changeRightMotor The value that shall be added to Configuration::lineFollowInitialSpeedRight and assigned to the right motor. Can be a positive or negativ value.
+ */
+void Move::changeMotorSpeedBasedOnInitialSpeed(int changeLeftMotor, int changeRightMotor){
+  int parameters[6];
+  parameters[0] = _speedLeft;
+  parameters[1] = changeLeftMotor;
+  parameters[3] = _speedRight;
+  parameters[4] = changeRightMotor;
+
+  parameters[2] = _conf->lineFollowInitialSpeedLeft + changeLeftMotor;
+  parameters[5] = _conf->lineFollowInitialSpeedRight + changeRightMotor;
+
+  _com->send(53, parameters, 6);
+
+  controlMotors(_dirLeftMotor, parameters[2], _dirRightMotor, parameters[5]);
 }
 
 /**
@@ -201,7 +220,8 @@ void Move::equalizeMotorsSpeed(){
   byte averageSpeed = (byte)((((int)_speedLeft) + ((int)_speedRight)) / 2);
 
   int parameters[] = {
-    _speedLeft, _speedRight, averageSpeed        };
+    _speedLeft, _speedRight, averageSpeed
+  };
 
   _com->send(54, parameters, 3);
   _speedLeft = averageSpeed;
@@ -210,5 +230,8 @@ void Move::equalizeMotorsSpeed(){
   analogWrite(_pwmLeftPin, _speedLeft);
   analogWrite(_pwmRightPin, _speedRight);
 }
+
+
+
 
 

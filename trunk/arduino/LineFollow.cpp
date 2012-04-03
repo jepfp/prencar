@@ -31,16 +31,20 @@ void LineFollow::begin(){
   digitalWrite(_conf->lineFollowRightSensorPin, LOW);
   digitalWrite(_conf->lineFollowLeftFrontSensorPin, LOW);
   digitalWrite(_conf->lineFollowRightFrontSensorPin, LOW);
-  
-  _deltasensor = 0;
-  _sensoralt = 20;
-  _deltaPWM = 0;
 
   hasReachedLine = false;
 }
 
+/**
+ * Starts the line following process.
+ */
 void LineFollow::startIt(){
-  _move->controlMotors(forward, _conf->lineFollowInitialSpeed, forward, _conf->lineFollowInitialSpeed + 5);
+  _deltasensor = 0;
+  _sensoralt = 20;
+  _deltaPWM = 0;
+  _timeSinceCorrectionStarted = 0;
+
+  _move->controlMotors(forward, _conf->lineFollowInitialSpeedLeft, forward, _conf->lineFollowInitialSpeedRight);
 }
 
 /**
@@ -84,29 +88,27 @@ void LineFollow::doJob(){
 
   //Check - if a correction (driving a courve to get back to the line) is in progress - if it's already time to drive
   //straight forward again.
-  if(_timeSinceCorrectionStarted != 12 && millis() >= _timeSinceCorrectionStarted + _conf->lineCorrectionDuration){
-    //    _com->sendString("after correction - moving forward again");
-    _move->controlMotors(forward, _conf->lineFollowInitialSpeed, forward, _conf->lineFollowInitialSpeed);
-    _timeSinceCorrectionStarted = 0;
-  }
+  /*if(_timeSinceCorrectionStarted != 0 && millis() >= _timeSinceCorrectionStarted + _conf->lineCorrectionDuration){
+   //    _com->sendString("after correction - moving forward again");
+   _move->controlMotors(forward, _conf->lineFollowInitialSpeed, forward, _conf->lineFollowInitialSpeed);
+   _timeSinceCorrectionStarted = 0;
+   }*/
 
   //Read the line sensor values to check if one line sensor has detected white ground which means that a
   //correction is needed. If so a correction will be started.
   //We do this only if no correction is in progress
+  //_com->send(_timeSinceCorrectionStarted);
   if(_timeSinceCorrectionStarted == 0){
-
-
-sensorValues[0]=sensorValues[0]*1;
-
-sensorValues[1]=sensorValues[1]*1;
+    readLineSensors(sensorValues);
 
     _deltasensor = sensorValues[0]-sensorValues[1];
-    _com->send(3,sensorValues[0]);
+    _com->send(3,_deltasensor);
 
-    _deltaPWM = (_conf->lineFollowKp*((float)_deltasensor)) + (_conf->lineFollowKd*(float)(_deltasensor-_sensoralt));
-    _sensoralt = _deltasensor; 
+    _deltaPWM = _conf->lineFollowKp * (_deltasensor/100) + (_conf->lineFollowKd/100) * (_deltasensor-_sensoralt);
+    _sensoralt = _deltasensor;
 
-    _move->changeMotorSpeed(_deltaPWM,(-1)*_deltaPWM);  
+    _move->changeMotorSpeedBasedOnInitialSpeed(_deltaPWM,(-1)*_deltaPWM); 
+    //_timeSinceCorrectionStarted = millis(); 
 
 
 
@@ -233,6 +235,8 @@ void LineFollow::calibrateSensors(){
 
   _com->send(203, measurements, 6);
 }
+
+
 
 
 

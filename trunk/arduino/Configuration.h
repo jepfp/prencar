@@ -42,7 +42,8 @@ public:
   byte lineFollowLeftFrontSensorPin;
   byte lineFollowRightFrontSensorPin;
   unsigned long lineCorrectionDuration; ///< Time in milliseconds which defines, for how long the car shall do a correction after white ground has been detected.
-  byte lineFollowInitialSpeed; ///< The initial speed of both motor when the parcours starts (0-255).
+  byte lineFollowInitialSpeedLeft; ///< The initial speed of the left motor when the parcours starts (0-255).
+  byte lineFollowInitialSpeedRight; ///< The initial speed of the left motor when the parcours starts (0-255).
   /** \brief Defines the value that shall be added to the current speed in case of a correction.
    * 
    * In case of a correction one motor needs to rotate faster than the other one. Depending if a correction to the left or to the right 
@@ -75,11 +76,11 @@ public:
   /**
    * 
    */
-  float lineFollowKp;
+  int lineFollowKp;
   /**
   *
   */
-  float lineFollowKd;
+  int lineFollowKd;
   
   void getCurrentConfiguration(long* spaceForConfigValues);
   void updateConfiguration(long* parameters);

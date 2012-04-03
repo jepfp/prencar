@@ -38,13 +38,15 @@ public:
   static Move* getInstance();
 
   void performFastStop();
-  void controlMotors(TMotorDirection dirLeftMotor, byte speedLeftMotor, TMotorDirection dirRightMotor, byte speedRightMotor);
+  void controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMotorDirection dirRightMotor, int speedRightMotor);
   void setLeftMotorDirection(TMotorDirection dir);
   void setRightMotorDirection(TMotorDirection dir);
   void changeMotorSpeed(int changeLeftMotor, int changeRightMotor);
+  void changeMotorSpeedBasedOnInitialSpeed(int changeLeftMotor, int changeRightMotor);
   void equalizeMotorsSpeed();
 };
 #endif
+
 
 
 

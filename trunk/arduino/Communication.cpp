@@ -5,6 +5,8 @@
 Communication Communication::_instance; ///< Static reference to the singleton object
 boolean Communication::_instanceCreated = false;
 
+#define sc Serial
+
 /**
  * Get the Communication instance
  * @return the Communication instance
@@ -26,7 +28,7 @@ Communication::Communication(){
 
   _lastBufferCharacter = 0;
 
-  Serial1.begin(_config->getSerialSpeed());
+  sc.begin(_config->getSerialSpeed());
 }
 
 /**
@@ -36,9 +38,9 @@ Communication::Communication(){
  * 1. Checks if data is available to read.
  */
 void Communication::doJob(){
-  int amountAvailableBytes = Serial1.available();
+  int amountAvailableBytes = sc.available();
   while(amountAvailableBytes > 0){
-    _incomingDataBuffer[_lastBufferCharacter] = Serial1.read();
+    _incomingDataBuffer[_lastBufferCharacter] = sc.read();
     //if one line is completely transmitted create a command
     if(_incomingDataBuffer[_lastBufferCharacter] == '\n'){
       parseAndPutCommandOnList(_incomingDataBuffer);
@@ -130,7 +132,7 @@ boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int comm
  */
 void Communication::send(byte messageId){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial1.println(messageId);
+    sc.println(messageId);
   }
 }
 
@@ -141,9 +143,9 @@ void Communication::send(byte messageId){
  */
 void Communication::send(byte messageId, int param){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial1.print(messageId);
-    Serial1.print(":");
-    Serial1.println(param);
+    sc.print(messageId);
+    sc.print(":");
+    sc.println(param);
   }
 }
 
@@ -159,18 +161,18 @@ void Communication::send(byte messageId, int param){
  */
 void Communication::send(byte messageId, const long params[], byte paramSize){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial1.print(messageId);
-    Serial1.print("-");
-    Serial1.print(paramSize);
-    Serial1.print(":");
+    sc.print(messageId);
+    sc.print("-");
+    sc.print(paramSize);
+    sc.print(":");
     byte i;
     for(i = 0; i < (paramSize - 1); i++){
       ///@todo: make sure the receiver of the serial message can work with negative parameters
-      Serial1.print(params[i], DEC);
-      Serial1.print(",");
+      sc.print(params[i], DEC);
+      sc.print(",");
     }
     //the last one is sent without a comma but with a new line
-    Serial1.println(params[i]);
+    sc.println(params[i]);
   }
 }
 /**
@@ -182,18 +184,18 @@ void Communication::send(byte messageId, const long params[], byte paramSize){
  */
 void Communication::send(byte messageId, const int params[], byte paramSize){
   if(messageId > _config->getMessageFilterLevel()){
-    Serial1.print(messageId);
-    Serial1.print("-");
-    Serial1.print(paramSize);
-    Serial1.print(":");
+    sc.print(messageId);
+    sc.print("-");
+    sc.print(paramSize);
+    sc.print(":");
     byte i;
     for(i = 0; i < (paramSize - 1); i++){
       ///@todo: make sure the receiver of the serial message can work with negative parameters
-      Serial1.print(params[i]);
-      Serial1.print(",");
+      sc.print(params[i]);
+      sc.print(",");
     }
     //the last one is sent without a comma but with a new line
-    Serial1.println(params[i]);
+    sc.println(params[i]);
   }
 }
 
@@ -204,16 +206,16 @@ void Communication::send(byte messageId, const int params[], byte paramSize){
  * @param message Message to send.
  */
 void Communication::sendString(char* message){
-  Serial1.println(message);
+  sc.println(message);
 }
 
 /*
  * Gets the current configuration from the Configuraton instance and sends it over the serial port.
  */
 void Communication::sendCurrentConfiguration(){
-  long currentConfiguration[18];
+  long currentConfiguration[9];
   _config->getCurrentConfiguration(currentConfiguration);
-  send(204, currentConfiguration, 18);
+  send(204, currentConfiguration, 9);
 }
 
 
