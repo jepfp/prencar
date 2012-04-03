@@ -60,5 +60,15 @@ namespace ch.jep.McCommunication
         {
             return title;
         }
+
+        public String GetConfigurationDump()
+        {
+            String dump = "";
+            foreach (KeyValuePair<String, String> kv in settings)
+            {
+                dump += kv.Key + "," + kv.Value;
+            }
+            return dump;
+        }
     }
 }

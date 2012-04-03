@@ -22,13 +22,13 @@
             <Label Content="Available Configurations:" Grid.Row="2" Height="26" Name="label1" VerticalAlignment="Top" />
         <DockPanel Grid.ColumnSpan="2" Grid.RowSpan="1" Name="dockPanel1">
             <ToolBar Name="toolBar1" Width="200" HorizontalAlignment="Left" Height="26">
-                <Button Name="btnSelectSourceFolder">
+                <Button Name="btnSelectSourceFolder" IsEnabled="False">
                     <Image Name="image1" Stretch="Fill" Source="/prencar;component/Images/folder_explore.png" ToolTip="Select folder to load configurations" />
                 </Button>
-                <Button Name="btnLoadFromMc" ToolTip="Load configuration from microcontroller">
+                <Button Name="btnLoadFromMc" ToolTip="Load configuration from microcontroller" IsEnabled="False">
                     <Image Name="image2" Stretch="Fill" Source="/prencar;component/Images/arrow_up.png" />
                 </Button>
-                <Button Name="btnLoadToMc" ToolTip="Send configuration to microcontroller">
+                <Button Name="btnLoadToMc" ToolTip="Send selected configuration to microcontroller" Click="btnLoadToMc_Click">
                     <Image Name="image3" Stretch="Fill" Source="/prencar;component/Images/arrow_down.png" />
                 </Button>
             </ToolBar>

@@ -26,6 +26,23 @@ namespace prencar
         SerialCommunication sc = new SerialCommunication();
         McConfiguration conf = new McConfiguration();
 
+        enum ParcoursState
+        {
+            notStarted,
+            followingFirstLine,
+            firstTurn,
+            followingSecondLine,
+            secondTurn,
+            followingThirdLineToCube,
+            cubeApproach,
+            liftCube,
+            moveBackToLine,
+            followingThirdLineToFinish,
+            finished
+        };
+
+        ParcoursState parcoursState = ParcoursState.notStarted;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -96,12 +113,13 @@ namespace prencar
                 }
                 else
                 {
-                    sc.NewMessage += new NewMessageEventHandler(workMessage);
                     sc.Connect(tbComport.Text);
                     btnSerialConnectDisconnect.Content = "Disconnect";
 
                     //tell the microcontroller to send the current configuration
                     sc.SendCommand("100-0:");
+
+                    sc.NewMessage += new NewMessageEventHandler(workMessage);
                 }
             }
             catch (Exception ex)
@@ -122,6 +140,33 @@ namespace prencar
             sc.SendCommand(tbDebugSerialCommand.Text);
             tbSerialInput.Text += "\n\n  (send to mc):" + tbDebugSerialCommand.Text;
             tbSerialInput.ScrollToEnd();
+        }
+
+        private void btnCalibrateLineSensors_Click(object sender, RoutedEventArgs e)
+        {
+            sc.SendCommand("200-0:");
+        }
+
+        private void btnStartStoppParcours_Click(object sender, RoutedEventArgs e)
+        {
+            if (parcoursState == ParcoursState.notStarted)
+            {
+                sc.SendCommand("300-0:");
+                changeParcoursState(ParcoursState.followingFirstLine);
+                btnStartStoppParcours.Content = "Stop";
+            }
+            else
+            {
+                sc.SendCommand("301-0:");
+                changeParcoursState(ParcoursState.notStarted);
+                btnStartStoppParcours.Content = "Start";
+            }
+        }
+
+        private void changeParcoursState(ParcoursState newState)
+        {
+            parcoursState = newState;
+            lbState.SelectedIndex = (int)newState;
         }
 
     }

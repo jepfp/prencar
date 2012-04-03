@@ -65,5 +65,12 @@ namespace ch.jep.McCommunication
                 this.lbAvailableConfigurations.Items.Add(aConfig);
             }
         }
+
+        private void btnLoadToMc_Click(object sender, RoutedEventArgs e)
+        {
+            McConfiguration confToUpload = (McConfiguration)this.lbAvailableConfigurations.SelectedItem;
+            String command = "101-" + confToUpload.settings.Count.ToString() + ":" + confToUpload.GetConfigurationDump();
+            sc.SendCommand(command);
+        }
     }
 }
