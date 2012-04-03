@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -132,7 +132,8 @@ This is the complete list of members for <a class="el" href="class_move.html">Mo
   <tr class="memlist"><td><a class="el" href="class_move.html#a13362460beddf2de2415d51f3ed70841">_speedRight</a></td><td><a class="el" href="class_move.html">Move</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_move.html#afcff6c5d4fd9e58382ee01d6270f4707">begin</a>()</td><td><a class="el" href="class_move.html">Move</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c">changeMotorSpeed</a>(int changeLeftMotor, int changeRightMotor)</td><td><a class="el" href="class_move.html">Move</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_move.html#addc21b7bfdc00d789c9a0eb31e3dabf7">controlMotors</a>(TMotorDirection dirLeftMotor, byte speedLeftMotor, TMotorDirection dirRightMotor, byte speedRightMotor)</td><td><a class="el" href="class_move.html">Move</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f">changeMotorSpeedBasedOnInitialSpeed</a>(int changeLeftMotor, int changeRightMotor)</td><td><a class="el" href="class_move.html">Move</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(TMotorDirection dirLeftMotor, int speedLeftMotor, TMotorDirection dirRightMotor, int speedRightMotor)</td><td><a class="el" href="class_move.html">Move</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692">equalizeMotorsSpeed</a>()</td><td><a class="el" href="class_move.html">Move</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850">getInstance</a>()</td><td><a class="el" href="class_move.html">Move</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_move.html#a4b1acc3a67d30c385ad9a6000526393a">Move</a>()</td><td><a class="el" href="class_move.html">Move</a></td><td><code> [private]</code></td></tr>
@@ -144,7 +145,7 @@ This is the complete list of members for <a class="el" href="class_move.html">Mo
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Thu Mar 29 2012 18:19:37 for prencar by
+    <li class="footer">Generated on Tue Apr 3 2012 18:43:13 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

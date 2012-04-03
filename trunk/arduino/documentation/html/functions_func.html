@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
     </ul>
   </div>
 </div>
@@ -122,7 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -150,9 +151,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>changeMotorSpeed()
 : <a class="el" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c">Move</a>
 </li>
+<li>changeMotorSpeedBasedOnInitialSpeed()
+: <a class="el" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f">Move</a>
+</li>
+<li>changeState()
+: <a class="el" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">StateMaschine</a>
+</li>
 <li>checkCommands()
-: <a class="el" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">StateMaschine</a>
-, <a class="el" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49">Communication</a>
+: <a class="el" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49">Communication</a>
+, <a class="el" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">StateMaschine</a>
 </li>
 <li>Command()
 : <a class="el" href="class_command.html#a18df2d81039392daeb0b78c346a70537">Command</a>
@@ -164,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba">Configuration</a>
 </li>
 <li>controlMotors()
-: <a class="el" href="class_move.html#addc21b7bfdc00d789c9a0eb31e3dabf7">Move</a>
+: <a class="el" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">Move</a>
 </li>
 <li>copyBytesUntil()
 : <a class="el" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537">Command</a>
@@ -318,12 +325,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">StateMaschine</a>
 </li>
 </ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>updateConfiguration()
+: <a class="el" href="class_configuration.html#ac4b307198cb923cd35d534427c61d27d">Configuration</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Thu Mar 29 2012 18:19:37 for prencar by
+    <li class="footer">Generated on Tue Apr 3 2012 18:43:13 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

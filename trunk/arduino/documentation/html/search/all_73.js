@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['sc',['sc',['../_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066',1,'Communication.cpp']]],
   ['secondturn',['secondTurn',['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f',1,'StateMaschine.h']]],
   ['send',['send',['../class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a',1,'Communication::send(byte messageId)'],['../class_communication.html#ae69fab10af713fa7eef7b75ee804d030',1,'Communication::send(byte messageId, int param)'],['../class_communication.html#a4f3943a64cf5fb3e28c343582bedb80a',1,'Communication::send(byte messageId, long const params[], byte paramSize)'],['../class_communication.html#a177161f8b437b0e406c301394a3632e5',1,'Communication::send(byte messageId, int const params[], byte paramSize)']]],
   ['sendcurrentconfiguration',['sendCurrentConfiguration',['../class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a',1,'Communication']]],

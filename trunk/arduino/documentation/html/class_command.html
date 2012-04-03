@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -158,12 +158,18 @@ Static Private Attributes</h2></td></tr>
 <tr>
 <th>Code</th><th>Name</th><th>Parameters</th><th>Description </th></tr>
 <tr>
-<td>100</td><td>Send current configuration</td><td>-</td><td>Sends the whole configuration over the serial interface. </td></tr>
+<td>100</td><td>Send current configuration</td><td>-</td><td>Tell the MC to send the whole configuration over the serial interface. </td></tr>
+<tr>
+<td>101</td><td>Update configuration</td><td>See <a class="el" href="class_configuration.html#ac4b307198cb923cd35d534427c61d27d">Configuration::updateConfiguration()</a></td><td>Updates the configuration of the microcontroller with the given parameters. </td></tr>
 <tr>
 <td>200</td><td>Calibrate line sensors</td><td>-</td><td>Starts the calibration of the line sensors. </td></tr>
+<tr>
+<td>300</td><td>Start parcours</td><td>-</td><td>Starts the parcours </td></tr>
+<tr>
+<td>301</td><td>Stop parcours</td><td>-</td><td>Stops the parcours and the car performing a fast stop. </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00027">27</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00030">30</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18df2d81039392daeb0b78c346a70537"></a>
 <div class="memitem">
@@ -299,7 +305,7 @@ Here is the caller graph for this function:</div>
 
 <p>Defines, how many parameters a command can have. </p>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00031">31</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00034">34</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -314,7 +320,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00037">37</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00040">40</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +335,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00035">35</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00038">38</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -344,7 +350,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00036">36</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00039">39</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -358,7 +364,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_command.html">Command</a>      </li>
 
-    <li class="footer">Generated on Thu Mar 29 2012 18:19:37 for prencar by
+    <li class="footer">Generated on Tue Apr 3 2012 18:43:12 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

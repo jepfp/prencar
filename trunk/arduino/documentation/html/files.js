@@ -2,7 +2,7 @@ var files =
 [
     [ "D:/Workspace/Arduino/prencar/Command.cpp", "_command_8cpp.html", null ],
     [ "D:/Workspace/Arduino/prencar/Command.h", "_command_8h.html", null ],
-    [ "D:/Workspace/Arduino/prencar/Communication.cpp", "_communication_8cpp.html", null ],
+    [ "D:/Workspace/Arduino/prencar/Communication.cpp", "_communication_8cpp.html", "_communication_8cpp" ],
     [ "D:/Workspace/Arduino/prencar/Communication.h", "_communication_8h.html", null ],
     [ "D:/Workspace/Arduino/prencar/Configuration.cpp", "_configuration_8cpp.html", null ],
     [ "D:/Workspace/Arduino/prencar/Configuration.h", "_configuration_8h.html", null ],

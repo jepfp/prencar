@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -146,21 +146,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00033"></a>00033 
 <a name="l00034"></a><a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97">00034</a>   <a class="code" href="class_communication.html">Communication</a>* <a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>; 
 <a name="l00035"></a><a class="code" href="class_state_maschine.html#a1739f27286f50fbc99a6212c029c79d5">00035</a>   <a class="code" href="class_configuration.html">Configuration</a>* <a class="code" href="class_state_maschine.html#a1739f27286f50fbc99a6212c029c79d5" title="The reference to the configuration class.">_conf</a>; 
-<a name="l00036"></a>00036   
-<a name="l00037"></a><a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">00037</a>   <a class="code" href="class_line_follow.html">LineFollow</a> <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>;
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">checkCommands</a>();
-<a name="l00040"></a>00040 <span class="keyword">public</span>:
-<a name="l00041"></a>00041   <span class="keyword">static</span> <a class="code" href="class_state_maschine.html">StateMaschine</a>* <a class="code" href="class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0">getInstance</a>();
-<a name="l00042"></a><a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">00042</a>   <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> <a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a>;
-<a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2">doJob</a>();
-<a name="l00044"></a>00044   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">startParcours</a>();
-<a name="l00045"></a>00045   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">stopParcours</a>();
-<a name="l00046"></a>00046 };
-<a name="l00047"></a>00047 <span class="preprocessor">#endif</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span>
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
+<a name="l00036"></a><a class="code" href="class_state_maschine.html#a91050d9a782c56bbceb4f51255707685">00036</a>   <a class="code" href="class_move.html">Move</a>* <a class="code" href="class_state_maschine.html#a91050d9a782c56bbceb4f51255707685" title="The reference to the move class.">_move</a>; 
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">00038</a>   <a class="code" href="class_line_follow.html">LineFollow</a> <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">checkCommands</a>();
+<a name="l00041"></a>00041   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> newState);
+<a name="l00042"></a>00042 <span class="keyword">public</span>:
+<a name="l00043"></a>00043   <span class="keyword">static</span> <a class="code" href="class_state_maschine.html">StateMaschine</a>* <a class="code" href="class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0">getInstance</a>();
+<a name="l00044"></a><a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">00044</a>   <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> <a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a>;
+<a name="l00045"></a>00045   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2">doJob</a>();
+<a name="l00046"></a>00046   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">startParcours</a>();
+<a name="l00047"></a>00047   <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">stopParcours</a>();
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053 
@@ -175,13 +175,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063 
 <a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_state_maschine_8h.html">StateMaschine.h</a>      </li>
 
-    <li class="footer">Generated on Thu Mar 29 2012 18:19:37 for prencar by
+    <li class="footer">Generated on Tue Apr 3 2012 18:43:12 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

@@ -119,7 +119,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -162,6 +162,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>_CONFIGURATIONVERSION
 : <a class="el" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6">Configuration</a>
+</li>
+<li>_deltaPWM
+: <a class="el" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">LineFollow</a>
+</li>
+<li>_deltasensor
+: <a class="el" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">LineFollow</a>
 </li>
 <li>_dirLeftMotor
 : <a class="el" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b">Move</a>
@@ -207,6 +213,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>_move
 : <a class="el" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">LineFollow</a>
+, <a class="el" href="class_state_maschine.html#a91050d9a782c56bbceb4f51255707685">StateMaschine</a>
 </li>
 <li>_moveModeFirstLeftPin
 : <a class="el" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">Configuration</a>
@@ -234,6 +241,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>_READYCOMMANDSSIZE
 : <a class="el" href="class_communication.html#a9c8bdd0590074d523a055e50284f5ce1">Communication</a>
+</li>
+<li>_sensoralt
+: <a class="el" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">LineFollow</a>
 </li>
 <li>_SERIALSPEED
 : <a class="el" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77">Configuration</a>
@@ -287,8 +297,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>lineFollowCorrectionPlus
 : <a class="el" href="class_configuration.html#aae38d5ad39372e66c7f1f0b9e4290e9e">Configuration</a>
 </li>
-<li>lineFollowInitialSpeed
-: <a class="el" href="class_configuration.html#a21e21d4ed4407ec8c84a74303d25886d">Configuration</a>
+<li>lineFollowInitialSpeedLeft
+: <a class="el" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d">Configuration</a>
+</li>
+<li>lineFollowInitialSpeedRight
+: <a class="el" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3">Configuration</a>
+</li>
+<li>lineFollowKd
+: <a class="el" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">Configuration</a>
+</li>
+<li>lineFollowKp
+: <a class="el" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">Configuration</a>
 </li>
 <li>lineFollowLeftFrontSensorPin
 : <a class="el" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">Configuration</a>
@@ -328,7 +347,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Thu Mar 29 2012 18:19:37 for prencar by
+    <li class="footer">Generated on Tue Apr 3 2012 18:43:13 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

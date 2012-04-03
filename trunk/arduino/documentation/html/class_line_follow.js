@@ -13,7 +13,10 @@ var class_line_follow =
     [ "_calibrationSensorWhiteMin", "class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a", null ],
     [ "_com", "class_line_follow.html#a8c494126e578f00240532b866b051718", null ],
     [ "_conf", "class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f", null ],
+    [ "_deltaPWM", "class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d", null ],
+    [ "_deltasensor", "class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0", null ],
     [ "_move", "class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd", null ],
+    [ "_sensoralt", "class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7", null ],
     [ "_timeSinceCorrectionStarted", "class_line_follow.html#a00b50369d005edbfe81937c77713cf8c", null ],
     [ "_timestampLineCorrection", "class_line_follow.html#a80d25b6a343eb285f1ecc9fad72e072d", null ],
     [ "hasReachedLine", "class_line_follow.html#a48dac746e582df53a191bbb6f6c9ef28", null ]
