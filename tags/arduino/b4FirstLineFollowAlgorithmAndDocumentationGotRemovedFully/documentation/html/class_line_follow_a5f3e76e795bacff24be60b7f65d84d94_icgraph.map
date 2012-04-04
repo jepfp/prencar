@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="179,5,373,32"/>
+<area shape="rect" id="node5" href="$class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="421,5,640,32"/>
+<area shape="rect" id="node7" href="$class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="689,5,839,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="520,5,739,32"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="809,107,957,133"/>
+<area shape="rect" id="node9" href="$class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="231,107,419,133"/>
+<area shape="rect" id="node13" href="$class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="179,157,472,184"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1027,107,1261,133"/>
+<area shape="rect" id="node16" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="560,208,699,235"/>
+<area shape="rect" id="node19" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="791,183,974,209"/>
+<area shape="rect" id="node21" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="787,233,979,260"/>
+</map>
