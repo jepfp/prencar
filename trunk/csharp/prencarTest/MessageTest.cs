@@ -74,7 +74,7 @@ namespace prencarTest
             string rawInput = "200";
             target.RawMessage = rawInput;
             Assert.AreEqual(target.MessageCode, 200);
-            Assert.AreEqual("Calibrating the line sensors...\nPlace the front left sensor on black ground. The calibration starts in 10 seconds.", target.MessageCombined);
+            Assert.AreEqual("Calibrating the line sensors...\r\nPlace the front left sensor on black ground. The calibration starts in 10 seconds.", target.MessageCombined);
             Assert.AreEqual(target.Parameters.Count, 0);
         }
 

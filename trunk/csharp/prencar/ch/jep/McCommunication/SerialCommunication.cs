@@ -111,7 +111,14 @@ namespace ch.jep.McCommunication
 
         public void SendCommand(String command)
         {
-            sp.WriteLine(command);
+            try
+            {
+                sp.WriteLine(command);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SerialCommunication: Sending failed. " + ex.Message.ToString());
+            }
         }
 
     }

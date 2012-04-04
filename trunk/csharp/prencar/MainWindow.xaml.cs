@@ -94,7 +94,7 @@ namespace prencar
             //work out special messages
             if (message.MessageCode == 204)
             {
-                conf.parseConfiguration(message.MessageCombined);
+                conf.parseFileConfiguration(message.MessageCombined);
                 conf.Title = "Current Configuration on Car";
             }
             tbSerialInput.Text += "\n\n" + message.MessageCombined;
@@ -133,6 +133,9 @@ namespace prencar
         {
             McConfigurationView cv = new McConfigurationView(sc, conf);
             cv.ShowDialog();
+
+            //after closing, tell the MC to send the new configuration again.
+            sc.SendCommand("100");
         }
 
         private void btnSendDebugSerialCommand_Click(object sender, RoutedEventArgs e)

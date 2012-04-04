@@ -25,49 +25,51 @@ namespace ch.jep.McCommunication
 
             #region 1-49 Sensormesswerte
             messages.Add(1, @"Results from front line sensors measurement:
-leftFrontSensor: %%0%%
-rightFrontSensor: %%1%%");
+leftFrontSensor: %%
+rightFrontSensor: %%");
             messages.Add(2, @"Results from line sensors measurement:
-leftSensor: %%0%%
-rightSensor: %%1%%");
-            messages.Add(3, @"Value of _deltasensor: %%0%%");
+leftSensor: %%
+rightSensor: %%");
+            messages.Add(3, @"Value of _deltasensor: %%");
             #endregion
 
             #region 50-99 Debug
             messages.Add(50, @"");
-            messages.Add(51, @"Direction of left motor set to: %%0%%
+            messages.Add(51, @"Direction of left motor set to: %%
 0 - phaseOut
 1 - forwards
 2 - backwards
 3 - fastStop");
-            messages.Add(52, @"Direction of left motor set to: %%0%%
+            messages.Add(52, @"Direction of left motor set to: %%
 0 - phaseOut
 1 - forwards
 2 - backwards
 3 - fastStop");
             messages.Add(53, @"Changed motor speed of left and right motor:
-oldSpeedLeft: %%0%%
-changeLeft: %%1%%
-newSpeedLeft: %%2%%
-oldSpeedRight: %%3%%
-changeRight: %%4%%
-newSpeedRight: %%5%%");
+oldSpeedLeft: %%
+changeLeft: %%
+newSpeedLeft: %%
+oldSpeedRight: %%
+changeRight: %%
+newSpeedRight: %%");
             messages.Add(54, @"Motor speed has been equalized.
-oldSpeedLeft: %%0%%
-oldSpeedRight: %%1%%
-newAverageSpeed: %%2%%");
-            messages.Add(55, @"Left front sensor detected white ground (Value: %%0%%).");
-            messages.Add(56, @"Left line sensor detected white ground (Value: %%0%%). Moving right.");
-            messages.Add(57, @"Right line sensor detected white ground (Value: %%0%%). Moving left.");
-            messages.Add(58, "Motor controlled: speed left: %%0%%, direction left: %%1%%, speed right: %%2%%, direction right: %%3%%");
+oldSpeedLeft: %%
+oldSpeedRight: %%
+newAverageSpeed: %%");
+            messages.Add(55, @"Left front sensor detected white ground (Value: %%).");
+            messages.Add(56, @"Left line sensor detected white ground (Value: %%). Moving right.");
+            messages.Add(57, @"Right line sensor detected white ground (Value: %%). Moving left.");
+            messages.Add(58, "Motor controlled: speed left: %%, speed right: %%");
             messages.Add(59, "");
             messages.Add(60, "Perform fast stop.");
-            messages.Add(61, "Put command with code %%0%% to spot number %%1%% out of %%2%% spots in readyCommands.");
-            messages.Add(62, "Took command with code %%0%% from the list. Spot %%1%% is empty again.");
+            messages.Add(61, "Put command with code %% to spot number %% out of %% spots in readyCommands.");
+            messages.Add(62, "Took command with code %% from the list. Spot %% is empty again.");
             #endregion
 
             #region 100-149 Information
-            messages.Add(100, @"Parcours state changed to %%0%%.");
+            messages.Add(100, @"Parcours state changed to %%.");
+            messages.Add(101, @"Debug delay of %% milliseconds started...");
+            messages.Add(102, @"New configuration saved.");
             #endregion
 
             #region 150-199 Error
@@ -82,21 +84,22 @@ Place the front left sensor on black ground. The calibration starts in 10 second
             messages.Add(202, @"Finished.
 Place the front left sensor on white ground. The calibration starts in 10 seconds.");
             messages.Add(203, @"Calibration finished. The measured values are:
-_calibrationSensorBlackMin: %%0%%
-_calibrationSensorBlackMax: %%1%%
-_calibrationSensorWhiteMin: %%2%%
-_calibrationSensorWhiteMax: %%3%%
-oneThirdOfRange: %%4%% ((BlackMin - WhiteMax) / 3)
-lineFollowWhiteThreshold: %%5%% (WhiteMax + oneThirdOfRange)");
-            messages.Add(204, @"_CONFIGURATIONVERSION:%%0%%
-_SERIALSPEED:%%1%%
-messageFilterLevel:%%2%%
-lineFollowInitialSpeedLeft:%%3%%
-lineFollowInitialSpeedRight:%%4%%
-lineCorrectionDuration:%%5%%
-lineFollowKp:%%6%%
-lineFollowKd:%%7%%
-lineFollowWhiteThreshold:%%8%%");
+_calibrationSensorBlackMin: %%
+_calibrationSensorBlackMax: %%
+_calibrationSensorWhiteMin: %%
+_calibrationSensorWhiteMax: %%
+oneThirdOfRange: %% ((BlackMin - WhiteMax) / 3)
+lineFollowWhiteThreshold: %% (WhiteMax + oneThirdOfRange)");
+            messages.Add(204, @"_CONFIGURATIONVERSION:%%
+_SERIALSPEED:%%
+messageFilterLevel:%%
+doJobDelay:%%
+lineFollowInitialSpeedLeft:%%
+lineFollowInitialSpeedRight:%%
+lineCorrectionDuration:%%
+lineFollowKp:%%
+lineFollowKd:%%
+lineFollowWhiteThreshold:%%");
             #endregion
 
             //messages.Add(51, @"");

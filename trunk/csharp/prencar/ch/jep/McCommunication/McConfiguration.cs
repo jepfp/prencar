@@ -11,7 +11,8 @@ namespace ch.jep.McCommunication
     {
         public event ConfigUpdatedEventHandler ConfigUpdated;
 
-        public Dictionary<String, String> settings = new Dictionary<String, string>();
+        //public Dictionary<String, String> settings = new Dictionary<String, string>();
+        public List<ConfigProperty> settings = new List<ConfigProperty>();
         private String title = "invalid configuration";
 
         public String Title
@@ -24,15 +25,15 @@ namespace ch.jep.McCommunication
         /// Parses the given configuration and makes it available in this object.
         /// </summary>
         /// <param name="configString"></param>
-        public void parseConfiguration(String configString)
+        public void parseFileConfiguration(String configString)
         {
-            settings = new Dictionary<string, string>();
+            settings = new List<ConfigProperty>();
 
             String[] lines = configString.Replace("\r\n", "\n").Split('\n');
             foreach (String aLine in lines)
             {
                 String[] propertyAndValue = aLine.Split(':');
-                settings.Add(propertyAndValue[0], propertyAndValue[1]);
+                settings.Add(new ConfigProperty(propertyAndValue[0], propertyAndValue[1]));
             }
 
             OnConfigUpdate();
@@ -45,7 +46,14 @@ namespace ch.jep.McCommunication
         /// <returns></returns>
         public String get(String key)
         {
-            return settings[key];
+            foreach (ConfigProperty p in settings)
+            {
+                if (p.Key == key)
+                {
+                    return p.Value;
+                }
+            }
+            return "";
         }
 
         protected virtual void OnConfigUpdate()
@@ -61,13 +69,25 @@ namespace ch.jep.McCommunication
             return title;
         }
 
-        public String GetConfigurationDump()
+        public String GetMcConfigurationDump()
         {
             String dump = "";
-            foreach (KeyValuePair<String, String> kv in settings)
+            foreach (ConfigProperty cf in settings)
             {
-                dump += kv.Key + "," + kv.Value;
+                dump += cf.Value + ",";
             }
+            dump = dump.Substring(0, dump.Length - 1);
+            return dump;
+        }
+
+        public String GetFileConfigurationDump()
+        {
+            String dump = "";
+            foreach (ConfigProperty cf in settings)
+            {
+                dump += cf.Key + ":" + cf.Value + "\r\n";
+            }
+            dump = dump.Substring(0, dump.Length - 2);
             return dump;
         }
     }

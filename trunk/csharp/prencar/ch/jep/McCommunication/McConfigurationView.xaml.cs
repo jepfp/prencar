@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ch.hslu.prencar.Properties;
 using System.IO;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace ch.jep.McCommunication
 {
@@ -41,7 +43,10 @@ namespace ch.jep.McCommunication
         {
             try
             {
-                dgSettings.ItemsSource = ((McConfiguration)lbAvailableConfigurations.SelectedItem).settings;
+                if (lbAvailableConfigurations.SelectedIndex != -1)
+                {
+                    dgSettings.ItemsSource = ((McConfiguration)lbAvailableConfigurations.SelectedItem).settings;
+                }
             }
             catch
             {
@@ -61,16 +66,64 @@ namespace ch.jep.McCommunication
             foreach(string aFilename in filenames){
                 McConfiguration aConfig = new McConfiguration();
                 aConfig.Title = System.IO.Path.GetFileNameWithoutExtension(aFilename);
-                aConfig.parseConfiguration(File.ReadAllText(aFilename));
+                aConfig.parseFileConfiguration(File.ReadAllText(aFilename));
                 this.lbAvailableConfigurations.Items.Add(aConfig);
             }
         }
 
         private void btnLoadToMc_Click(object sender, RoutedEventArgs e)
         {
+            dgSettings.CommitEdit(DataGridEditingUnit.Row, true);
+
             McConfiguration confToUpload = (McConfiguration)this.lbAvailableConfigurations.SelectedItem;
-            String command = "101-" + confToUpload.settings.Count.ToString() + ":" + confToUpload.GetConfigurationDump();
+            String command = "101-" + confToUpload.settings.Count.ToString() + ":" + confToUpload.GetMcConfigurationDump();
+            Debug.Print(command);
             sc.SendCommand(command);
+
+            McConfiguration c = new McConfiguration();
+            c.parseFileConfiguration(confToUpload.GetFileConfigurationDump());
+            c.Title = "Current Configuration on Car";
+            this.currentConf = c;
+            refreshConfigurationList();
+        }
+
+        private void btnSelectSourceFolder_Click(object sender, RoutedEventArgs e)
+        {
+            McConfiguration confToUpload = (McConfiguration)this.lbAvailableConfigurations.SelectedItem;
+            MessageBox.Show(confToUpload.get("doJobDelay"));
+        }
+
+        private void btnSaveConfigToDisk_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbAvailableConfigurations.SelectedIndex == 0)
+            {
+                //the running configuration can not be saved directly. ==> create a duplication
+                btnDuplicateConfiguration_Click(sender, e);
+                return;
+            }
+            dgSettings.CommitEdit(DataGridEditingUnit.Row, true);
+            String path = Settings.Default.ConfigurationFilesPath;
+            McConfiguration confToSave = (McConfiguration)this.lbAvailableConfigurations.SelectedItem;
+            File.WriteAllText(System.IO.Path.Combine(new string[] { path, confToSave.Title + ".txt" }), confToSave.GetFileConfigurationDump()); 
+        }
+
+        private void btnDuplicateConfiguration_Click(object sender, RoutedEventArgs e)
+        {
+            McConfiguration confToDuplicate = (McConfiguration)this.lbAvailableConfigurations.SelectedItem;
+
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.InitialDirectory = System.IO.Path.GetFullPath(Settings.Default.ConfigurationFilesPath);
+            dlg.FileName = "DuplicationOf_" + confToDuplicate.Title;
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+
+            bool? dialogRes = dlg.ShowDialog();
+
+            if (dialogRes == true)
+            {
+                File.WriteAllText(dlg.FileName, confToDuplicate.GetFileConfigurationDump());
+                refreshConfigurationList();
+            }
         }
     }
 }

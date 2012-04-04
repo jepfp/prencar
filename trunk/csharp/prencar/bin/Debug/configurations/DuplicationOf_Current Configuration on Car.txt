@@ -1,0 +1,10 @@
+_CONFIGURATIONVERSION:1
+_SERIALSPEED:9600
+messageFilterLevel:49
+doJobDelay:0
+lineFollowInitialSpeedLeft:120
+lineFollowInitialSpeedRight:120
+lineCorrectionDuration:1200
+lineFollowKp:5
+lineFollowKd:25
+lineFollowWhiteThreshold:300

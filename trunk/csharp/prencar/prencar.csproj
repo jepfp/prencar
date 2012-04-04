@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ch\jep\McCommunication\ConfigProperty.cs" />
     <Compile Include="ch\jep\McCommunication\Message.cs" />
     <Compile Include="ch\jep\McCommunication\MessageManager.cs" />
     <Compile Include="ch\jep\McCommunication\SerialCommunication.cs" />
@@ -165,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\application_cascade.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

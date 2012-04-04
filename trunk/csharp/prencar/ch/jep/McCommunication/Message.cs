@@ -54,7 +54,11 @@ namespace ch.jep.McCommunication
                     this.messageCombined = MessageManager.getInstance().getMessage(this.messageCode);
                     for (int i = 0; i < parameters.Count; i++)
                     {
-                        this.messageCombined = this.messageCombined.Replace("%%" + i.ToString() + "%%", parameters[i].ToString());
+                        string s = this.messageCombined;
+                        int percentIndex = s.IndexOf("%%");
+                        s = s.Remove(percentIndex, 2);
+                        s = s.Insert(percentIndex, parameters[i].ToString());
+                        this.messageCombined = s;
                     }
                 }
                 catch
