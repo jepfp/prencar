@@ -31,7 +31,7 @@ class Command
 {
 private:
   //Communication* _com; ///< The reference to the serial communication class.
-  static int const _COMMANDMAXPARAMETERAMOUNT = 10; ///< Defines, how many parameters a command can have.
+  static int const _COMMANDMAXPARAMETERAMOUNT = 20; ///< Defines, how many parameters a command can have.
   int copyBytesUntil(byte* const source, int sourceStart, byte* target, int targetSize, byte stopCharacter);
 public:
   Command();

@@ -49,7 +49,6 @@ void StateMaschine::doJob(){
 
   checkCommands();
 
-  delay(1000);
   if(parcoursState == followingFirstLine){
     lineFollow.doJob();
   }
@@ -72,6 +71,12 @@ void StateMaschine::checkCommands(){
     //check for command 300
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 300)){
       startParcours();
+    }
+
+    //check for command 101
+    if(_com->getAndRemoveCommandFromReadyCommands(&c, 101)){
+      c.parameters;
+      _conf->send(102);
     }
   }
 
@@ -105,6 +110,7 @@ void StateMaschine::changeState(TParcoursState newState){
   parcoursState = newState;
   _com->send(100, newState);
 }
+
 
 
 

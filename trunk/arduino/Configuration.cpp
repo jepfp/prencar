@@ -21,12 +21,9 @@ Configuration* Configuration::getInstance()
 
 Configuration::Configuration(){
   //set default values
-  _messageFilterLevel = 0;
+  _messageFilterLevel = 49;
+  doJobDelay = 0;
   lineFollowWhiteThreshold = 300;
-  /*lineCorrectionDuration = 200;
-   lineFollowInitialSpeed = 150; //150 out of 255
-   lineFollowCorrectionPlus = 50;
-   lineFollowCorrectionMinus = 50;*/
   lineCorrectionDuration = 0;
   lineFollowInitialSpeedLeft = 120; //150 out of 255
   lineFollowInitialSpeedRight = 120; //150 out of 255
@@ -168,26 +165,38 @@ void Configuration::setMoveModeSecondRightPin(byte value){
 
 /**
  * Sends the whole current configuration as it is stored on the microcontroller at the moment.
- * @param spaceForConfigValues Pointer to a long array with 9 spaces to store the current configuration.
+ * @param spaceForConfigValues Pointer to a long array with 10 spaces to store the current configuration.
  */
 void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
-  spaceForConfigValues[0] = ((long)_CONFIGURATIONVERSION);
+  spaceForConfigValues[0] = _CONFIGURATIONVERSION;
   spaceForConfigValues[1] = _SERIALSPEED;
   spaceForConfigValues[2] = _messageFilterLevel;
-  spaceForConfigValues[3] = lineFollowInitialSpeedLeft;
-  spaceForConfigValues[4] = lineFollowInitialSpeedRight;
-  spaceForConfigValues[5] = lineCorrectionDuration;
-  spaceForConfigValues[6] = lineFollowKp;
-  spaceForConfigValues[7] = lineFollowKd;
-  spaceForConfigValues[8] = lineFollowWhiteThreshold;
+  spaceForConfigValues[3] = doJobDelay;
+  spaceForConfigValues[4] = lineFollowInitialSpeedLeft;
+  spaceForConfigValues[5] = lineFollowInitialSpeedRight;
+  spaceForConfigValues[6] = lineCorrectionDuration;
+  spaceForConfigValues[7] = lineFollowKp;
+  spaceForConfigValues[8] = lineFollowKd;
+  spaceForConfigValues[9] = lineFollowWhiteThreshold;
 }
 
 /**
  * Updates all configuration values according to the given parameters.
- * @param parameters Pointer to a long array with 18 parameters.
+ * @param parameters Pointer to a long array with 10 parameters.
  */
 void Configuration::updateConfiguration(long* parameters){
+  //CONSTANTS will be ingored
+  _messageFilterLevel = parameters[2];
+  doJobDelay = parameters[3];
+  lineFollowInitialSpeedLeft = parameters[4];
+  lineFollowInitialSpeedRight = parameters[5];
+  lineCorrectionDuration = parameters[6];
+  lineFollowKp = parameters[7];
+  lineFollowKd = parameters[8];
+  lineFollowWhiteThreshold = parameters[9];
 }
+
+
 
 
 

@@ -2,8 +2,9 @@
 #include "Communication.h"
 #include "StateMaschine.h"
 
-Communication* com;
-StateMaschine* stateMaschine;
+Communication* _com;
+StateMaschine* _stateMaschine;
+Configuration* _conf;
 
 void setup()
 {
@@ -11,16 +12,24 @@ void setup()
   //this setup method. This is necessary in order to make the serial communication work correctly.
   //For example Communication* com5 = Communication::getInstance(); outside of that function would cause that
   //the serial communication doesn't work.
-  com = Communication::getInstance();
-  stateMaschine = StateMaschine::getInstance();
+  _conf = Configuration::getInstance();
+  _com = Communication::getInstance();
+  _stateMaschine = StateMaschine::getInstance();
 }
 
 void loop()
 {
+  if(_conf->doJobDelay > 0){
+    _com->send(101, _conf->doJobDelay);
+    delay(_conf->doJobDelay);
+  }
+  
   //several jobs that have to be performed always.
-  com->doJob();
-  stateMaschine->doJob();
+  _com->doJob();
+  _stateMaschine->doJob();
 }
+
+
 
 
 

@@ -213,9 +213,9 @@ void Communication::sendString(char* message){
  * Gets the current configuration from the Configuraton instance and sends it over the serial port.
  */
 void Communication::sendCurrentConfiguration(){
-  long currentConfiguration[9];
+  long currentConfiguration[10];
   _config->getCurrentConfiguration(currentConfiguration);
-  send(204, currentConfiguration, 9);
+  send(204, currentConfiguration, 10);
 }
 
 

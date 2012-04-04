@@ -37,6 +37,8 @@ public:
   byte getMoveModeSecondRightPin();
   void setMoveModeSecondRightPin(byte value);
   
+  int doJobDelay; ///< Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.
+  
   byte lineFollowLeftSensorPin;
   byte lineFollowRightSensorPin;
   byte lineFollowLeftFrontSensorPin;
