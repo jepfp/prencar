@@ -66,6 +66,7 @@ namespace ch.hslu.prencar
         public LiveControl(SerialCommunication sc)
         {
             InitializeComponent();
+            sHoist.ValueChanged += new RoutedPropertyChangedEventHandler<double>(sHoist_ValueChanged);
 
             this.sc = sc;
         }
@@ -93,6 +94,19 @@ namespace ch.hslu.prencar
             {
                 sSpeedRightMotor.Value = 0;
                 tbSpeedRightMotor.SelectAll();
+            }
+        }
+
+        private void tbHoist_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                sHoist.Value = int.Parse(tbHoist.Text);
+            }
+            catch
+            {
+                sHoist.Value = 0;
+                tbHoist.SelectAll();
             }
         }
 
@@ -297,6 +311,13 @@ namespace ch.hslu.prencar
 
                 lastCommand = command;
             }
+        }
+
+        private void sHoist_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            string command = "401-1:" + sHoist.Value.ToString();
+            //Console.WriteLine(command);
+            sc.SendCommand(command);
         }
     }
 }

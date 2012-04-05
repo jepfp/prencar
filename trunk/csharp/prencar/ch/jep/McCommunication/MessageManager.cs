@@ -64,6 +64,9 @@ newAverageSpeed: %%");
             messages.Add(60, "Perform fast stop.");
             messages.Add(61, "Put command with code %% to spot number %% out of %% spots in readyCommands.");
             messages.Add(62, "Took command with code %% from the list. Spot %% is empty again.");
+            messages.Add(63, "Lift cube started...");
+            messages.Add(64, "Finishing lift cube by lifting up host...");
+            messages.Add(65, "Set hoist position to %%.");
             #endregion
 
             #region 100-149 Information
