@@ -80,7 +80,14 @@
     <Compile Include="ch\jep\McCommunication\Message.cs" />
     <Compile Include="ch\jep\McCommunication\MessageManager.cs" />
     <Compile Include="ch\jep\McCommunication\SerialCommunication.cs" />
+    <Compile Include="LiveControl.xaml.cs">
+      <DependentUpon>LiveControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
+    <Page Include="LiveControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,6 +179,36 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\application_cascade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backwardLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backwardRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\forwardLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\forwardRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\notAllowed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\notMoving.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rotateLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rotateRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

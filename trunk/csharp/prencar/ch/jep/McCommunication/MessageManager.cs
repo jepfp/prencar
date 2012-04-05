@@ -59,7 +59,7 @@ newAverageSpeed: %%");
             messages.Add(55, @"Left front sensor detected white ground (Value: %%).");
             messages.Add(56, @"Left line sensor detected white ground (Value: %%). Moving right.");
             messages.Add(57, @"Right line sensor detected white ground (Value: %%). Moving left.");
-            messages.Add(58, "Motor controlled: speed left: %%, speed right: %%");
+            messages.Add(58, "Motor controlled: speed left: %% (direction: %%), speed right: %% (direction: %%)");
             messages.Add(59, "");
             messages.Add(60, "Perform fast stop.");
             messages.Add(61, "Put command with code %% to spot number %% out of %% spots in readyCommands.");
@@ -96,7 +96,7 @@ messageFilterLevel:%%
 doJobDelay:%%
 lineFollowInitialSpeedLeft:%%
 lineFollowInitialSpeedRight:%%
-lineCorrectionDuration:%%
+lineFollowInterval:%%
 lineFollowKp:%%
 lineFollowKd:%%
 lineFollowWhiteThreshold:%%");

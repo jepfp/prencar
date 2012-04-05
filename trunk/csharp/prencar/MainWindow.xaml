@@ -67,6 +67,7 @@
                     <Label Content="Configuration Version:" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label2" VerticalAlignment="Top" />
                     <Label Content="n.a." Height="28" Margin="0,0,6,0" Name="lblConfigurationVersion" VerticalAlignment="Top" HorizontalAlignment="Right" />
                     <Button Content="Calibrate Line Sensors" Height="23" Margin="6,98,6,0" Name="btnCalibrateLineSensors" VerticalAlignment="Top" Click="btnCalibrateLineSensors_Click" />
+                    <Button Content="Open Live Control" Height="23" Margin="6,69,6,0" Name="btnOpenLiveControl" VerticalAlignment="Top" Click="btnOpenLiveControl_Click" />
                 </Grid>
             </Expander>
             <Expander Header="Parcours" IsExpanded="True" Name="expander1">

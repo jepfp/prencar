@@ -15,6 +15,7 @@ using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 using Microsoft.Research.DynamicDataDisplay.PointMarkers;
 using ch.jep.McCommunication;
+using ch.hslu.prencar;
 
 namespace prencar
 {
@@ -170,6 +171,12 @@ namespace prencar
         {
             parcoursState = newState;
             lbState.SelectedIndex = (int)newState;
+        }
+
+        private void btnOpenLiveControl_Click(object sender, RoutedEventArgs e)
+        {
+            LiveControl lc = new LiveControl(sc);
+            lc.ShowDialog();
         }
 
     }
