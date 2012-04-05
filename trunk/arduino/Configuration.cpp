@@ -39,6 +39,7 @@ Configuration::Configuration(){
   lineFollowRightFrontSensorPin = A7;
   lineFollowKp = 5;
   lineFollowKd = 25;
+  liftCubePwmPin = 4;
 }
 
 /**

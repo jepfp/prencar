@@ -5,6 +5,7 @@
 #include "Communication.h"
 #include "Configuration.h"
 #include "LineFollow.h"
+#include "LiftCube.h"
 
 /**
  * The enum with values about the current state.
@@ -30,10 +31,11 @@ private:
   static StateMaschine _instance;
   static boolean _instanceCreated;
   void begin();
-  
+
   Communication* _com; ///< The reference to the serial communication class.
   Configuration* _conf; ///< The reference to the configuration class.
   Move* _move; ///< The reference to the move class.
+  LiftCube* _liftCube; ///< The reference to the LiftCube class.
 
   LineFollow lineFollow;
 
@@ -47,6 +49,7 @@ public:
   void stopParcours();
 };
 #endif
+
 
 
 

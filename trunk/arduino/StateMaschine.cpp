@@ -37,6 +37,7 @@ void StateMaschine::begin(){
   _com = Communication::getInstance();
   _conf = Configuration::getInstance();
   _move = Move::getInstance();
+  _liftCube = LiftCube::getInstance();
   lineFollow.begin();
 }
 
@@ -81,10 +82,16 @@ void StateMaschine::checkCommands(){
     }
     
     /*----------- offline control car -----------*/
-    //check for command 101
+    //check for command 400
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 400)){
       int* parameters = c.parameters;
       _move->controlMotors((TMotorDirection)parameters[0], parameters[1], (TMotorDirection)parameters[2], parameters[3]);
+    }
+    
+    //check for command 401
+    if(_com->getAndRemoveCommandFromReadyCommands(&c, 401)){
+      int* parameters = c.parameters;
+      _liftCube->setHoistPosition(parameters[0]);
     }
   }
 

@@ -1,9 +1,9 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="217,5,341,32"/>
-<area shape="rect" id="node11" href="$class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="193,56,365,83"/>
-<area shape="rect" id="node13" href="$class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="413,81,707,108"/>
-<area shape="rect" id="node5" href="$class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="463,9,657,36"/>
-<area shape="rect" id="node7" href="$class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="755,21,973,48"/>
-<area shape="rect" id="node9" href="$class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="1022,51,1173,77"/>
-<area shape="rect" id="node15" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="801,79,927,105"/>
+<area shape="rect" id="node7" href="$class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="755,56,973,83"/>
+<area shape="rect" id="node11" href="$class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="193,107,365,133"/>
+<area shape="rect" id="node13" href="$class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="413,132,707,159"/>
+<area shape="rect" id="node5" href="$class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="463,5,657,32"/>
+<area shape="rect" id="node9" href="$class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="1022,88,1173,115"/>
+<area shape="rect" id="node15" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="801,119,927,145"/>
 </map>

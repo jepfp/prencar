@@ -36,9 +36,9 @@ public:
   void setMoveModeFirstRightPin(byte value);
   byte getMoveModeSecondRightPin();
   void setMoveModeSecondRightPin(byte value);
-  
+
   int doJobDelay; ///< Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.
-  
+
   byte lineFollowLeftSensorPin;
   byte lineFollowRightSensorPin;
   byte lineFollowLeftFrontSensorPin;
@@ -46,7 +46,7 @@ public:
   int lineFollowInterval; ///< Interval in milliseconds in which the line follow job shall be executed.
   byte lineFollowInitialSpeedLeft; ///< The initial speed of the left motor when the parcours starts (0-255).
   byte lineFollowInitialSpeedRight; ///< The initial speed of the left motor when the parcours starts (0-255).
-    
+
   /** \brief Threshold value from black to white.
    * 
    * If the sensor measures a value below that threshold value than the software considers that sensors physical position to be on "white" ground.
@@ -55,22 +55,28 @@ public:
    * @see LineFollow::calibrateSensors()
    */
   int lineFollowWhiteThreshold;
-  
+
   /**
    * @todo write comment
    */
   int lineFollowKp;
   /**
-  * @todo write comment
-  */
+   * @todo write comment
+   */
   int lineFollowKd;
-  
+
+  byte liftCubePwmPin; ///< The pin where the servo motor of the hoist is connected to.
+  byte liftCubeUpPosition; ///< Pwm value to set if the hoist has to be moved up fully.
+  byte liftCubeDownPosition; ///< Pwm value to set if the hoist has to be moved up fully.
+  int liftCubeDownUpDuration; ///< Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()
+
   void getCurrentConfiguration(long* spaceForConfigValues);
   void updateConfiguration(int* parameters);
-  
+
 };
 
 #endif
+
 
 
 

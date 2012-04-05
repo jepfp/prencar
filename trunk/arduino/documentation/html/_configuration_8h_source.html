@@ -152,9 +152,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a>00036   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a61259ac00808ee06c50ed32045287b5d">setMoveModeFirstRightPin</a>(byte value);
 <a name="l00037"></a>00037   byte <a class="code" href="class_configuration.html#a2c95181edbee124c040f5db52c15fdb6">getMoveModeSecondRightPin</a>();
 <a name="l00038"></a>00038   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a47380130f77e70e563c79f2b87e3e692">setMoveModeSecondRightPin</a>(byte value);
-<a name="l00039"></a>00039   
+<a name="l00039"></a>00039 
 <a name="l00040"></a><a class="code" href="class_configuration.html#aca67601e35566058e2bca41b7188469e">00040</a>   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aca67601e35566058e2bca41b7188469e" title="Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.">doJobDelay</a>; 
-<a name="l00041"></a>00041   
+<a name="l00041"></a>00041 
 <a name="l00042"></a><a class="code" href="class_configuration.html#a09d83c2f3c4485fd864bf998e62788d7">00042</a>   byte <a class="code" href="class_configuration.html#a09d83c2f3c4485fd864bf998e62788d7">lineFollowLeftSensorPin</a>;
 <a name="l00043"></a><a class="code" href="class_configuration.html#a254b7ac19c994603776d47645235a132">00043</a>   byte <a class="code" href="class_configuration.html#a254b7ac19c994603776d47645235a132">lineFollowRightSensorPin</a>;
 <a name="l00044"></a><a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">00044</a>   byte <a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>;
@@ -162,29 +162,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00046"></a><a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103">00046</a>   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a>; 
 <a name="l00047"></a><a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d">00047</a>   byte <a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>; 
 <a name="l00048"></a><a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3">00048</a>   byte <a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>; 
-<a name="l00049"></a>00049     
+<a name="l00049"></a>00049 
 <a name="l00057"></a><a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906">00057</a>   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>;
-<a name="l00058"></a>00058   
+<a name="l00058"></a>00058 
 <a name="l00062"></a><a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">00062</a>   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a>;
 <a name="l00066"></a><a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">00066</a>   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a>;
-<a name="l00067"></a>00067   
-<a name="l00068"></a>00068   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">getCurrentConfiguration</a>(<span class="keywordtype">long</span>* spaceForConfigValues);
-<a name="l00069"></a>00069   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">updateConfiguration</a>(<span class="keywordtype">int</span>* parameters);
-<a name="l00070"></a>00070   
-<a name="l00071"></a>00071 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a><a class="code" href="class_configuration.html#a25401bc6511b005d70f71e4b72f71c03">00068</a>   byte <a class="code" href="class_configuration.html#a25401bc6511b005d70f71e4b72f71c03" title="The pin where the servo motor of the hoist is connected to.">liftCubePwmPin</a>; 
+<a name="l00069"></a><a class="code" href="class_configuration.html#af6652efed17691fef4fa435e38c1642f">00069</a>   byte <a class="code" href="class_configuration.html#af6652efed17691fef4fa435e38c1642f" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeUpPosition</a>; 
+<a name="l00070"></a><a class="code" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83">00070</a>   byte <a class="code" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeDownPosition</a>; 
+<a name="l00071"></a><a class="code" href="class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c">00071</a>   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c" title="Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()">liftCubeDownUpDuration</a>; 
 <a name="l00072"></a>00072 
-<a name="l00073"></a>00073 <span class="preprocessor">#endif</span>
-<a name="l00074"></a>00074 <span class="preprocessor"></span>
+<a name="l00073"></a>00073   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">getCurrentConfiguration</a>(<span class="keywordtype">long</span>* spaceForConfigValues);
+<a name="l00074"></a>00074   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">updateConfiguration</a>(<span class="keywordtype">int</span>* parameters);
 <a name="l00075"></a>00075 
-<a name="l00076"></a>00076 
+<a name="l00076"></a>00076 };
 <a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_configuration_8h.html">Configuration.h</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 5 2012 00:44:25 for prencar by
+    <li class="footer">Generated on Thu Apr 5 2012 10:37:11 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

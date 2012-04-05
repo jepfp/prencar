@@ -6,6 +6,8 @@ var files =
     [ "D:/Workspace/Arduino/prencar/Communication.h", "_communication_8h.html", null ],
     [ "D:/Workspace/Arduino/prencar/Configuration.cpp", "_configuration_8cpp.html", null ],
     [ "D:/Workspace/Arduino/prencar/Configuration.h", "_configuration_8h.html", null ],
+    [ "D:/Workspace/Arduino/prencar/LiftCube.cpp", "_lift_cube_8cpp.html", "_lift_cube_8cpp" ],
+    [ "D:/Workspace/Arduino/prencar/LiftCube.h", "_lift_cube_8h.html", null ],
     [ "D:/Workspace/Arduino/prencar/LineFollow.cpp", "_line_follow_8cpp.html", null ],
     [ "D:/Workspace/Arduino/prencar/LineFollow.h", "_line_follow_8h.html", null ],
     [ "D:/Workspace/Arduino/prencar/Move.cpp", "_move_8cpp.html", null ],

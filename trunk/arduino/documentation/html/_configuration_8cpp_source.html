@@ -151,97 +151,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039   <a class="code" href="class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa">lineFollowRightFrontSensorPin</a> = A7;
 <a name="l00040"></a>00040   <a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a> = 5;
 <a name="l00041"></a>00041   <a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a> = 25;
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00049"></a><a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">00049</a> byte <a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">Configuration::getConfigurationVersion</a>(){
-<a name="l00050"></a>00050   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6" title="Returns the version of the configuration (number will be increased after a set of new configuration v...">_CONFIGURATIONVERSION</a>;
-<a name="l00051"></a>00051 }
-<a name="l00052"></a>00052 
-<a name="l00057"></a><a class="code" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066">00057</a> <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066">Configuration::getSerialSpeed</a>(){
-<a name="l00058"></a>00058   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77" title="Defines the serial data rate.">_SERIALSPEED</a>;
-<a name="l00059"></a>00059 }
-<a name="l00060"></a>00060 
-<a name="l00067"></a><a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">00067</a> byte <a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">Configuration::getMessageFilterLevel</a>(){
-<a name="l00068"></a>00068   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a>;
-<a name="l00069"></a>00069 }
-<a name="l00070"></a>00070 
-<a name="l00076"></a><a class="code" href="class_configuration.html#ac9aec24b13533a9af3cb937fe5662e05">00076</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#ac9aec24b13533a9af3cb937fe5662e05">Configuration::setMessageFilterLevel</a>(byte value){
-<a name="l00077"></a>00077   <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a> = value;
-<a name="l00078"></a>00078 }
-<a name="l00079"></a>00079 
-<a name="l00083"></a><a class="code" href="class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c">00083</a> byte <a class="code" href="class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c">Configuration::getMovePwmLeftPin</a>(){
-<a name="l00084"></a>00084   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a>;
-<a name="l00085"></a>00085 }
-<a name="l00086"></a>00086 
-<a name="l00090"></a><a class="code" href="class_configuration.html#a2298db2f115e9c7daa6924158eac0ee5">00090</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a2298db2f115e9c7daa6924158eac0ee5">Configuration::setMovePwmLeftPin</a>(byte value){
-<a name="l00091"></a>00091   <a class="code" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a> = value;
-<a name="l00092"></a>00092 }
-<a name="l00093"></a>00093 
-<a name="l00097"></a><a class="code" href="class_configuration.html#a156dc7d1360c8e70c7aba5eb20481afa">00097</a> byte <a class="code" href="class_configuration.html#a156dc7d1360c8e70c7aba5eb20481afa">Configuration::getMovePwmRightPin</a>(){
-<a name="l00098"></a>00098   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a>;
-<a name="l00099"></a>00099 }
-<a name="l00100"></a>00100 
-<a name="l00104"></a><a class="code" href="class_configuration.html#a40c3af95f85bb649a09f67c52e52e5f8">00104</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a40c3af95f85bb649a09f67c52e52e5f8">Configuration::setMovePwmRightPin</a>(byte value){
-<a name="l00105"></a>00105   <a class="code" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a> = value;
-<a name="l00106"></a>00106 }
-<a name="l00107"></a>00107 
-<a name="l00111"></a><a class="code" href="class_configuration.html#aa1599159aa8233fe3f974fb2e51129e4">00111</a> byte <a class="code" href="class_configuration.html#aa1599159aa8233fe3f974fb2e51129e4">Configuration::getMoveModeFirstLeftPin</a>(){
-<a name="l00112"></a>00112   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">_moveModeFirstLeftPin</a>;
-<a name="l00113"></a>00113 }
-<a name="l00114"></a>00114 
-<a name="l00118"></a><a class="code" href="class_configuration.html#ac1c03fb6b6462d9db8430f46e1a8ef0f">00118</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#ac1c03fb6b6462d9db8430f46e1a8ef0f">Configuration::setMoveModeFirstLeftPin</a>(byte value){
-<a name="l00119"></a>00119   <a class="code" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">_moveModeFirstLeftPin</a> = value;
-<a name="l00120"></a>00120 }
-<a name="l00121"></a>00121 
-<a name="l00125"></a><a class="code" href="class_configuration.html#a4d1252f0afd9ebb35cc7f38a769fdeff">00125</a> byte <a class="code" href="class_configuration.html#a4d1252f0afd9ebb35cc7f38a769fdeff">Configuration::getMoveModeSecondLeftPin</a>(){
-<a name="l00126"></a>00126   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a5d540af2975a193c360ce32847d96c21">_moveModeSecondLeftPin</a>;
-<a name="l00127"></a>00127 }
-<a name="l00128"></a>00128 
-<a name="l00132"></a><a class="code" href="class_configuration.html#aa5a4573ea03a890274a6c94a6e238686">00132</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#aa5a4573ea03a890274a6c94a6e238686">Configuration::setMoveModeSecondLeftPin</a>(byte value){
-<a name="l00133"></a>00133   <a class="code" href="class_configuration.html#a5d540af2975a193c360ce32847d96c21">_moveModeSecondLeftPin</a> = value;
-<a name="l00134"></a>00134 }
-<a name="l00135"></a>00135 
-<a name="l00139"></a><a class="code" href="class_configuration.html#a9bf200a445b05745a678d18e46ca446d">00139</a> byte <a class="code" href="class_configuration.html#a9bf200a445b05745a678d18e46ca446d">Configuration::getMoveModeFirstRightPin</a>(){
-<a name="l00140"></a>00140   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a2fdf55feb1a8b3ecde58405c67afe698">_moveModeFirstRightPin</a>;
-<a name="l00141"></a>00141 }
-<a name="l00142"></a>00142 
-<a name="l00146"></a><a class="code" href="class_configuration.html#a61259ac00808ee06c50ed32045287b5d">00146</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a61259ac00808ee06c50ed32045287b5d">Configuration::setMoveModeFirstRightPin</a>(byte value){
-<a name="l00147"></a>00147   <a class="code" href="class_configuration.html#a2fdf55feb1a8b3ecde58405c67afe698">_moveModeFirstRightPin</a> = value;
-<a name="l00148"></a>00148 }
-<a name="l00149"></a>00149 
-<a name="l00153"></a><a class="code" href="class_configuration.html#a2c95181edbee124c040f5db52c15fdb6">00153</a> byte <a class="code" href="class_configuration.html#a2c95181edbee124c040f5db52c15fdb6">Configuration::getMoveModeSecondRightPin</a>(){
-<a name="l00154"></a>00154   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a6232e7ba37ad172f80c5248239bd8f9b">_moveModeSecondRightPin</a>;
-<a name="l00155"></a>00155 }
-<a name="l00156"></a>00156 
-<a name="l00160"></a><a class="code" href="class_configuration.html#a47380130f77e70e563c79f2b87e3e692">00160</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a47380130f77e70e563c79f2b87e3e692">Configuration::setMoveModeSecondRightPin</a>(byte value){
-<a name="l00161"></a>00161   <a class="code" href="class_configuration.html#a6232e7ba37ad172f80c5248239bd8f9b">_moveModeSecondRightPin</a> = value;
-<a name="l00162"></a>00162 }
-<a name="l00163"></a>00163 
-<a name="l00168"></a><a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">00168</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">Configuration::getCurrentConfiguration</a>(<span class="keywordtype">long</span>* spaceForConfigValues){
-<a name="l00169"></a>00169   spaceForConfigValues[0] = <a class="code" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6" title="Returns the version of the configuration (number will be increased after a set of new configuration v...">_CONFIGURATIONVERSION</a>;
-<a name="l00170"></a>00170   spaceForConfigValues[1] = <a class="code" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77" title="Defines the serial data rate.">_SERIALSPEED</a>;
-<a name="l00171"></a>00171   spaceForConfigValues[2] = <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a>;
-<a name="l00172"></a>00172   spaceForConfigValues[3] = <a class="code" href="class_configuration.html#aca67601e35566058e2bca41b7188469e" title="Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.">doJobDelay</a>;
-<a name="l00173"></a>00173   spaceForConfigValues[4] = <a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>;
-<a name="l00174"></a>00174   spaceForConfigValues[5] = <a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>;
-<a name="l00175"></a>00175   spaceForConfigValues[6] = <a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a>;
-<a name="l00176"></a>00176   spaceForConfigValues[7] = <a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a>;
-<a name="l00177"></a>00177   spaceForConfigValues[8] = <a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a>;
-<a name="l00178"></a>00178   spaceForConfigValues[9] = <a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>;
-<a name="l00179"></a>00179 }
-<a name="l00180"></a>00180 
-<a name="l00185"></a><a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">00185</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">Configuration::updateConfiguration</a>(<span class="keywordtype">int</span>* parameters){
-<a name="l00186"></a>00186   <span class="comment">//CONSTANTS will be ingored</span>
-<a name="l00187"></a>00187   <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a> = parameters[2];
-<a name="l00188"></a>00188   <a class="code" href="class_configuration.html#aca67601e35566058e2bca41b7188469e" title="Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.">doJobDelay</a> = parameters[3];
-<a name="l00189"></a>00189   <a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a> = parameters[4];
-<a name="l00190"></a>00190   <a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a> = parameters[5];
-<a name="l00191"></a>00191   <a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a> = parameters[6];
-<a name="l00192"></a>00192   <a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a> = parameters[7];
-<a name="l00193"></a>00193   <a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a> = parameters[8];
-<a name="l00194"></a>00194   <a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a> = parameters[9];
-<a name="l00195"></a>00195 }
-<a name="l00196"></a>00196 
+<a name="l00042"></a>00042   <a class="code" href="class_configuration.html#a25401bc6511b005d70f71e4b72f71c03" title="The pin where the servo motor of the hoist is connected to.">liftCubePwmPin</a> = 4;
+<a name="l00043"></a>00043 }
+<a name="l00044"></a>00044 
+<a name="l00050"></a><a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">00050</a> byte <a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">Configuration::getConfigurationVersion</a>(){
+<a name="l00051"></a>00051   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6" title="Returns the version of the configuration (number will be increased after a set of new configuration v...">_CONFIGURATIONVERSION</a>;
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 
+<a name="l00058"></a><a class="code" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066">00058</a> <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066">Configuration::getSerialSpeed</a>(){
+<a name="l00059"></a>00059   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77" title="Defines the serial data rate.">_SERIALSPEED</a>;
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00068"></a><a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">00068</a> byte <a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">Configuration::getMessageFilterLevel</a>(){
+<a name="l00069"></a>00069   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a>;
+<a name="l00070"></a>00070 }
+<a name="l00071"></a>00071 
+<a name="l00077"></a><a class="code" href="class_configuration.html#ac9aec24b13533a9af3cb937fe5662e05">00077</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#ac9aec24b13533a9af3cb937fe5662e05">Configuration::setMessageFilterLevel</a>(byte value){
+<a name="l00078"></a>00078   <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a> = value;
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00084"></a><a class="code" href="class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c">00084</a> byte <a class="code" href="class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c">Configuration::getMovePwmLeftPin</a>(){
+<a name="l00085"></a>00085   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a>;
+<a name="l00086"></a>00086 }
+<a name="l00087"></a>00087 
+<a name="l00091"></a><a class="code" href="class_configuration.html#a2298db2f115e9c7daa6924158eac0ee5">00091</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a2298db2f115e9c7daa6924158eac0ee5">Configuration::setMovePwmLeftPin</a>(byte value){
+<a name="l00092"></a>00092   <a class="code" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a> = value;
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 
+<a name="l00098"></a><a class="code" href="class_configuration.html#a156dc7d1360c8e70c7aba5eb20481afa">00098</a> byte <a class="code" href="class_configuration.html#a156dc7d1360c8e70c7aba5eb20481afa">Configuration::getMovePwmRightPin</a>(){
+<a name="l00099"></a>00099   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a>;
+<a name="l00100"></a>00100 }
+<a name="l00101"></a>00101 
+<a name="l00105"></a><a class="code" href="class_configuration.html#a40c3af95f85bb649a09f67c52e52e5f8">00105</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a40c3af95f85bb649a09f67c52e52e5f8">Configuration::setMovePwmRightPin</a>(byte value){
+<a name="l00106"></a>00106   <a class="code" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a> = value;
+<a name="l00107"></a>00107 }
+<a name="l00108"></a>00108 
+<a name="l00112"></a><a class="code" href="class_configuration.html#aa1599159aa8233fe3f974fb2e51129e4">00112</a> byte <a class="code" href="class_configuration.html#aa1599159aa8233fe3f974fb2e51129e4">Configuration::getMoveModeFirstLeftPin</a>(){
+<a name="l00113"></a>00113   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">_moveModeFirstLeftPin</a>;
+<a name="l00114"></a>00114 }
+<a name="l00115"></a>00115 
+<a name="l00119"></a><a class="code" href="class_configuration.html#ac1c03fb6b6462d9db8430f46e1a8ef0f">00119</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#ac1c03fb6b6462d9db8430f46e1a8ef0f">Configuration::setMoveModeFirstLeftPin</a>(byte value){
+<a name="l00120"></a>00120   <a class="code" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">_moveModeFirstLeftPin</a> = value;
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 
+<a name="l00126"></a><a class="code" href="class_configuration.html#a4d1252f0afd9ebb35cc7f38a769fdeff">00126</a> byte <a class="code" href="class_configuration.html#a4d1252f0afd9ebb35cc7f38a769fdeff">Configuration::getMoveModeSecondLeftPin</a>(){
+<a name="l00127"></a>00127   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a5d540af2975a193c360ce32847d96c21">_moveModeSecondLeftPin</a>;
+<a name="l00128"></a>00128 }
+<a name="l00129"></a>00129 
+<a name="l00133"></a><a class="code" href="class_configuration.html#aa5a4573ea03a890274a6c94a6e238686">00133</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#aa5a4573ea03a890274a6c94a6e238686">Configuration::setMoveModeSecondLeftPin</a>(byte value){
+<a name="l00134"></a>00134   <a class="code" href="class_configuration.html#a5d540af2975a193c360ce32847d96c21">_moveModeSecondLeftPin</a> = value;
+<a name="l00135"></a>00135 }
+<a name="l00136"></a>00136 
+<a name="l00140"></a><a class="code" href="class_configuration.html#a9bf200a445b05745a678d18e46ca446d">00140</a> byte <a class="code" href="class_configuration.html#a9bf200a445b05745a678d18e46ca446d">Configuration::getMoveModeFirstRightPin</a>(){
+<a name="l00141"></a>00141   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a2fdf55feb1a8b3ecde58405c67afe698">_moveModeFirstRightPin</a>;
+<a name="l00142"></a>00142 }
+<a name="l00143"></a>00143 
+<a name="l00147"></a><a class="code" href="class_configuration.html#a61259ac00808ee06c50ed32045287b5d">00147</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a61259ac00808ee06c50ed32045287b5d">Configuration::setMoveModeFirstRightPin</a>(byte value){
+<a name="l00148"></a>00148   <a class="code" href="class_configuration.html#a2fdf55feb1a8b3ecde58405c67afe698">_moveModeFirstRightPin</a> = value;
+<a name="l00149"></a>00149 }
+<a name="l00150"></a>00150 
+<a name="l00154"></a><a class="code" href="class_configuration.html#a2c95181edbee124c040f5db52c15fdb6">00154</a> byte <a class="code" href="class_configuration.html#a2c95181edbee124c040f5db52c15fdb6">Configuration::getMoveModeSecondRightPin</a>(){
+<a name="l00155"></a>00155   <span class="keywordflow">return</span> <a class="code" href="class_configuration.html#a6232e7ba37ad172f80c5248239bd8f9b">_moveModeSecondRightPin</a>;
+<a name="l00156"></a>00156 }
+<a name="l00157"></a>00157 
+<a name="l00161"></a><a class="code" href="class_configuration.html#a47380130f77e70e563c79f2b87e3e692">00161</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a47380130f77e70e563c79f2b87e3e692">Configuration::setMoveModeSecondRightPin</a>(byte value){
+<a name="l00162"></a>00162   <a class="code" href="class_configuration.html#a6232e7ba37ad172f80c5248239bd8f9b">_moveModeSecondRightPin</a> = value;
+<a name="l00163"></a>00163 }
+<a name="l00164"></a>00164 
+<a name="l00169"></a><a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">00169</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">Configuration::getCurrentConfiguration</a>(<span class="keywordtype">long</span>* spaceForConfigValues){
+<a name="l00170"></a>00170   spaceForConfigValues[0] = <a class="code" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6" title="Returns the version of the configuration (number will be increased after a set of new configuration v...">_CONFIGURATIONVERSION</a>;
+<a name="l00171"></a>00171   spaceForConfigValues[1] = <a class="code" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77" title="Defines the serial data rate.">_SERIALSPEED</a>;
+<a name="l00172"></a>00172   spaceForConfigValues[2] = <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a>;
+<a name="l00173"></a>00173   spaceForConfigValues[3] = <a class="code" href="class_configuration.html#aca67601e35566058e2bca41b7188469e" title="Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.">doJobDelay</a>;
+<a name="l00174"></a>00174   spaceForConfigValues[4] = <a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>;
+<a name="l00175"></a>00175   spaceForConfigValues[5] = <a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>;
+<a name="l00176"></a>00176   spaceForConfigValues[6] = <a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a>;
+<a name="l00177"></a>00177   spaceForConfigValues[7] = <a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a>;
+<a name="l00178"></a>00178   spaceForConfigValues[8] = <a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a>;
+<a name="l00179"></a>00179   spaceForConfigValues[9] = <a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>;
+<a name="l00180"></a>00180 }
+<a name="l00181"></a>00181 
+<a name="l00186"></a><a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">00186</a> <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">Configuration::updateConfiguration</a>(<span class="keywordtype">int</span>* parameters){
+<a name="l00187"></a>00187   <span class="comment">//CONSTANTS will be ingored</span>
+<a name="l00188"></a>00188   <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a> = parameters[2];
+<a name="l00189"></a>00189   <a class="code" href="class_configuration.html#aca67601e35566058e2bca41b7188469e" title="Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.">doJobDelay</a> = parameters[3];
+<a name="l00190"></a>00190   <a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a> = parameters[4];
+<a name="l00191"></a>00191   <a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a> = parameters[5];
+<a name="l00192"></a>00192   <a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a> = parameters[6];
+<a name="l00193"></a>00193   <a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a> = parameters[7];
+<a name="l00194"></a>00194   <a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a> = parameters[8];
+<a name="l00195"></a>00195   <a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a> = parameters[9];
+<a name="l00196"></a>00196 }
 <a name="l00197"></a>00197 
 <a name="l00198"></a>00198 
 <a name="l00199"></a>00199 
@@ -250,13 +250,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00202"></a>00202 
 <a name="l00203"></a>00203 
 <a name="l00204"></a>00204 
+<a name="l00205"></a>00205 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_configuration_8cpp.html">Configuration.cpp</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 5 2012 00:44:25 for prencar by
+    <li class="footer">Generated on Thu Apr 5 2012 10:37:11 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

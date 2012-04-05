@@ -83,8 +83,6 @@ void LineFollow::doJob(){
     _sensoralt = _deltasensor;
     _move->changeMotorSpeedBasedOnInitialSpeed(_deltaPWM,(-1)*_deltaPWM); 
   }
-
-
 }
 
 /**
