@@ -67,19 +67,24 @@ namespace ch.jep.McCommunication
 
         public void Connect(string comport)
         {
-            if (sp == null)
+            try
             {
-                sp = new SerialPort(comport);
-                sp.NewLine = "\n";
-                sp.DataReceived += new SerialDataReceivedEventHandler(dataReceived);
+                if (sp == null)
+                {
+                    sp = new SerialPort(comport);
+                    sp.NewLine = "\n";
+                    sp.DataReceived += new SerialDataReceivedEventHandler(dataReceived);
+                }
 
-                //Delagate instanzieren und entsprechende Methode angeben
-                //newMessageDelegate1 = new MessageDelegateSignature(appendText);
+                if (!sp.IsOpen)
+                {
+                    sp.Open();
+                }
             }
-
-            if (!sp.IsOpen)
+            catch (Exception ex)
             {
-                sp.Open();
+                sp = null;
+                throw ex;
             }
         }
 
