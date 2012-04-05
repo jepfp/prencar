@@ -20,10 +20,10 @@ private:
   int _calibrationSensorBlackMin; ///< Holds the minimum value that was measured during the calibration for "black".
   int _calibrationSensorBlackMax; ///< Holds the maximum value that was measured during the calibration for "black".
 
-  unsigned long _timestampLineCorrection; ///< Holds the timestamp of the time when a line correction was started. @see doJob()
-  int _deltasensor; ///< todo: write comment
-  int _sensoralt; ///< todo: write comment
-  int _deltaPWM; ///< todo: write comment
+  unsigned long _timeLastLineFollowCheck; ///< Holds the timestamp of the time when the last line follow check was done. @see doJob()
+  int _deltasensor; ///< @todo write comment
+  int _sensoralt; ///< @todo write comment
+  int _deltaPWM; ///< @todo write comment
 
   Communication* _com; ///< The reference to the serial communication class.
   Move* _move; ///< The reference to the move class to control the motors.

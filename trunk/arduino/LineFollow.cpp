@@ -56,81 +56,32 @@ void LineFollow::startIt(){
  * What's done in detail:
  * <ol>
  * <li>Read the front sensors to check, if a 90° courve is needed.</li>
- * <li>Check - if a correction (driving a courve to get back to the line) is in progress - if it's already time to drive straight forward again.</li>
- * <li>Read the line sensor values to check if one line sensor has detected white ground which means that a correction is needed. If so a correction will
- * be started.</li>
+ * <li>Read the line sensor values to check if one line sensor has detected white ground (line follow algorithm).</li>
  * </ol>
- *
- * Not every task is done every time this function gets called.
- * <ul>
- * <li>The two line sensors are not read if a correction is in progress.</li>
- * </ul>
  */
 void LineFollow::doJob(){
-  int sensorValues[2];
-  readFrontLineSensors(sensorValues);
+  if(_conf->lineFollowInterval == 0 || millis() > _timeLastLineFollowCheck + _conf->lineFollowInterval){
+    _timeLastLineFollowCheck = millis();
 
-  /*
-  //This statements are just to see if we can make the car moving straight forward.
-   _move->controlMotors(forward, _conf->lineFollowInitialSpeed, forward, _conf->lineFollowInitialSpeed + 5);
-   delay(5000);
-   _move->performFastStop();*/
+    int sensorValues[2];
+    readFrontLineSensors(sensorValues);
 
-  //check if a 90° curve is needed
-  if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
-    //_com->sendString("fast stop should be done now.");
-    ///@todo Implement what needs to be done when the 90° curve needs to be driven. For now just perform a fast stop
-    /*_com->send(55, sensorValues[0]);
-     _move->performFastStop();
-     hasReachedLine = true;
-     return;*/
-  }
+    //check if a 90° curve is needed
+    if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
+      ///@todo Implement what needs to be done when the 90° curve needs to be driven. For now just perform a fast stop
+      /*_com->send(55, sensorValues[0]);
+       _move->performFastStop();
+       hasReachedLine = true;
+       return;*/
+    }
 
-  //Check - if a correction (driving a courve to get back to the line) is in progress - if it's already time to drive
-  //straight forward again.
-  /*if(_timeSinceCorrectionStarted != 0 && millis() >= _timeSinceCorrectionStarted + _conf->lineCorrectionDuration){
-   //    _com->sendString("after correction - moving forward again");
-   _move->controlMotors(forward, _conf->lineFollowInitialSpeed, forward, _conf->lineFollowInitialSpeed);
-   _timeSinceCorrectionStarted = 0;
-   }*/
-
-  //Read the line sensor values to check if one line sensor has detected white ground which means that a
-  //correction is needed. If so a correction will be started.
-  //We do this only if no correction is in progress
-  //_com->send(_timeSinceCorrectionStarted);
-  if(_timeSinceCorrectionStarted == 0){
+    //Do the line following
     readLineSensors(sensorValues);
-
     _deltasensor = sensorValues[0]-sensorValues[1];
     _com->send(3,_deltasensor);
-
     _deltaPWM = _conf->lineFollowKp * (_deltasensor/100) + (_conf->lineFollowKd/100) * (_deltasensor-_sensoralt);
     _sensoralt = _deltasensor;
-
     _move->changeMotorSpeedBasedOnInitialSpeed(_deltaPWM,(-1)*_deltaPWM); 
-    //_timeSinceCorrectionStarted = millis(); 
-
-
-
-    /*{
-     //    _com->sendString("check line sensors");
-     readLineSensors(sensorValues);
-     
-     //left sensor
-     if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
-     _com->sendString("korrigiere nach rechts.");
-     _move->changeMotorSpeed(((-1)*((int)_conf->lineFollowCorrectionMinus)), ((int)_conf->lineFollowCorrectionPlus));
-     _timeSinceCorrectionStarted = millis();
-     _com->send(56, sensorValues[0]);
-     }
-     
-     //right sensor
-     if(sensorValues[1] < _conf->lineFollowWhiteThreshold){
-     _com->sendString("korrigiere nach links.");
-     _move->changeMotorSpeed(((int)_conf->lineFollowCorrectionPlus), ((-1)*((int)_conf->lineFollowCorrectionMinus)));
-     _timeSinceCorrectionStarted = millis();
-     _com->send(57, sensorValues[1]);
-     }*/
   }
 
 
@@ -235,6 +186,8 @@ void LineFollow::calibrateSensors(){
 
   _com->send(203, measurements, 6);
 }
+
+
 
 
 

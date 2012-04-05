@@ -24,11 +24,9 @@ Configuration::Configuration(){
   _messageFilterLevel = 49;
   doJobDelay = 0;
   lineFollowWhiteThreshold = 300;
-  lineCorrectionDuration = 0;
+  lineFollowInterval = 0;
   lineFollowInitialSpeedLeft = 120; //150 out of 255
   lineFollowInitialSpeedRight = 120; //150 out of 255
-  lineFollowCorrectionPlus = 30;
-  lineFollowCorrectionMinus = 50;
   _movePwmLeftPin = 2;
   _movePwmRightPin = 3;
   _moveModeFirstLeftPin = 22;
@@ -174,7 +172,7 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[3] = doJobDelay;
   spaceForConfigValues[4] = lineFollowInitialSpeedLeft;
   spaceForConfigValues[5] = lineFollowInitialSpeedRight;
-  spaceForConfigValues[6] = lineCorrectionDuration;
+  spaceForConfigValues[6] = lineFollowInterval;
   spaceForConfigValues[7] = lineFollowKp;
   spaceForConfigValues[8] = lineFollowKd;
   spaceForConfigValues[9] = lineFollowWhiteThreshold;
@@ -184,13 +182,13 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
  * Updates all configuration values according to the given parameters.
  * @param parameters Pointer to a long array with 10 parameters.
  */
-void Configuration::updateConfiguration(long* parameters){
+void Configuration::updateConfiguration(int* parameters){
   //CONSTANTS will be ingored
   _messageFilterLevel = parameters[2];
   doJobDelay = parameters[3];
   lineFollowInitialSpeedLeft = parameters[4];
   lineFollowInitialSpeedRight = parameters[5];
-  lineCorrectionDuration = parameters[6];
+  lineFollowInterval = parameters[6];
   lineFollowKp = parameters[7];
   lineFollowKd = parameters[8];
   lineFollowWhiteThreshold = parameters[9];

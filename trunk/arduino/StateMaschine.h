@@ -30,7 +30,7 @@ private:
   static StateMaschine _instance;
   static boolean _instanceCreated;
   void begin();
-
+  
   Communication* _com; ///< The reference to the serial communication class.
   Configuration* _conf; ///< The reference to the configuration class.
   Move* _move; ///< The reference to the move class.

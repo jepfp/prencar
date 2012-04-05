@@ -75,8 +75,16 @@ void StateMaschine::checkCommands(){
 
     //check for command 101
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 101)){
-      c.parameters;
-      _conf->send(102);
+      int* parameters = c.parameters;
+      _conf->updateConfiguration(parameters);
+      _com->send(102);
+    }
+    
+    /*----------- offline control car -----------*/
+    //check for command 101
+    if(_com->getAndRemoveCommandFromReadyCommands(&c, 400)){
+      int* parameters = c.parameters;
+      _move->controlMotors((TMotorDirection)parameters[0], parameters[1], (TMotorDirection)parameters[2], parameters[3]);
     }
   }
 
