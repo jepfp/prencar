@@ -157,14 +157,11 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:aeb722614b85d484aafe0714f9d319f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the minimum value that was measured during the calibration for "black".  <a href="#aeb722614b85d484aafe0714f9d319f3e"></a><br/></td></tr>
 <tr class="memitem:aaeea70b897deb0295401aa316189c2ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba">_calibrationSensorBlackMax</a></td></tr>
 <tr class="memdesc:aaeea70b897deb0295401aa316189c2ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the maximum value that was measured during the calibration for "black".  <a href="#aaeea70b897deb0295401aa316189c2ba"></a><br/></td></tr>
-<tr class="memitem:a80d25b6a343eb285f1ecc9fad72e072d"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a80d25b6a343eb285f1ecc9fad72e072d">_timestampLineCorrection</a></td></tr>
-<tr class="memdesc:a80d25b6a343eb285f1ecc9fad72e072d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the timestamp of the time when a line correction was started.  <a href="#a80d25b6a343eb285f1ecc9fad72e072d"></a><br/></td></tr>
+<tr class="memitem:a9c31b9a1c2d0627dcbfdb2af0bf7778e"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e">_timeLastLineFollowCheck</a></td></tr>
+<tr class="memdesc:a9c31b9a1c2d0627dcbfdb2af0bf7778e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the timestamp of the time when the last line follow check was done.  <a href="#a9c31b9a1c2d0627dcbfdb2af0bf7778e"></a><br/></td></tr>
 <tr class="memitem:a44ff5bd13460ce3d6737319c6d0023f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a></td></tr>
-<tr class="memdesc:a44ff5bd13460ce3d6737319c6d0023f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">todo: write comment  <a href="#a44ff5bd13460ce3d6737319c6d0023f0"></a><br/></td></tr>
 <tr class="memitem:ae28a165a4eaf1ab88fe0cab11e325ba7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a></td></tr>
-<tr class="memdesc:ae28a165a4eaf1ab88fe0cab11e325ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">todo: write comment  <a href="#ae28a165a4eaf1ab88fe0cab11e325ba7"></a><br/></td></tr>
 <tr class="memitem:aaef3837f6fd0ea4d69458dbe7a5ed54d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a></td></tr>
-<tr class="memdesc:aaef3837f6fd0ea4d69458dbe7a5ed54d"><td class="mdescLeft">&#160;</td><td class="mdescRight">todo: write comment  <a href="#aaef3837f6fd0ea4d69458dbe7a5ed54d"></a><br/></td></tr>
 <tr class="memitem:a8c494126e578f00240532b866b051718"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a8c494126e578f00240532b866b051718">_com</a></td></tr>
 <tr class="memdesc:a8c494126e578f00240532b866b051718"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the serial communication class.  <a href="#a8c494126e578f00240532b866b051718"></a><br/></td></tr>
 <tr class="memitem:ac6fe17d43571248ea2e74fade7ceb5bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_move.html">Move</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">_move</a></td></tr>
@@ -270,9 +267,9 @@ The minimum and maximum measured value are evaluated and stored into _calibratio
 Out of this measurements the <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> value gets calculated and stored. It will be +100 than _calibrationSensorWhiteMax. </li>
 </ol>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>The calculation of <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> can be done using some config value as well so that the behavior can be influenced by the configuration. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>The calculation of <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> can be done using some config value as well so that the behavior can be influenced by the configuration. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00186">186</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00137">137</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -315,18 +312,11 @@ Here is the caller graph for this function:</div>
 <li>
 Read the front sensors to check, if a 90° courve is needed. </li>
 <li>
-Check - if a correction (driving a courve to get back to the line) is in progress - if it's already time to drive straight forward again. </li>
-<li>
-Read the line sensor values to check if one line sensor has detected white ground which means that a correction is needed. If so a correction will be started. </li>
+Read the line sensor values to check if one line sensor has detected white ground (line follow algorithm). </li>
 </ol>
-<p>Not every task is done every time this function gets called. </p>
-<ul>
-<li>
-The two line sensors are not read if a correction is in progress. </li>
-</ul>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement what needs to be done when the 90° curve needs to be driven. For now just perform a fast stop </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Implement what needs to be done when the 90° curve needs to be driven. For now just perform a fast stop </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00069">69</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00062">62</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -369,9 +359,9 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00143">143</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00094">94</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -414,9 +404,9 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00156">156</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00107">107</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -588,8 +578,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>todo: write comment </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00026">26</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
@@ -605,8 +594,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>todo: write comment </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00024">24</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
@@ -639,10 +627,27 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>todo: write comment </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00025">25</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c31b9a1c2d0627dcbfdb2af0bf7778e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long <a class="el" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e">LineFollow::_timeLastLineFollowCheck</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Holds the timestamp of the time when the last line follow check was done. </p>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob()</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00023">23</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -663,24 +668,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a80d25b6a343eb285f1ecc9fad72e072d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned long <a class="el" href="class_line_follow.html#a80d25b6a343eb285f1ecc9fad72e072d">LineFollow::_timestampLineCorrection</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Holds the timestamp of the time when a line correction was started. </p>
-<dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00023">23</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a48dac746e582df53a191bbb6f6c9ef28"></a>
 <div class="memitem">
 <div class="memproto">
@@ -691,7 +678,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Remove me; This is just for debug reasons at the moment and is set to true, if the left curve line is reached. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Remove me; This is just for debug reasons at the moment and is set to true, if the left curve line is reached. </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00015">15</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
@@ -707,7 +694,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_line_follow.html">LineFollow</a>      </li>
 
-    <li class="footer">Generated on Tue Apr 3 2012 18:43:13 for prencar by
+    <li class="footer">Generated on Thu Apr 5 2012 00:44:25 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

@@ -17,7 +17,7 @@ var class_line_follow =
     [ "_deltasensor", "class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0", null ],
     [ "_move", "class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd", null ],
     [ "_sensoralt", "class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7", null ],
+    [ "_timeLastLineFollowCheck", "class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e", null ],
     [ "_timeSinceCorrectionStarted", "class_line_follow.html#a00b50369d005edbfe81937c77713cf8c", null ],
-    [ "_timestampLineCorrection", "class_line_follow.html#a80d25b6a343eb285f1ecc9fad72e072d", null ],
     [ "hasReachedLine", "class_line_follow.html#a48dac746e582df53a191bbb6f6c9ef28", null ]
 ];

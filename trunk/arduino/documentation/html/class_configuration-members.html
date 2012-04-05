@@ -128,6 +128,7 @@ This is the complete list of members for <a class="el" href="class_configuration
   <tr class="memlist"><td><a class="el" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77">_SERIALSPEED</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td><code> [private, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba">Configuration</a>()</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_configuration.html#aca67601e35566058e2bca41b7188469e">doJobDelay</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">getConfigurationVersion</a>()</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">getCurrentConfiguration</a>(long *spaceForConfigValues)</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e">getInstance</a>()</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td><code> [static]</code></td></tr>
@@ -139,11 +140,9 @@ This is the complete list of members for <a class="el" href="class_configuration
   <tr class="memlist"><td><a class="el" href="class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c">getMovePwmLeftPin</a>()</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a156dc7d1360c8e70c7aba5eb20481afa">getMovePwmRightPin</a>()</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066">getSerialSpeed</a>()</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_configuration.html#af422bec01439c18626c51343685056de">lineCorrectionDuration</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_configuration.html#ac646c746aaabfce259fb9c1a32bee124">lineFollowCorrectionMinus</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_configuration.html#aae38d5ad39372e66c7f1f0b9e4290e9e">lineFollowCorrectionPlus</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d">lineFollowInitialSpeedLeft</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3">lineFollowInitialSpeedRight</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103">lineFollowInterval</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a></td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
@@ -158,13 +157,13 @@ This is the complete list of members for <a class="el" href="class_configuration
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a47380130f77e70e563c79f2b87e3e692">setMoveModeSecondRightPin</a>(byte value)</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a2298db2f115e9c7daa6924158eac0ee5">setMovePwmLeftPin</a>(byte value)</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_configuration.html#a40c3af95f85bb649a09f67c52e52e5f8">setMovePwmRightPin</a>(byte value)</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_configuration.html#ac4b307198cb923cd35d534427c61d27d">updateConfiguration</a>(long *parameters)</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">updateConfiguration</a>(int *parameters)</td><td><a class="el" href="class_configuration.html">Configuration</a></td><td></td></tr>
 </table></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Tue Apr 3 2012 18:43:13 for prencar by
+    <li class="footer">Generated on Thu Apr 5 2012 00:44:25 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

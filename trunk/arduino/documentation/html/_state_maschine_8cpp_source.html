@@ -150,62 +150,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00049"></a>00049 
 <a name="l00050"></a>00050   <a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">checkCommands</a>();
 <a name="l00051"></a>00051 
-<a name="l00052"></a>00052   delay(1000);
-<a name="l00053"></a>00053   <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> == <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>){
-<a name="l00054"></a>00054     <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
-<a name="l00055"></a>00055   }
-<a name="l00056"></a>00056 }
-<a name="l00057"></a>00057 
-<a name="l00062"></a><a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">00062</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">StateMaschine::checkCommands</a>(){
-<a name="l00063"></a>00063   <a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> c;
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065   <span class="comment">//the following commands are only available, if the parcours is not started</span>
-<a name="l00066"></a>00066   <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> == <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a> || <a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> == <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aaf38e35232eb6728664f98c8110d11a4">finished</a>){
-<a name="l00067"></a>00067     <span class="comment">//check for command 200</span>
-<a name="l00068"></a>00068     <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 200)){
-<a name="l00069"></a>00069       <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>.<a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors.">calibrateSensors</a>();
-<a name="l00070"></a>00070     }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072     <span class="comment">//check for command 300</span>
-<a name="l00073"></a>00073     <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 300)){
-<a name="l00074"></a>00074       <a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">startParcours</a>();
-<a name="l00075"></a>00075     }
-<a name="l00076"></a>00076   }
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078   <span class="comment">//check for command 301</span>
-<a name="l00079"></a>00079   <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 301)){
-<a name="l00080"></a>00080     <a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">stopParcours</a>();
-<a name="l00081"></a>00081   }
-<a name="l00082"></a>00082 }
-<a name="l00083"></a>00083 
-<a name="l00087"></a><a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">00087</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">StateMaschine::startParcours</a>(){
-<a name="l00088"></a>00088   <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>.<a class="code" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">startIt</a>();
-<a name="l00089"></a>00089   <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>);
-<a name="l00090"></a>00090 }
+<a name="l00052"></a>00052   <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> == <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>){
+<a name="l00053"></a>00053     <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
+<a name="l00054"></a>00054   }
+<a name="l00055"></a>00055 }
+<a name="l00056"></a>00056 
+<a name="l00061"></a><a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">00061</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a">StateMaschine::checkCommands</a>(){
+<a name="l00062"></a>00062   <a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> c;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064   <span class="comment">//the following commands are only available, if the parcours is not started</span>
+<a name="l00065"></a>00065   <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> == <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a> || <a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> == <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aaf38e35232eb6728664f98c8110d11a4">finished</a>){
+<a name="l00066"></a>00066     <span class="comment">//check for command 200</span>
+<a name="l00067"></a>00067     <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 200)){
+<a name="l00068"></a>00068       <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>.<a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors.">calibrateSensors</a>();
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071     <span class="comment">//check for command 300</span>
+<a name="l00072"></a>00072     <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 300)){
+<a name="l00073"></a>00073       <a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">startParcours</a>();
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076     <span class="comment">//check for command 101</span>
+<a name="l00077"></a>00077     <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 101)){
+<a name="l00078"></a>00078       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00079"></a>00079       <a class="code" href="class_state_maschine.html#a1739f27286f50fbc99a6212c029c79d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">updateConfiguration</a>(parameters);
+<a name="l00080"></a>00080       <a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(102);
+<a name="l00081"></a>00081     }
+<a name="l00082"></a>00082     
+<a name="l00083"></a>00083     <span class="comment">/*----------- offline control car*/</span>
+<a name="l00084"></a>00084     <span class="comment">//check for command 101</span>
+<a name="l00085"></a>00085     <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 101)){
+<a name="l00086"></a>00086       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00087"></a>00087       <a class="code" href="class_state_maschine.html#a1739f27286f50fbc99a6212c029c79d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">updateConfiguration</a>(parameters);
+<a name="l00088"></a>00088       <a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(102);
+<a name="l00089"></a>00089     }
+<a name="l00090"></a>00090   }
 <a name="l00091"></a>00091 
-<a name="l00095"></a><a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">00095</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">StateMaschine::stopParcours</a>(){
-<a name="l00096"></a>00096   <a class="code" href="class_state_maschine.html#a91050d9a782c56bbceb4f51255707685" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
-<a name="l00097"></a>00097   <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a>);
-<a name="l00098"></a>00098 }
-<a name="l00099"></a>00099 
-<a name="l00104"></a><a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">00104</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">StateMaschine::changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> newState){
-<a name="l00105"></a>00105   <a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> = newState;
-<a name="l00106"></a>00106   <a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(100, newState);
-<a name="l00107"></a>00107 }
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110 
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112 
+<a name="l00092"></a>00092   <span class="comment">//check for command 301</span>
+<a name="l00093"></a>00093   <span class="keywordflow">if</span>(<a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 301)){
+<a name="l00094"></a>00094     <a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">stopParcours</a>();
+<a name="l00095"></a>00095   }
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00101"></a><a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">00101</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18">StateMaschine::startParcours</a>(){
+<a name="l00102"></a>00102   <a class="code" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">lineFollow</a>.<a class="code" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">startIt</a>();
+<a name="l00103"></a>00103   <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>);
+<a name="l00104"></a>00104 }
+<a name="l00105"></a>00105 
+<a name="l00109"></a><a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">00109</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23">StateMaschine::stopParcours</a>(){
+<a name="l00110"></a>00110   <a class="code" href="class_state_maschine.html#a91050d9a782c56bbceb4f51255707685" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
+<a name="l00111"></a>00111   <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a>);
+<a name="l00112"></a>00112 }
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114 
+<a name="l00118"></a><a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">00118</a> <span class="keywordtype">void</span> <a class="code" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4">StateMaschine::changeState</a>(<a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> newState){
+<a name="l00119"></a>00119   <a class="code" href="class_state_maschine.html#adbdb287052ba80eb22fd4a910edc0115">parcoursState</a> = newState;
+<a name="l00120"></a>00120   <a class="code" href="class_state_maschine.html#a375a5c409935687eab5d7185c25b2e97" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(100, newState);
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_state_maschine_8cpp.html">StateMaschine.cpp</a>      </li>
 
-    <li class="footer">Generated on Tue Apr 3 2012 18:43:12 for prencar by
+    <li class="footer">Generated on Thu Apr 5 2012 00:44:25 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

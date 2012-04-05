@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateconfiguration',['updateConfiguration',['../class_configuration.html#ac4b307198cb923cd35d534427c61d27d',1,'Configuration']]]
+  ['updateconfiguration',['updateConfiguration',['../class_configuration.html#a13c417c35f720cae9917b7bed7ceb159',1,'Configuration']]]
 ];

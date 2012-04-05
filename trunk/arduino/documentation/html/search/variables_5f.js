@@ -37,6 +37,6 @@ var searchData=
   ['_5fserialspeed',['_SERIALSPEED',['../class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77',1,'Configuration']]],
   ['_5fspeedleft',['_speedLeft',['../class_move.html#ada9423f195c9ee65b5448fcaabb96877',1,'Move']]],
   ['_5fspeedright',['_speedRight',['../class_move.html#a13362460beddf2de2415d51f3ed70841',1,'Move']]],
-  ['_5ftimesincecorrectionstarted',['_timeSinceCorrectionStarted',['../class_line_follow.html#a00b50369d005edbfe81937c77713cf8c',1,'LineFollow']]],
-  ['_5ftimestamplinecorrection',['_timestampLineCorrection',['../class_line_follow.html#a80d25b6a343eb285f1ecc9fad72e072d',1,'LineFollow']]]
+  ['_5ftimelastlinefollowcheck',['_timeLastLineFollowCheck',['../class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e',1,'LineFollow']]],
+  ['_5ftimesincecorrectionstarted',['_timeSinceCorrectionStarted',['../class_line_follow.html#a00b50369d005edbfe81937c77713cf8c',1,'LineFollow']]]
 ];

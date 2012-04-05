@@ -261,11 +261,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>_speedRight
 : <a class="el" href="class_move.html#a13362460beddf2de2415d51f3ed70841">Move</a>
 </li>
+<li>_timeLastLineFollowCheck
+: <a class="el" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e">LineFollow</a>
+</li>
 <li>_timeSinceCorrectionStarted
 : <a class="el" href="class_line_follow.html#a00b50369d005edbfe81937c77713cf8c">LineFollow</a>
-</li>
-<li>_timestampLineCorrection
-: <a class="el" href="class_line_follow.html#a80d25b6a343eb285f1ecc9fad72e072d">LineFollow</a>
 </li>
 </ul>
 
@@ -327,8 +327,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>doJob()
 : <a class="el" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963">Communication</a>
-, <a class="el" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2">StateMaschine</a>
 , <a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">LineFollow</a>
+, <a class="el" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2">StateMaschine</a>
+</li>
+<li>doJobDelay
+: <a class="el" href="class_configuration.html#aca67601e35566058e2bca41b7188469e">Configuration</a>
 </li>
 </ul>
 
@@ -391,26 +394,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
-<li>lineCorrectionDuration
-: <a class="el" href="class_configuration.html#af422bec01439c18626c51343685056de">Configuration</a>
-</li>
 <li>LineFollow()
 : <a class="el" href="class_line_follow.html#ace2e49549627ad0682ed71e0be714086">LineFollow</a>
 </li>
 <li>lineFollow
 : <a class="el" href="class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d">StateMaschine</a>
 </li>
-<li>lineFollowCorrectionMinus
-: <a class="el" href="class_configuration.html#ac646c746aaabfce259fb9c1a32bee124">Configuration</a>
-</li>
-<li>lineFollowCorrectionPlus
-: <a class="el" href="class_configuration.html#aae38d5ad39372e66c7f1f0b9e4290e9e">Configuration</a>
-</li>
 <li>lineFollowInitialSpeedLeft
 : <a class="el" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d">Configuration</a>
 </li>
 <li>lineFollowInitialSpeedRight
 : <a class="el" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3">Configuration</a>
+</li>
+<li>lineFollowInterval
+: <a class="el" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103">Configuration</a>
 </li>
 <li>lineFollowKd
 : <a class="el" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">Configuration</a>
@@ -529,7 +526,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
 <li>updateConfiguration()
-: <a class="el" href="class_configuration.html#ac4b307198cb923cd35d534427c61d27d">Configuration</a>
+: <a class="el" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">Configuration</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -537,7 +534,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Tue Apr 3 2012 18:43:13 for prencar by
+    <li class="footer">Generated on Thu Apr 5 2012 00:44:25 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>
