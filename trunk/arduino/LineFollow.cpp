@@ -32,13 +32,15 @@ void LineFollow::begin(){
   digitalWrite(_conf->lineFollowLeftFrontSensorPin, LOW);
   digitalWrite(_conf->lineFollowRightFrontSensorPin, LOW);
 
-  hasReachedLine = false;
+  hasReachedCurve = false;
 }
 
 /**
  * Starts the line following process.
  */
 void LineFollow::startIt(){
+  hasReachedCurve = false;
+  
   _deltasensor = 0;
   _sensoralt = 20;
   _deltaPWM = 0;
@@ -69,17 +71,18 @@ void LineFollow::doJob(){
     //check if a 90° curve is needed
     if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
       ///@todo Implement what needs to be done when the 90° curve needs to be driven. For now just perform a fast stop
-      /*_com->send(55, sensorValues[0]);
-       _move->performFastStop();
-       hasReachedLine = true;
-       return;*/
+      _com->send(55, sensorValues[0]);
+      _move->performFastStop();
+      hasReachedCurve = true;
+      return;
     }
 
     //Do the line following
     readLineSensors(sensorValues);
     _deltasensor = sensorValues[0]-sensorValues[1];
-    _com->send(3,_deltasensor);
-    _deltaPWM = _conf->lineFollowKp * (_deltasensor/100) + (_conf->lineFollowKd/100) * (_deltasensor-_sensoralt);
+    _com->send(3, _deltasensor);
+    _deltaPWM = (int) ( ((float)_conf->lineFollowKp) * (((float)_deltasensor)/100) + ((float)_conf->lineFollowKd)/100 * (float)(_deltasensor-_sensoralt) );
+    _com->send(4, _deltaPWM);
     _sensoralt = _deltasensor;
     _move->changeMotorSpeedBasedOnInitialSpeed(_deltaPWM,(-1)*_deltaPWM); 
   }
@@ -184,6 +187,8 @@ void LineFollow::calibrateSensors(){
 
   _com->send(203, measurements, 6);
 }
+
+
 
 
 

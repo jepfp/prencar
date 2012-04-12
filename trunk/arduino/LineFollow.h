@@ -12,7 +12,7 @@ public:
   void begin();
   void doJob();
   void calibrateSensors();
-  boolean hasReachedLine; ///< @todo Remove me; This is just for debug reasons at the moment and is set to true, if the left curve line is reached.
+  boolean hasReachedCurve; ///< Is set to true, if the left curve line is reached
   void startIt();
 private:
   int _calibrationSensorWhiteMin; ///< Holds the minimum value that was measured during the calibration for "white".

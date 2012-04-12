@@ -52,6 +52,11 @@ void StateMaschine::doJob(){
 
   if(parcoursState == followingFirstLine){
     lineFollow.doJob();
+
+    //go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)
+    if(lineFollow.hasReachedCurve){
+      changeState(firstTurn);
+    }
   }
 }
 
@@ -80,14 +85,14 @@ void StateMaschine::checkCommands(){
       _conf->updateConfiguration(parameters);
       _com->send(102);
     }
-    
+
     /*----------- offline control car -----------*/
     //check for command 400
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 400)){
       int* parameters = c.parameters;
       _move->controlMotors((TMotorDirection)parameters[0], parameters[1], (TMotorDirection)parameters[2], parameters[3]);
     }
-    
+
     //check for command 401
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 401)){
       int* parameters = c.parameters;
@@ -125,6 +130,7 @@ void StateMaschine::changeState(TParcoursState newState){
   parcoursState = newState;
   _com->send(100, newState);
 }
+
 
 
 
