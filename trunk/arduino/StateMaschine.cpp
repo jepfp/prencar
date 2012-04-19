@@ -28,6 +28,7 @@ StateMaschine* StateMaschine::getInstance()
 StateMaschine::StateMaschine()
 {
   parcoursState = notStarted;
+  forceChangeSate = false;
 }
 
 /**
@@ -39,6 +40,7 @@ void StateMaschine::begin(){
   _move = Move::getInstance();
   _liftCube = LiftCube::getInstance();
   lineFollow.begin();
+  curveLeft.begin();
 }
 
 /**
@@ -51,13 +53,50 @@ void StateMaschine::doJob(){
   checkCommands();
 
   if(parcoursState == followingFirstLine){
-    lineFollow.doJob();
-
     //go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)
-    if(lineFollow.hasReachedCurve){
+    if(lineFollow.hasReachedCurve || forceChangeSate){
       changeState(firstTurn);
+      curveLeft.startIt();
+    }
+    else{
+      lineFollow.doJob();
     }
   }
+  else if(parcoursState == firstTurn){
+    //go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)
+    if(curveLeft.drivingCurveIsFinished || forceChangeSate){
+      changeState(followingSecondLine);
+      lineFollow.startIt();
+    }
+    else{
+      curveLeft.doJob();
+    }
+  }
+  else if(parcoursState == followingSecondLine){
+    //go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)
+    if(lineFollow.hasReachedCurve || forceChangeSate){
+      changeState(secondTurn);
+      curveLeft.startIt();
+    }
+    else{
+      lineFollow.doJob();
+    }
+  }
+  else if(parcoursState == secondTurn){
+    //go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)
+    if(curveLeft.drivingCurveIsFinished || forceChangeSate){
+      //changeState(followingThirdLineToCube);
+      //for now just stop the car
+      _move->performFastStop();
+      changeState(finished);
+    }
+    else{
+      curveLeft.doJob();
+    }
+  }
+
+  //set forceChangeSate back to false in order to continue normally
+  forceChangeSate = false;
 }
 
 /**
@@ -76,7 +115,25 @@ void StateMaschine::checkCommands(){
 
     //check for command 300
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 300)){
-      startParcours();
+      int* parameters = c.parameters;
+      int highestImplementedState = 4;
+      if(parameters[0] > highestImplementedState){
+        int p[2];
+        p[0] = parameters[0];
+        p[1] = highestImplementedState;
+        _com->send(151, p, 2);
+        stopParcours();
+      }
+      else{
+        if(parameters[0] != 0){
+          parcoursState = (TParcoursState)(parameters[0] - 1);
+          forceChangeSate = true;
+          _com->send(205, parcoursState + 1);
+        }
+        else{
+          startParcours();
+        }
+      }
     }
 
     //check for command 101
@@ -110,8 +167,8 @@ void StateMaschine::checkCommands(){
  * Starts the parcours. The car will start moving autonomous.
  */
 void StateMaschine::startParcours(){
-  lineFollow.startIt();
   changeState(followingFirstLine);
+  lineFollow.startIt();
 }
 
 /**
@@ -130,6 +187,18 @@ void StateMaschine::changeState(TParcoursState newState){
   parcoursState = newState;
   _com->send(100, newState);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

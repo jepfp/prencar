@@ -23,7 +23,7 @@
  * <tr><td>100</td><td>Send current configuration</td><td>-</td><td>Tell the MC to send the whole configuration over the serial interface.</td></tr>
  * <tr><td>101</td><td>Update configuration</td><td>See Configuration::updateConfiguration()</td><td>Updates the configuration of the microcontroller with the given parameters.</td></tr>
  * <tr><td>200</td><td>Calibrate line sensors</td><td>-</td><td>Starts the calibration of the line sensors.</td></tr>
- * <tr><td>300</td><td>Start parcours</td><td>-</td><td>Starts the parcours</td></tr>
+ * <tr><td>300</td><td>Start parcours</td><td>State to start from as int number (first state = 0). @see TParcoursState</td><td>Starts the parcours</td></tr>
  * <tr><td>301</td><td>Stop parcours</td><td>-</td><td>Stops the parcours and the car performing a fast stop.</td></tr>
  * <tr><td>400</td><td>Control car</td><td>speedLeft, direction Left, speedRight, direction Right</td><td>Speed between 0-255; direction: 0 - phaseOut, 1 - forwards, 2 - backwards, 3 - fastStop</td></tr>
  * <tr><td>401</td><td>Control hoist</td><td>hoist position (pwm value between 0-255)</td><td></td></tr>

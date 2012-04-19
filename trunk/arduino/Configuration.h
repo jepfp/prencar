@@ -70,12 +70,25 @@ public:
   byte liftCubeDownPosition; ///< Pwm value to set if the hoist has to be moved up fully.
   int liftCubeDownUpDuration; ///< Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()
 
+  byte curveSpeedSlowMotor; ///< The speed of the slower motor (in a left curve, left motor) during a 90° curve.
+  byte curveSpeedFastMotor; ///< The speed of the faster motor (in a left curve, right motor) during a 90° curve.
+  int curveInterval; ///< Interval in milliseconds in which the curve job shall be executed.
+  /** \brief Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated.
+  * In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left"
+  * procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started.
+  */
+  int curveActivateEndSensorOffset;
+
   void getCurrentConfiguration(long* spaceForConfigValues);
   void updateConfiguration(int* parameters);
 
 };
 
 #endif
+
+
+
+
 
 
 

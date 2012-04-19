@@ -40,6 +40,11 @@ Configuration::Configuration(){
   lineFollowKp = 5;
   lineFollowKd = 25;
   liftCubePwmPin = 4;
+
+  curveSpeedSlowMotor = 60;
+  curveSpeedFastMotor = 120;
+  curveInterval = 0;
+  curveActivateEndSensorOffset = 500;
 }
 
 /**
@@ -164,7 +169,7 @@ void Configuration::setMoveModeSecondRightPin(byte value){
 
 /**
  * Sends the whole current configuration as it is stored on the microcontroller at the moment.
- * @param spaceForConfigValues Pointer to a long array with 10 spaces to store the current configuration.
+ * @param spaceForConfigValues Pointer to a long array with 14 spaces to store the current configuration.
  */
 void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[0] = _CONFIGURATIONVERSION;
@@ -177,14 +182,23 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[7] = lineFollowKp;
   spaceForConfigValues[8] = lineFollowKd;
   spaceForConfigValues[9] = lineFollowWhiteThreshold;
+  spaceForConfigValues[10] = curveSpeedSlowMotor;
+  spaceForConfigValues[11] = curveSpeedFastMotor;
+  spaceForConfigValues[12] = curveInterval;
+  spaceForConfigValues[13] = curveActivateEndSensorOffset;
 }
 
 /**
  * Updates all configuration values according to the given parameters.
- * @param parameters Pointer to a long array with 10 parameters.
+ *
+ * <b>WARNING: Be aware of the fact that the Serial library of the Arduino board at the moment
+ * only accepts 60 characters at the time (because of a ring buffer). If more configuration
+ * values are added, we have to adjust that ring buffer in the core libs!!!!</b>
+ * @param parameters Pointer to a long array with 14 parameters.
  */
 void Configuration::updateConfiguration(int* parameters){
   //CONSTANTS will be ingored
+  ///@todo Add a check for the configuration version!
   _messageFilterLevel = parameters[2];
   doJobDelay = parameters[3];
   lineFollowInitialSpeedLeft = parameters[4];
@@ -193,7 +207,13 @@ void Configuration::updateConfiguration(int* parameters){
   lineFollowKp = parameters[7];
   lineFollowKd = parameters[8];
   lineFollowWhiteThreshold = parameters[9];
+  curveSpeedSlowMotor = parameters[10];
+  curveSpeedFastMotor = parameters[11];
+  curveInterval = parameters[12];
+  curveActivateEndSensorOffset = parameters[13];
 }
+
+
 
 
 

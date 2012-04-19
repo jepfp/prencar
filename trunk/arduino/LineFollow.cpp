@@ -4,7 +4,7 @@
 #include "Configuration.h"
 
 /**
- * Constructur for the class with the hardware pins to use.
+ * Constructur for the class.
  */
 LineFollow::LineFollow()
 {
@@ -44,7 +44,6 @@ void LineFollow::startIt(){
   _deltasensor = 0;
   _sensoralt = 20;
   _deltaPWM = 0;
-  _timeSinceCorrectionStarted = 0;
 
   _move->controlMotors(forward, _conf->lineFollowInitialSpeedLeft, forward, _conf->lineFollowInitialSpeedRight);
 }
@@ -70,7 +69,6 @@ void LineFollow::doJob(){
 
     //check if a 90° curve is needed
     if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
-      ///@todo Implement what needs to be done when the 90° curve needs to be driven. For now just perform a fast stop
       _com->send(55, sensorValues[0]);
       _move->performFastStop();
       hasReachedCurve = true;

@@ -5,7 +5,7 @@
 Communication Communication::_instance; ///< Static reference to the singleton object
 boolean Communication::_instanceCreated = false;
 
-#define sc Serial1
+#define sc Serial
 
 /**
  * Get the Communication instance
@@ -213,9 +213,9 @@ void Communication::sendString(char* message){
  * Gets the current configuration from the Configuraton instance and sends it over the serial port.
  */
 void Communication::sendCurrentConfiguration(){
-  long currentConfiguration[10];
+  long currentConfiguration[14];
   _config->getCurrentConfiguration(currentConfiguration);
-  send(204, currentConfiguration, 10);
+  send(204, currentConfiguration, 14);
 }
 
 
