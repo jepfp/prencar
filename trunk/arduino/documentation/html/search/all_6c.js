@@ -9,7 +9,7 @@ var searchData=
   ['liftcubeupposition',['liftCubeUpPosition',['../class_configuration.html#af6652efed17691fef4fa435e38c1642f',1,'Configuration']]],
   ['liftdown',['liftDown',['../class_lift_cube.html#a652d399235cafb5179a2d6c65df11112',1,'LiftCube']]],
   ['liftup',['liftUp',['../class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64',1,'LiftCube']]],
-  ['linefollow',['LineFollow',['../class_line_follow.html',1,'LineFollow'],['../class_line_follow.html#ace2e49549627ad0682ed71e0be714086',1,'LineFollow::LineFollow()'],['../class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d',1,'StateMaschine::lineFollow()']]],
+  ['linefollow',['LineFollow',['../class_line_follow.html',1,'LineFollow'],['../class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d',1,'StateMaschine::lineFollow()'],['../class_line_follow.html#ace2e49549627ad0682ed71e0be714086',1,'LineFollow::LineFollow()']]],
   ['linefollow_2ecpp',['LineFollow.cpp',['../_line_follow_8cpp.html',1,'']]],
   ['linefollow_2eh',['LineFollow.h',['../_line_follow_8h.html',1,'']]],
   ['linefollowinitialspeedleft',['lineFollowInitialSpeedLeft',['../class_configuration.html#a24e118088874b8f9d56bcaf245f1461d',1,'Configuration']]],

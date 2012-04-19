@@ -31,6 +31,10 @@ var class_configuration =
     [ "_movePwmLeftPin", "class_configuration.html#a837faf9a747d5076bc8264f21bd944de", null ],
     [ "_movePwmRightPin", "class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee", null ],
     [ "_SERIALSPEED", "class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77", null ],
+    [ "cubeApproachLeftBottomSensor", "class_configuration.html#a64566ef4e13d578a41614a643acfdd51", null ],
+    [ "cubeApproachLeftTopSensor", "class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b", null ],
+    [ "cubeApproachRightBottomSensor", "class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1", null ],
+    [ "cubeApproachRightTopSensor", "class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d", null ],
     [ "curveActivateEndSensorOffset", "class_configuration.html#adec850d0b0519d7a799841e6086a777d", null ],
     [ "curveInterval", "class_configuration.html#aa2238d49c21c52f8e86ff0ac80aff034", null ],
     [ "curveSpeedFastMotor", "class_configuration.html#a5bca21a22d225315fca8088a4668d20c", null ],
@@ -49,5 +53,8 @@ var class_configuration =
     [ "lineFollowLeftSensorPin", "class_configuration.html#a09d83c2f3c4485fd864bf998e62788d7", null ],
     [ "lineFollowRightFrontSensorPin", "class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa", null ],
     [ "lineFollowRightSensorPin", "class_configuration.html#a254b7ac19c994603776d47645235a132", null ],
-    [ "lineFollowWhiteThreshold", "class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906", null ]
+    [ "lineFollowWhiteThreshold", "class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906", null ],
+    [ "sensorDebugInterval", "class_configuration.html#a9b33a4a750145bf398c4030922784967", null ],
+    [ "sensorDebugReadGap", "class_configuration.html#a6c05aa8e21c264aab388e9532f6aa6a3", null ],
+    [ "SIZEOFDYNAMICCONFIGURATION", "class_configuration.html#a9ac73982b5d1611bba533567fffbaa3c", null ]
 ];

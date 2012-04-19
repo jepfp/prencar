@@ -19,6 +19,12 @@ private:
   byte _moveModeSecondRightPin;
   Configuration();
 public:
+  /** \brief Defines the size of the array in which all dynamic configuration values are saved.
+   * 
+   * Update this, if you want to add new configuration values to the list of dynamic configuration values.
+   */
+  static byte const SIZEOFDYNAMICCONFIGURATION = 16;
+  
   static Configuration* getInstance();
   byte getConfigurationVersion();
   int getSerialSpeed();
@@ -74,10 +80,18 @@ public:
   byte curveSpeedFastMotor; ///< The speed of the faster motor (in a left curve, right motor) during a 90° curve.
   int curveInterval; ///< Interval in milliseconds in which the curve job shall be executed.
   /** \brief Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated.
-  * In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left"
-  * procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started.
-  */
+   * In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left"
+   * procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started.
+   */
   int curveActivateEndSensorOffset;
+
+  byte cubeApproachLeftBottomSensor; ///< The pin where the left bottom distance sensor is connected to.
+  byte cubeApproachLeftTopSensor; ///< The pin where the left top distance sensor is connected to.
+  byte cubeApproachRightBottomSensor; ///< The pin where the right bottom distance sensor is connected to.
+  byte cubeApproachRightTopSensor; ///< The pin where the right top distance sensor is connected to.
+
+  int sensorDebugInterval; ///< Interval in milliseconds in which the debug sensors
+  int sensorDebugReadGap; ///< Time in milliseconds between reading every sensor.
 
   void getCurrentConfiguration(long* spaceForConfigValues);
   void updateConfiguration(int* parameters);
@@ -85,6 +99,9 @@ public:
 };
 
 #endif
+
+
+
 
 
 

@@ -128,13 +128,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00012"></a><a class="code" href="class_communication.html#ad7d224755b1c47a1b5e6ce0d018492bb">00012</a>   <span class="keyword">static</span> <span class="keywordtype">boolean</span> <a class="code" href="class_communication.html#ad7d224755b1c47a1b5e6ce0d018492bb">_instanceCreated</a>;
 <a name="l00013"></a>00013   <a class="code" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689">Communication</a>();
 <a name="l00014"></a><a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">00014</a>   <a class="code" href="class_configuration.html">Configuration</a>* <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>;
-<a name="l00015"></a><a class="code" href="class_communication.html#ae3415ae474fb8d258f56ba70a4526627">00015</a>   <span class="keyword">static</span> <span class="keywordtype">int</span> <span class="keyword">const</span> <a class="code" href="class_communication.html#ae3415ae474fb8d258f56ba70a4526627" title="The buffer size for the incomingDataBuffer.">_INCOMINGDATABUFFERSIZE</a> = 50; 
+<a name="l00015"></a><a class="code" href="class_communication.html#ae3415ae474fb8d258f56ba70a4526627">00015</a>   <span class="keyword">static</span> <span class="keywordtype">int</span> <span class="keyword">const</span> <a class="code" href="class_communication.html#ae3415ae474fb8d258f56ba70a4526627" title="The buffer size for the incomingDataBuffer.">_INCOMINGDATABUFFERSIZE</a> = 128; 
 <a name="l00016"></a><a class="code" href="class_communication.html#a9c8bdd0590074d523a055e50284f5ce1">00016</a>   <span class="keyword">static</span> <span class="keywordtype">int</span> <span class="keyword">const</span> <a class="code" href="class_communication.html#a9c8bdd0590074d523a055e50284f5ce1" title="The amount of commands that can be stored into the readyCommands array.">_READYCOMMANDSSIZE</a> = 15; 
 <a name="l00017"></a><a class="code" href="class_communication.html#a55d359c2e8b6061388edbf07aa42c385">00017</a>   byte <a class="code" href="class_communication.html#a55d359c2e8b6061388edbf07aa42c385" title="Buffer to store ONE incoming line which is not yet completely transmitted.">_incomingDataBuffer</a>[<a class="code" href="class_communication.html#ae3415ae474fb8d258f56ba70a4526627" title="The buffer size for the incomingDataBuffer.">_INCOMINGDATABUFFERSIZE</a>]; 
 <a name="l00018"></a><a class="code" href="class_communication.html#acfaf4176401e364e3b0476a6eb220817">00018</a>   <span class="keywordtype">int</span> <a class="code" href="class_communication.html#acfaf4176401e364e3b0476a6eb220817" title="The position of the last character in the buffer (lastBufferChar + 1 will be the next empty spot)...">_lastBufferCharacter</a>; 
 <a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ad566d07485df1c7970edd450723da1aa">parseAndPutCommandOnList</a>(byte* commandString);
 <a name="l00020"></a>00020   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49">checkCommands</a>();
-<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00021"></a>00021 <span class="keyword">public</span>:  
 <a name="l00022"></a>00022   <span class="keyword">static</span> <a class="code" href="class_communication.html">Communication</a>* <a class="code" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd">getInstance</a>();
 <a name="l00023"></a>00023   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963">doJob</a>();
 <a name="l00024"></a>00024   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId);
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="_communication_8h.html">Communication.h</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 19 2012 09:19:39 for prencar by
+    <li class="footer">Generated on Thu Apr 19 2012 11:43:01 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

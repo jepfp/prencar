@@ -45,6 +45,14 @@ Configuration::Configuration(){
   curveSpeedFastMotor = 120;
   curveInterval = 0;
   curveActivateEndSensorOffset = 500;
+
+  cubeApproachLeftBottomSensor = A0;
+  cubeApproachLeftTopSensor = A1;
+  cubeApproachRightBottomSensor = A2;
+  cubeApproachRightTopSensor = A3;
+
+  sensorDebugInterval = 1000;
+  sensorDebugReadGap = 0;
 }
 
 /**
@@ -169,7 +177,7 @@ void Configuration::setMoveModeSecondRightPin(byte value){
 
 /**
  * Sends the whole current configuration as it is stored on the microcontroller at the moment.
- * @param spaceForConfigValues Pointer to a long array with 14 spaces to store the current configuration.
+ * @param spaceForConfigValues Pointer to a long array with SIZEOFDYNAMICCONFIGURATION spaces to store the current configuration.
  */
 void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[0] = _CONFIGURATIONVERSION;
@@ -186,15 +194,18 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[11] = curveSpeedFastMotor;
   spaceForConfigValues[12] = curveInterval;
   spaceForConfigValues[13] = curveActivateEndSensorOffset;
+  spaceForConfigValues[14] = sensorDebugInterval;
+  spaceForConfigValues[15] = sensorDebugReadGap;
 }
 
 /**
  * Updates all configuration values according to the given parameters.
  *
  * <b>WARNING: Be aware of the fact that the Serial library of the Arduino board at the moment
- * only accepts 60 characters at the time (because of a ring buffer). If more configuration
- * values are added, we have to adjust that ring buffer in the core libs!!!!</b>
- * @param parameters Pointer to a long array with 14 parameters.
+ * only accepts 64 characters for the timebeing (because of a ring buffer). If more configuration
+ * values are added, we have to adjust that ring buffer in the core libs!!!!</b><br>
+ * <b>The ringbuffer has been adjusted now inside C:/Program Files (X86)/Arduino/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp to 128!!</b>
+ * @param parameters Pointer to a long array with SIZEOFDYNAMICCONFIGURATION parameters.
  */
 void Configuration::updateConfiguration(int* parameters){
   //CONSTANTS will be ingored
@@ -211,7 +222,11 @@ void Configuration::updateConfiguration(int* parameters){
   curveSpeedFastMotor = parameters[11];
   curveInterval = parameters[12];
   curveActivateEndSensorOffset = parameters[13];
+  sensorDebugInterval = parameters[14];
+  sensorDebugReadGap = parameters[15];
 }
+
+
 
 
 
