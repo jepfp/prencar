@@ -110,7 +110,9 @@ lineFollowWhiteThreshold:%%
 curveSpeedSlowMotor:%%
 curveSpeedFastMotor:%%
 curveInterval:%%
-curveActivateEndSensorOffset:%%");
+curveActivateEndSensorOffset:%%
+sensorDebugInterval:%%
+sensorDebugReadGap:%%");
             messages.Add(205, "Starting parcours at state %%.");
             #endregion
 
