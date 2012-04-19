@@ -31,6 +31,7 @@ rightFrontSensor: %%");
 leftSensor: %%
 rightSensor: %%");
             messages.Add(3, @"Value of _deltasensor: %%");
+            messages.Add(4, @"Value of _deltaPWM: %%");
             #endregion
 
             #region 50-99 Debug
@@ -67,6 +68,8 @@ newAverageSpeed: %%");
             messages.Add(63, "Lift cube started...");
             messages.Add(64, "Finishing lift cube by lifting up host...");
             messages.Add(65, "Set hoist position to %%.");
+            messages.Add(66, @"Left line sensor detected white ground (Value: %%).");
+            messages.Add(67, @"Start driving curve left.");
             #endregion
 
             #region 100-149 Information
@@ -77,6 +80,7 @@ newAverageSpeed: %%");
 
             #region 150-199 Error
             messages.Add(150, "No empty spot found for new command. Discarding command!!");
+            messages.Add(151, "The state %% does not exist or is not yet implemented. Highest implemented state at the moment: %%");
             #endregion
 
             #region 200-255 User Information
@@ -102,7 +106,12 @@ lineFollowInitialSpeedRight:%%
 lineFollowInterval:%%
 lineFollowKp:%%
 lineFollowKd:%%
-lineFollowWhiteThreshold:%%");
+lineFollowWhiteThreshold:%%
+curveSpeedSlowMotor:%%
+curveSpeedFastMotor:%%
+curveInterval:%%
+curveActivateEndSensorOffset:%%");
+            messages.Add(205, "Starting parcours at state %%.");
             #endregion
 
             //messages.Add(51, @"");

@@ -98,6 +98,10 @@ namespace prencar
                 conf.parseFileConfiguration(message.MessageCombined);
                 conf.Title = "Current Configuration on Car";
             }
+            else if (message.MessageCode == 100)
+            {
+                remoteChangedParcoursState((ParcoursState)message.Parameters[0]);
+            }
             tbSerialInput.Text += "\n\n" + message.MessageCombined;
             tbSerialInput.ScrollToEnd();
         }
@@ -153,17 +157,22 @@ namespace prencar
 
         private void btnStartStoppParcours_Click(object sender, RoutedEventArgs e)
         {
-            if (parcoursState == ParcoursState.notStarted)
+            if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
             {
-                sc.SendCommand("300-0:");
-                changeParcoursState(ParcoursState.followingFirstLine);
-                btnStartStoppParcours.Content = "Stop";
+                if (lbState.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Fehler, kein Start-Status in der List-Box selektiert.");
+                    return;
+                }
+                else if (lbState.SelectedIndex != 0)
+                {
+                    MessageBox.Show("The parcours will be started with the state " + lbState.Items.GetItemAt(lbState.SelectedIndex));
+                }
+                sc.SendCommand("300-1:" + lbState.SelectedIndex);
             }
             else
             {
-                sc.SendCommand("301-0:");
                 changeParcoursState(ParcoursState.notStarted);
-                btnStartStoppParcours.Content = "Start";
             }
         }
 
@@ -171,6 +180,30 @@ namespace prencar
         {
             parcoursState = newState;
             lbState.SelectedIndex = (int)newState;
+
+            if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
+            {
+                sc.SendCommand("300-1:" + (int)newState);
+            }
+            else
+            {
+                sc.SendCommand("301-0:");
+            }
+        }
+
+        private void remoteChangedParcoursState(ParcoursState newState)
+        {
+            parcoursState = newState;
+            lbState.SelectedIndex = (int)newState;
+
+            if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
+            {
+                btnStartStoppParcours.Content = "Start";
+            }
+            else
+            {
+                btnStartStoppParcours.Content = "Stop";
+            }
         }
 
         private void btnOpenLiveControl_Click(object sender, RoutedEventArgs e)

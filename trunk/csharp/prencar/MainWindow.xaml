@@ -57,7 +57,7 @@
             <Expander Header="Board connection" Name="expBoardConnection" IsExpanded="True">
                 <Grid>
                     <Label Content="Com port:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" />
-                    <TextBox Height="23" Margin="75,8,6,0" Name="tbComport" VerticalAlignment="Top" Text="COM20" />
+                    <TextBox Height="23" Margin="75,8,6,0" Name="tbComport" VerticalAlignment="Top" Text="COM23" />
                     <Button Height="23" Margin="75,40,6,0" Name="btnSerialConnectDisconnect" VerticalAlignment="Top" Content="Connect" Click="btnSerialConnectDisconnect_Click" />
                 </Grid>
             </Expander>

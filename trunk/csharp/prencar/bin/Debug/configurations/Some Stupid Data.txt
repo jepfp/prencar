@@ -1,9 +1,0 @@
-_CONFIGURATIONVERSION:1
-_SERIALSPEED:9600
-messageFilterLevel:0
-lineFollowInitialSpeedLeft:128
-lineFollowInitialSpeedRight:12
-lineCorrectionDuration:0
-lineFollowKp:5
-lineFollowKd:25
-lineFollowWhiteThreshold:24

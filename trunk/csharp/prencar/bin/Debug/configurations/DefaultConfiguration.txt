@@ -4,7 +4,11 @@ messageFilterLevel:49
 doJobDelay:0
 lineFollowInitialSpeedLeft:120
 lineFollowInitialSpeedRight:120
-lineCorrectionDuration:1200
+lineFollowInterval:0
 lineFollowKp:5
 lineFollowKd:25
 lineFollowWhiteThreshold:300
+curveSpeedSlowMotor:40
+curveSpeedFastMotor:100
+curveInterval:0
+curveActivateEndSensorOffset:500
