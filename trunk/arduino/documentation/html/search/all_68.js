@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hasreachedline',['hasReachedLine',['../class_line_follow.html#a48dac746e582df53a191bbb6f6c9ef28',1,'LineFollow']]]
+  ['hasreachedcurve',['hasReachedCurve',['../class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d',1,'LineFollow']]]
 ];

@@ -128,45 +128,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00012"></a>00012   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48">begin</a>();
 <a name="l00013"></a>00013   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
 <a name="l00014"></a>00014   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors.">calibrateSensors</a>();
-<a name="l00015"></a><a class="code" href="class_line_follow.html#a48dac746e582df53a191bbb6f6c9ef28">00015</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_line_follow.html#a48dac746e582df53a191bbb6f6c9ef28">hasReachedLine</a>; 
+<a name="l00015"></a><a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d">00015</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a>; 
 <a name="l00016"></a>00016   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">startIt</a>();
-<a name="l00017"></a>00017 <span class="keyword">private</span>:
+<a name="l00017"></a>00017 <span class="keyword">protected</span>:
 <a name="l00018"></a><a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a">00018</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a>; 
 <a name="l00019"></a><a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6">00019</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>; 
 <a name="l00020"></a><a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e">00020</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a>; 
 <a name="l00021"></a><a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba">00021</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a>; 
 <a name="l00022"></a>00022 
-<a name="l00023"></a><a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e">00023</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a>; 
-<a name="l00024"></a><a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">00024</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>; 
-<a name="l00025"></a><a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">00025</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a>; 
-<a name="l00026"></a><a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">00026</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>; 
-<a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718">00028</a>   <a class="code" href="class_communication.html">Communication</a>* <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>; 
-<a name="l00029"></a><a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">00029</a>   <a class="code" href="class_move.html">Move</a>* <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>; 
-<a name="l00030"></a><a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f">00030</a>   <a class="code" href="class_configuration.html">Configuration</a>* <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>; 
-<a name="l00031"></a>00031 
-<a name="l00037"></a><a class="code" href="class_line_follow.html#a00b50369d005edbfe81937c77713cf8c">00037</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_line_follow.html#a00b50369d005edbfe81937c77713cf8c">_timeSinceCorrectionStarted</a>;
+<a name="l00023"></a><a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718">00023</a>   <a class="code" href="class_communication.html">Communication</a>* <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>; 
+<a name="l00024"></a><a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">00024</a>   <a class="code" href="class_move.html">Move</a>* <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>; 
+<a name="l00025"></a><a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f">00025</a>   <a class="code" href="class_configuration.html">Configuration</a>* <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>; 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">readFrontLineSensors</a>(<span class="keywordtype">int</span>* resultArray);
+<a name="l00028"></a>00028   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">readLineSensors</a>(<span class="keywordtype">int</span>* resultArray);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">private</span>:
+<a name="l00031"></a><a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e">00031</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a>; 
+<a name="l00032"></a><a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">00032</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>; 
+<a name="l00033"></a><a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">00033</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a>; 
+<a name="l00034"></a><a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">00034</a>   <span class="keywordtype">int</span> <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>; 
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 <span class="preprocessor">#endif</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">readFrontLineSensors</a>(<span class="keywordtype">int</span>* resultArray);
-<a name="l00040"></a>00040   <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">readLineSensors</a>(<span class="keywordtype">int</span>* resultArray);
-<a name="l00041"></a>00041 };
-<a name="l00042"></a>00042 <span class="preprocessor">#endif</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span>
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_line_follow_8h.html">LineFollow.h</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 5 2012 10:37:11 for prencar by
+    <li class="footer">Generated on Thu Apr 19 2012 09:19:39 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

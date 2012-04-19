@@ -19,6 +19,8 @@ var searchData=
   ['_5finstance',['_instance',['../class_communication.html#ab0959d51f9cb9ee0ea2547b74856f283',1,'Communication::_instance()'],['../class_configuration.html#a33a4ec5f460471c076a0b74b48aa7bbe',1,'Configuration::_instance()'],['../class_lift_cube.html#a93b949abb4659fd6801c8b5c53d17f49',1,'LiftCube::_instance()'],['../class_move.html#a1ce3157933da403944e754b380365c93',1,'Move::_instance()'],['../class_state_maschine.html#ae63367f6117a93b862973b7756ce515c',1,'StateMaschine::_instance()']]],
   ['_5finstancecreated',['_instanceCreated',['../class_communication.html#ad7d224755b1c47a1b5e6ce0d018492bb',1,'Communication::_instanceCreated()'],['../class_configuration.html#a30bcffe1c1a3b15d41d824f9a1570bf6',1,'Configuration::_instanceCreated()'],['../class_lift_cube.html#a4cec38045e6a075620851c7c848c0584',1,'LiftCube::_instanceCreated()'],['../class_move.html#ab5a52d3f029707c767ef27a44fa5269a',1,'Move::_instanceCreated()'],['../class_state_maschine.html#a9c60433a0d4dba03bfe5422c0896b4ba',1,'StateMaschine::_instanceCreated()']]],
   ['_5flastbuffercharacter',['_lastBufferCharacter',['../class_communication.html#acfaf4176401e364e3b0476a6eb220817',1,'Communication']]],
+  ['_5fliftcube',['_liftCube',['../class_state_maschine.html#a47fe78de48af82060f3f40399ef2c2d2',1,'StateMaschine']]],
+  ['_5fliftdownstarttimestamp',['_liftDownStartTimestamp',['../class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc',1,'LiftCube']]],
   ['_5fmessagefilterlevel',['_messageFilterLevel',['../class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba',1,'Configuration']]],
   ['_5fmodefirstleftpin',['_modeFirstLeftPin',['../class_move.html#a764f1ffe93f4a0793257351fdc1297eb',1,'Move']]],
   ['_5fmodefirstrightpin',['_modeFirstRightPin',['../class_move.html#acce4bc3657e0c5e0b9e0360306dcb1ad',1,'Move']]],
@@ -38,6 +40,7 @@ var searchData=
   ['_5fserialspeed',['_SERIALSPEED',['../class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77',1,'Configuration']]],
   ['_5fspeedleft',['_speedLeft',['../class_move.html#ada9423f195c9ee65b5448fcaabb96877',1,'Move']]],
   ['_5fspeedright',['_speedRight',['../class_move.html#a13362460beddf2de2415d51f3ed70841',1,'Move']]],
-  ['_5ftimelastlinefollowcheck',['_timeLastLineFollowCheck',['../class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e',1,'LineFollow']]],
-  ['_5ftimesincecorrectionstarted',['_timeSinceCorrectionStarted',['../class_line_follow.html#a00b50369d005edbfe81937c77713cf8c',1,'LineFollow']]]
+  ['_5ftimecurveleftstarted',['_timeCurveLeftStarted',['../class_curve_left.html#a3f46785750e729247f26099a93cfaeb9',1,'CurveLeft']]],
+  ['_5ftimelastcurveleftcheck',['_timeLastCurveLeftCheck',['../class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6',1,'CurveLeft']]],
+  ['_5ftimelastlinefollowcheck',['_timeLastLineFollowCheck',['../class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e',1,'LineFollow']]]
 ];

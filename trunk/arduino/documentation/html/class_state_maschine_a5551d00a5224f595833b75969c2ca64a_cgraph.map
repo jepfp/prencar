@@ -1,15 +1,16 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="779,120,1178,147"/>
-<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1249,145,1397,172"/>
-<area shape="rect" id="node9" href="$class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="885,19,1073,45"/>
-<area shape="rect" id="node12" href="$class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="284,221,479,248"/>
-<area shape="rect" id="node16" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="909,272,1048,299"/>
-<area shape="rect" id="node26" href="$class_configuration.html#a13c417c35f720cae9917b7bed7ceb159" title="Configuration::updateConfiguration" alt="" coords="272,373,491,400"/>
-<area shape="rect" id="node30" href="$class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23" title="StateMaschine::stopParcours" alt="" coords="284,171,479,197"/>
-<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1467,145,1701,172"/>
-<area shape="rect" id="node14" href="$class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="573,272,697,299"/>
-<area shape="rect" id="node23" href="$class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="539,221,730,248"/>
-<area shape="rect" id="node19" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1231,297,1414,324"/>
-<area shape="rect" id="node21" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1227,247,1419,273"/>
-<area shape="rect" id="node32" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="557,171,713,197"/>
+<area shape="rect" id="node3" href="$class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="779,112,1178,139"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1249,163,1397,189"/>
+<area shape="rect" id="node9" href="$class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="885,163,1073,189"/>
+<area shape="rect" id="node13" href="$class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23" title="StateMaschine::stopParcours" alt="" coords="284,213,479,240"/>
+<area shape="rect" id="node21" href="$class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="284,264,479,291"/>
+<area shape="rect" id="node26" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="909,315,1048,341"/>
+<area shape="rect" id="node33" href="$class_configuration.html#a13c417c35f720cae9917b7bed7ceb159" title="Configuration::updateConfiguration" alt="" coords="272,416,491,443"/>
+<area shape="rect" id="node36" href="$class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="549,11,721,37"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1467,163,1701,189"/>
+<area shape="rect" id="node15" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="557,213,713,240"/>
+<area shape="rect" id="node18" href="$class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="539,264,730,291"/>
+<area shape="rect" id="node24" href="$class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="573,315,697,341"/>
+<area shape="rect" id="node29" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1231,340,1414,367"/>
+<area shape="rect" id="node31" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1227,289,1419,316"/>
 </map>

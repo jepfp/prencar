@@ -1,5 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_line_follow_8cpp.html" title="D:/Workspace/Arduino/prencar/LineFollow.cpp" alt="" coords="5,80,296,107"/>
-<area shape="rect" id="node5" href="$_state_maschine_8h.html" title="D:/Workspace/Arduino/prencar/StateMaschine.h" alt="" coords="321,80,623,107"/>
-<area shape="rect" id="node7" href="$_state_maschine_8cpp.html" title="D:/Workspace/Arduino/prencar/StateMaschine.cpp" alt="" coords="314,155,629,181"/>
+<area shape="rect" id="node3" href="$_curve_left_8h.html" title="D:/Workspace/Arduino/prencar/CurveLeft.h" alt="" coords="158,80,425,107"/>
+<area shape="rect" id="node7" href="$_state_maschine_8h.html" title="D:/Workspace/Arduino/prencar/StateMaschine.h" alt="" coords="313,155,615,181"/>
+<area shape="rect" id="node11" href="$_line_follow_8cpp.html" title="D:/Workspace/Arduino/prencar/LineFollow.cpp" alt="" coords="501,80,792,107"/>
+<area shape="rect" id="node5" href="$_curve_left_8cpp.html" title="D:/Workspace/Arduino/prencar/CurveLeft.cpp" alt="" coords="5,155,288,181"/>
+<area shape="rect" id="node9" href="$_state_maschine_8cpp.html" title="D:/Workspace/Arduino/prencar/StateMaschine.cpp" alt="" coords="306,229,621,256"/>
 </map>

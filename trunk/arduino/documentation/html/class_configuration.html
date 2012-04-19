@@ -79,6 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -181,6 +182,14 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ac8a8b2bf842c6559c30c11436eff5c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pwm value to set if the hoist has to be moved up fully.  <a href="#ac8a8b2bf842c6559c30c11436eff5c83"></a><br/></td></tr>
 <tr class="memitem:a3c887c3a7f7aa88ee549c81a62cf1c9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c">liftCubeDownUpDuration</a></td></tr>
 <tr class="memdesc:a3c887c3a7f7aa88ee549c81a62cf1c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time in milliseconds between the liftDown and the liftUp command of the method <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">LiftCube::liftCube()</a>  <a href="#a3c887c3a7f7aa88ee549c81a62cf1c9c"></a><br/></td></tr>
+<tr class="memitem:abb72b12442f449f9e1cb31c444b40927"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#abb72b12442f449f9e1cb31c444b40927">curveSpeedSlowMotor</a></td></tr>
+<tr class="memdesc:abb72b12442f449f9e1cb31c444b40927"><td class="mdescLeft">&#160;</td><td class="mdescRight">The speed of the slower motor (in a left curve, left motor) during a 90° curve.  <a href="#abb72b12442f449f9e1cb31c444b40927"></a><br/></td></tr>
+<tr class="memitem:a5bca21a22d225315fca8088a4668d20c"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#a5bca21a22d225315fca8088a4668d20c">curveSpeedFastMotor</a></td></tr>
+<tr class="memdesc:a5bca21a22d225315fca8088a4668d20c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The speed of the faster motor (in a left curve, right motor) during a 90° curve.  <a href="#a5bca21a22d225315fca8088a4668d20c"></a><br/></td></tr>
+<tr class="memitem:aa2238d49c21c52f8e86ff0ac80aff034"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#aa2238d49c21c52f8e86ff0ac80aff034">curveInterval</a></td></tr>
+<tr class="memdesc:aa2238d49c21c52f8e86ff0ac80aff034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interval in milliseconds in which the curve job shall be executed.  <a href="#aa2238d49c21c52f8e86ff0ac80aff034"></a><br/></td></tr>
+<tr class="memitem:adec850d0b0519d7a799841e6086a777d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#adec850d0b0519d7a799841e6086a777d">curveActivateEndSensorOffset</a></td></tr>
+<tr class="memdesc:adec850d0b0519d7a799841e6086a777d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated. In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left" procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started.  <a href="#adec850d0b0519d7a799841e6086a777d"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a779947337bf652f0e773cb29f37f14ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba">Configuration</a> ()</td></tr>
@@ -251,7 +260,7 @@ Here is the caller graph for this function:</div>
 <p>Returns the version of the configuration. This value will be increased in case of a new set of configuration values is applied. </p>
 <dl class="section return"><dt>Returns:</dt><dd>version </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00050">50</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00055">55</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -272,12 +281,12 @@ Here is the caller graph for this function:</div>
 <p>Sends the whole current configuration as it is stored on the microcontroller at the moment. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">spaceForConfigValues</td><td>Pointer to a long array with 10 spaces to store the current configuration. </td></tr>
+    <tr><td class="paramname">spaceForConfigValues</td><td>Pointer to a long array with 14 spaces to store the current configuration. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00169">169</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00174">174</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -345,14 +354,14 @@ Here is the caller graph for this function:</div>
  Default level: 0 </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">Communication::send()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00068">68</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00073">73</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_configuration_ad398e1915b07ffc4091d4d5827bd6c6e_icgraph.png" border="0" usemap="#class_configuration_ad398e1915b07ffc4091d4d5827bd6c6e_icgraph" alt=""/></div>
 <map name="class_configuration_ad398e1915b07ffc4091d4d5827bd6c6e_icgraph" id="class_configuration_ad398e1915b07ffc4091d4d5827bd6c6e_icgraph">
-<area shape="rect" id="node3" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="289,425,437,451"/><area shape="rect" id="node5" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="934,45,1226,71"/><area shape="rect" id="node9" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="486,146,885,173"/><area shape="rect" id="node14" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="1517,323,1736,350"/><area shape="rect" id="node18" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="553,95,818,122"/><area shape="rect" id="node21" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="1309,602,1435,629"/><area shape="rect" id="node24" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="971,602,1189,629"/><area shape="rect" id="node27" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="986,653,1174,679"/><area shape="rect" id="node30" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="1278,202,1466,229"/><area shape="rect" id="node33" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="607,247,763,274"/><area shape="rect" id="node38" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="616,399,755,426"/><area shape="rect" id="node45" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="994,450,1166,477"/><area shape="rect" id="node47" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="933,551,1227,578"/><area shape="rect" id="node53" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692" title="Move::equalizeMotorsSpeed" alt="" coords="593,754,778,781"/><area shape="rect" id="node56" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="590,298,781,325"/><area shape="rect" id="node7" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="1295,70,1449,97"/><area shape="rect" id="node11" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="969,95,1191,122"/><area shape="rect" id="node16" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="1785,394,1935,421"/><area shape="rect" id="node35" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23" title="StateMaschine::stopParcours" alt="" coords="983,247,1177,274"/><area shape="rect" id="node40" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="1018,349,1142,375"/><area shape="rect" id="node42" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="1275,323,1469,350"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="289,512,437,539"/><area shape="rect" id="node5" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="539,5,831,32"/><area shape="rect" id="node9" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="486,107,885,133"/><area shape="rect" id="node14" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="1517,284,1736,311"/><area shape="rect" id="node18" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="553,56,818,83"/><area shape="rect" id="node21" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="1022,411,1138,437"/><area shape="rect" id="node24" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="1313,563,1431,589"/><area shape="rect" id="node27" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6" title="LiftCube::doJob" alt="" coords="1317,841,1427,868"/><area shape="rect" id="node29" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="1312,993,1432,1020"/><area shape="rect" id="node31" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="599,892,771,919"/><area shape="rect" id="node40" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="1309,652,1435,679"/><area shape="rect" id="node43" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="576,765,795,792"/><area shape="rect" id="node46" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="986,613,1174,640"/><area shape="rect" id="node50" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="1278,208,1466,235"/><area shape="rect" id="node53" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="1002,360,1158,387"/><area shape="rect" id="node61" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="616,461,755,488"/><area shape="rect" id="node70" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="994,512,1166,539"/><area shape="rect" id="node72" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="933,664,1227,691"/><area shape="rect" id="node78" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692" title="Move::equalizeMotorsSpeed" alt="" coords="593,1069,778,1096"/><area shape="rect" id="node81" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="985,259,1175,285"/><area shape="rect" id="node7" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="1295,5,1449,32"/><area shape="rect" id="node11" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="969,56,1191,83"/><area shape="rect" id="node16" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="1785,461,1935,488"/><area shape="rect" id="node33" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="1027,867,1133,893"/><area shape="rect" id="node36" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="1019,968,1141,995"/><area shape="rect" id="node58" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23" title="StateMaschine::stopParcours" alt="" coords="1275,259,1469,285"/><area shape="rect" id="node64" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="1018,461,1142,488"/><area shape="rect" id="node67" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="1275,360,1469,387"/></map>
 </div>
 </p>
 
@@ -373,7 +382,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">_moveModeFirstLeftPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00112">112</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00117">117</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -401,7 +410,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a2fdf55feb1a8b3ecde58405c67afe698">_moveModeFirstRightPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00140">140</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00145">145</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -429,7 +438,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a5d540af2975a193c360ce32847d96c21">_moveModeSecondLeftPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00126">126</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00131">131</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -457,7 +466,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a6232e7ba37ad172f80c5248239bd8f9b">_moveModeSecondRightPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00154">154</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00159">159</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -485,7 +494,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00084">84</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00089">89</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -513,7 +522,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00098">98</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00103">103</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -542,7 +551,7 @@ Here is the caller graph for this function:</div>
 <p>Returns the serial data rate used for the communication between the board and the host computer. </p>
 <dl class="section return"><dt>Returns:</dt><dd>speed </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00058">58</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00063">63</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -573,7 +582,7 @@ Here is the caller graph for this function:</div>
  </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">Communication::send()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00077">77</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00082">82</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -593,7 +602,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a04b90bd7b81fc535be0371f86cb36242">_moveModeFirstLeftPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00119">119</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00124">124</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -613,7 +622,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a2fdf55feb1a8b3ecde58405c67afe698">_moveModeFirstRightPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00147">147</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00152">152</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -633,7 +642,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a5d540af2975a193c360ce32847d96c21">_moveModeSecondLeftPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00133">133</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00138">138</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +662,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a6232e7ba37ad172f80c5248239bd8f9b">_moveModeSecondRightPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00161">161</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00166">166</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -673,7 +682,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00091">91</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00096">96</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -693,7 +702,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00105">105</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00110">110</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 </div>
 </div>
@@ -711,15 +720,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<p>Updates all configuration values according to the given parameters. </p>
+<p>Updates all configuration values according to the given parameters.</p>
+<p><b>WARNING: Be aware of the fact that the Serial library of the Arduino board at the moment only accepts 60 characters at the time (because of a ring buffer). If more configuration values are added, we have to adjust that ring buffer in the core libs!!!!</b> </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">parameters</td><td>Pointer to a long array with 10 parameters. </td></tr>
+    <tr><td class="paramname">parameters</td><td>Pointer to a long array with 14 parameters. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Add a check for the configuration version! </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00186">186</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00199">199</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -904,6 +915,74 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="adec850d0b0519d7a799841e6086a777d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_configuration.html#adec850d0b0519d7a799841e6086a777d">Configuration::curveActivateEndSensorOffset</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated. In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left" procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started. </p>
+
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00080">80</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2238d49c21c52f8e86ff0ac80aff034"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_configuration.html#aa2238d49c21c52f8e86ff0ac80aff034">Configuration::curveInterval</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Interval in milliseconds in which the curve job shall be executed. </p>
+
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00075">75</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5bca21a22d225315fca8088a4668d20c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_configuration.html#a5bca21a22d225315fca8088a4668d20c">Configuration::curveSpeedFastMotor</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The speed of the faster motor (in a left curve, right motor) during a 90° curve. </p>
+
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00074">74</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abb72b12442f449f9e1cb31c444b40927"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_configuration.html#abb72b12442f449f9e1cb31c444b40927">Configuration::curveSpeedSlowMotor</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The speed of the slower motor (in a left curve, left motor) during a 90° curve. </p>
+
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00073">73</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aca67601e35566058e2bca41b7188469e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1050,7 +1129,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_configuration_8h_source.html#l00066">66</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
@@ -1066,7 +1145,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_configuration_8h_source.html#l00062">62</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
@@ -1162,7 +1241,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_configuration.html">Configuration</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 5 2012 10:37:11 for prencar by
+    <li class="footer">Generated on Thu Apr 19 2012 09:19:39 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

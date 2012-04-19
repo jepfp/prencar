@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_line_follow.html" title="LineFollow" alt="" coords="121,277,204,304"/>
+<area shape="rect" id="node4" href="$class_move.html" title="Move" alt="" coords="137,187,188,213"/>
+<area shape="rect" id="node7" href="$class_communication.html" title="Communication" alt="" coords="5,96,117,123"/>
+<area shape="rect" id="node9" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="11,5,92,32"/>
+<area shape="rect" id="node12" href="$class_configuration.html" title="Configuration" alt="" coords="202,5,299,32"/>
+</map>

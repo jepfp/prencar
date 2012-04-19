@@ -148,36 +148,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00047"></a>00047   pinMode(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a25401bc6511b005d70f71e4b72f71c03" title="The pin where the servo motor of the hoist is connected to.">liftCubePwmPin</a>, OUTPUT);
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00054"></a><a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">00054</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">LiftCube::liftUp</a>()
-<a name="l00055"></a>00055 {
-<a name="l00056"></a>00056   <a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af6652efed17691fef4fa435e38c1642f" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeUpPosition</a>);
-<a name="l00057"></a>00057 }
-<a name="l00058"></a>00058 
-<a name="l00063"></a><a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">00063</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">LiftCube::liftDown</a>()
-<a name="l00064"></a>00064 {
-<a name="l00065"></a>00065   <a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeDownPosition</a>);
-<a name="l00066"></a>00066 }
-<a name="l00067"></a>00067 
-<a name="l00076"></a><a class="code" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">00076</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">LiftCube::liftCube</a>()
+<a name="l00054"></a><a class="code" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6">00054</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6">LiftCube::doJob</a>(){
+<a name="l00055"></a>00055   <span class="keywordflow">if</span>(<a class="code" href="class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc" title="Saves the timestamp when the method liftCube is called to know when it&#39;s time to lift up again...">_liftDownStartTimestamp</a> != 0 &amp;&amp; millis() &gt; <a class="code" href="class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc" title="Saves the timestamp when the method liftCube is called to know when it&#39;s time to lift up again...">_liftDownStartTimestamp</a> + <a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c" title="Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()">liftCubeDownUpDuration</a>){
+<a name="l00056"></a>00056     <span class="comment">//move the hoist up</span>
+<a name="l00057"></a>00057     <a class="code" href="class_lift_cube.html#afb428580284ed0c38d6cf3745904d060" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(64);
+<a name="l00058"></a>00058     <a class="code" href="class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc" title="Saves the timestamp when the method liftCube is called to know when it&#39;s time to lift up again...">_liftDownStartTimestamp</a> = 0;
+<a name="l00059"></a>00059     <a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">liftUp</a>();
+<a name="l00060"></a>00060   }
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00067"></a><a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">00067</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">LiftCube::liftUp</a>()
+<a name="l00068"></a>00068 {
+<a name="l00069"></a>00069   <a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af6652efed17691fef4fa435e38c1642f" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeUpPosition</a>);
+<a name="l00070"></a>00070 }
+<a name="l00071"></a>00071 
+<a name="l00076"></a><a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">00076</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">LiftCube::liftDown</a>()
 <a name="l00077"></a>00077 {
 <a name="l00078"></a>00078   <a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeDownPosition</a>);
-<a name="l00079"></a>00079   
-<a name="l00080"></a>00080   
-<a name="l00081"></a>00081     <a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83" title="Pwm value to set if the hoist has to be moved up fully.">liftCubeDownPosition</a>);
-<a name="l00082"></a>00082 }
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084 <span class="keywordtype">void</span> <a class="code" href="_lift_cube_8cpp.html#a72fc087dc9db86343d0f69fd981c0e0c">liftUp</a>();
-<a name="l00085"></a>00085   <span class="keywordtype">void</span> <a class="code" href="_lift_cube_8cpp.html#a1c902c7e887eeb776ecd3601cc052f40">liftDown</a>();
-<a name="l00086"></a>00086   <span class="keywordtype">void</span> <a class="code" href="_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3">liftCube</a>();
-<a name="l00087"></a>00087   
-<a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="_lift_cube_8cpp.html#a373bf2ee5d42f07dd8b1339e4bcd5b22">setHoistPosition</a>(byte pos);
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00089"></a><a class="code" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">00089</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">LiftCube::liftCube</a>()
+<a name="l00090"></a>00090 {
+<a name="l00091"></a>00091   <a class="code" href="class_lift_cube.html#afb428580284ed0c38d6cf3745904d060" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(63);
+<a name="l00092"></a>00092   <a class="code" href="class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc" title="Saves the timestamp when the method liftCube is called to know when it&#39;s time to lift up again...">_liftDownStartTimestamp</a> = millis();
+<a name="l00093"></a>00093   <a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">liftDown</a>();
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00099"></a><a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">00099</a> <span class="keywordtype">void</span> <a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">LiftCube::setHoistPosition</a>(byte pos){
+<a name="l00100"></a>00100   <a class="code" href="class_lift_cube.html#afb428580284ed0c38d6cf3745904d060" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(65, pos);
+<a name="l00101"></a>00101   analogWrite(<a class="code" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a25401bc6511b005d70f71e4b72f71c03" title="The pin where the servo motor of the hoist is connected to.">liftCubePwmPin</a>, pos);
+<a name="l00102"></a>00102 }
+<a name="l00103"></a>00103 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_lift_cube_8cpp.html">LiftCube.cpp</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 5 2012 10:37:11 for prencar by
+    <li class="footer">Generated on Thu Apr 19 2012 09:19:39 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

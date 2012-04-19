@@ -1,6 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0" title="StateMaschine::getInstance" alt="" coords="203,27,387,53"/>
-<area shape="rect" id="node8" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="233,105,356,132"/>
+<area shape="rect" id="node3" href="$class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0" title="StateMaschine::getInstance" alt="" coords="203,41,387,68"/>
+<area shape="rect" id="node8" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="233,92,356,119"/>
+<area shape="rect" id="node40" href="$class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="237,143,352,169"/>
 <area shape="rect" id="node5" href="$class_state_maschine.html#a869746d152d0a38b8d6142da3b420e85" title="StateMaschine::StateMaschine" alt="" coords="435,12,639,39"/>
 <area shape="rect" id="node10" href="$class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="444,63,631,89"/>
 <area shape="rect" id="node17" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="474,120,601,147"/>

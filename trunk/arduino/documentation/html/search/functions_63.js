@@ -9,5 +9,6 @@ var searchData=
   ['communication',['Communication',['../class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689',1,'Communication']]],
   ['configuration',['Configuration',['../class_configuration.html#a779947337bf652f0e773cb29f37f14ba',1,'Configuration']]],
   ['controlmotors',['controlMotors',['../class_move.html#a9c5dc5c3a98abece0c2f40085c3601be',1,'Move']]],
-  ['copybytesuntil',['copyBytesUntil',['../class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537',1,'Command']]]
+  ['copybytesuntil',['copyBytesUntil',['../class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537',1,'Command']]],
+  ['curveleft',['CurveLeft',['../class_curve_left.html#ad874ee9409da16dccd20549e6c2726b5',1,'CurveLeft']]]
 ];

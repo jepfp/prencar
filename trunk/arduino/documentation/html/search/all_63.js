@@ -17,5 +17,12 @@ var searchData=
   ['configuration_2eh',['Configuration.h',['../_configuration_8h.html',1,'']]],
   ['controlmotors',['controlMotors',['../class_move.html#a9c5dc5c3a98abece0c2f40085c3601be',1,'Move']]],
   ['copybytesuntil',['copyBytesUntil',['../class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537',1,'Command']]],
-  ['cubeapproach',['cubeApproach',['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f',1,'StateMaschine.h']]]
+  ['cubeapproach',['cubeApproach',['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f',1,'StateMaschine.h']]],
+  ['curveactivateendsensoroffset',['curveActivateEndSensorOffset',['../class_configuration.html#adec850d0b0519d7a799841e6086a777d',1,'Configuration']]],
+  ['curveinterval',['curveInterval',['../class_configuration.html#aa2238d49c21c52f8e86ff0ac80aff034',1,'Configuration']]],
+  ['curveleft',['CurveLeft',['../class_curve_left.html',1,'CurveLeft'],['../class_state_maschine.html#a705593d70b7955850568e80694c27e35',1,'StateMaschine::curveLeft()'],['../class_curve_left.html#ad874ee9409da16dccd20549e6c2726b5',1,'CurveLeft::CurveLeft()']]],
+  ['curveleft_2ecpp',['CurveLeft.cpp',['../_curve_left_8cpp.html',1,'']]],
+  ['curveleft_2eh',['CurveLeft.h',['../_curve_left_8h.html',1,'']]],
+  ['curvespeedfastmotor',['curveSpeedFastMotor',['../class_configuration.html#a5bca21a22d225315fca8088a4668d20c',1,'Configuration']]],
+  ['curvespeedslowmotor',['curveSpeedSlowMotor',['../class_configuration.html#abb72b12442f449f9e1cb31c444b40927',1,'Configuration']]]
 ];

@@ -18,6 +18,5 @@ var class_line_follow =
     [ "_move", "class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd", null ],
     [ "_sensoralt", "class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7", null ],
     [ "_timeLastLineFollowCheck", "class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e", null ],
-    [ "_timeSinceCorrectionStarted", "class_line_follow.html#a00b50369d005edbfe81937c77713cf8c", null ],
-    [ "hasReachedLine", "class_line_follow.html#a48dac746e582df53a191bbb6f6c9ef28", null ]
+    [ "hasReachedCurve", "class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d", null ]
 ];
