@@ -58,7 +58,10 @@
       <HintPath>D3\DynamicDataDisplay.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,9 +70,12 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -79,11 +85,20 @@
     <Compile Include="ch\jep\McCommunication\ConfigProperty.cs" />
     <Compile Include="ch\jep\McCommunication\Message.cs" />
     <Compile Include="ch\jep\McCommunication\MessageManager.cs" />
+    <Compile Include="ch\jep\McCommunication\SensorObserve\SensorJunctionPoint.cs" />
+    <Compile Include="ch\jep\McCommunication\SensorObserve\SensorViewer.xaml.cs">
+      <DependentUpon>SensorViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ch\jep\McCommunication\SerialCommunication.cs" />
+    <Compile Include="DebugOutputHandler.cs" />
     <Compile Include="LiveControl.xaml.cs">
       <DependentUpon>LiveControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Page Include="ch\jep\McCommunication\SensorObserve\SensorViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LiveControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +224,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\rotateRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chart_curve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\controller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\page_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,6 +16,8 @@ using Microsoft.Research.DynamicDataDisplay.DataSources;
 using Microsoft.Research.DynamicDataDisplay.PointMarkers;
 using ch.jep.McCommunication;
 using ch.hslu.prencar;
+using ch.jep.McCommunication.SensorObserve;
+using ch.hslu.prencar.Properties;
 
 namespace prencar
 {
@@ -26,6 +28,7 @@ namespace prencar
     {
         SerialCommunication sc = new SerialCommunication();
         McConfiguration conf = new McConfiguration();
+        DebugOutputHandler debug;
 
         enum ParcoursState
         {
@@ -48,40 +51,9 @@ namespace prencar
         {
             InitializeComponent();
 
+            debug = new DebugOutputHandler(Settings.Default.DebugFilesPath);
+
             conf.ConfigUpdated += new ConfigUpdatedEventHandler(conf_ConfigUpdated);
-        }
-
-        void conf_ConfigUpdated(object sender)
-        {
-            lblConfigurationVersion.Content = ((McConfiguration)sender).get("_CONFIGURATIONVERSION");
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Prepare data in arrays
-            const int N = 180;
-            double[] x = new double[N];
-            double[] y = new double[N];
-
-            for (int i = 0; i < N; i++)
-            {
-                x[i] = i;
-                y[i] = Math.Sin(i);
-            }
-
-            // Create data sources:
-            var xDataSource = x.AsXDataSource();
-            var yDataSource = y.AsYDataSource();
-
-            CompositeDataSource compositeDataSource = xDataSource.Join(yDataSource);
-            // adding graph to plotter
-            plotter.AddLineGraph(compositeDataSource,
-                Colors.Goldenrod,
-                3,
-                "Distance");
-
-            // Force evertyhing plotted to be visible
-            plotter.FitToView();
         }
 
         #region Communication
@@ -102,8 +74,19 @@ namespace prencar
             {
                 remoteChangedParcoursState((ParcoursState)message.Parameters[0]);
             }
-            tbSerialInput.Text += "\n\n" + message.MessageCombined;
-            tbSerialInput.ScrollToEnd();
+            appendDebugText(message.MessageCombined);
+        }
+
+        private void appendDebugText(string p)
+        {
+            if (btnShowDebugOutput.IsChecked == true)
+            {
+                int substringStartindex = tbSerialInput.Text.Length - 1000;
+                if (substringStartindex < 0) substringStartindex = 0;
+                tbSerialInput.Text = (tbSerialInput.Text + "\n\n" + p).Substring(substringStartindex);
+                tbSerialInput.ScrollToEnd();
+            }
+            debug.Append(p);
         }
 
         private void btnSerialConnectDisconnect_Click(object sender, RoutedEventArgs e)
@@ -122,7 +105,7 @@ namespace prencar
                     btnSerialConnectDisconnect.Content = "Disconnect";
 
                     //tell the microcontroller to send the current configuration
-                    sc.SendCommand("100-0:");
+                    sendCommand("100-0:");
 
                     sc.NewMessage += new NewMessageEventHandler(workMessage);
                 }
@@ -134,25 +117,29 @@ namespace prencar
         }
         #endregion
 
+        #region GUI Events (Buttons etc.)
+        void conf_ConfigUpdated(object sender)
+        {
+            lblConfigurationVersion.Content = ((McConfiguration)sender).get("_CONFIGURATIONVERSION");
+        }
+
         private void btnOpenMcConfigurationView_Click(object sender, RoutedEventArgs e)
         {
             McConfigurationView cv = new McConfigurationView(sc, conf);
             cv.ShowDialog();
 
             //after closing, tell the MC to send the new configuration again.
-            sc.SendCommand("100");
+            sendCommand("100");
         }
 
         private void btnSendDebugSerialCommand_Click(object sender, RoutedEventArgs e)
         {
-            sc.SendCommand(tbDebugSerialCommand.Text);
-            tbSerialInput.Text += "\n\n  (send to mc):" + tbDebugSerialCommand.Text;
-            tbSerialInput.ScrollToEnd();
+            sendCommand(tbDebugSerialCommand.Text);
         }
 
         private void btnCalibrateLineSensors_Click(object sender, RoutedEventArgs e)
         {
-            sc.SendCommand("200-0:");
+            sendCommand("200-0:");
         }
 
         private void btnStartStoppParcours_Click(object sender, RoutedEventArgs e)
@@ -164,46 +151,22 @@ namespace prencar
                     MessageBox.Show("Fehler, kein Start-Status in der List-Box selektiert.");
                     return;
                 }
+                else if (((ListBoxItem)lbState.SelectedItem).Content.ToString() == "Finished")
+                {
+                    lbState.SelectedIndex = 0;
+                }
                 else if (lbState.SelectedIndex != 0)
                 {
-                    MessageBox.Show("The parcours will be started with the state " + lbState.Items.GetItemAt(lbState.SelectedIndex));
+                    MessageBox.Show("The parcours will be started with the state " + ((ListBoxItem)lbState.SelectedItem).Content + ".");
                 }
-                sc.SendCommand("300-1:" + lbState.SelectedIndex);
+                sendCommand("300-1:" + lbState.SelectedIndex);
             }
             else
             {
-                changeParcoursState(ParcoursState.notStarted);
+                sendCommand("301-0:");
             }
-        }
-
-        private void changeParcoursState(ParcoursState newState)
-        {
-            parcoursState = newState;
-            lbState.SelectedIndex = (int)newState;
-
-            if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
-            {
-                sc.SendCommand("300-1:" + (int)newState);
-            }
-            else
-            {
-                sc.SendCommand("301-0:");
-            }
-        }
-
-        private void remoteChangedParcoursState(ParcoursState newState)
-        {
-            parcoursState = newState;
-            lbState.SelectedIndex = (int)newState;
-
-            if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
-            {
-                btnStartStoppParcours.Content = "Start";
-            }
-            else
-            {
-                btnStartStoppParcours.Content = "Stop";
-            }
+            btnStartStoppParcours.IsEnabled = false;
+            btnStartStoppParcours.Content = "wait for mc...";
         }
 
         private void btnOpenLiveControl_Click(object sender, RoutedEventArgs e)
@@ -212,5 +175,98 @@ namespace prencar
             lc.ShowDialog();
         }
 
+        private void btnOpenSensorViewer_Click(object sender, RoutedEventArgs e)
+        {
+            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
+
+            sensorConfig.Add(new SensorJunctionPoint(2, "left line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(2, 1, "right line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(1, "left front line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(1, 1, "right front line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(3, "delta sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(4, "delta PWM"));
+
+            SensorViewer sv = new SensorViewer(sc, sensorConfig);
+            sv.Show();
+
+            /*sv.AddGraph(new SensorJunctionPoint(2, "left line sensor"));
+            sv.AddGraph(new SensorJunctionPoint(2, 1, "right line sensor"));*/
+        }
+
+
+        private void btnOpenDebugSensorViewer_Click(object sender, RoutedEventArgs e)
+        {
+            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
+
+            sensorConfig.Add(new SensorJunctionPoint(10, "left line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(11, "right line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(12, "left front line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(13, "right front line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(14, "cube approach left bottom sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(15, "cube approach left top sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(16, "cube approach right bottom sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(17, "cube approach right top sensor"));
+
+            sendCommand("201-1:1");
+            SensorViewer sv = new SensorViewer(sc, sensorConfig);
+            sv.ShowDialog();
+            sendCommand("201-1:0");
+        }
+
+        private void btnOpenLogfile_Click(object sender, RoutedEventArgs e)
+        {
+            String path = debug.LastAppendPath;
+            if (path == "")
+            {
+                MessageBox.Show("Nothing has been logged yet.", "No Logfile", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                debug.FlushLog();
+                System.Diagnostics.Process.Start(path);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Opening logfile failed (path: " + path + ")\n" + ex.Message.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        #endregion
+
+        #region Parcours state machine
+        private void remoteChangedParcoursState(ParcoursState newState)
+        {
+            parcoursState = newState;
+            lbState.SelectedIndex = (int)newState;
+
+            btnStartStoppParcours.IsEnabled = true;
+            if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
+            {
+                btnStartStoppParcours.Content = "Start";
+            }
+            else
+            {
+                newSession();
+                btnStartStoppParcours.Content = "Stop";
+            }
+        }
+        #endregion
+
+        private void sendCommand(String cmd)
+        {
+            sc.SendCommand(cmd);
+            appendDebugText("  (send to mc):" + cmd);
+        }
+
+        /// <summary>
+        /// Deletes the text in the debug textbox and starts a new
+        /// session which means that a new logfile will be created.
+        /// </summary>
+        private void newSession()
+        {
+            debug.NewSession();
+            tbSerialInput.Text = "";
+            debug.Append("New log session started...");
+        }
     }
 }

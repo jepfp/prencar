@@ -32,6 +32,14 @@ leftSensor: %%
 rightSensor: %%");
             messages.Add(3, @"Value of _deltasensor: %%");
             messages.Add(4, @"Value of _deltaPWM: %%");
+            messages.Add(10, @"Left line sensor (debug): %%");
+            messages.Add(11, @"Right line sensor (debug): %%");
+            messages.Add(12, @"Left front line sensor (debug): %%");
+            messages.Add(13, @"Right front line sensor (debug): %%");
+            messages.Add(14, @"Cube approach left bottom sensor (debug): %%");
+            messages.Add(15, @"Cube approach left top sensor (debug): %%");
+            messages.Add(16, @"Cube approach right bottom sensor (debug): %%");
+            messages.Add(17, @"Cube approach right top sensor (debug): %%");
             #endregion
 
             #region 50-99 Debug
@@ -70,6 +78,7 @@ newAverageSpeed: %%");
             messages.Add(65, "Set hoist position to %%.");
             messages.Add(66, @"Left line sensor detected white ground (Value: %%).");
             messages.Add(67, @"Start driving curve left.");
+            messages.Add(68, @"Free memory: %% (place of measurement: %%)");
             #endregion
 
             #region 100-149 Information
@@ -114,6 +123,8 @@ curveActivateEndSensorOffset:%%
 sensorDebugInterval:%%
 sensorDebugReadGap:%%");
             messages.Add(205, "Starting parcours at state %%.");
+            messages.Add(206, "Debug module activated.");
+            messages.Add(207, "Debug module deactivated.");
             #endregion
 
             //messages.Add(51, @"");

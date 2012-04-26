@@ -34,5 +34,17 @@ namespace ch.hslu.prencar.Properties {
                 this["ConfigurationFilesPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\logs")]
+        public string DebugFilesPath {
+            get {
+                return ((string)(this["DebugFilesPath"]));
+            }
+            set {
+                this["DebugFilesPath"] = value;
+            }
+        }
     }
 }

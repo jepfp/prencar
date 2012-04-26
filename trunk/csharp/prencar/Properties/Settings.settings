@@ -5,5 +5,8 @@
     <Setting Name="ConfigurationFilesPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\configurations</Value>
     </Setting>
+    <Setting Name="DebugFilesPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\logs</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

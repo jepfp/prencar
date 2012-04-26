@@ -34,11 +34,6 @@ namespace ch.jep.McCommunication
             refreshConfigurationList();
         }
 
-        private void displayConfiguration(McConfiguration conf)
-        {
-
-        }
-
         private void lbAvailableConfigurations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -62,6 +57,12 @@ namespace ch.jep.McCommunication
 
             //list all available config files
             String path = Settings.Default.ConfigurationFilesPath;
+            if (!Directory.Exists(path))
+            {
+                MessageBox.Show("Konfigurationsverzeichnis kann nicht gefunden werden.\n" + path + "\nEs wird erstellt.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                Directory.CreateDirectory(path);
+                return;
+            }
             String[] filenames = Directory.GetFiles(path);
             foreach(string aFilename in filenames){
                 McConfiguration aConfig = new McConfiguration();

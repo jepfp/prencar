@@ -2,33 +2,36 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
-        Title="MainWindow" Height="557" Width="870" Icon="/prencar;component/prencar.ico" Loaded="Window_Loaded">
+        Title="MainWindow" Height="557" Width="870" Icon="/prencar;component/prencar.ico" xmlns:my="clr-namespace:System.Activities.Presentation.Toolbox;assembly=System.Activities.Presentation">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="495*" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220" />
             <ColumnDefinition Width="592*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Name="grid1">
+        <Grid Grid.Column="1" Name="grid1" Grid.RowSpan="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="288*" />
                 <RowDefinition Height="230*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Name="grid2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="344*" />
-                    <ColumnDefinition Width="248*" />
-                </Grid.ColumnDefinitions>
-                <TextBox Name="tbSerialInput" AcceptsReturn="True" Text="nothing to display yet..." FontFamily="Courier New" FontSize="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
-                <Label Content="Send command to controller:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label3" VerticalAlignment="Top" Grid.Column="1" />
-                <TextBox Height="23" Margin="6,40,61,0" Name="tbDebugSerialCommand" Text="" VerticalAlignment="Top" Grid.Column="1" />
-                <Button Content="Send" Height="23" Margin="0,40,6,0" Name="btnSendDebugSerialCommand" VerticalAlignment="Top" Grid.Column="1" Click="btnSendDebugSerialCommand_Click" HorizontalAlignment="Right" Width="49" />
+                <TextBox Name="tbSerialInput" AcceptsReturn="True" Text="nothing to display yet..." FontFamily="Courier New" FontSize="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,33" />
+                <ToggleButton Margin="6,0,0,6" Name="btnShowDebugOutput" ToolTip="Enable / Disable debug output in GUI" HorizontalAlignment="Left" Width="21" Height="21" VerticalAlignment="Bottom" IsChecked="True">
+                    <Image Name="image3" Source="/prencar;component/Images/comment.png" Stretch="Fill" />
+                </ToggleButton>
+                <Button Height="21" Margin="33,0,0,6" Name="btnOpenLogfile" ToolTip="Open current / latest logfile." VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="21" Click="btnOpenLogfile_Click">
+                    <Image Name="image6" Source="/prencar;component/Images/page_go.png" Stretch="Fill" />
+                </Button>
             </Grid>
             <Grid Name="grid3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="186" />
                     <ColumnDefinition Width="406*" />
                 </Grid.ColumnDefinitions>
-                <ListBox Name="lbState">
+                <ListBox Name="lbState" Grid.Row="1">
                     <ListBoxItem Content="Not started" IsSelected="True" />
                     <ListBoxItem Content="Following the 1st line" />
                     <ListBoxItem Content="1st turn" />
@@ -41,19 +44,10 @@
                     <ListBoxItem Content="Following 3rd line to finish" />
                     <ListBoxItem Content="Finished" />
                 </ListBox>
-                <Grid Grid.Column="1" Name="gridStateRecognizeCube">
-                    <d3:ChartPlotter Name="plotter">
-                        <d3:Header TextBlock.FontSize="15">
-                            Infrared Sensore - Mesured Distances
-                        </d3:Header>
-
-                        <d3:VerticalAxisTitle>Distance</d3:VerticalAxisTitle>
-                        <d3:HorizontalAxisTitle>Degrees</d3:HorizontalAxisTitle>
-                    </d3:ChartPlotter>
-                </Grid>
+                <Grid Grid.Column="1" Name="gridStateRecognizeCube" Grid.Row="1"></Grid>
             </Grid>
         </Grid>
-        <StackPanel Name="stackPanel1">
+        <StackPanel Name="stackPanel1" Grid.RowSpan="1" Grid.Row="1">
             <Expander Header="Board connection" Name="expBoardConnection" IsExpanded="True">
                 <Grid>
                     <Label Content="Com port:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" />
@@ -63,11 +57,8 @@
             </Expander>
             <Expander Header="Chip Configuration / Commands" Name="expander2" IsExpanded="True">
                 <Grid>
-                    <Button Content="Edit Configuration" Height="23" Margin="6,34,6,0" Name="btnOpenMcConfigurationView" VerticalAlignment="Top" Click="btnOpenMcConfigurationView_Click" />
                     <Label Content="Configuration Version:" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label2" VerticalAlignment="Top" />
                     <Label Content="n.a." Height="28" Margin="0,0,6,0" Name="lblConfigurationVersion" VerticalAlignment="Top" HorizontalAlignment="Right" />
-                    <Button Content="Calibrate Line Sensors" Height="23" Margin="6,98,6,0" Name="btnCalibrateLineSensors" VerticalAlignment="Top" Click="btnCalibrateLineSensors_Click" />
-                    <Button Content="Open Live Control" Height="23" Margin="6,69,6,0" Name="btnOpenLiveControl" VerticalAlignment="Top" Click="btnOpenLiveControl_Click" />
                 </Grid>
             </Expander>
             <Expander Header="Parcours" IsExpanded="True" Name="expander1">
@@ -75,6 +66,34 @@
                     <Button Content="Start" Height="23" Margin="6,6,6,0" Name="btnStartStoppParcours" VerticalAlignment="Top" Click="btnStartStoppParcours_Click" />
                 </Grid>
             </Expander>
+            <Expander Header="Raw Microcontroller Control" IsExpanded="False" Name="expander3">
+                <Grid>
+                    <Label Content="Send command to controller:" Height="28" Name="label3" Margin="0,6,-2,48" />
+                    <TextBox Height="23" Name="tbDebugSerialCommand" Text="" Width="123" Margin="6,28,88,31" />
+                    <Button Content="Send" Height="23" Name="btnSendDebugSerialCommand" Click="btnSendDebugSerialCommand_Click" Width="49" Margin="163,27,6,32" />
+                </Grid>
+            </Expander>
         </StackPanel>
+        <DockPanel Grid.ColumnSpan="2" Grid.RowSpan="1" HorizontalAlignment="Stretch" Name="dpToolbar">
+            <ToolBar Name="toolBar1" HorizontalAlignment="Left" Height="26">
+                <Button Name="btnOpenMcConfigurationView" ToolTip="Save the selected configuration" Click="btnOpenMcConfigurationView_Click">
+                    <Image Name="image4" Stretch="Fill" Source="/prencar;component/Images/database_table.png" ToolTip="Open Configuration Dialog"/>
+                    </Button>
+                <Button Name="btnCalibrateLineSensors" ToolTip="Load configuration from microcontroller" Click="btnCalibrateLineSensors_Click">
+                    <Image Name="image2" Stretch="Fill" Source="/prencar;component/Images/vector.png" ToolTip="Calibrate Line Sensors" />
+                </Button>
+                <Button Name="btnOpenLiveControl" IsEnabled="True" Click="btnOpenLiveControl_Click">
+                    <Image Name="image1" Stretch="Fill" Source="/prencar;component/Images/controller.png" ToolTip="Open Live Control" />
+                </Button>
+                </ToolBar>
+            <ToolBar Name="toolBar2" HorizontalAlignment="Left" Height="26">
+                <Button Name="btnOpenSensorViewer" IsEnabled="True" Click="btnOpenSensorViewer_Click" ToolTip="Open Sensor Viewer" >
+                    <Image Name="image5" Stretch="Fill" Source="/prencar;component/Images/chart_curve.png" />
+                </Button>
+                <Button Name="btnOpenDebugSensorViewer" IsEnabled="True" ToolTip="View all sensor data" Click="btnOpenDebugSensorViewer_Click">
+                    <Image Name="image7" Stretch="Fill" Source="/prencar;component/Images/eye.png" />
+                </Button>
+            </ToolBar>
+        </DockPanel>
     </Grid>
 </Window>
