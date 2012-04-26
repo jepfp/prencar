@@ -11,6 +11,7 @@ var class_communication =
     [ "send", "class_communication.html#a4f3943a64cf5fb3e28c343582bedb80a", null ],
     [ "send", "class_communication.html#a177161f8b437b0e406c301394a3632e5", null ],
     [ "sendCurrentConfiguration", "class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a", null ],
+    [ "sendFreeMemory", "class_communication.html#a0cafeb974ccf24771478a8589aaa79b5", null ],
     [ "sendString", "class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85", null ],
     [ "_config", "class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9", null ],
     [ "_incomingDataBuffer", "class_communication.html#a55d359c2e8b6061388edbf07aa42c385", null ],

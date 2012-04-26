@@ -8,5 +8,7 @@ var hierarchy =
       [ "CurveLeft", "class_curve_left.html", null ]
     ] ],
     [ "Move", "class_move.html", null ],
-    [ "StateMaschine", "class_state_maschine.html", null ]
+    [ "SensorDebug", "class_sensor_debug.html", null ],
+    [ "StateMaschine", "class_state_maschine.html", null ],
+    [ "TSensorJunctionPoint", "struct_t_sensor_junction_point.html", null ]
 ];

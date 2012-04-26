@@ -114,10 +114,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">SensorDebug Class Reference</div>  </div>
 </div><!--header-->
@@ -129,41 +130,46 @@ Collaboration diagram for SensorDebug:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_sensor_debug__coll__graph.png" border="0" usemap="#_sensor_debug_coll__map" alt="Collaboration graph"/></div>
 <map name="_sensor_debug_coll__map" id="_sensor_debug_coll__map">
-<area shape="rect" id="node2" href="class_move.html" title="Move" alt="" coords="137,187,188,213"/><area shape="rect" id="node5" href="class_communication.html" title="Communication" alt="" coords="5,96,117,123"/><area shape="rect" id="node7" href="class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="11,5,92,32"/><area shape="rect" id="node10" href="class_configuration.html" title="Configuration" alt="" coords="202,5,299,32"/></map>
+<area shape="rect" id="node3" href="class_communication.html" title="Communication" alt="" coords="5,96,117,123"/><area shape="rect" id="node5" href="class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="11,5,92,32"/><area shape="rect" id="node8" href="class_configuration.html" title="Configuration" alt="" coords="169,5,265,32"/><area shape="rect" id="node11" href="struct_t_sensor_junction_point.html" title="TSensorJunctionPoint" alt="" coords="311,96,459,123"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_sensor_debug-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f5e8680ccd8de25cb47be0b1d541ad8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a5f5e8680ccd8de25cb47be0b1d541ad8">SensorDebug</a> ()</td></tr>
 <tr class="memitem:a6a5a39f8183bcf051170051888b6ba97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a6a5a39f8183bcf051170051888b6ba97">begin</a> ()</td></tr>
 <tr class="memitem:a4d1d3e3732cdc45c7c191330bbc09327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327">doJob</a> ()</td></tr>
-<tr class="memitem:aebdd4f0e4ddcd4aabbf35f83868bdaaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#aebdd4f0e4ddcd4aabbf35f83868bdaaf">calibrateSensors</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aebe52870c5631e86d2b175ffd958c169"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_sensor_debug.html">SensorDebug</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169">getInstance</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:adee555e9b2c141e2defb8d79c34f39f6"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#adee555e9b2c141e2defb8d79c34f39f6">hasReachedCurve</a></td></tr>
 <tr class="memdesc:adee555e9b2c141e2defb8d79c34f39f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is set to true, if the left curve line is reached.  <a href="#adee555e9b2c141e2defb8d79c34f39f6"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a7b496c4a34e891f57cb28b1dd49d57e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a7b496c4a34e891f57cb28b1dd49d57e2">readFrontLineSensors</a> (int *resultArray)</td></tr>
-<tr class="memitem:ab75379084206c336adb48b49fc00d91e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#ab75379084206c336adb48b49fc00d91e">readLineSensors</a> (int *resultArray)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a57e190528b5415b1a1b562265b5eafa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a57e190528b5415b1a1b562265b5eafa3">_com</a></td></tr>
-<tr class="memdesc:a57e190528b5415b1a1b562265b5eafa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the serial communication class.  <a href="#a57e190528b5415b1a1b562265b5eafa3"></a><br/></td></tr>
-<tr class="memitem:af678e56c41fd16e4995b51ad715052c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_move.html">Move</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#af678e56c41fd16e4995b51ad715052c9">_move</a></td></tr>
-<tr class="memdesc:af678e56c41fd16e4995b51ad715052c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the move class to control the motors.  <a href="#af678e56c41fd16e4995b51ad715052c9"></a><br/></td></tr>
-<tr class="memitem:a3ebefa575a9a75fd6382fdabf601841a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_configuration.html">Configuration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a3ebefa575a9a75fd6382fdabf601841a">_conf</a></td></tr>
-<tr class="memdesc:a3ebefa575a9a75fd6382fdabf601841a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the configuration class.  <a href="#a3ebefa575a9a75fd6382fdabf601841a"></a><br/></td></tr>
+<tr class="memitem:a7f8ece92d8cb88e97ba60a3d490459c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t_sensor_junction_point.html">TSensorJunctionPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a7f8ece92d8cb88e97ba60a3d490459c9">sensorJunctionPoints</a> [<a class="el" href="_sensor_debug_8h.html#a2b4a7b97da339b4078b04939a7f79ec2">AMOUNTOFSENSORJUNCTIONPOINTS</a>]</td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5f5e8680ccd8de25cb47be0b1d541ad8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a5f5e8680ccd8de25cb47be0b1d541ad8">SensorDebug</a> ()</td></tr>
+<tr class="memitem:a857e98949954a1bee4ab5ecaf502cf89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89">readSensorAndSendValue</a> (<a class="el" href="struct_t_sensor_junction_point.html">TSensorJunctionPoint</a> *sjp)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a57e190528b5415b1a1b562265b5eafa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a57e190528b5415b1a1b562265b5eafa3">_com</a></td></tr>
+<tr class="memdesc:a57e190528b5415b1a1b562265b5eafa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the serial communication class.  <a href="#a57e190528b5415b1a1b562265b5eafa3"></a><br/></td></tr>
+<tr class="memitem:a3ebefa575a9a75fd6382fdabf601841a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_configuration.html">Configuration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a3ebefa575a9a75fd6382fdabf601841a">_conf</a></td></tr>
+<tr class="memdesc:a3ebefa575a9a75fd6382fdabf601841a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the configuration class.  <a href="#a3ebefa575a9a75fd6382fdabf601841a"></a><br/></td></tr>
 <tr class="memitem:a98cd6a619406c182a157fff82df60a46"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a98cd6a619406c182a157fff82df60a46">_timeLastSensorDebugCheck</a></td></tr>
 <tr class="memdesc:a98cd6a619406c182a157fff82df60a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the timestamp of the time when the last sensor check check was done.  <a href="#a98cd6a619406c182a157fff82df60a46"></a><br/></td></tr>
+<tr class="memitem:a85317d887c5c2953a5da29aaaaa55562"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a85317d887c5c2953a5da29aaaaa55562">_debuggerActive</a></td></tr>
+<tr class="memdesc:a85317d887c5c2953a5da29aaaaa55562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if the sensor debug modul is active or not.  <a href="#a85317d887c5c2953a5da29aaaaa55562"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a0dee1ef0e2720f6e3108b2650a243d7e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_sensor_debug.html">SensorDebug</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a0dee1ef0e2720f6e3108b2650a243d7e">_instance</a></td></tr>
+<tr class="memdesc:a0dee1ef0e2720f6e3108b2650a243d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static reference to the singleton object.  <a href="#a0dee1ef0e2720f6e3108b2650a243d7e"></a><br/></td></tr>
+<tr class="memitem:a6f71fd740aa6a3dbc98776e6a35ebf05"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a6f71fd740aa6a3dbc98776e6a35ebf05">_instanceCreated</a> = false</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00007">7</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00017">17</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5f5e8680ccd8de25cb47be0b1d541ad8"></a>
 <div class="memitem">
@@ -173,11 +179,23 @@ Private Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="class_sensor_debug.html#a5f5e8680ccd8de25cb47be0b1d541ad8">SensorDebug::SensorDebug</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Constructur for the class. </p>
+
+<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00027">27</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_a5f5e8680ccd8de25cb47be0b1d541ad8_icgraph.png" border="0" usemap="#class_sensor_debug_a5f5e8680ccd8de25cb47be0b1d541ad8_icgraph" alt=""/></div>
+<map name="class_sensor_debug_a5f5e8680ccd8de25cb47be0b1d541ad8_icgraph" id="class_sensor_debug_a5f5e8680ccd8de25cb47be0b1d541ad8_icgraph">
+<area shape="rect" id="node3" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169" title="SensorDebug::getInstance" alt="" coords="241,5,415,32"/><area shape="rect" id="node5" href="class_sensor_debug.html#a6a5a39f8183bcf051170051888b6ba97" title="SensorDebug::begin" alt="" coords="464,5,603,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -195,22 +213,27 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Prepares the <a class="el" href="class_sensor_debug.html">SensorDebug</a> object to work together with other classes. The preparations done in here can not be done from within the constructor because of dependencies such as Serial communication. <b>This method needs to be called before this class can be fully used.</b> </p>
 
+<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00037">37</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_cgraph.png" border="0" usemap="#class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_cgraph" alt=""/></div>
+<map name="class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_cgraph" id="class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_cgraph">
+<area shape="rect" id="node3" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169" title="SensorDebug::getInstance" alt="" coords="193,5,367,32"/><area shape="rect" id="node5" href="class_sensor_debug.html#a5f5e8680ccd8de25cb47be0b1d541ad8" title="SensorDebug::SensorDebug" alt="" coords="416,5,603,32"/></map>
 </div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_icgraph.png" border="0" usemap="#class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_icgraph" alt=""/></div>
+<map name="class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_icgraph" id="class_sensor_debug_a6a5a39f8183bcf051170051888b6ba97_icgraph">
+<area shape="rect" id="node3" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169" title="SensorDebug::getInstance" alt="" coords="193,5,367,32"/></map>
 </div>
-<a class="anchor" id="aebdd4f0e4ddcd4aabbf35f83868bdaaf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_sensor_debug.html#aebdd4f0e4ddcd4aabbf35f83868bdaaf">SensorDebug::calibrateSensors</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+</p>
 
 </div>
 </div>
@@ -227,40 +250,95 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Does the job for which this class was written.<br/>
+ This method has to be called in regular intervals (as short as possible).<br/>
+ The sensor data of the sensors is captured and sent over the serial interface. </p>
+
+<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00098">98</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph.png" border="0" usemap="#class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph" alt=""/></div>
+<map name="class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph" id="class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph">
+<area shape="rect" id="node3" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="198,5,597,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="646,56,794,83"/><area shape="rect" id="node10" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89" title="SensorDebug::readSensorAndSendValue" alt="" coords="267,107,527,133"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="843,56,1077,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a7b496c4a34e891f57cb28b1dd49d57e2"></a>
+<a class="anchor" id="aebe52870c5631e86d2b175ffd958c169"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_sensor_debug.html#a7b496c4a34e891f57cb28b1dd49d57e2">SensorDebug::readFrontLineSensors</a> </td>
+          <td class="memname"><a class="el" href="class_sensor_debug.html">SensorDebug</a> * <a class="el" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169">SensorDebug::getInstance</a> </td>
           <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>resultArray</em></td><td>)</td>
-          <td><code> [protected]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get the <a class="el" href="class_sensor_debug.html">SensorDebug</a> instance </p>
+<dl class="section return"><dt>Returns:</dt><dd>Pointer to the sensorDebug instance </dd></dl>
+
+<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00011">11</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_cgraph.png" border="0" usemap="#class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_cgraph" alt=""/></div>
+<map name="class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_cgraph" id="class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_cgraph">
+<area shape="rect" id="node3" href="class_sensor_debug.html#a5f5e8680ccd8de25cb47be0b1d541ad8" title="SensorDebug::SensorDebug" alt="" coords="229,5,416,32"/><area shape="rect" id="node5" href="class_sensor_debug.html#a6a5a39f8183bcf051170051888b6ba97" title="SensorDebug::begin" alt="" coords="253,56,392,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_icgraph.png" border="0" usemap="#class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_icgraph" alt=""/></div>
+<map name="class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_icgraph" id="class_sensor_debug_aebe52870c5631e86d2b175ffd958c169_icgraph">
+<area shape="rect" id="node3" href="class_sensor_debug.html#a6a5a39f8183bcf051170051888b6ba97" title="SensorDebug::begin" alt="" coords="229,5,368,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a857e98949954a1bee4ab5ecaf502cf89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89">SensorDebug::readSensorAndSendValue</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_t_sensor_junction_point.html">TSensorJunctionPoint</a> *&#160;</td>
+          <td class="paramname"><em>sjp</em></td><td>)</td>
+          <td><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00126">126</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_cgraph.png" border="0" usemap="#class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_cgraph" alt=""/></div>
+<map name="class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_cgraph" id="class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_cgraph">
+<area shape="rect" id="node3" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="315,5,463,32"/><area shape="rect" id="node5" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="512,5,747,32"/></map>
 </div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_icgraph.png" border="0" usemap="#class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_icgraph" alt=""/></div>
+<map name="class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_icgraph" id="class_sensor_debug_a857e98949954a1bee4ab5ecaf502cf89_icgraph">
+<area shape="rect" id="node3" href="class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327" title="SensorDebug::doJob" alt="" coords="315,5,458,32"/></map>
 </div>
-<a class="anchor" id="ab75379084206c336adb48b49fc00d91e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_sensor_debug.html#ab75379084206c336adb48b49fc00d91e">SensorDebug::readLineSensors</a> </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>resultArray</em></td><td>)</td>
-          <td><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+</p>
 
 </div>
 </div>
@@ -270,7 +348,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_communication.html">Communication</a>* <a class="el" href="class_sensor_debug.html#a57e190528b5415b1a1b562265b5eafa3">SensorDebug::_com</a><code> [protected]</code></td>
+          <td class="memname"><a class="el" href="class_communication.html">Communication</a>* <a class="el" href="class_sensor_debug.html#a57e190528b5415b1a1b562265b5eafa3">SensorDebug::_com</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -278,7 +356,7 @@ Private Attributes</h2></td></tr>
 
 <p>The reference to the serial communication class. </p>
 
-<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00016">16</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00029">29</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
 
 </div>
 </div>
@@ -287,7 +365,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_configuration.html">Configuration</a>* <a class="el" href="class_sensor_debug.html#a3ebefa575a9a75fd6382fdabf601841a">SensorDebug::_conf</a><code> [protected]</code></td>
+          <td class="memname"><a class="el" href="class_configuration.html">Configuration</a>* <a class="el" href="class_sensor_debug.html#a3ebefa575a9a75fd6382fdabf601841a">SensorDebug::_conf</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -295,24 +373,56 @@ Private Attributes</h2></td></tr>
 
 <p>The reference to the configuration class. </p>
 
-<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00018">18</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00030">30</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af678e56c41fd16e4995b51ad715052c9"></a>
+<a class="anchor" id="a85317d887c5c2953a5da29aaaaa55562"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_move.html">Move</a>* <a class="el" href="class_sensor_debug.html#af678e56c41fd16e4995b51ad715052c9">SensorDebug::_move</a><code> [protected]</code></td>
+          <td class="memname">boolean <a class="el" href="class_sensor_debug.html#a85317d887c5c2953a5da29aaaaa55562">SensorDebug::_debuggerActive</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>The reference to the move class to control the motors. </p>
+<p>Defines if the sensor debug modul is active or not. </p>
 
-<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00017">17</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00033">33</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0dee1ef0e2720f6e3108b2650a243d7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sensor_debug.html">SensorDebug</a> <a class="el" href="class_sensor_debug.html#a0dee1ef0e2720f6e3108b2650a243d7e">SensorDebug::_instance</a><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Static reference to the singleton object. </p>
+
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00026">26</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f71fd740aa6a3dbc98776e6a35ebf05"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean <a class="el" href="class_sensor_debug.html#a6f71fd740aa6a3dbc98776e6a35ebf05">SensorDebug::_instanceCreated</a> = false<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00027">27</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +440,7 @@ Private Attributes</h2></td></tr>
 <p>Holds the timestamp of the time when the last sensor check check was done. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327">doJob()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00024">24</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00032">32</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
 
 </div>
 </div>
@@ -347,12 +457,28 @@ Private Attributes</h2></td></tr>
 
 <p>Is set to true, if the left curve line is reached. </p>
 
-<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00014">14</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00023">23</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="a7f8ece92d8cb88e97ba60a3d490459c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t_sensor_junction_point.html">TSensorJunctionPoint</a> <a class="el" href="class_sensor_debug.html#a7f8ece92d8cb88e97ba60a3d490459c9">SensorDebug::sensorJunctionPoints</a>[<a class="el" href="_sensor_debug_8h.html#a2b4a7b97da339b4078b04939a7f79ec2">AMOUNTOFSENSORJUNCTIONPOINTS</a>]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00024">24</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Workspace/Arduino/prencar/<a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a></li>
+<li>D:/Workspace/Arduino/prencar/<a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div>
@@ -360,7 +486,7 @@ Private Attributes</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="class_sensor_debug.html">SensorDebug</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 19 2012 10:48:19 for prencar by
+    <li class="footer">Generated on Thu Apr 26 2012 09:42:56 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

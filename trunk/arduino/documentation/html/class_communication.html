@@ -145,6 +145,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acfbc09567d9cdc37fd1fc333f8b21d85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">sendString</a> (char *message)</td></tr>
 <tr class="memitem:a17e42ee6dbbaa353944d63e7d5dee25a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a> ()</td></tr>
 <tr class="memitem:a17bff838a0404ae06482f17bcecd3784"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a> (<a class="el" href="class_command.html">Command</a> *c, int commandCode)</td></tr>
+<tr class="memitem:a0cafeb974ccf24771478a8589aaa79b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">sendFreeMemory</a> (int placeOfMeasurement)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7b13fccf78bfce83efc9bb06c64facd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd">getInstance</a> ()</td></tr>
@@ -200,7 +201,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_a88aa7a2d2ac5202e2b8eef787d1a8689_cgraph.png" border="0" usemap="#class_communication_a88aa7a2d2ac5202e2b8eef787d1a8689_cgraph" alt=""/></div>
 <map name="class_communication_a88aa7a2d2ac5202e2b8eef787d1a8689_cgraph" id="class_communication_a88aa7a2d2ac5202e2b8eef787d1a8689_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="268,5,455,32"/><area shape="rect" id="node6" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066" title="Configuration::getSerialSpeed" alt="" coords="265,56,458,83"/></map>
+<area shape="rect" id="node3" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="268,5,455,32"/><area shape="rect" id="node6" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8" title="Configuration::getSerialSpeed" alt="" coords="265,56,458,83"/></map>
 </div>
 </p>
 
@@ -231,7 +232,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Checks the array readyCommands for commands that have to be exectued here and executes them. </p>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00088">88</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00090">90</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -268,18 +269,16 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Does the job which this class has to do in regular intervals. Therefore this method has to be called in regular intervals (as short as possible).<br/>
 </p>
-<ol type="1">
-<li>Checks if data is available to read. </li>
-</ol>
+<p>It checks if data is available to read. If so, the data is added to an incoming buffer and as soon as one command (one line) is complete, a <a class="el" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> object is created. </p>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00040">40</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00041">41</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_ab405d4412e7f2515e4fdc2e61a8d5963_cgraph.png" border="0" usemap="#class_communication_ab405d4412e7f2515e4fdc2e61a8d5963_cgraph" alt=""/></div>
 <map name="class_communication_ab405d4412e7f2515e4fdc2e61a8d5963_cgraph" id="class_communication_ab405d4412e7f2515e4fdc2e61a8d5963_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="209,56,501,83"/><area shape="rect" id="node13" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="244,107,465,133"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1043,107,1191,133"/><area shape="rect" id="node9" href="class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="689,5,810,32"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1285,107,1520,133"/><area shape="rect" id="node11" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="1029,5,1206,32"/><area shape="rect" id="node15" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="550,107,949,133"/><area shape="rect" id="node18" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="617,157,882,184"/><area shape="rect" id="node20" href="class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="997,157,1237,184"/></map>
+<area shape="rect" id="node3" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="209,81,501,108"/><area shape="rect" id="node18" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="244,157,465,184"/><area shape="rect" id="node5" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5" title="Communication::sendFreeMemory" alt="" coords="639,56,860,83"/><area shape="rect" id="node9" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1043,132,1191,159"/><area shape="rect" id="node14" href="class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="689,5,810,32"/><area shape="rect" id="node7" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4" title="Configuration::getFreeMemory" alt="" coords="1019,56,1215,83"/><area shape="rect" id="node11" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1285,132,1520,159"/><area shape="rect" id="node16" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="1029,5,1206,32"/><area shape="rect" id="node20" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="550,157,949,184"/><area shape="rect" id="node23" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="617,208,882,235"/><area shape="rect" id="node25" href="class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="997,208,1237,235"/></map>
 </div>
 </p>
 
@@ -319,7 +318,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Returns true if the command was found and removed from the list otherwise false. </dd></dl>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00106">106</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00108">108</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -335,7 +334,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_a17bff838a0404ae06482f17bcecd3784_icgraph.png" border="0" usemap="#class_communication_a17bff838a0404ae06482f17bcecd3784_icgraph" alt=""/></div>
 <map name="class_communication_a17bff838a0404ae06482f17bcecd3784_icgraph" id="class_communication_a17bff838a0404ae06482f17bcecd3784_icgraph">
-<area shape="rect" id="node3" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="453,5,675,32"/><area shape="rect" id="node7" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="455,56,673,83"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="723,5,877,32"/><area shape="rect" id="node9" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="725,56,875,83"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="453,5,675,32"/><area shape="rect" id="node7" href="class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327" title="SensorDebug::doJob" alt="" coords="493,56,635,83"/><area shape="rect" id="node9" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="455,107,673,133"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="723,5,877,32"/><area shape="rect" id="node11" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="725,107,875,133"/></map>
 </div>
 </p>
 
@@ -364,7 +363,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_ad7b13fccf78bfce83efc9bb06c64facd_cgraph.png" border="0" usemap="#class_communication_ad7b13fccf78bfce83efc9bb06c64facd_cgraph" alt=""/></div>
 <map name="class_communication_ad7b13fccf78bfce83efc9bb06c64facd_cgraph" id="class_communication_ad7b13fccf78bfce83efc9bb06c64facd_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="240,5,451,32"/><area shape="rect" id="node6" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066" title="Configuration::getSerialSpeed" alt="" coords="499,5,693,32"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="240,5,451,32"/><area shape="rect" id="node6" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8" title="Configuration::getSerialSpeed" alt="" coords="499,5,693,32"/></map>
 </div>
 </p>
 
@@ -395,14 +394,14 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Returns a pointer to the first free spot in readyCommands (free = command is set to 0) </p>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00059">59</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00060">60</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_ad566d07485df1c7970edd450723da1aa_cgraph.png" border="0" usemap="#class_communication_ad566d07485df1c7970edd450723da1aa_cgraph" alt=""/></div>
 <map name="class_communication_ad566d07485df1c7970edd450723da1aa_cgraph" id="class_communication_ad566d07485df1c7970edd450723da1aa_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="347,5,495,32"/><area shape="rect" id="node7" href="class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="361,56,482,83"/><area shape="rect" id="node5" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="544,5,779,32"/><area shape="rect" id="node9" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="573,56,750,83"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5" title="Communication::sendFreeMemory" alt="" coords="347,5,568,32"/><area shape="rect" id="node7" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="641,56,789,83"/><area shape="rect" id="node12" href="class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="397,107,518,133"/><area shape="rect" id="node5" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4" title="Configuration::getFreeMemory" alt="" coords="617,5,813,32"/><area shape="rect" id="node9" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="861,56,1096,83"/><area shape="rect" id="node14" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="626,107,803,133"/></map>
 </div>
 </p>
 
@@ -441,7 +440,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00133">133</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00135">135</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -457,7 +456,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_a8679b3cb7ceef5527faa24454ce0f18a_icgraph.png" border="0" usemap="#class_communication_a8679b3cb7ceef5527faa24454ce0f18a_icgraph" alt=""/></div>
 <map name="class_communication_a8679b3cb7ceef5527faa24454ce0f18a_icgraph" id="class_communication_a8679b3cb7ceef5527faa24454ce0f18a_icgraph">
-<area shape="rect" id="node3" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="257,5,549,32"/><area shape="rect" id="node7" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="203,107,602,133"/><area shape="rect" id="node12" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="1235,284,1453,311"/><area shape="rect" id="node16" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="270,56,535,83"/><area shape="rect" id="node19" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="739,411,855,437"/><area shape="rect" id="node22" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="1031,563,1148,589"/><area shape="rect" id="node25" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6" title="LiftCube::doJob" alt="" coords="1034,841,1145,868"/><area shape="rect" id="node27" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="1029,993,1149,1020"/><area shape="rect" id="node29" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="317,892,489,919"/><area shape="rect" id="node38" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="1027,652,1152,679"/><area shape="rect" id="node41" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="293,765,512,792"/><area shape="rect" id="node44" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="703,613,891,640"/><area shape="rect" id="node48" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="995,208,1183,235"/><area shape="rect" id="node51" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="719,360,875,387"/><area shape="rect" id="node59" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="333,461,472,488"/><area shape="rect" id="node68" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="711,512,883,539"/><area shape="rect" id="node70" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="651,664,944,691"/><area shape="rect" id="node76" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692" title="Move::equalizeMotorsSpeed" alt="" coords="310,1069,495,1096"/><area shape="rect" id="node79" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="702,259,893,285"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="1012,5,1167,32"/><area shape="rect" id="node9" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="687,56,908,83"/><area shape="rect" id="node14" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="1502,461,1653,488"/><area shape="rect" id="node31" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="744,867,851,893"/><area shape="rect" id="node34" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="736,968,859,995"/><area shape="rect" id="node56" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23" title="StateMaschine::stopParcours" alt="" coords="992,259,1187,285"/><area shape="rect" id="node62" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="735,461,859,488"/><area shape="rect" id="node65" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="992,360,1187,387"/></map>
+<area shape="rect" id="node3" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="651,289,943,315"/><area shape="rect" id="node7" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="203,137,602,163"/><area shape="rect" id="node12" href="class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327" title="SensorDebug::doJob" alt="" coords="726,86,869,113"/><area shape="rect" id="node14" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="1235,593,1453,619"/><area shape="rect" id="node18" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="270,187,535,214"/><area shape="rect" id="node22" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5" title="Communication::sendFreeMemory" alt="" coords="292,289,513,315"/><area shape="rect" id="node25" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="739,846,855,873"/><area shape="rect" id="node28" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="1031,998,1148,1025"/><area shape="rect" id="node31" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6" title="LiftCube::doJob" alt="" coords="1034,415,1145,442"/><area shape="rect" id="node33" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="1029,542,1149,569"/><area shape="rect" id="node35" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="317,517,489,543"/><area shape="rect" id="node44" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="1027,1087,1152,1114"/><area shape="rect" id="node47" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="293,1150,512,1177"/><area shape="rect" id="node50" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="703,1049,891,1075"/><area shape="rect" id="node54" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors." alt="" coords="995,593,1183,619"/><area shape="rect" id="node57" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="719,947,875,974"/><area shape="rect" id="node65" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="333,795,472,822"/><area shape="rect" id="node74" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="711,897,883,923"/><area shape="rect" id="node76" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="651,1099,944,1126"/><area shape="rect" id="node82" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692" title="Move::equalizeMotorsSpeed" alt="" coords="310,1099,495,1126"/><area shape="rect" id="node85" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89" title="SensorDebug::readSensorAndSendValue" alt="" coords="273,86,533,113"/><area shape="rect" id="node89" href="class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="702,745,893,771"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="1012,289,1167,315"/><area shape="rect" id="node9" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="687,187,908,214"/><area shape="rect" id="node16" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="1502,897,1653,923"/><area shape="rect" id="node37" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="744,441,851,467"/><area shape="rect" id="node40" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="736,542,859,569"/><area shape="rect" id="node62" href="class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23" title="StateMaschine::stopParcours" alt="" coords="992,795,1187,822"/><area shape="rect" id="node68" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="735,795,859,822"/><area shape="rect" id="node71" href="class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18" title="StateMaschine::startParcours" alt="" coords="992,694,1187,721"/></map>
 </div>
 </p>
 
@@ -496,7 +495,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00144">144</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00146">146</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -555,7 +554,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>: make sure the receiver of the serial message can work with negative parameters </dd></dl>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00162">162</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00164">164</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -610,7 +609,7 @@ Here is the call graph for this function:</div>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Find a better implementation so that we don't have a copy of code. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>: make sure the receiver of the serial message can work with negative parameters </dd></dl>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00185">185</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00187">187</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -636,8 +635,9 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
+<p>Gets the current configuration from the Configuraton instance and sends it over the serial port. </p>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00215">215</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00217">217</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -653,7 +653,51 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_communication_a17e42ee6dbbaa353944d63e7d5dee25a_icgraph.png" border="0" usemap="#class_communication_a17e42ee6dbbaa353944d63e7d5dee25a_icgraph" alt=""/></div>
 <map name="class_communication_a17e42ee6dbbaa353944d63e7d5dee25a_icgraph" id="class_communication_a17e42ee6dbbaa353944d63e7d5dee25a_icgraph">
-<area shape="rect" id="node3" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="320,5,541,32"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="589,5,744,32"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="320,5,541,32"/><area shape="rect" id="node7" href="class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="321,56,540,83"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="589,5,744,32"/><area shape="rect" id="node9" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="591,56,742,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0cafeb974ccf24771478a8589aaa79b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">Communication::sendFreeMemory</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>placeOfMeasurement</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sends the currently free memory over the serial interface with the given placeOfMeasurement value as a identifier from where this method was called. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">placeOfMeasurement</td><td>Identifier from where this method was called. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00228">228</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_communication_a0cafeb974ccf24771478a8589aaa79b5_cgraph.png" border="0" usemap="#class_communication_a0cafeb974ccf24771478a8589aaa79b5_cgraph" alt=""/></div>
+<map name="class_communication_a0cafeb974ccf24771478a8589aaa79b5_cgraph" id="class_communication_a0cafeb974ccf24771478a8589aaa79b5_cgraph">
+<area shape="rect" id="node3" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4" title="Configuration::getFreeMemory" alt="" coords="275,5,471,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="299,56,447,83"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="520,56,755,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_communication_a0cafeb974ccf24771478a8589aaa79b5_icgraph.png" border="0" usemap="#class_communication_a0cafeb974ccf24771478a8589aaa79b5_icgraph" alt=""/></div>
+<map name="class_communication_a0cafeb974ccf24771478a8589aaa79b5_icgraph" id="class_communication_a0cafeb974ccf24771478a8589aaa79b5_icgraph">
+<area shape="rect" id="node3" href="class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="275,5,567,32"/><area shape="rect" id="node5" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="616,5,771,32"/></map>
 </div>
 </p>
 
@@ -682,7 +726,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00208">208</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_communication_8cpp_source.html#l00210">210</a> of file <a class="el" href="_communication_8cpp_source.html">Communication.cpp</a>.</p>
 
 </div>
 </div>
@@ -830,7 +874,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_communication.html">Communication</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 19 2012 11:43:02 for prencar by
+    <li class="footer">Generated on Thu Apr 26 2012 09:42:56 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

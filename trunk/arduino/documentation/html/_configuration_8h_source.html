@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00009"></a><a class="code" href="class_configuration.html#a33a4ec5f460471c076a0b74b48aa7bbe">00009</a>   <span class="keyword">static</span> <a class="code" href="class_configuration.html">Configuration</a> <a class="code" href="class_configuration.html#a33a4ec5f460471c076a0b74b48aa7bbe" title="Static reference to the singleton object.">_instance</a>;
 <a name="l00010"></a><a class="code" href="class_configuration.html#a30bcffe1c1a3b15d41d824f9a1570bf6">00010</a>   <span class="keyword">static</span> <span class="keywordtype">boolean</span> <a class="code" href="class_configuration.html#a30bcffe1c1a3b15d41d824f9a1570bf6">_instanceCreated</a>;
 <a name="l00011"></a><a class="code" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6">00011</a>   <span class="keyword">static</span> byte <span class="keyword">const</span> <a class="code" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6" title="Returns the version of the configuration (number will be increased after a set of new configuration v...">_CONFIGURATIONVERSION</a>;
-<a name="l00012"></a><a class="code" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77">00012</a>   <span class="keyword">static</span> <span class="keywordtype">int</span> <span class="keyword">const</span> <a class="code" href="class_configuration.html#a0a3a97d101576f414bdeb689c0e1fa77" title="Defines the serial data rate.">_SERIALSPEED</a>;
+<a name="l00012"></a><a class="code" href="class_configuration.html#a7e97b2bad64cee71271070bde2f71b74">00012</a>   <span class="keyword">static</span> <span class="keywordtype">long</span> <span class="keyword">const</span> <a class="code" href="class_configuration.html#a7e97b2bad64cee71271070bde2f71b74" title="Defines the serial data rate.">_SERIALSPEED</a>;
 <a name="l00013"></a><a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">00013</a>   byte <a class="code" href="class_configuration.html#ae70babe0ee36a4650fbece87d8c7d3ba">_messageFilterLevel</a>;
 <a name="l00014"></a><a class="code" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">00014</a>   byte <a class="code" href="class_configuration.html#a837faf9a747d5076bc8264f21bd944de">_movePwmLeftPin</a>;
 <a name="l00015"></a><a class="code" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">00015</a>   byte <a class="code" href="class_configuration.html#afc9f2ecf380cb522726bf9b9db3b22ee">_movePwmRightPin</a>;
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00027"></a>00027   
 <a name="l00028"></a>00028   <span class="keyword">static</span> <a class="code" href="class_configuration.html">Configuration</a>* <a class="code" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e">getInstance</a>();
 <a name="l00029"></a>00029   byte <a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">getConfigurationVersion</a>();
-<a name="l00030"></a>00030   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#aab8a109a9db934c027b08c0ccbb83066">getSerialSpeed</a>();
+<a name="l00030"></a>00030   <span class="keywordtype">long</span> <a class="code" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8">getSerialSpeed</a>();
 <a name="l00031"></a>00031   byte <a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">getMessageFilterLevel</a>();
 <a name="l00032"></a>00032   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#ac9aec24b13533a9af3cb937fe5662e05">setMessageFilterLevel</a>(byte value);
 <a name="l00033"></a>00033   byte <a class="code" href="class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c">getMovePwmLeftPin</a>();
@@ -191,12 +191,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00095"></a>00095 
 <a name="l00096"></a>00096   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">getCurrentConfiguration</a>(<span class="keywordtype">long</span>* spaceForConfigValues);
 <a name="l00097"></a>00097   <span class="keywordtype">void</span> <a class="code" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">updateConfiguration</a>(<span class="keywordtype">int</span>* parameters);
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099 };
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101 <span class="preprocessor">#endif</span>
-<a name="l00102"></a>00102 <span class="preprocessor"></span>
-<a name="l00103"></a>00103 
+<a name="l00098"></a>00098   <span class="keywordtype">int</span> <a class="code" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4">getFreeMemory</a>();
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 };
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif</span>
+<a name="l00103"></a>00103 <span class="preprocessor"></span>
 <a name="l00104"></a>00104 
 <a name="l00105"></a>00105 
 <a name="l00106"></a>00106 
@@ -207,13 +207,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00111"></a>00111 
 <a name="l00112"></a>00112 
 <a name="l00113"></a>00113 
+<a name="l00114"></a>00114 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_configuration_8h.html">Configuration.h</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 19 2012 11:43:02 for prencar by
+    <li class="footer">Generated on Thu Apr 26 2012 09:42:55 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

@@ -10,7 +10,9 @@ var NAVTREEINDEX =
 "class_lift_cube.html":[1,0,4],
 "class_line_follow.html":[1,0,5],
 "class_move.html":[1,0,6],
-"class_state_maschine.html":[1,0,7],
+"class_sensor_debug.html":[1,0,7],
+"class_state_maschine.html":[1,0,8],
+"struct_t_sensor_junction_point.html":[1,0,9],
 "classes.html":[1,1],
 "hierarchy.html":[1,2],
 "functions.html":[1,3,0],
@@ -36,7 +38,8 @@ var NAVTREEINDEX =
 "_state_maschine_8cpp.html":[2,0,16],
 "_state_maschine_8h.html":[2,0,17],
 "globals.html":[2,1,0],
-"globals_enum.html":[2,1,1],
-"globals_eval.html":[2,1,2],
-"globals_defs.html":[2,1,3]
+"globals_vars.html":[2,1,1],
+"globals_enum.html":[2,1,2],
+"globals_eval.html":[2,1,3],
+"globals_defs.html":[2,1,4]
 };
