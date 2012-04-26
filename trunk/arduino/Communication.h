@@ -35,6 +35,7 @@ public:
    */
   Command readyCommands[_READYCOMMANDSSIZE];
   boolean getAndRemoveCommandFromReadyCommands(Command* c, int commandCode);
+  void sendFreeMemory(int placeOfMeasurement);
 };
 
 #endif

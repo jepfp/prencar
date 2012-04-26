@@ -1,10 +1,12 @@
 #include "Configuration.h"
 #include "Communication.h"
 #include "StateMaschine.h"
+#include "SensorDebug.h"
 
 Communication* _com;
 StateMaschine* _stateMaschine;
 Configuration* _conf;
+SensorDebug* _sensorDebug;
 
 void setup()
 {
@@ -15,6 +17,7 @@ void setup()
   _conf = Configuration::getInstance();
   _com = Communication::getInstance();
   _stateMaschine = StateMaschine::getInstance();
+  _sensorDebug = SensorDebug::getInstance();
 }
 
 void loop()
@@ -23,11 +26,13 @@ void loop()
     _com->send(101, _conf->doJobDelay);
     delay(_conf->doJobDelay);
   }
-  
+
   //several jobs that have to be performed always.
   _com->doJob();
   _stateMaschine->doJob();
+  _sensorDebug->doJob();
 }
+
 
 
 

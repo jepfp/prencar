@@ -4,7 +4,7 @@ Configuration Configuration::_instance; ///< Static reference to the singleton o
 boolean Configuration::_instanceCreated = false;
 
 byte const Configuration::_CONFIGURATIONVERSION = 1; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
-int const Configuration::_SERIALSPEED = 9600; ///< Defines the serial data rate.
+long const Configuration::_SERIALSPEED = 9600; ///< Defines the serial data rate.
 
 /**
  * Get the Configuration instance
@@ -21,7 +21,7 @@ Configuration* Configuration::getInstance()
 
 Configuration::Configuration(){
   //set default values
-  _messageFilterLevel = 49;
+  _messageFilterLevel = 0;
   doJobDelay = 0;
   lineFollowWhiteThreshold = 300;
   lineFollowInterval = 0;
@@ -68,7 +68,7 @@ byte Configuration::getConfigurationVersion(){
  * Returns the serial data rate used for the communication between the board and the host computer.
  * @return speed
  */
-int Configuration::getSerialSpeed(){
+long Configuration::getSerialSpeed(){
   return _SERIALSPEED;
 }
 
@@ -226,7 +226,23 @@ void Configuration::updateConfiguration(int* parameters){
   sensorDebugReadGap = parameters[15];
 }
 
+/**
+ * Gets the currently free memory.
+ * Copied from: http://forum.pololu.com/viewtopic.php?f=10&t=989&view=unread#p4218
+ */
+extern int __bss_end;
+extern void *__brkval;
+int Configuration::getFreeMemory()
+{
+  int free_memory;
 
+  if((int)__brkval == 0)
+    free_memory = ((int)&free_memory) - ((int)&__bss_end);
+  else
+    free_memory = ((int)&free_memory) - ((int)__brkval);
+
+  return free_memory;
+}
 
 
 

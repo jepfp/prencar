@@ -125,7 +125,11 @@ void StateMaschine::checkCommands(){
         stopParcours();
       }
       else{
-        if(parameters[0] != 0){
+        //send the current configuration
+        _com->sendCurrentConfiguration();
+        //if the desired state is > than 1, start with that state. If the parameter is 0 or 1 just start with
+        //the first state.
+        if(parameters[0] > 1){
           parcoursState = (TParcoursState)(parameters[0] - 1);
           forceChangeSate = true;
           _com->send(205, parcoursState + 1);

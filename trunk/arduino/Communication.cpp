@@ -5,7 +5,7 @@
 Communication Communication::_instance; ///< Static reference to the singleton object
 boolean Communication::_instanceCreated = false;
 
-#define sc Serial1
+#define sc Serial
 
 /**
  * Get the Communication instance
@@ -35,7 +35,8 @@ Communication::Communication(){
  * Does the job which this class has to do in regular intervals.
  * Therefore this method has to be called in regular intervals (as short as possible).<br>
  *
- * 1. Checks if data is available to read.
+ * It checks if data is available to read. If so, the data is added to an incoming buffer and as soon
+ * as one command (one line) is complete, a Command object is created.
  */
 void Communication::doJob(){
   int amountAvailableBytes = sc.available();
@@ -57,6 +58,7 @@ void Communication::doJob(){
  * Returns a pointer to the first free spot in readyCommands (free = command is set to 0)
  */
 void Communication::parseAndPutCommandOnList(byte* commandString){
+  sendFreeMemory(1);
   //find the first free spot
   int i;
   boolean spotFound = false;
@@ -107,10 +109,10 @@ boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int comm
   for(int i = 0; i < _READYCOMMANDSSIZE; i++){
     if(readyCommands[i].commandCode == commandCode){
       *c = readyCommands[i];
-      
+
       //remove command from the list
       readyCommands[i].commandCode = 0;
-      
+
       int parameters[3];
       parameters[0] = c->commandCode;
       parameters[1] = i;
@@ -209,14 +211,32 @@ void Communication::sendString(char* message){
   sc.println(message);
 }
 
-/*
+/**
  * Gets the current configuration from the Configuraton instance and sends it over the serial port.
  */
 void Communication::sendCurrentConfiguration(){
-  long currentConfiguration[14];
+  long currentConfiguration[Configuration::SIZEOFDYNAMICCONFIGURATION];
   _config->getCurrentConfiguration(currentConfiguration);
-  send(204, currentConfiguration, 14);
+  send(204, currentConfiguration, Configuration::SIZEOFDYNAMICCONFIGURATION);
 }
+
+/**
+ * Sends the currently free memory over the serial interface with the given placeOfMeasurement
+ * value as a identifier from where this method was called.
+ * @param placeOfMeasurement Identifier from where this method was called.
+ */
+void Communication::sendFreeMemory(int placeOfMeasurement){
+  int freeMemory = _config->getFreeMemory();
+  int params[2];
+  params[0] = freeMemory;
+  params[1] = placeOfMeasurement;
+  send(68, params, 2);
+}
+
+
+
+
+
 
 
 

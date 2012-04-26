@@ -9,7 +9,7 @@ private:
   static Configuration _instance;
   static boolean _instanceCreated;
   static byte const _CONFIGURATIONVERSION;
-  static int const _SERIALSPEED;
+  static long const _SERIALSPEED;
   byte _messageFilterLevel;
   byte _movePwmLeftPin;
   byte _movePwmRightPin;
@@ -27,7 +27,7 @@ public:
   
   static Configuration* getInstance();
   byte getConfigurationVersion();
-  int getSerialSpeed();
+  long getSerialSpeed();
   byte getMessageFilterLevel();
   void setMessageFilterLevel(byte value);
   byte getMovePwmLeftPin();
@@ -95,6 +95,7 @@ public:
 
   void getCurrentConfiguration(long* spaceForConfigValues);
   void updateConfiguration(int* parameters);
+  int getFreeMemory();
 
 };
 

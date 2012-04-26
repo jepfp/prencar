@@ -185,35 +185,3 @@ void LineFollow::calibrateSensors(){
 
   _com->send(203, measurements, 6);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
