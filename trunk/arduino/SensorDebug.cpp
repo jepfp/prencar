@@ -59,24 +59,24 @@ void SensorDebug::begin(){
   sensorJunctionPoints[3].messageCode = 13;
   
   //cube approach left top sensor
-  sensorJunctionPoints[5].active = true;
-  sensorJunctionPoints[5].pin = _conf->cubeApproachLeftBottomSensor;
-  sensorJunctionPoints[5].messageCode = 14;
+  sensorJunctionPoints[4].active = true;
+  sensorJunctionPoints[4].pin = _conf->cubeApproachLeftBottomSensor;
+  sensorJunctionPoints[4].messageCode = 14;
   
   //cube approach left bottom sensor
-  sensorJunctionPoints[6].active = true;
-  sensorJunctionPoints[6].pin = _conf->cubeApproachLeftTopSensor;
-  sensorJunctionPoints[6].messageCode = 15;
+  sensorJunctionPoints[5].active = true;
+  sensorJunctionPoints[5].pin = _conf->cubeApproachLeftTopSensor;
+  sensorJunctionPoints[5].messageCode = 15;
   
   //cube approach right bottom sensor
-  sensorJunctionPoints[7].active = true;
-  sensorJunctionPoints[7].pin = _conf->cubeApproachRightBottomSensor;
-  sensorJunctionPoints[7].messageCode = 16;
+  sensorJunctionPoints[6].active = true;
+  sensorJunctionPoints[6].pin = _conf->cubeApproachRightBottomSensor;
+  sensorJunctionPoints[6].messageCode = 16;
   
   //cube approach right top sensor
-  sensorJunctionPoints[8].active = true;
-  sensorJunctionPoints[8].pin = _conf->cubeApproachRightTopSensor;
-  sensorJunctionPoints[8].messageCode = 17;
+  sensorJunctionPoints[7].active = true;
+  sensorJunctionPoints[7].pin = _conf->cubeApproachRightTopSensor;
+  sensorJunctionPoints[7].messageCode = 17;
 
   for(int i = 0; i < AMOUNTOFSENSORJUNCTIONPOINTS; i++){
     byte pin = sensorJunctionPoints[i].pin;

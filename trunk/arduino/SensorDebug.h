@@ -12,7 +12,7 @@ typedef struct {
 } 
 TSensorJunctionPoint; 
 
-#define AMOUNTOFSENSORJUNCTIONPOINTS 9
+#define AMOUNTOFSENSORJUNCTIONPOINTS 8
 
 class SensorDebug
 {
