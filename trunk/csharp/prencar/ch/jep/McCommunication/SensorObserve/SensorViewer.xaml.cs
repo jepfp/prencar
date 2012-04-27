@@ -11,6 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Research.DynamicDataDisplay;
+using System.Windows.Controls.Primitives;
+using System.Data;
+using System.Globalization;
 
 namespace ch.jep.McCommunication.SensorObserve
 {
@@ -30,6 +33,9 @@ namespace ch.jep.McCommunication.SensorObserve
             sc.NewMessage += new NewMessageEventHandler(sc_NewMessage);
 
             plotter.Legend.LegendLeft = 20;
+
+            dgSensors.ItemsSource = sensors;
+            dgSensors.LoadingRow += new EventHandler<DataGridRowEventArgs>(dgSensors_LoadingRow);
         }
 
         public SensorViewer(SerialCommunication sc, List<SensorJunctionPoint> sensors) : this(sc)
@@ -42,11 +48,11 @@ namespace ch.jep.McCommunication.SensorObserve
 
         void sc_NewMessage(object sender, Message message)
         {
-            /*if (!plotter.Dispatcher.CheckAccess())
+            if (!plotter.Dispatcher.CheckAccess())
             {
                 this.Dispatcher.Invoke(new NewMessageEventHandler(sc_NewMessage), new object[] { sender, message });
                 return;
-            }*/
+            }
 
             foreach (SensorJunctionPoint sjp in sensors)
             {
@@ -58,9 +64,42 @@ namespace ch.jep.McCommunication.SensorObserve
         }
 
         public void AddGraph(SensorJunctionPoint sjp){
-            sensors.Add(sjp);
-            sjp.Graph = plotter.AddLineGraph(sjp.Source, 2, sjp.Name);
+            
+            if (!sensors.Contains(sjp))
+            {
+                sensors.Add(sjp);
+                //dgSensors.Rows[0].Cells[0].Style.BackColor = sjp.Brush;
+                sjp.ActiveStateChanged += new ActiveStateChangedEventHandler(sjp_ActiveStateChanged);
+            }
 
+            if (sjp.Brush != null)
+            {
+                sjp.Graph = plotter.AddLineGraph(sjp.Source, new Pen(sjp.Brush, 2), new PenDescription(sjp.Name));
+            }
+            else
+            {
+                sjp.Graph = plotter.AddLineGraph(sjp.Source, 2, sjp.Name);
+            }
+        }
+
+        void dgSensors_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            DataGridCellInfo a = new DataGridCellInfo(e.Row, dgSensors.Columns[0]);
+            dgSensors.CurrentCell = a;
+            e.Row.Background = ((SensorJunctionPoint)e.Row.Item).Brush;
+        }
+
+        void sjp_ActiveStateChanged(object sender, bool newState, LineGraph lg)
+        {
+            if (newState)
+            {
+                SensorJunctionPoint sjp = (SensorJunctionPoint)sender;
+                AddGraph(sjp);
+            }
+            else
+            {
+                plotter.Children.Remove(lg);
+            }
         }
 
         private int getMillisSinceStart()
@@ -69,5 +108,5 @@ namespace ch.jep.McCommunication.SensorObserve
             ts = DateTime.Now - initTime;
             return (int)ts.TotalMilliseconds;
         }
-    }
+    }  
 }

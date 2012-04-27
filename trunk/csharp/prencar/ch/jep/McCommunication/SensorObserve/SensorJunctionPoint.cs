@@ -5,9 +5,12 @@ using System.Text;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 using System.Windows;
+using System.Windows.Media;
 
 namespace ch.jep.McCommunication.SensorObserve
 {
+    public delegate void ActiveStateChangedEventHandler(object sender, bool newState, LineGraph lg);
+
     /// <summary>
     /// Puts together all information that is needed to plot sensor measurement data. The name of the sensor, the message
     /// code sent from the microcontroller and the graph are bundeld in one class so that SensorViewer can plot the data.
@@ -23,6 +26,12 @@ namespace ch.jep.McCommunication.SensorObserve
         private LineGraph graph;
 
         private string name;
+
+        private bool active = true;
+
+        private SolidColorBrush brush = null;
+
+        public event ActiveStateChangedEventHandler ActiveStateChanged;
 
         /// <summary>
         /// Code of the message that is sent over the serial interface which contains the sensor measurement value of that sensor
@@ -56,6 +65,22 @@ namespace ch.jep.McCommunication.SensorObserve
             get { return this.source; }
         }
 
+        public bool Active
+        {
+            get { return active; }
+            set {
+                if (value == active) return;
+                active = value;
+                ActiveStateChanged(this, value, this.graph);
+            }
+        }
+
+        public SolidColorBrush Brush
+        {
+            get { return brush; }
+            set { brush = value; }
+        }
+
         /// <summary>
         /// A message can hold more than one parameter. This int defines which parameter from the message shall be taken as the
         /// sensor measurement value (0 based array index).
@@ -83,5 +108,24 @@ namespace ch.jep.McCommunication.SensorObserve
         {
             this.measurementMessageParameterIndex = measurementMessageParameterIndex;
         }
+
+        public SensorJunctionPoint(int measurementMessageCode, int measurementMessageParameterIndex, String sensorDescription, SolidColorBrush brush)
+            : this(measurementMessageCode, measurementMessageParameterIndex, sensorDescription)
+        {
+            this.brush = brush;
+        }
+
+        public SensorJunctionPoint(int measurementMessageCode, String sensorDescription, SolidColorBrush brush)
+            : this(measurementMessageCode, sensorDescription)
+        {
+            this.brush = brush;
+        }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
+
+
     }
 }

@@ -198,14 +198,14 @@ namespace prencar
         {
             List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
 
-            sensorConfig.Add(new SensorJunctionPoint(10, "left line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(11, "right line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(12, "left front line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(13, "right front line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(14, "cube approach left bottom sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(15, "cube approach left top sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(16, "cube approach right bottom sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(17, "cube approach right top sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(10, "left line", Brushes.MidnightBlue));
+            sensorConfig.Add(new SensorJunctionPoint(11, "right line", Brushes.SeaGreen));
+            sensorConfig.Add(new SensorJunctionPoint(12, "left front line", Brushes.PowderBlue));
+            sensorConfig.Add(new SensorJunctionPoint(13, "right front line", Brushes.Lime));
+            sensorConfig.Add(new SensorJunctionPoint(14, "left bottom distance", Brushes.Orange));
+            sensorConfig.Add(new SensorJunctionPoint(15, "left top distance", Brushes.Red));
+            sensorConfig.Add(new SensorJunctionPoint(16, "right bottom distance", Brushes.OrangeRed));
+            sensorConfig.Add(new SensorJunctionPoint(17, "right top distance", Brushes.DarkRed));
 
             sendCommand("201-1:1");
             SensorViewer sv = new SensorViewer(sc, sensorConfig);
