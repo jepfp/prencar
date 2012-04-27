@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_communication.html" title="Communication" alt="" coords="5,96,117,123"/>
+<area shape="rect" id="node5" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="11,5,92,32"/>
+<area shape="rect" id="node8" href="$class_configuration.html" title="Configuration" alt="" coords="169,5,265,32"/>
+<area shape="rect" id="node11" href="$struct_t_sensor_junction_point.html" title="TSensorJunctionPoint" alt="" coords="311,96,459,123"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="198,5,597,32"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="646,56,794,83"/>
+<area shape="rect" id="node10" href="$class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89" title="SensorDebug::readSensorAndSendValue" alt="" coords="267,107,527,133"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="843,56,1077,83"/>
+</map>
