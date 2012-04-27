@@ -29,10 +29,10 @@ Configuration::Configuration(){
   lineFollowInitialSpeedRight = 120; //150 out of 255
   _movePwmLeftPin = 2;
   _movePwmRightPin = 3;
-  _moveModeFirstLeftPin = 22;
-  _moveModeSecondLeftPin = 23;
-  _moveModeFirstRightPin = 24;
-  _moveModeSecondRightPin = 25;
+  _moveModeFirstLeftPin = 23;
+  _moveModeSecondLeftPin = 22;
+  _moveModeFirstRightPin = 25;
+  _moveModeSecondRightPin = 24;
   lineFollowLeftSensorPin = A5;
   lineFollowRightSensorPin = A4;
   lineFollowLeftFrontSensorPin = A6;
