@@ -1,0 +1,40 @@
+﻿<Window x:Class="ch.jep.McCommunication.McConfigurationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="McConfiguration" Height="446" Width="654">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            <RowDefinition Height="148*" />
+            <RowDefinition Height="183*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="192" />
+                <ColumnDefinition Width="401*" />
+            </Grid.ColumnDefinitions>
+            <DataGrid Name="dgSettings" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" DataContext="{Binding}" CanUserReorderColumns="False" CanUserSortColumns="False" IsManipulationEnabled="True"></DataGrid>
+            <ListBox Grid.Row="2" Name="lbAvailableConfigurations" Margin="0,26,0,0" BorderThickness="1,1,0,1" SelectionChanged="lbAvailableConfigurations_SelectionChanged" />
+            <Label Content="Available Configurations:" Grid.Row="2" Height="26" Name="label1" VerticalAlignment="Top" />
+        <DockPanel Grid.ColumnSpan="2" Grid.RowSpan="1" Name="dockPanel1">
+            <ToolBar Name="toolBar1" HorizontalAlignment="Left" Height="26">
+                <Button Name="btnSelectSourceFolder" IsEnabled="True" Click="btnSelectSourceFolder_Click">
+                    <Image Name="image1" Stretch="Fill" Source="/prencar;component/Images/folder_explore.png" ToolTip="Select folder to load configurations" />
+                </Button>
+                <Button Name="btnDuplicateConfiguration" IsEnabled="True" Click="btnDuplicateConfiguration_Click">
+                    <Image Name="image5" Stretch="Fill" Source="/prencar;component/Images/application_cascade.png" ToolTip="Duplicate the selected configuration" />
+                </Button>
+                <Button Name="btnSaveConfigToDisk" ToolTip="Save the selected configuration" Click="btnSaveConfigToDisk_Click">
+                    <Image Name="image4" Stretch="Fill" Source="/prencar;component/Images/disk.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Name="toolBar2" HorizontalAlignment="Left" Height="26">
+            <Button Name="btnLoadFromMc" ToolTip="Load configuration from microcontroller" IsEnabled="False">
+                    <Image Name="image2" Stretch="Fill" Source="/prencar;component/Images/arrow_up.png" />
+                </Button>
+                <Button Name="btnLoadToMc" ToolTip="Send selected configuration to microcontroller" Click="btnLoadToMc_Click">
+                    <Image Name="image3" Stretch="Fill" Source="/prencar;component/Images/arrow_down.png" />
+                </Button>
+            </ToolBar>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="ch.hslu.prencar.LiveControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Live Control" Icon="/prencar;component/prencar.ico" ResizeMode="NoResize" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="247" d:DesignWidth="447" SizeToContent="WidthAndHeight" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+    <Grid>
+        <GroupBox Header="Motor Speed" Height="167" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="96">
+            <Grid>
+                <Slider Height="100" HorizontalAlignment="Left" Margin="11,6,0,0" Name="sSpeedLeftMotor" VerticalAlignment="Top" Width="23" Orientation="Vertical" Maximum="255" SmallChange="1" TickFrequency="17" TickPlacement="TopLeft" Value="150" IsSnapToTickEnabled="True" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="6,112,0,0" Name="tbSpeedLeftMotor" VerticalAlignment="Top" Width="33" Text="{Binding ElementName=sSpeedLeftMotor, Path=Value}" TextChanged="tbSpeedLeftMotor_TextChanged" />
+                <Slider Height="100" HorizontalAlignment="Left" IsSnapToTickEnabled="True" Margin="50,6,0,0" Maximum="255" Name="sSpeedRightMotor" Orientation="Vertical" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="150" VerticalAlignment="Top" Width="23" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="45,112,0,0" Name="tbSpeedRightMotor" Text="{Binding ElementName=sSpeedRightMotor, Path=Value}" VerticalAlignment="Top" Width="33" TextChanged="tbSpeedRightMotor_TextChanged" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Current Direction" Height="167" HorizontalAlignment="Left" Margin="114,12,0,0" Name="groupBox2" VerticalAlignment="Top" Width="218">
+            <Grid>
+                <Image Name="imgDirection" Stretch="Uniform" VerticalAlignment="Stretch" Source="/prencar;component/Images/notMoving.png" />
+                <Label Content="keine Bewegung" Name="lblDirection" FontStyle="Normal" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Hoist" Height="167" HorizontalAlignment="Left" Margin="338,12,12,12" Name="groupBox3" VerticalAlignment="Top" Width="57">
+            <Grid>
+                <Slider Height="100" HorizontalAlignment="Left" IsSnapToTickEnabled="True" Margin="11,6,0,0" Maximum="255" Name="sHoist" Orientation="Vertical" SmallChange="1" TickFrequency="17" TickPlacement="TopLeft" Value="255" VerticalAlignment="Top" Width="23" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="6,112,0,0" Name="tbHoist" Text="{Binding ElementName=sHoist, Path=Value}" VerticalAlignment="Top" Width="33" TextChanged="tbHoist_TextChanged" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
