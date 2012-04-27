@@ -50,12 +50,12 @@ void SensorDebug::begin(){
   
   //left front line sensor pin
   sensorJunctionPoints[2].active = true;
-  sensorJunctionPoints[2].pin = _conf->lineFollowRightSensorPin;
+  sensorJunctionPoints[2].pin = _conf->lineFollowLeftFrontSensorPin;
   sensorJunctionPoints[2].messageCode = 12;
   
   //right front line sensor pin
   sensorJunctionPoints[3].active = true;
-  sensorJunctionPoints[3].pin = _conf->lineFollowRightSensorPin;
+  sensorJunctionPoints[3].pin = _conf->lineFollowRightFrontSensorPin;
   sensorJunctionPoints[3].messageCode = 13;
   
   //cube approach left top sensor
