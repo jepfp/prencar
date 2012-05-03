@@ -45,6 +45,8 @@ void LiftCube::begin(){
   _com = Communication::getInstance();
 
   pinMode(_conf->liftCubePwmPin, OUTPUT);
+  
+  _hoistServo.attach(_conf->liftCubePwmPin);
 }
 
 /**
@@ -98,6 +100,6 @@ void LiftCube::liftCube()
  */
 void LiftCube::setHoistPosition(byte pos){
   _com->send(65, pos);
-  analogWrite(_conf->liftCubePwmPin, pos);
+  _hoistServo.write(pos);
 }
 

@@ -3,7 +3,8 @@
 
 #include "Arduino.h"
 #include "Communication.h"
-
+#include <Servo.h>
+  
 class LiftCube
 {
 private:
@@ -16,6 +17,8 @@ private:
 
   Communication* _com; ///< The reference to the serial communication class.
   Configuration* _conf; ///< The reference to the configuration class.
+  
+  Servo _hoistServo;
 public:
   static LiftCube* getInstance();
 

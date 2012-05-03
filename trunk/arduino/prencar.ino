@@ -2,6 +2,7 @@
 #include "Communication.h"
 #include "StateMaschine.h"
 #include "SensorDebug.h"
+#include <Servo.h>
 
 Communication* _com;
 StateMaschine* _stateMaschine;

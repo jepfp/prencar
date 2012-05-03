@@ -40,6 +40,8 @@ Configuration::Configuration(){
   lineFollowKp = 5;
   lineFollowKd = 25;
   liftCubePwmPin = 4;
+  liftCubeUpPosition = 28;
+  liftCubeDownPosition = 47;
 
   curveSpeedSlowMotor = 60;
   curveSpeedFastMotor = 120;

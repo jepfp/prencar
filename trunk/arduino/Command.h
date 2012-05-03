@@ -27,7 +27,8 @@
  * <tr><td>300</td><td>Start parcours</td><td>State to start from as int number (first state = 0). @see TParcoursState</td><td>Starts the parcours</td></tr>
  * <tr><td>301</td><td>Stop parcours</td><td>-</td><td>Stops the parcours and the car performing a fast stop.</td></tr>
  * <tr><td>400</td><td>Control car</td><td>speedLeft, direction Left, speedRight, direction Right</td><td>Speed between 0-255; direction: 0 - phaseOut, 1 - forwards, 2 - backwards, 3 - fastStop</td></tr>
- * <tr><td>401</td><td>Control hoist</td><td>hoist position (pwm value between 0-255)</td><td></td></tr>
+ * <tr><td>401</td><td>Control hoist</td><td>hoist position (pwm value between 0-255)</td>This can control the servo directly and should only be used for debug reasons (can destroy the servo).<td></td></tr>
+ * <tr><td>402</td><td>Move hoist down or up</td><td>1 = move hoist down; 0 = move hoist up</td><td>Sets the hoist to the configured up / down position to crab the cube.</td></tr>
  * </table>
  */
 class Command

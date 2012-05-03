@@ -41,6 +41,7 @@ void StateMaschine::begin(){
   _liftCube = LiftCube::getInstance();
   lineFollow.begin();
   curveLeft.begin();
+  _liftCube->liftUp();
 }
 
 /**
@@ -159,6 +160,17 @@ void StateMaschine::checkCommands(){
       int* parameters = c.parameters;
       _liftCube->setHoistPosition(parameters[0]);
     }
+
+    //check for command 402
+    if(_com->getAndRemoveCommandFromReadyCommands(&c, 402)){
+      int* parameters = c.parameters;
+      if(parameters[0] == 1){
+        _liftCube->liftDown();
+      }
+      else{
+        _liftCube->liftUp();
+      }
+    }
   }
 
   //check for command 301
@@ -191,6 +203,8 @@ void StateMaschine::changeState(TParcoursState newState){
   parcoursState = newState;
   _com->send(100, newState);
 }
+
+
 
 
 
