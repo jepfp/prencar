@@ -19,8 +19,11 @@
         </GroupBox>
         <GroupBox Header="Hoist" Height="167" HorizontalAlignment="Left" Margin="338,12,12,12" Name="groupBox3" VerticalAlignment="Top" Width="57">
             <Grid>
-                <Slider Height="100" HorizontalAlignment="Left" IsSnapToTickEnabled="True" Margin="11,6,0,0" Maximum="255" Name="sHoist" Orientation="Vertical" SmallChange="1" TickFrequency="17" TickPlacement="TopLeft" Value="255" VerticalAlignment="Top" Width="23" />
-                <TextBox Height="23" HorizontalAlignment="Left" Margin="6,112,0,0" Name="tbHoist" Text="{Binding ElementName=sHoist, Path=Value}" VerticalAlignment="Top" Width="33" TextChanged="tbHoist_TextChanged" />
+                <Slider Height="100" HorizontalAlignment="Left" IsSnapToTickEnabled="True" Margin="11,6,0,0" Maximum="255" Name="sHoist" Orientation="Vertical" SmallChange="1" TickFrequency="17" TickPlacement="TopLeft" Value="255" VerticalAlignment="Top" Width="23" IsEnabled="False" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="6,112,0,0" Name="tbHoist" Text="{Binding ElementName=sHoist, Path=Value}" VerticalAlignment="Top" Width="33" TextChanged="tbHoist_TextChanged" IsEnabled="False" />
+                <ToggleButton Name="btnToggleHoist" Click="btnToggleHoist_Click">
+                    <Image Name="image1" Source="/prencar;component/prencar.ico" />
+                </ToggleButton>
             </Grid>
         </GroupBox>
     </Grid>

@@ -319,5 +319,17 @@ namespace ch.hslu.prencar
             //Console.WriteLine(command);
             sc.SendCommand(command);
         }
+
+        private void btnToggleHoist_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnToggleHoist.IsChecked == true)
+            {
+                sc.SendCommand("402-1:1");
+            }
+            else
+            {
+                sc.SendCommand("402-1:0");
+            }
+        }
     }
 }
