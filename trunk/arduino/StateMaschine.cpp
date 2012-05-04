@@ -52,6 +52,9 @@ void StateMaschine::begin(){
 void StateMaschine::doJob(){
 
   checkCommands();
+  
+  ///@todo this do job has to go to the right state.
+  _liftCube->doJob();
 
   if(parcoursState == followingFirstLine){
     //go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)
@@ -138,6 +141,9 @@ void StateMaschine::checkCommands(){
         else{
           startParcours();
         }
+        /// @todo the following line has to go to the begin of the liftCube state later on!
+        //make sure that the cubeLifted bool is set to false
+        _liftCube->cubeLifted = false;
       }
     }
 

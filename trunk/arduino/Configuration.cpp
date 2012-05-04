@@ -42,6 +42,8 @@ Configuration::Configuration(){
   liftCubePwmPin = 4;
   liftCubeUpPosition = 28;
   liftCubeDownPosition = 47;
+  liftCubeSwitchPin = 27;
+  liftCubeDownUpDuration = 1500;
 
   curveSpeedSlowMotor = 60;
   curveSpeedFastMotor = 120;
@@ -198,6 +200,7 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[13] = curveActivateEndSensorOffset;
   spaceForConfigValues[14] = sensorDebugInterval;
   spaceForConfigValues[15] = sensorDebugReadGap;
+  spaceForConfigValues[16] = liftCubeDownUpDuration;
 }
 
 /**
@@ -226,6 +229,7 @@ void Configuration::updateConfiguration(int* parameters){
   curveActivateEndSensorOffset = parameters[13];
   sensorDebugInterval = parameters[14];
   sensorDebugReadGap = parameters[15];
+  liftCubeDownUpDuration = parameters[16];
 }
 
 /**

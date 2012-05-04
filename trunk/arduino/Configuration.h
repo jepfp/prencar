@@ -23,7 +23,7 @@ public:
    * 
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 16;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 17;
   
   static Configuration* getInstance();
   byte getConfigurationVersion();
@@ -75,6 +75,7 @@ public:
   byte liftCubeUpPosition; ///< Pwm value to set if the hoist has to be moved up fully.
   byte liftCubeDownPosition; ///< Pwm value to set if the hoist has to be moved up fully.
   int liftCubeDownUpDuration; ///< Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()
+  byte liftCubeSwitchPin; ///< Hardware pin to which the end switch is attached.
 
   byte curveSpeedSlowMotor; ///< The speed of the slower motor (in a left curve, left motor) during a 90° curve.
   byte curveSpeedFastMotor; ///< The speed of the faster motor (in a left curve, right motor) during a 90° curve.

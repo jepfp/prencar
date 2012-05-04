@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "Communication.h"
 #include <Servo.h>
-  
+
 class LiftCube
 {
 private:
@@ -17,18 +17,25 @@ private:
 
   Communication* _com; ///< The reference to the serial communication class.
   Configuration* _conf; ///< The reference to the configuration class.
-  
+
+  boolean _liftingStarted; ///< Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to liftCube().
+
   Servo _hoistServo;
 public:
   static LiftCube* getInstance();
+
+  boolean cubeLifted; ///< Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again automatically (a parcours restart is needed first).
 
   void doJob();
   void liftUp();
   void liftDown();
   void liftCube();
   void setHoistPosition(byte pos);
+
 };
 #endif
+
+
 
 
 

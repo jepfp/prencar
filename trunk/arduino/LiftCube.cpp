@@ -45,7 +45,8 @@ void LiftCube::begin(){
   _com = Communication::getInstance();
 
   pinMode(_conf->liftCubePwmPin, OUTPUT);
-  
+  pinMode(_conf->liftCubeSwitchPin, INPUT);
+
   _hoistServo.attach(_conf->liftCubePwmPin);
 }
 
@@ -54,11 +55,19 @@ void LiftCube::begin(){
  * This method has to be called in regular intervals (as short as possible).<br>
  */
 void LiftCube::doJob(){
+  if(digitalRead(_conf->liftCubeSwitchPin) == 1 && _liftingStarted == false && cubeLifted == false){
+    _com->send(69);
+    liftCube();
+    _liftingStarted = true;
+  }
+
   if(_liftDownStartTimestamp != 0 && millis() > _liftDownStartTimestamp + _conf->liftCubeDownUpDuration){
     //move the hoist up
     _com->send(64);
     _liftDownStartTimestamp = 0;
     liftUp();
+    cubeLifted = true;
+    _liftingStarted = false;
   }
 }
 
@@ -102,4 +111,5 @@ void LiftCube::setHoistPosition(byte pos){
   _com->send(65, pos);
   _hoistServo.write(pos);
 }
+
 
