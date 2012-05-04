@@ -46,5 +46,17 @@ namespace ch.hslu.prencar.Properties {
                 this["DebugFilesPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM23")]
+        public string Comport {
+            get {
+                return ((string)(this["Comport"]));
+            }
+            set {
+                this["Comport"] = value;
+            }
+        }
     }
 }

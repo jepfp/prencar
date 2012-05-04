@@ -79,6 +79,7 @@ newAverageSpeed: %%");
             messages.Add(66, @"Left line sensor detected white ground (Value: %%).");
             messages.Add(67, @"Start driving curve left.");
             messages.Add(68, @"Free memory: %% (place of measurement: %%)");
+            messages.Add(69, @"End switch has been set to one --> Lift cube.");
             #endregion
 
             #region 100-149 Information
@@ -121,7 +122,8 @@ curveSpeedFastMotor:%%
 curveInterval:%%
 curveActivateEndSensorOffset:%%
 sensorDebugInterval:%%
-sensorDebugReadGap:%%");
+sensorDebugReadGap:%%
+liftCubeDownUpDuration:%%");
             messages.Add(205, "Starting parcours at state %%.");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");

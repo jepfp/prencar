@@ -268,5 +268,10 @@ namespace prencar
             tbSerialInput.Text = "";
             debug.Append("New log session started...");
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ch.hslu.prencar.Properties.Settings.Default.Save(); 
+        }
     }
 }

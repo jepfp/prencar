@@ -8,5 +8,8 @@
     <Setting Name="DebugFilesPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\logs</Value>
     </Setting>
+    <Setting Name="Comport" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM23</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
