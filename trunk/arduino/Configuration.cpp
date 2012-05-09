@@ -21,12 +21,12 @@ Configuration* Configuration::getInstance()
 
 Configuration::Configuration(){
   //set default values
-  _messageFilterLevel = 0;
+  _messageFilterLevel = 99;
   doJobDelay = 0;
   lineFollowWhiteThreshold = 300;
   lineFollowInterval = 15;
-  lineFollowInitialSpeedLeft = 120; //150 out of 255
-  lineFollowInitialSpeedRight = 120; //150 out of 255
+  lineFollowInitialSpeedLeft = 150; //150 out of 255
+  lineFollowInitialSpeedRight = 150; //150 out of 255
   _movePwmLeftPin = 2;
   _movePwmRightPin = 3;
   _moveModeFirstLeftPin = 23;
@@ -37,13 +37,13 @@ Configuration::Configuration(){
   lineFollowRightSensorPin = A4;
   lineFollowLeftFrontSensorPin = A6;
   lineFollowRightFrontSensorPin = A7;
-  lineFollowKp = 5;
-  lineFollowKd = 25;
+  lineFollowKp = 20;
+  lineFollowKd = 150;
   liftCubePwmPin = 4;
   liftCubeUpPosition = 28;
   liftCubeDownPosition = 47;
   liftCubeSwitchPin = 27;
-  liftCubeDownUpDuration = 1500;
+  liftCubeDownUpDuration = 700;
 
   curveSpeedSlowMotor = 60;
   curveSpeedFastMotor = 120;

@@ -58,7 +58,6 @@ void Communication::doJob(){
  * Returns a pointer to the first free spot in readyCommands (free = command is set to 0)
  */
 void Communication::parseAndPutCommandOnList(byte* commandString){
-  sendFreeMemory(1);
   //find the first free spot
   int i;
   boolean spotFound = false;
@@ -81,7 +80,7 @@ void Communication::parseAndPutCommandOnList(byte* commandString){
   parameters[0] = c.commandCode;
   parameters[1] = i;
   parameters[2] = _READYCOMMANDSSIZE;
-  send(61, parameters, 3);
+  //send(61, parameters, 3);
 }
 
 /**
@@ -116,7 +115,7 @@ boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int comm
       int parameters[3];
       parameters[0] = c->commandCode;
       parameters[1] = i;
-      send(62, parameters, 2);
+      //send(62, parameters, 2);
       return true;
     } 
   }

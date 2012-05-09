@@ -63,7 +63,6 @@ void StateMaschine::doJob(){
       curveLeft.startIt();
     }
     else{
-      _com->sendString("line do job");
       lineFollow.doJob();
     }
   }
