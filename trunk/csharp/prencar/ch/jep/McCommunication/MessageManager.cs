@@ -128,6 +128,9 @@ liftCubeDownUpDuration:%%");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");
             messages.Add(208, "Value of activateMessageFilter changed to %%.");
+            messages.Add(209, @" ____|~\_
+[____|_|-] Finished parcours after %% milliseconds.
+ (_)   (_)");
             #endregion
 
             //messages.Add(51, @"");

@@ -18,6 +18,7 @@ using ch.jep.McCommunication;
 using ch.hslu.prencar;
 using ch.jep.McCommunication.SensorObserve;
 using ch.hslu.prencar.Properties;
+using System.Windows.Threading;
 
 namespace prencar
 {
@@ -29,6 +30,7 @@ namespace prencar
         SerialCommunication sc = new SerialCommunication();
         McConfiguration conf = new McConfiguration();
         DebugOutputHandler debug;
+        private DispatcherTimer stopwatch;
 
         enum ParcoursState
         {
@@ -85,6 +87,13 @@ namespace prencar
                     btnDisableMessageFilter.IsChecked = true;
                 }
                 
+            }
+            else if (message.MessageCode == 209)
+            {
+                lblStopwatchDescription.Content = "Finished:";
+                TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)message.Parameters[0]);
+                lblStopwatch.Content = ts.ToString(@"mm\:ss\.fff");
+
             }
             appendDebugText(message.MessageCombined);
         }
@@ -172,6 +181,7 @@ namespace prencar
                     MessageBox.Show("The parcours will be started with the state " + ((ListBoxItem)lbState.SelectedItem).Content + ".");
                 }
                 newSession();
+                startStopwatch();
                 sendCommand("300-1:" + lbState.SelectedIndex);
             }
             else
@@ -268,11 +278,30 @@ namespace prencar
             if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
             {
                 btnStartStoppParcours.Content = "Start";
+                if (this.stopwatch != null) this.stopwatch.Stop();
             }
             else
             {
                 btnStartStoppParcours.Content = "Stop";
             }
+        }
+
+        private void startStopwatch()
+        {
+            if (this.stopwatch != null)
+            {
+                this.stopwatch.Stop();
+            }
+
+            TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
+            this.stopwatch = new DispatcherTimer(new TimeSpan(0, 0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                TimeSpan duration = (new TimeSpan(DateTime.Now.Ticks)).Subtract((TimeSpan)stopwatch.Tag);
+                this.lblStopwatch.Content = duration.ToString(@"mm\:ss");
+            }, this.Dispatcher);
+            stopwatch.Tag = start;
+            this.lblStopwatch.Content = "00:00";
+            this.lblStopwatchDescription.Content = "Stopwatch:";
         }
         #endregion
 

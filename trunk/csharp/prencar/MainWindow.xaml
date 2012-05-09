@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Name="grid1" Grid.RowSpan="1" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="288*" />
+                <RowDefinition Height="275" />
                 <RowDefinition Height="230*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Name="grid2">
@@ -67,6 +67,8 @@
             </Expander>
             <Expander Header="Parcours" IsExpanded="True" Name="expander1">
                 <Grid>
+                    <Label Content="00:00" Height="40" HorizontalAlignment="Right" Margin="0,20,6,0" Name="lblStopwatch" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" Padding="5,5,0,0" />
+                    <Label Content="Stopwatch:" Height="28" HorizontalAlignment="Left" Margin="6,35,0,0" Name="lblStopwatchDescription" VerticalAlignment="Top" Padding="0,5,5,5" />
                     <Button Content="Start" Height="23" Margin="6,6,6,0" Name="btnStartStoppParcours" VerticalAlignment="Top" Click="btnStartStoppParcours_Click" />
                 </Grid>
             </Expander>
