@@ -9,6 +9,6 @@ var hierarchy =
     ] ],
     [ "Move", "class_move.html", null ],
     [ "SensorDebug", "class_sensor_debug.html", null ],
-    [ "StateMaschine", "class_state_maschine.html", null ],
+    [ "StateMachine", "class_state_machine.html", null ],
     [ "TSensorJunctionPoint", "struct_t_sensor_junction_point.html", null ]
 ];

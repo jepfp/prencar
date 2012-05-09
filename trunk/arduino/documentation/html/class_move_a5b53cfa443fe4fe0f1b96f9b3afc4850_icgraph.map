@@ -1,6 +1,6 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="181,5,304,32"/>
 <area shape="rect" id="node10" href="$class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="197,56,288,83"/>
-<area shape="rect" id="node5" href="$class_state_maschine.html#acdadfde97fc8449c816c1b489e2f4a22" title="StateMaschine::begin" alt="" coords="353,5,501,32"/>
-<area shape="rect" id="node7" href="$class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0" title="StateMaschine::getInstance" alt="" coords="549,5,733,32"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="352,5,493,32"/>
+<area shape="rect" id="node7" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="542,5,719,32"/>
 </map>

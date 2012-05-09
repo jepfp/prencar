@@ -1,9 +1,11 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="422,5,613,32"/>
-<area shape="rect" id="node9" href="$class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="249,56,373,83"/>
-<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="683,5,831,32"/>
-<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="901,5,1136,32"/>
-<area shape="rect" id="node11" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="448,56,587,83"/>
-<area shape="rect" id="node14" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="666,56,849,83"/>
-<area shape="rect" id="node16" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="661,107,853,133"/>
+<area shape="rect" id="node3" href="$class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4" title="StateMaschine::changeState" alt="" coords="587,5,778,32"/>
+<area shape="rect" id="node9" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="249,69,514,96"/>
+<area shape="rect" id="node14" href="$class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94" title="LineFollow::startIt" alt="" coords="319,132,443,159"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="873,56,1021,83"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1091,56,1325,83"/>
+<area shape="rect" id="node11" href="$class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="563,107,803,133"/>
+<area shape="rect" id="node16" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="613,157,752,184"/>
+<area shape="rect" id="node19" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="855,132,1038,159"/>
+<area shape="rect" id="node21" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="851,183,1043,209"/>
 </map>

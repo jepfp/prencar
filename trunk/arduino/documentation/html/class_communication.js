@@ -10,6 +10,7 @@ var class_communication =
     [ "send", "class_communication.html#ae69fab10af713fa7eef7b75ee804d030", null ],
     [ "send", "class_communication.html#a4f3943a64cf5fb3e28c343582bedb80a", null ],
     [ "send", "class_communication.html#a177161f8b437b0e406c301394a3632e5", null ],
+    [ "sendBinary", "class_communication.html#a38274e7dea6573692cd05ef868173900", null ],
     [ "sendCurrentConfiguration", "class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a", null ],
     [ "sendFreeMemory", "class_communication.html#a0cafeb974ccf24771478a8589aaa79b5", null ],
     [ "sendString", "class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85", null ],

@@ -5,6 +5,7 @@ var class_sensor_debug =
     [ "doJob", "class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327", null ],
     [ "getInstance", "class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169", null ],
     [ "readSensorAndSendValue", "class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89", null ],
+    [ "_activateMessageFilterStateB4Start", "class_sensor_debug.html#a92f018df3d183a980b72269605fc203c", null ],
     [ "_com", "class_sensor_debug.html#a57e190528b5415b1a1b562265b5eafa3", null ],
     [ "_conf", "class_sensor_debug.html#a3ebefa575a9a75fd6382fdabf601841a", null ],
     [ "_debuggerActive", "class_sensor_debug.html#a85317d887c5c2953a5da29aaaaa55562", null ],

@@ -1,13 +1,11 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="209,81,501,108"/>
-<area shape="rect" id="node18" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="244,157,465,184"/>
-<area shape="rect" id="node5" href="$class_communication.html#a0cafeb974ccf24771478a8589aaa79b5" title="Communication::sendFreeMemory" alt="" coords="639,56,860,83"/>
-<area shape="rect" id="node9" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1043,132,1191,159"/>
-<area shape="rect" id="node14" href="$class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="689,5,810,32"/>
-<area shape="rect" id="node7" href="$class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4" title="Configuration::getFreeMemory" alt="" coords="1019,56,1215,83"/>
-<area shape="rect" id="node11" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1285,132,1520,159"/>
-<area shape="rect" id="node16" href="$class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="1029,5,1206,32"/>
-<area shape="rect" id="node20" href="$class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="550,157,949,184"/>
-<area shape="rect" id="node23" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="617,208,882,235"/>
-<area shape="rect" id="node25" href="$class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="997,208,1237,235"/>
+<area shape="rect" id="node3" href="$class_communication.html#ad566d07485df1c7970edd450723da1aa" title="Communication::parseAndPutCommandOnList" alt="" coords="209,56,501,83"/>
+<area shape="rect" id="node13" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="244,107,465,133"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1043,81,1191,108"/>
+<area shape="rect" id="node9" href="$class_command.html#adbc9f2539741be419397502840f3740c" title="Command::parse" alt="" coords="689,5,810,32"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1285,81,1520,108"/>
+<area shape="rect" id="node11" href="$class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="1029,5,1206,32"/>
+<area shape="rect" id="node15" href="$class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="550,107,949,133"/>
+<area shape="rect" id="node17" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="617,157,882,184"/>
+<area shape="rect" id="node19" href="$class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="997,157,1237,184"/>
 </map>

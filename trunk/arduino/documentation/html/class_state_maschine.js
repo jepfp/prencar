@@ -2,6 +2,7 @@ var class_state_maschine =
 [
     [ "StateMaschine", "class_state_maschine.html#a869746d152d0a38b8d6142da3b420e85", null ],
     [ "begin", "class_state_maschine.html#acdadfde97fc8449c816c1b489e2f4a22", null ],
+    [ "changeActivateMessageFilter", "class_state_maschine.html#ac6dabc4e6fa432ca766821cf6e62ca3a", null ],
     [ "changeState", "class_state_maschine.html#a5b9f3dfb795afbb28c1beeaa6f6512a4", null ],
     [ "checkCommands", "class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a", null ],
     [ "doJob", "class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2", null ],

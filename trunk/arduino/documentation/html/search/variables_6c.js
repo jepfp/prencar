@@ -5,7 +5,7 @@ var searchData=
   ['liftcubepwmpin',['liftCubePwmPin',['../class_configuration.html#a25401bc6511b005d70f71e4b72f71c03',1,'Configuration']]],
   ['liftcubeswitchpin',['liftCubeSwitchPin',['../class_configuration.html#a795f86091deeb53575bf3818eeaf0071',1,'Configuration']]],
   ['liftcubeupposition',['liftCubeUpPosition',['../class_configuration.html#af6652efed17691fef4fa435e38c1642f',1,'Configuration']]],
-  ['linefollow',['lineFollow',['../class_state_maschine.html#a3307f4f89ffd7ebb3faa55467c32a71d',1,'StateMaschine']]],
+  ['linefollow',['lineFollow',['../class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5',1,'StateMachine']]],
   ['linefollowinitialspeedleft',['lineFollowInitialSpeedLeft',['../class_configuration.html#a24e118088874b8f9d56bcaf245f1461d',1,'Configuration']]],
   ['linefollowinitialspeedright',['lineFollowInitialSpeedRight',['../class_configuration.html#aabc113e529eb659768ca98f15d3952a3',1,'Configuration']]],
   ['linefollowinterval',['lineFollowInterval',['../class_configuration.html#aa799e7ed6a4722085506a31c051bf103',1,'Configuration']]],

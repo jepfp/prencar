@@ -139,28 +139,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00023"></a>00023   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963">doJob</a>();
 <a name="l00024"></a>00024   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId);
 <a name="l00025"></a>00025   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId, <span class="keywordtype">int</span> param);
-<a name="l00026"></a>00026   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId, <span class="keywordtype">long</span> <span class="keyword">const</span> params[], byte paramSize);
-<a name="l00027"></a>00027   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId, <span class="keywordtype">int</span> <span class="keyword">const</span> params[], byte paramSize);
-<a name="l00028"></a>00028   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">sendString</a>(<span class="keywordtype">char</span>* message);
-<a name="l00029"></a>00029   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
-<a name="l00036"></a><a class="code" href="class_communication.html#a7614d37dd498c0c4549d36d88eb39c24">00036</a>   <a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> <a class="code" href="class_communication.html#a7614d37dd498c0c4549d36d88eb39c24" title="Holds all the commands that are ready for execution.">readyCommands</a>[<a class="code" href="class_communication.html#a9c8bdd0590074d523a055e50284f5ce1" title="The amount of commands that can be stored into the readyCommands array.">_READYCOMMANDSSIZE</a>];
-<a name="l00037"></a>00037   <span class="keywordtype">boolean</span> <a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(<a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a>* c, <span class="keywordtype">int</span> commandCode);
-<a name="l00038"></a>00038   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">sendFreeMemory</a>(<span class="keywordtype">int</span> placeOfMeasurement);
-<a name="l00039"></a>00039 };
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="preprocessor">#endif</span>
-<a name="l00042"></a>00042 <span class="preprocessor"></span>
-<a name="l00043"></a>00043 
+<a name="l00026"></a>00026   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a38274e7dea6573692cd05ef868173900">sendBinary</a>(byte messageId, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> param);
+<a name="l00027"></a>00027   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId, <span class="keywordtype">long</span> <span class="keyword">const</span> params[], byte paramSize);
+<a name="l00028"></a>00028   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(byte messageId, <span class="keywordtype">int</span> <span class="keyword">const</span> params[], byte paramSize);
+<a name="l00029"></a>00029   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">sendString</a>(<span class="keywordtype">char</span>* message);
+<a name="l00030"></a>00030   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
+<a name="l00037"></a><a class="code" href="class_communication.html#a7614d37dd498c0c4549d36d88eb39c24">00037</a>   <a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> <a class="code" href="class_communication.html#a7614d37dd498c0c4549d36d88eb39c24" title="Holds all the commands that are ready for execution.">readyCommands</a>[<a class="code" href="class_communication.html#a9c8bdd0590074d523a055e50284f5ce1" title="The amount of commands that can be stored into the readyCommands array.">_READYCOMMANDSSIZE</a>];
+<a name="l00038"></a>00038   <span class="keywordtype">boolean</span> <a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(<a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a>* c, <span class="keywordtype">int</span> commandCode);
+<a name="l00039"></a>00039   <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">sendFreeMemory</a>(<span class="keywordtype">int</span> placeOfMeasurement);
+<a name="l00040"></a>00040 };
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="preprocessor">#endif</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span>
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_communication_8h.html">Communication.h</a>      </li>
 
-    <li class="footer">Generated on Fri May 4 2012 09:56:52 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

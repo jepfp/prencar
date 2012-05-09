@@ -164,7 +164,7 @@ Private Attributes</h2></td></tr>
 <h3>How the curve is driven</h3>
 <ol>
 <li>
-The car will start driving a left curve. The angle / speed of how fast this curve is driven is defined in <a class="el" href="class_configuration.html#abb72b12442f449f9e1cb31c444b40927" title="The speed of the slower motor (in a left curve, left motor) during a 90° curve.">Configuration::curveSpeedSlowMotor</a> and <a class="el" href="class_configuration.html#a5bca21a22d225315fca8088a4668d20c" title="The speed of the faster motor (in a left curve, right motor) during a 90° curve.">Configuration::curveSpeedFastMotor</a>. </li>
+The car will start driving a left curve. The angle / speed of how fast this curve is driven is defined in <a class="el" href="class_configuration.html#affa93f2156dbf8041bf4b8084051cd83" title="The speed of the slower motor (in a left curve, left motor) during a 90° curve. This value can go fro...">Configuration::curveSpeedSlowMotor</a> and <a class="el" href="class_configuration.html#a01c64f5ae58a66ab565936b67bbb2b58" title="The speed of the faster motor (in a left curve, right motor) during a 90° curve. This value can go fr...">Configuration::curveSpeedFastMotor</a>. </li>
 <li>
 After <a class="el" href="class_configuration.html#adec850d0b0519d7a799841e6086a777d" title="Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the cur...">Configuration::curveActivateEndSensorOffset</a> milliseconds the left line sensor will be activated. </li>
 <li>
@@ -173,9 +173,9 @@ The car continues driving a left curve until the left line sensor measures white
 As soon as white ground has been detected white ground the drivingCurveIsFinished boolean will be set to true indicating that the "drive
  left curve" procedure has finished. </li>
 </ol>
-<dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#abb72b12442f449f9e1cb31c444b40927" title="The speed of the slower motor (in a left curve, left motor) during a 90° curve.">Configuration::curveSpeedSlowMotor</a> </dd>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#affa93f2156dbf8041bf4b8084051cd83" title="The speed of the slower motor (in a left curve, left motor) during a 90° curve. This value can go fro...">Configuration::curveSpeedSlowMotor</a> </dd>
 <dd>
-<a class="el" href="class_configuration.html#a5bca21a22d225315fca8088a4668d20c" title="The speed of the faster motor (in a left curve, right motor) during a 90° curve.">Configuration::curveSpeedFastMotor</a> </dd>
+<a class="el" href="class_configuration.html#a01c64f5ae58a66ab565936b67bbb2b58" title="The speed of the faster motor (in a left curve, right motor) during a 90° curve. This value can go fr...">Configuration::curveSpeedFastMotor</a> </dd>
 <dd>
 <a class="el" href="class_configuration.html#adec850d0b0519d7a799841e6086a777d" title="Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the cur...">Configuration::curveActivateEndSensorOffset</a> </dd></dl>
 
@@ -225,7 +225,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_curve_left_a0e6f8f5d7f869edfaf34cf3e74676a86_icgraph.png" border="0" usemap="#class_curve_left_a0e6f8f5d7f869edfaf34cf3e74676a86_icgraph" alt=""/></div>
 <map name="class_curve_left_a0e6f8f5d7f869edfaf34cf3e74676a86_icgraph" id="class_curve_left_a0e6f8f5d7f869edfaf34cf3e74676a86_icgraph">
-<area shape="rect" id="node3" href="class_state_maschine.html#acdadfde97fc8449c816c1b489e2f4a22" title="StateMaschine::begin" alt="" coords="169,5,317,32"/><area shape="rect" id="node5" href="class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0" title="StateMaschine::getInstance" alt="" coords="365,5,549,32"/></map>
+<area shape="rect" id="node3" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="168,5,309,32"/><area shape="rect" id="node5" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="358,5,535,32"/></map>
 </div>
 </p>
 
@@ -250,7 +250,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">LineFollow</a>.</p>
 
-<p>Definition at line <a class="el" href="_curve_left_8cpp_source.html#l00043">43</a> of file <a class="el" href="_curve_left_8cpp_source.html">CurveLeft.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_curve_left_8cpp_source.html#l00062">62</a> of file <a class="el" href="_curve_left_8cpp_source.html">CurveLeft.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -266,7 +266,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_curve_left_a34930d2641dbbd389c536999a560f158_icgraph.png" border="0" usemap="#class_curve_left_a34930d2641dbbd389c536999a560f158_icgraph" alt=""/></div>
 <map name="class_curve_left_a34930d2641dbbd389c536999a560f158_icgraph" id="class_curve_left_a34930d2641dbbd389c536999a560f158_icgraph">
-<area shape="rect" id="node3" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="171,5,322,32"/></map>
+<area shape="rect" id="node3" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="171,5,315,32"/></map>
 </div>
 </p>
 
@@ -305,7 +305,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_curve_left_a2f70c4b1efef29cdf04dff01e6a90336_icgraph.png" border="0" usemap="#class_curve_left_a2f70c4b1efef29cdf04dff01e6a90336_icgraph" alt=""/></div>
 <map name="class_curve_left_a2f70c4b1efef29cdf04dff01e6a90336_icgraph" id="class_curve_left_a2f70c4b1efef29cdf04dff01e6a90336_icgraph">
-<area shape="rect" id="node3" href="class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="171,5,322,32"/></map>
+<area shape="rect" id="node3" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="171,5,315,32"/></map>
 </div>
 </p>
 
@@ -374,7 +374,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_curve_left.html">CurveLeft</a>      </li>
 
-    <li class="footer">Generated on Fri May 4 2012 09:56:54 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

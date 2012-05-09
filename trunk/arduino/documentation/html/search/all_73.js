@@ -1,8 +1,9 @@
 var searchData=
 [
   ['sc',['sc',['../_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066',1,'Communication.cpp']]],
-  ['secondturn',['secondTurn',['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f',1,'StateMaschine.h']]],
+  ['secondturn',['secondTurn',['../_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f',1,'StateMachine.h']]],
   ['send',['send',['../class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a',1,'Communication::send(byte messageId)'],['../class_communication.html#ae69fab10af713fa7eef7b75ee804d030',1,'Communication::send(byte messageId, int param)'],['../class_communication.html#a4f3943a64cf5fb3e28c343582bedb80a',1,'Communication::send(byte messageId, long const params[], byte paramSize)'],['../class_communication.html#a177161f8b437b0e406c301394a3632e5',1,'Communication::send(byte messageId, int const params[], byte paramSize)']]],
+  ['sendbinary',['sendBinary',['../class_communication.html#a38274e7dea6573692cd05ef868173900',1,'Communication']]],
   ['sendcurrentconfiguration',['sendCurrentConfiguration',['../class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a',1,'Communication']]],
   ['sendfreememory',['sendFreeMemory',['../class_communication.html#a0cafeb974ccf24771478a8589aaa79b5',1,'Communication']]],
   ['sendstring',['sendString',['../class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85',1,'Communication']]],
@@ -24,9 +25,9 @@ var searchData=
   ['setrightmotordirection',['setRightMotorDirection',['../class_move.html#a06e67dafd581bbd086da404a90c4eeec',1,'Move']]],
   ['sizeofdynamicconfiguration',['SIZEOFDYNAMICCONFIGURATION',['../class_configuration.html#a9ac73982b5d1611bba533567fffbaa3c',1,'Configuration']]],
   ['startit',['startIt',['../class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336',1,'CurveLeft::startIt()'],['../class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94',1,'LineFollow::startIt()']]],
-  ['startparcours',['startParcours',['../class_state_maschine.html#aaca597f41ba735fce3ef0eb06e4fda18',1,'StateMaschine']]],
-  ['statemaschine',['StateMaschine',['../class_state_maschine.html',1,'StateMaschine'],['../class_state_maschine.html#a869746d152d0a38b8d6142da3b420e85',1,'StateMaschine::StateMaschine()']]],
-  ['statemaschine_2ecpp',['StateMaschine.cpp',['../_state_maschine_8cpp.html',1,'']]],
-  ['statemaschine_2eh',['StateMaschine.h',['../_state_maschine_8h.html',1,'']]],
-  ['stopparcours',['stopParcours',['../class_state_maschine.html#ae028d25d4b664d805e0f516a49cfdb23',1,'StateMaschine']]]
+  ['startparcours',['startParcours',['../class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e',1,'StateMachine']]],
+  ['statemachine',['StateMachine',['../class_state_machine.html',1,'StateMachine'],['../class_state_machine.html#a2fb07002510ea9141019559750acfab8',1,'StateMachine::StateMachine()']]],
+  ['statemachine_2ecpp',['StateMachine.cpp',['../_state_machine_8cpp.html',1,'']]],
+  ['statemachine_2eh',['StateMachine.h',['../_state_machine_8h.html',1,'']]],
+  ['stopparcours',['stopParcours',['../class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a',1,'StateMachine']]]
 ];

@@ -161,6 +161,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a98cd6a619406c182a157fff82df60a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the timestamp of the time when the last sensor check check was done.  <a href="#a98cd6a619406c182a157fff82df60a46"></a><br/></td></tr>
 <tr class="memitem:a85317d887c5c2953a5da29aaaaa55562"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a85317d887c5c2953a5da29aaaaa55562">_debuggerActive</a></td></tr>
 <tr class="memdesc:a85317d887c5c2953a5da29aaaaa55562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if the sensor debug modul is active or not.  <a href="#a85317d887c5c2953a5da29aaaaa55562"></a><br/></td></tr>
+<tr class="memitem:a92f018df3d183a980b72269605fc203c"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a92f018df3d183a980b72269605fc203c">_activateMessageFilterStateB4Start</a></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a0dee1ef0e2720f6e3108b2650a243d7e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_sensor_debug.html">SensorDebug</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_debug.html#a0dee1ef0e2720f6e3108b2650a243d7e">_instance</a></td></tr>
@@ -261,7 +262,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph.png" border="0" usemap="#class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph" alt=""/></div>
 <map name="class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph" id="class_sensor_debug_a4d1d3e3732cdc45c7c191330bbc09327_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="198,5,597,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="646,56,794,83"/><area shape="rect" id="node10" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89" title="SensorDebug::readSensorAndSendValue" alt="" coords="267,107,527,133"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="843,56,1077,83"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="198,5,597,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="646,81,794,108"/><area shape="rect" id="node9" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89" title="SensorDebug::readSensorAndSendValue" alt="" coords="267,107,527,133"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="843,81,1077,108"/></map>
 </div>
 </p>
 
@@ -320,7 +321,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00126">126</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sensor_debug_8cpp_source.html#l00133">133</a> of file <a class="el" href="_sensor_debug_8cpp_source.html">SensorDebug.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -343,6 +344,22 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a92f018df3d183a980b72269605fc203c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean <a class="el" href="class_sensor_debug.html#a92f018df3d183a980b72269605fc203c">SensorDebug::_activateMessageFilterStateB4Start</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p><a class="el" href="class_sensor_debug.html">SensorDebug</a> changes the value Configuration::activateMessageFilterState temporarily. The previous state is saved in this private variable so that we can recover that state at the end again. </p>
+
+<p>Definition at line <a class="el" href="_sensor_debug_8h_source.html#l00042">42</a> of file <a class="el" href="_sensor_debug_8h_source.html">SensorDebug.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a57e190528b5415b1a1b562265b5eafa3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -486,7 +503,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_sensor_debug.html">SensorDebug</a>      </li>
 
-    <li class="footer">Generated on Fri May 4 2012 09:56:56 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 18:50:36 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

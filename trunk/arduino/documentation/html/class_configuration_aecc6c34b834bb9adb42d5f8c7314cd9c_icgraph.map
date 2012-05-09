@@ -2,6 +2,6 @@
 <area shape="rect" id="node3" href="$class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="277,5,368,32"/>
 <area shape="rect" id="node5" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="417,5,543,32"/>
 <area shape="rect" id="node7" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="592,5,715,32"/>
-<area shape="rect" id="node9" href="$class_state_maschine.html#acdadfde97fc8449c816c1b489e2f4a22" title="StateMaschine::begin" alt="" coords="763,5,911,32"/>
-<area shape="rect" id="node11" href="$class_state_maschine.html#a908a6b51448036bc23a7cd76acfcfbe0" title="StateMaschine::getInstance" alt="" coords="960,5,1144,32"/>
+<area shape="rect" id="node9" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="763,5,904,32"/>
+<area shape="rect" id="node11" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="953,5,1130,32"/>
 </map>

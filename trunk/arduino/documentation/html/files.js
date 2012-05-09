@@ -16,6 +16,6 @@ var files =
     [ "D:/Workspace/Arduino/prencar/Move.h", "_move_8h.html", "_move_8h" ],
     [ "D:/Workspace/Arduino/prencar/SensorDebug.cpp", "_sensor_debug_8cpp.html", null ],
     [ "D:/Workspace/Arduino/prencar/SensorDebug.h", "_sensor_debug_8h.html", "_sensor_debug_8h" ],
-    [ "D:/Workspace/Arduino/prencar/StateMaschine.cpp", "_state_maschine_8cpp.html", null ],
-    [ "D:/Workspace/Arduino/prencar/StateMaschine.h", "_state_maschine_8h.html", "_state_maschine_8h" ]
+    [ "D:/Workspace/Arduino/prencar/StateMachine.cpp", "_state_machine_8cpp.html", null ],
+    [ "D:/Workspace/Arduino/prencar/StateMachine.h", "_state_machine_8h.html", "_state_machine_8h" ]
 ];

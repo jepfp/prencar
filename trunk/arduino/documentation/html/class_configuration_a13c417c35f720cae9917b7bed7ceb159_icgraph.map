@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="272,5,491,32"/>
-<area shape="rect" id="node5" href="$class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="539,5,690,32"/>
+<area shape="rect" id="node3" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="272,5,483,32"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="531,5,675,32"/>
 </map>

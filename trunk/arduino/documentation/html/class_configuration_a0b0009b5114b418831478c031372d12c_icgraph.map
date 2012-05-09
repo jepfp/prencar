@@ -1,7 +1,8 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="294,31,559,57"/>
 <area shape="rect" id="node5" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="608,5,829,32"/>
-<area shape="rect" id="node9" href="$class_state_maschine.html#a5551d00a5224f595833b75969c2ca64a" title="StateMaschine::checkCommands" alt="" coords="609,56,828,83"/>
-<area shape="rect" id="node7" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="877,5,1032,32"/>
-<area shape="rect" id="node11" href="$class_state_maschine.html#a1095131aa8e6e9537f481b5f425395e2" title="StateMaschine::doJob" alt="" coords="879,56,1030,83"/>
+<area shape="rect" id="node9" href="$class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="625,56,813,83"/>
+<area shape="rect" id="node7" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="905,5,1060,32"/>
+<area shape="rect" id="node11" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="877,56,1088,83"/>
+<area shape="rect" id="node13" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="1136,56,1280,83"/>
 </map>
