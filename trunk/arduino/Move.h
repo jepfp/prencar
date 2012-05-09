@@ -42,7 +42,7 @@ public:
   void setLeftMotorDirection(TMotorDirection dir);
   void setRightMotorDirection(TMotorDirection dir);
   void changeMotorSpeed(int changeLeftMotor, int changeRightMotor);
-  void changeMotorSpeedBasedOnInitialSpeed(int changeLeftMotor, int changeRightMotor);
+  void setMotorSpeed(int speedLeftMotor, int speedRightMotor);
   void equalizeMotorsSpeed();
 };
 #endif

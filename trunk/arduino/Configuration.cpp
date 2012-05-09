@@ -28,6 +28,10 @@ Configuration::Configuration(){
   lineFollowInterval = 15;
   lineFollowInitialSpeedLeft = 150; //150 out of 255
   lineFollowInitialSpeedRight = 150; //150 out of 255
+  lineFollowReducedSpeedLeft = 120;
+  lineFollowReducedSpeedRight = 120;
+  lineFollowReduceSpeedTimeFirstLine = 0;
+  lineFollowReduceSpeedTimeSecondLine = 0;
   _movePwmLeftPin = 2;
   _movePwmRightPin = 3;
   _moveModeFirstLeftPin = 23;
@@ -55,6 +59,7 @@ Configuration::Configuration(){
   cubeApproachLeftTopSensor = A1;
   cubeApproachRightBottomSensor = A2;
   cubeApproachRightTopSensor = A3;
+  cubeApproachDetectThreshold = 1000;
 
   sensorDebugInterval = 1000;
   sensorDebugReadGap = 0;
@@ -202,6 +207,11 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[14] = sensorDebugInterval;
   spaceForConfigValues[15] = sensorDebugReadGap;
   spaceForConfigValues[16] = liftCubeDownUpDuration;
+  spaceForConfigValues[17] = lineFollowReducedSpeedLeft;
+  spaceForConfigValues[18] = lineFollowReducedSpeedRight;
+  spaceForConfigValues[19] = lineFollowReduceSpeedTimeFirstLine;
+  spaceForConfigValues[20] = lineFollowReduceSpeedTimeSecondLine;
+  spaceForConfigValues[21] = cubeApproachDetectThreshold;
 }
 
 /**
@@ -231,6 +241,11 @@ void Configuration::updateConfiguration(int* parameters){
   sensorDebugInterval = parameters[14];
   sensorDebugReadGap = parameters[15];
   liftCubeDownUpDuration = parameters[16];
+  lineFollowReducedSpeedLeft = parameters[17];
+  lineFollowReducedSpeedRight = parameters[18];;
+  lineFollowReduceSpeedTimeFirstLine = parameters[19];;
+  lineFollowReduceSpeedTimeSecondLine = parameters[20];;
+  cubeApproachDetectThreshold = parameters[21];;
 }
 
 /**
@@ -250,6 +265,9 @@ int Configuration::getFreeMemory()
 
   return free_memory;
 }
+
+
+
 
 
 

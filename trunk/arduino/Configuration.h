@@ -23,7 +23,7 @@ public:
    * 
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 17;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 22;
   
   static Configuration* getInstance();
   byte getConfigurationVersion();
@@ -54,7 +54,6 @@ public:
   int lineFollowInterval; ///< Interval in milliseconds in which the line follow job shall be executed.
   byte lineFollowInitialSpeedLeft; ///< The initial speed of the left motor when the parcours starts (0-255).
   byte lineFollowInitialSpeedRight; ///< The initial speed of the left motor when the parcours starts (0-255).
-
   /** \brief Threshold value from black to white.
    * 
    * If the sensor measures a value below that threshold value than the software considers that sensors physical position to be on "white" ground.
@@ -63,13 +62,30 @@ public:
    * @see LineFollow::calibrateSensors()
    */
   int lineFollowWhiteThreshold;
+  byte lineFollowReducedSpeedLeft; ///< The reduced speed of the left motor that can be assigned after a defined amount of time (0-255).
+  byte lineFollowReducedSpeedRight; ///< The reduced speed of the left motor that can be assigned after a defined amount of time (0-255).
+  /**
+   * The time in milliseconds (after a call to startIt()) on the first line after which the line follow shall continue with the
+   * defined reduced speed (0 to disable this function).
+   */
+  int lineFollowReduceSpeedTimeFirstLine;
+  /**
+   * The time in milliseconds (after a call to startIt()) on the second line after which the line follow shall continue with the
+   * defined reduced speed (0 to disable this function).
+   */
+  int lineFollowReduceSpeedTimeSecondLine;
+  /**
+   * The time in milliseconds (after a call to startIt()) on the third line after which the line follow shall continue with the
+   * defined reduced speed (0 to disable this function).
+   */
+  int lineFollowReduceSpeedTimeThirdLine;
 
   /**
-   * @todo write comment
+   * P factor for the PD controller
    */
   int lineFollowKp;
   /**
-   * @todo write comment
+   * D factor for the PD controller
    */
   int lineFollowKd;
 
@@ -92,6 +108,8 @@ public:
   byte cubeApproachLeftTopSensor; ///< The pin where the left top distance sensor is connected to.
   byte cubeApproachRightBottomSensor; ///< The pin where the right bottom distance sensor is connected to.
   byte cubeApproachRightTopSensor; ///< The pin where the right top distance sensor is connected to.
+  
+  int cubeApproachDetectThreshold; ///< Threshold for cube detection. Measuring a value below this threshold means that the cube has been detected with this sensor.
 
   int sensorDebugInterval; ///< Interval in milliseconds in which the debug sensors
   int sensorDebugReadGap; ///< Time in milliseconds between reading every sensor.

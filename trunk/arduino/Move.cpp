@@ -188,26 +188,20 @@ void Move::changeMotorSpeed(int changeLeftMotor, int changeRightMotor){
 }
 
 /**
- * Sets the speed of the left motor by taking the value from Configuration::lineFollowInitialSpeedLeft + changeLeftMotor and the
- * right motor by taking the value from Configuration::lineFollowInitialSpeedRight + changeRightMotor.
+ * Sets the speed of the left and right motor to the given speeds.
  * The speed will not be less than 0 or more than 255 at the end.
  * The direction of both motors is not affected. If they are not moving at the moment, a call to this method will not cause them rotating.
- * @param changeLeftMotor The value that shall be added to Configuration::lineFollowInitialSpeedLeft and assigned to the left motor. Can be a positive or negativ value.
- * @param changeRightMotor The value that shall be added to Configuration::lineFollowInitialSpeedRight and assigned to the right motor. Can be a positive or negativ value.
+ * @param speedLeftMotor The value that shall be assigned to the left motor.
+ * @param speedRightMotor The value that shall be assigned to the right motor.
  */
-void Move::changeMotorSpeedBasedOnInitialSpeed(int changeLeftMotor, int changeRightMotor){
-  int parameters[6];
-  parameters[0] = _speedLeft;
-  parameters[1] = changeLeftMotor;
-  parameters[3] = _speedRight;
-  parameters[4] = changeRightMotor;
+void Move::setMotorSpeed(int speedLeftMotor, int speedRightMotor){
+  int parameters[2];
+  parameters[0] = speedLeftMotor;
+  parameters[1] = speedRightMotor;
 
-  parameters[2] = _conf->lineFollowInitialSpeedLeft + changeLeftMotor;
-  parameters[5] = _conf->lineFollowInitialSpeedRight + changeRightMotor;
+  _com->send(70, parameters, 2);
 
-  _com->send(53, parameters, 6);
-
-  controlMotors(_dirLeftMotor, parameters[2], _dirRightMotor, parameters[5]);
+  controlMotors(_dirLeftMotor, speedLeftMotor, _dirRightMotor, speedRightMotor);
 }
 
 /**

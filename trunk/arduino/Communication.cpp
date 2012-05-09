@@ -187,7 +187,6 @@ void Communication::send(byte messageId, const long params[], byte paramSize){
     sc.print(":");
     byte i;
     for(i = 0; i < (paramSize - 1); i++){
-      ///@todo: make sure the receiver of the serial message can work with negative parameters
       sc.print(params[i], DEC);
       sc.print(",");
     }

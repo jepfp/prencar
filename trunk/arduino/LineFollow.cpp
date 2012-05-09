@@ -36,28 +36,51 @@ void LineFollow::begin(){
 }
 
 /**
- * Starts the line following process.
+ * Starts the line following process with the given initial speed.
+ * @param initSpeedLeft Initial speed for the left motor.
+ * @param initSpeedRight Initial speed for the right motor.
  */
-void LineFollow::startIt(){
+void LineFollow::startIt(int initSpeedLeft, int initSpeedRight){
+  startIt(initSpeedLeft, initSpeedRight, 0, 0, 0);
+}
+
+/**
+ * \overload
+ * @param initSpeedLeft Initial speed for the left motor.
+ * @param initSpeedRight Initial speed for the right motor.
+ * @param reduceSpeedTime Time after which the line follow process shall proceed with the speed of reducedSpeedLeftMotor and reducedSpeedRightMotor. 0 to not use this function.
+ * @param reducedSpeedLeftMotor Base speed for the PD controller after reduceSpeedTime milliseconds.
+ * @param reducedSpeedRightMotor Base speed for the PD controller after reduceSpeedTime milliseconds.
+ */
+void LineFollow::startIt(int initSpeedLeft, int initSpeedRight, int reduceSpeedTime, byte reducedSpeedLeftMotor, byte reducedSpeedRightMotor){
   hasReachedCurve = false;
 
   _deltasensor = 0;
   _sensoralt = 0;
   _deltaPWM = 0;
   _timeLastLineFollowCheck = millis();
+  _timeLineFollowStarted = millis();
+  _reduceSpeedTime = reduceSpeedTime;
+  _reducedSpeedLeftMotor = reducedSpeedLeftMotor;
+  _reducedSpeedRightMotor = reducedSpeedRightMotor;
+  _currentSpeedLeftMotor = initSpeedLeft;
+  _currentSpeedRightMotor = initSpeedRight;
 
-  _move->controlMotors(forward, _conf->lineFollowInitialSpeedLeft, forward, _conf->lineFollowInitialSpeedRight);
+  _move->controlMotors(forward, initSpeedLeft, forward, initSpeedRight);
 }
 
 /**
  * Does the job for which this class was written.<br>
- * This method has to be called in regular intervals (as short as possible).<br>
+ * This method has to be called in regular intervals.<br>
  * The sensor data of the sensors is captured and based on the result
  * the motor speed is adjusted.
+ *
+ * <b>Important: Call startIt() first!</b>
  * 
  * What's done in detail:
  * <ol>
  * <li>Read the front sensors to check, if a 90° courve is needed.</li>
+ * <li>Check _reduceSpeedTime (if not 0) if it's already time to proceed with the reduced speed.</li>
  * <li>Read the line sensor values to check if one line sensor has detected white ground (line follow algorithm).</li>
  * </ol>
  */
@@ -76,11 +99,18 @@ void LineFollow::doJob(){
       return;
     }
 
-    /*_com->sendString("start");
-     _com->send(106, _conf->lineFollowInitialSpeedLeft);
-     _com->send(107, _conf->lineFollowKp);
-     _com->send(108, _conf->lineFollowKd);
-     _com->sendString("stopp");*/
+    //check if it's already time to proceed with the reduced speed
+    if(_reduceSpeedTime != 0 && millis() > _timeLineFollowStarted + _reduceSpeedTime){
+      int parameters[3];
+      _currentSpeedLeftMotor = _reducedSpeedLeftMotor;
+      _currentSpeedRightMotor = _reducedSpeedRightMotor;
+      parameters[0] = _reduceSpeedTime;
+      parameters[1] = _currentSpeedLeftMotor;
+      parameters[2] = _currentSpeedRightMotor;
+      _com->send(71, parameters, 3);
+      //no more checks are needed
+      _reduceSpeedTime = 0;
+    }
 
     //Do the line following
     readLineSensors(sensorValues);
@@ -89,7 +119,7 @@ void LineFollow::doJob(){
     _deltaPWM = (int) ( ((float)_conf->lineFollowKp) * (((float)_deltasensor)/100) + ((float)_conf->lineFollowKd)/100 * (float)(_deltasensor-_sensoralt) );
     _com->send(4, _deltaPWM);
     _sensoralt = _deltasensor;
-    _move->changeMotorSpeedBasedOnInitialSpeed(_deltaPWM,(-1)*_deltaPWM); 
+    _move->setMotorSpeed(_currentSpeedLeftMotor + _deltaPWM, _currentSpeedLeftMotor + ((-1)*_deltaPWM)); 
   }
 }
 
@@ -192,6 +222,8 @@ void LineFollow::calibrateSensors(){
 
   _com->send(203, measurements, 6);
 }
+
+
 
 
 

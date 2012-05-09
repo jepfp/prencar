@@ -70,7 +70,8 @@ void StateMachine::doJob(){
     //go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)
     if(curveLeft.drivingCurveIsFinished || forceChangeSate){
       changeState(followingSecondLine);
-      lineFollow.startIt();
+      lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
+      _conf->lineFollowReduceSpeedTimeSecondLine, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
     }
     else{
       curveLeft.doJob();
@@ -201,7 +202,8 @@ void StateMachine::startParcours(){
   //send the current configuration
   _com->sendCurrentConfiguration();
   startParcoursTimestamp = millis();
-  lineFollow.startIt();
+  lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
+  _conf->lineFollowReduceSpeedTimeFirstLine, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
 }
 
 /**
@@ -251,6 +253,8 @@ void StateMachine::changeActivateMessageFilter(boolean newState){
     _com->send(208, 0); 
   }
 }
+
+
 
 
 
