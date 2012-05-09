@@ -24,7 +24,7 @@ Configuration::Configuration(){
   _messageFilterLevel = 0;
   doJobDelay = 0;
   lineFollowWhiteThreshold = 300;
-  lineFollowInterval = 0;
+  lineFollowInterval = 15;
   lineFollowInitialSpeedLeft = 120; //150 out of 255
   lineFollowInitialSpeedRight = 120; //150 out of 255
   _movePwmLeftPin = 2;

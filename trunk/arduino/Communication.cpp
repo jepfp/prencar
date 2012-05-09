@@ -152,6 +152,22 @@ void Communication::send(byte messageId, int param){
 }
 
 /**
+ * Sends the message code with the unsigned long parameter. The param will be
+ * sent as binary ascii characters and decimal number.
+ * @param messageId Id of the message that will be sent.
+ * @param param Parameter that will be sent with this message.
+ */
+void Communication::sendBinary(byte messageId, unsigned long param){
+  if(messageId > _config->getMessageFilterLevel()){
+    sc.print(messageId);
+    sc.print(":");
+    sc.print(param, DEC);
+    sc.print(";");
+    sc.println(param, BIN);
+  }
+}
+
+/**
  * Sends the message code over the configured serial interface.<br>
  * The message will be filtered according to the configured filter level in the configuration.<br><br>
  * The message will be sent in the following format:<br>

@@ -40,10 +40,15 @@ void LineFollow::begin(){
  */
 void LineFollow::startIt(){
   hasReachedCurve = false;
-  
+
   _deltasensor = 0;
-  _sensoralt = 20;
+  _sensoralt = 0;
   _deltaPWM = 0;
+  _timeLastLineFollowCheck = millis();
+
+  /*_com->send(103, _conf->lineFollowInitialSpeedLeft);
+   _com->send(104, _conf->lineFollowKp);
+   _com->send(105, _conf->lineFollowKd);*/
 
   _move->controlMotors(forward, _conf->lineFollowInitialSpeedLeft, forward, _conf->lineFollowInitialSpeedRight);
 }
@@ -61,8 +66,15 @@ void LineFollow::startIt(){
  * </ol>
  */
 void LineFollow::doJob(){
+  _com->send(110, _timeLastLineFollowCheck);
+  _com->send(111, _conf->lineFollowInterval);
+  _com->send(112, millis());
+  _com->sendBinary(113, _timeLastLineFollowCheck);
+  _com->sendBinary(114, _conf->lineFollowInterval);
+  _com->sendBinary(115, millis());
   if(_conf->lineFollowInterval == 0 || millis() > _timeLastLineFollowCheck + _conf->lineFollowInterval){
     _timeLastLineFollowCheck = millis();
+    _com->sendString("inside if statement");
 
     int sensorValues[2];
     readFrontLineSensors(sensorValues);
@@ -74,6 +86,12 @@ void LineFollow::doJob(){
       hasReachedCurve = true;
       return;
     }
+
+    /*_com->sendString("start");
+     _com->send(106, _conf->lineFollowInitialSpeedLeft);
+     _com->send(107, _conf->lineFollowKp);
+     _com->send(108, _conf->lineFollowKd);
+     _com->sendString("stopp");*/
 
     //Do the line following
     readLineSensors(sensorValues);
@@ -185,3 +203,6 @@ void LineFollow::calibrateSensors(){
 
   _com->send(203, measurements, 6);
 }
+
+
+

@@ -5,8 +5,8 @@
 #include <Servo.h>
 
 Communication* _com;
-StateMaschine* _stateMaschine;
 Configuration* _conf;
+StateMaschine* _stateMaschine;
 SensorDebug* _sensorDebug;
 
 void setup()

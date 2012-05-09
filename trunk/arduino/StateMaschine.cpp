@@ -52,7 +52,7 @@ void StateMaschine::begin(){
 void StateMaschine::doJob(){
 
   checkCommands();
-  
+
   ///@todo this do job has to go to the right state.
   _liftCube->doJob();
 
@@ -63,6 +63,7 @@ void StateMaschine::doJob(){
       curveLeft.startIt();
     }
     else{
+      _com->sendString("line do job");
       lineFollow.doJob();
     }
   }
@@ -129,8 +130,6 @@ void StateMaschine::checkCommands(){
         stopParcours();
       }
       else{
-        //send the current configuration
-        _com->sendCurrentConfiguration();
         //if the desired state is > than 1, start with that state. If the parameter is 0 or 1 just start with
         //the first state.
         if(parameters[0] > 1){
@@ -190,6 +189,8 @@ void StateMaschine::checkCommands(){
  */
 void StateMaschine::startParcours(){
   changeState(followingFirstLine);
+  //send the current configuration
+  _com->sendCurrentConfiguration();
   lineFollow.startIt();
 }
 
@@ -206,9 +207,11 @@ void StateMaschine::stopParcours(){
  * @param New state for the state maschine.
  */
 void StateMaschine::changeState(TParcoursState newState){
-  parcoursState = newState;
   _com->send(100, newState);
+  parcoursState = newState;
 }
+
+
 
 
 

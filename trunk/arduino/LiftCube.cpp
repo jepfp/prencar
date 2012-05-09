@@ -47,6 +47,14 @@ void LiftCube::begin(){
   pinMode(_conf->liftCubePwmPin, OUTPUT);
   pinMode(_conf->liftCubeSwitchPin, INPUT);
 
+  //make sure the pull up resistor is on
+  //switching on the pull up resistor means that the signal will be high as long as
+  //the chord attached to that pin is connected to the ground
+  digitalWrite(_conf->liftCubeSwitchPin, HIGH);
+
+  _liftingStarted = false;
+  cubeLifted = false;
+
   _hoistServo.attach(_conf->liftCubePwmPin);
 }
 
@@ -55,7 +63,8 @@ void LiftCube::begin(){
  * This method has to be called in regular intervals (as short as possible).<br>
  */
 void LiftCube::doJob(){
-  if(digitalRead(_conf->liftCubeSwitchPin) == 1 && _liftingStarted == false && cubeLifted == false){
+  int switchState = digitalRead(_conf->liftCubeSwitchPin);
+  if(switchState == 0 && _liftingStarted == false && cubeLifted == false){
     _com->send(69);
     liftCube();
     _liftingStarted = true;
@@ -111,5 +120,6 @@ void LiftCube::setHoistPosition(byte pos){
   _com->send(65, pos);
   _hoistServo.write(pos);
 }
+
 
 
