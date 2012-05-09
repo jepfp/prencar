@@ -123,9 +123,15 @@ This is the complete list of members for <a class="el" href="class_curve_left.ht
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a">_calibrationSensorWhiteMin</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#a8c494126e578f00240532b866b051718">_com</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f">_conf</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66">_currentSpeedLeftMotor</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0">_currentSpeedRightMotor</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">_move</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#ad32fe2529a251e97ff6ac6c33b70b157">_reducedSpeedLeftMotor</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#ae83633ebfeb7e27ca75e6a1fc84b42f9">_reducedSpeedRightMotor</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8">_reduceSpeedTime</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_curve_left.html#a3f46785750e729247f26099a93cfaeb9">_timeCurveLeftStarted</a></td><td><a class="el" href="class_curve_left.html">CurveLeft</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6">_timeLastCurveLeftCheck</a></td><td><a class="el" href="class_curve_left.html">CurveLeft</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5">_timeLineFollowStarted</a></td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">begin</a>()</td><td><a class="el" href="class_curve_left.html">CurveLeft</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39">calibrateSensors</a>()</td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_curve_left.html#ad874ee9409da16dccd20549e6c2726b5">CurveLeft</a>()</td><td><a class="el" href="class_curve_left.html">CurveLeft</a></td><td></td></tr>
@@ -136,12 +142,14 @@ This is the complete list of members for <a class="el" href="class_curve_left.ht
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">readFrontLineSensors</a>(int *resultArray)</td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">readLineSensors</a>(int *resultArray)</td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">startIt</a>()</td><td><a class="el" href="class_curve_left.html">CurveLeft</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt</a>(int initSpeedLeft, int initSpeedRight)</td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481">LineFollow::startIt</a>(int initSpeedLeft, int initSpeedRight, int reduceSpeedTime, byte reducedSpeedLeftMotor, byte reducedSpeedRightMotor)</td><td><a class="el" href="class_line_follow.html">LineFollow</a></td><td></td></tr>
 </table></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 23:52:15 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

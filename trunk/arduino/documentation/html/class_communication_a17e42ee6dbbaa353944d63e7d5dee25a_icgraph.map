@@ -1,7 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="320,5,541,32"/>
-<area shape="rect" id="node7" href="$class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="337,56,525,83"/>
-<area shape="rect" id="node5" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="617,5,772,32"/>
-<area shape="rect" id="node9" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="589,56,800,83"/>
-<area shape="rect" id="node11" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="848,56,992,83"/>
+<area shape="rect" id="node3" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="325,5,547,32"/>
+<area shape="rect" id="node7" href="$class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="342,56,530,83"/>
+<area shape="rect" id="node13" href="$class_state_machine.html#a2581b0509842f049b330fa2c358aaa77" title="StateMachine::startParcoursAtState" alt="" coords="320,107,552,133"/>
+<area shape="rect" id="node5" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="628,5,783,32"/>
+<area shape="rect" id="node9" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="600,81,811,108"/>
+<area shape="rect" id="node11" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="859,81,1003,108"/>
 </map>

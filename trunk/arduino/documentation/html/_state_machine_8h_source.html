@@ -161,15 +161,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00057"></a>00057 <span class="keyword">public</span>:
 <a name="l00058"></a>00058   <span class="keyword">static</span> <a class="code" href="class_state_machine.html">StateMachine</a>* <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">getInstance</a>();
 <a name="l00059"></a><a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">00059</a>   <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a>;
-<a name="l00060"></a>00060   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">doJob</a>();
-<a name="l00061"></a>00061   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">startParcours</a>();
-<a name="l00062"></a>00062   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">stopParcours</a>();
-<a name="l00063"></a>00063   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">changeActivateMessageFilter</a>(<span class="keywordtype">boolean</span> newState);
-<a name="l00064"></a>00064 };
-<a name="l00065"></a>00065 <span class="preprocessor">#endif</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span>
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 
+<a name="l00060"></a><a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a">00060</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a>; 
+<a name="l00061"></a>00061   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">doJob</a>();
+<a name="l00062"></a>00062   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">startParcours</a>();
+<a name="l00063"></a>00063   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">startParcoursAtState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> state);
+<a name="l00064"></a>00064   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">stopParcours</a>();
+<a name="l00065"></a>00065   <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">changeActivateMessageFilter</a>(<span class="keywordtype">boolean</span> newState);
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 <span class="preprocessor">#endif</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 
@@ -188,13 +188,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085 
 <a name="l00086"></a>00086 
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_state_machine_8h.html">StateMachine.h</a>      </li>
 
-    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 23:52:15 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

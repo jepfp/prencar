@@ -7,7 +7,7 @@ var class_communication =
     [ "getInstance", "class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd", null ],
     [ "parseAndPutCommandOnList", "class_communication.html#ad566d07485df1c7970edd450723da1aa", null ],
     [ "send", "class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a", null ],
-    [ "send", "class_communication.html#ae69fab10af713fa7eef7b75ee804d030", null ],
+    [ "send", "class_communication.html#a7a3d33f78c5e630340437f80f2d012ec", null ],
     [ "send", "class_communication.html#a4f3943a64cf5fb3e28c343582bedb80a", null ],
     [ "send", "class_communication.html#a177161f8b437b0e406c301394a3632e5", null ],
     [ "sendBinary", "class_communication.html#a38274e7dea6573692cd05ef868173900", null ],

@@ -13,6 +13,11 @@ var searchData=
   ['linefollowkp',['lineFollowKp',['../class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9',1,'Configuration']]],
   ['linefollowleftfrontsensorpin',['lineFollowLeftFrontSensorPin',['../class_configuration.html#a683b496d15eca4addb13325d9707abcf',1,'Configuration']]],
   ['linefollowleftsensorpin',['lineFollowLeftSensorPin',['../class_configuration.html#a09d83c2f3c4485fd864bf998e62788d7',1,'Configuration']]],
+  ['linefollowreducedspeedleft',['lineFollowReducedSpeedLeft',['../class_configuration.html#a049b8264eb2ab78dd89a7332008912a5',1,'Configuration']]],
+  ['linefollowreducedspeedright',['lineFollowReducedSpeedRight',['../class_configuration.html#a357c494e08ca9c933550bb64ec997cbb',1,'Configuration']]],
+  ['linefollowreducespeedtimefirstline',['lineFollowReduceSpeedTimeFirstLine',['../class_configuration.html#ac03d06e3aa3a299981f60bd9429d6849',1,'Configuration']]],
+  ['linefollowreducespeedtimesecondline',['lineFollowReduceSpeedTimeSecondLine',['../class_configuration.html#a7b35d7c77230da94fe0fe12904974371',1,'Configuration']]],
+  ['linefollowreducespeedtimethirdline',['lineFollowReduceSpeedTimeThirdLine',['../class_configuration.html#a314c771160067421a3afc56ddce835a8',1,'Configuration']]],
   ['linefollowrightfrontsensorpin',['lineFollowRightFrontSensorPin',['../class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa',1,'Configuration']]],
   ['linefollowrightsensorpin',['lineFollowRightSensorPin',['../class_configuration.html#a254b7ac19c994603776d47645235a132',1,'Configuration']]],
   ['linefollowwhitethreshold',['lineFollowWhiteThreshold',['../class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906',1,'Configuration']]]

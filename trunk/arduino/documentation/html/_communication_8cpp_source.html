@@ -219,7 +219,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00138"></a>00138   }
 <a name="l00139"></a>00139 }
 <a name="l00140"></a>00140 
-<a name="l00146"></a><a class="code" href="class_communication.html#ae69fab10af713fa7eef7b75ee804d030">00146</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">Communication::send</a>(byte messageId, <span class="keywordtype">int</span> param){
+<a name="l00146"></a><a class="code" href="class_communication.html#a7a3d33f78c5e630340437f80f2d012ec">00146</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">Communication::send</a>(byte messageId, <span class="keywordtype">long</span> param){
 <a name="l00147"></a>00147   <span class="keywordflow">if</span>(messageId &gt; <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">getMessageFilterLevel</a>() || !<a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">activateMessageFilter</a>){
 <a name="l00148"></a>00148     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(messageId);
 <a name="l00149"></a>00149     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;:&quot;</span>);
@@ -245,46 +245,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00187"></a>00187     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;:&quot;</span>);
 <a name="l00188"></a>00188     byte i;
 <a name="l00189"></a>00189     <span class="keywordflow">for</span>(i = 0; i &lt; (paramSize - 1); i++){
-<a name="l00191"></a>00191       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(params[i], DEC);
-<a name="l00192"></a>00192       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;,&quot;</span>);
-<a name="l00193"></a>00193     }
-<a name="l00194"></a>00194     <span class="comment">//the last one is sent without a comma but with a new line</span>
-<a name="l00195"></a>00195     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.println(params[i]);
-<a name="l00196"></a>00196   }
-<a name="l00197"></a>00197 }
-<a name="l00205"></a><a class="code" href="class_communication.html#a177161f8b437b0e406c301394a3632e5">00205</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">Communication::send</a>(byte messageId, <span class="keyword">const</span> <span class="keywordtype">int</span> params[], byte paramSize){
-<a name="l00206"></a>00206   <span class="keywordflow">if</span>(messageId &gt; <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">getMessageFilterLevel</a>() || !<a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">activateMessageFilter</a>){
-<a name="l00207"></a>00207     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(messageId);
-<a name="l00208"></a>00208     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;-&quot;</span>);
-<a name="l00209"></a>00209     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(paramSize);
-<a name="l00210"></a>00210     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;:&quot;</span>);
-<a name="l00211"></a>00211     byte i;
-<a name="l00212"></a>00212     <span class="keywordflow">for</span>(i = 0; i &lt; (paramSize - 1); i++){
-<a name="l00214"></a>00214       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(params[i]);
-<a name="l00215"></a>00215       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;,&quot;</span>);
-<a name="l00216"></a>00216     }
-<a name="l00217"></a>00217     <span class="comment">//the last one is sent without a comma but with a new line</span>
-<a name="l00218"></a>00218     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.println(params[i]);
-<a name="l00219"></a>00219   }
-<a name="l00220"></a>00220 }
-<a name="l00221"></a>00221 
-<a name="l00228"></a><a class="code" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">00228</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">Communication::sendString</a>(<span class="keywordtype">char</span>* message){
-<a name="l00229"></a>00229   <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.println(message);
-<a name="l00230"></a>00230 }
-<a name="l00231"></a>00231 
-<a name="l00235"></a><a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">00235</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">Communication::sendCurrentConfiguration</a>(){
-<a name="l00236"></a>00236   <span class="keywordtype">long</span> currentConfiguration[<a class="code" href="class_configuration.html#a9ac73982b5d1611bba533567fffbaa3c" title="Defines the size of the array in which all dynamic configuration values are saved.">Configuration::SIZEOFDYNAMICCONFIGURATION</a>];
-<a name="l00237"></a>00237   <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">getCurrentConfiguration</a>(currentConfiguration);
-<a name="l00238"></a>00238   <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(204, currentConfiguration, <a class="code" href="class_configuration.html#a9ac73982b5d1611bba533567fffbaa3c" title="Defines the size of the array in which all dynamic configuration values are saved.">Configuration::SIZEOFDYNAMICCONFIGURATION</a>);
-<a name="l00239"></a>00239 }
-<a name="l00240"></a>00240 
-<a name="l00246"></a><a class="code" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">00246</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">Communication::sendFreeMemory</a>(<span class="keywordtype">int</span> placeOfMeasurement){
-<a name="l00247"></a>00247   <span class="keywordtype">int</span> freeMemory = <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4">getFreeMemory</a>();
-<a name="l00248"></a>00248   <span class="keywordtype">int</span> params[2];
-<a name="l00249"></a>00249   params[0] = freeMemory;
-<a name="l00250"></a>00250   params[1] = placeOfMeasurement;
-<a name="l00251"></a>00251   <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(68, params, 2);
-<a name="l00252"></a>00252 }
+<a name="l00190"></a>00190       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(params[i], DEC);
+<a name="l00191"></a>00191       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;,&quot;</span>);
+<a name="l00192"></a>00192     }
+<a name="l00193"></a>00193     <span class="comment">//the last one is sent without a comma but with a new line</span>
+<a name="l00194"></a>00194     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.println(params[i]);
+<a name="l00195"></a>00195   }
+<a name="l00196"></a>00196 }
+<a name="l00204"></a><a class="code" href="class_communication.html#a177161f8b437b0e406c301394a3632e5">00204</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">Communication::send</a>(byte messageId, <span class="keyword">const</span> <span class="keywordtype">int</span> params[], byte paramSize){
+<a name="l00205"></a>00205   <span class="keywordflow">if</span>(messageId &gt; <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">getMessageFilterLevel</a>() || !<a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">activateMessageFilter</a>){
+<a name="l00206"></a>00206     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(messageId);
+<a name="l00207"></a>00207     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;-&quot;</span>);
+<a name="l00208"></a>00208     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(paramSize);
+<a name="l00209"></a>00209     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;:&quot;</span>);
+<a name="l00210"></a>00210     byte i;
+<a name="l00211"></a>00211     <span class="keywordflow">for</span>(i = 0; i &lt; (paramSize - 1); i++){
+<a name="l00213"></a>00213       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(params[i]);
+<a name="l00214"></a>00214       <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.print(<span class="stringliteral">&quot;,&quot;</span>);
+<a name="l00215"></a>00215     }
+<a name="l00216"></a>00216     <span class="comment">//the last one is sent without a comma but with a new line</span>
+<a name="l00217"></a>00217     <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.println(params[i]);
+<a name="l00218"></a>00218   }
+<a name="l00219"></a>00219 }
+<a name="l00220"></a>00220 
+<a name="l00227"></a><a class="code" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">00227</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85">Communication::sendString</a>(<span class="keywordtype">char</span>* message){
+<a name="l00228"></a>00228   <a class="code" href="_communication_8cpp.html#a03ede5fb0d1eb2158dbb5f2aeb7a5066">sc</a>.println(message);
+<a name="l00229"></a>00229 }
+<a name="l00230"></a>00230 
+<a name="l00234"></a><a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">00234</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">Communication::sendCurrentConfiguration</a>(){
+<a name="l00235"></a>00235   <span class="keywordtype">long</span> currentConfiguration[<a class="code" href="class_configuration.html#a9ac73982b5d1611bba533567fffbaa3c" title="Defines the size of the array in which all dynamic configuration values are saved.">Configuration::SIZEOFDYNAMICCONFIGURATION</a>];
+<a name="l00236"></a>00236   <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">getCurrentConfiguration</a>(currentConfiguration);
+<a name="l00237"></a>00237   <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(204, currentConfiguration, <a class="code" href="class_configuration.html#a9ac73982b5d1611bba533567fffbaa3c" title="Defines the size of the array in which all dynamic configuration values are saved.">Configuration::SIZEOFDYNAMICCONFIGURATION</a>);
+<a name="l00238"></a>00238 }
+<a name="l00239"></a>00239 
+<a name="l00245"></a><a class="code" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">00245</a> <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a0cafeb974ccf24771478a8589aaa79b5">Communication::sendFreeMemory</a>(<span class="keywordtype">int</span> placeOfMeasurement){
+<a name="l00246"></a>00246   <span class="keywordtype">int</span> freeMemory = <a class="code" href="class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9">_config</a>-&gt;<a class="code" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4">getFreeMemory</a>();
+<a name="l00247"></a>00247   <span class="keywordtype">int</span> params[2];
+<a name="l00248"></a>00248   params[0] = freeMemory;
+<a name="l00249"></a>00249   params[1] = placeOfMeasurement;
+<a name="l00250"></a>00250   <a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(68, params, 2);
+<a name="l00251"></a>00251 }
+<a name="l00252"></a>00252 
 <a name="l00253"></a>00253 
 <a name="l00254"></a>00254 
 <a name="l00255"></a>00255 
@@ -310,14 +311,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00275"></a>00275 
 <a name="l00276"></a>00276 
 <a name="l00277"></a>00277 
-<a name="l00278"></a>00278 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_communication_8cpp.html">Communication.cpp</a>      </li>
 
-    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 23:52:14 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

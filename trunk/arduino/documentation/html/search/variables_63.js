@@ -1,6 +1,7 @@
 var searchData=
 [
   ['commandcode',['commandCode',['../class_command.html#a31842ee183ae2cd06ce6ad8f7533ff02',1,'Command']]],
+  ['cubeapproachdetectthreshold',['cubeApproachDetectThreshold',['../class_configuration.html#a31dba4b7dc79224cda66882244363829',1,'Configuration']]],
   ['cubeapproachleftbottomsensor',['cubeApproachLeftBottomSensor',['../class_configuration.html#a64566ef4e13d578a41614a643acfdd51',1,'Configuration']]],
   ['cubeapproachlefttopsensor',['cubeApproachLeftTopSensor',['../class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b',1,'Configuration']]],
   ['cubeapproachrightbottomsensor',['cubeApproachRightBottomSensor',['../class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1',1,'Configuration']]],

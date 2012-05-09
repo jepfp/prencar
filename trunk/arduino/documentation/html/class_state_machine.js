@@ -8,6 +8,7 @@ var class_state_machine =
     [ "doJob", "class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78", null ],
     [ "getInstance", "class_state_machine.html#a7f7482a9af6910035a62f9c116165f60", null ],
     [ "startParcours", "class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e", null ],
+    [ "startParcoursAtState", "class_state_machine.html#a2581b0509842f049b330fa2c358aaa77", null ],
     [ "stopParcours", "class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a", null ],
     [ "_com", "class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2", null ],
     [ "_conf", "class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c", null ],
@@ -18,5 +19,6 @@ var class_state_machine =
     [ "curveLeft", "class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02", null ],
     [ "forceChangeSate", "class_state_machine.html#ae478761ede92cd3904738ac7ad2b76b8", null ],
     [ "lineFollow", "class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5", null ],
-    [ "parcoursState", "class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1", null ]
+    [ "parcoursState", "class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1", null ],
+    [ "startParcoursTimestamp", "class_state_machine.html#aba41f59808f08876f67aefcb436ff00a", null ]
 ];

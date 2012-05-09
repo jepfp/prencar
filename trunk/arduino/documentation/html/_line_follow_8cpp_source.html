@@ -143,127 +143,146 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00035"></a>00035   <a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> = <span class="keyword">false</span>;
 <a name="l00036"></a>00036 }
 <a name="l00037"></a>00037 
-<a name="l00041"></a><a class="code" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">00041</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">LineFollow::startIt</a>(){
-<a name="l00042"></a>00042   <a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> = <span class="keyword">false</span>;
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044   <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a> = 0;
-<a name="l00045"></a>00045   <a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a> = 0;
-<a name="l00046"></a>00046   <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a> = 0;
-<a name="l00047"></a>00047   <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a> = millis();
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049   <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>);
-<a name="l00050"></a>00050 }
-<a name="l00051"></a>00051 
-<a name="l00064"></a><a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">00064</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">LineFollow::doJob</a>(){
-<a name="l00065"></a>00065   <span class="keywordflow">if</span>(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a> == 0 || millis() &gt; <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a> + <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a>){
-<a name="l00066"></a>00066     <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a> = millis();
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <span class="keywordtype">int</span> sensorValues[2];
-<a name="l00069"></a>00069     <a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">readFrontLineSensors</a>(sensorValues);
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071     <span class="comment">//check if a 90° curve is needed</span>
-<a name="l00072"></a>00072     <span class="keywordflow">if</span>(sensorValues[0] &lt; <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>){
-<a name="l00073"></a>00073       <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(55, sensorValues[0]);
-<a name="l00074"></a>00074       <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
-<a name="l00075"></a>00075       <a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> = <span class="keyword">true</span>;
-<a name="l00076"></a>00076       <span class="keywordflow">return</span>;
-<a name="l00077"></a>00077     }
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079     <span class="comment">/*_com-&gt;sendString(&quot;start&quot;);</span>
-<a name="l00080"></a>00080 <span class="comment">     _com-&gt;send(106, _conf-&gt;lineFollowInitialSpeedLeft);</span>
-<a name="l00081"></a>00081 <span class="comment">     _com-&gt;send(107, _conf-&gt;lineFollowKp);</span>
-<a name="l00082"></a>00082 <span class="comment">     _com-&gt;send(108, _conf-&gt;lineFollowKd);</span>
-<a name="l00083"></a>00083 <span class="comment">     _com-&gt;sendString(&quot;stopp&quot;);*/</span>
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085     <span class="comment">//Do the line following</span>
-<a name="l00086"></a>00086     <a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">readLineSensors</a>(sensorValues);
-<a name="l00087"></a>00087     <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a> = sensorValues[0]-sensorValues[1];
-<a name="l00088"></a>00088     <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(3, <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>);
-<a name="l00089"></a>00089     <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a> = (int) ( ((<span class="keywordtype">float</span>)<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a>) * (((float)<a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>)/100) + ((<span class="keywordtype">float</span>)<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a>)/100 * (<span class="keywordtype">float</span>)(_deltasensor-<a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a>) );
-<a name="l00090"></a>00090     <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(4, <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>);
-<a name="l00091"></a>00091     <a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a> = <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>;
-<a name="l00092"></a>00092     <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f">changeMotorSpeedBasedOnInitialSpeed</a>(<a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>,(-1)*<a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>); 
-<a name="l00093"></a>00093   }
-<a name="l00094"></a>00094 }
-<a name="l00095"></a>00095 
-<a name="l00100"></a><a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">00100</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">LineFollow::readFrontLineSensors</a>(<span class="keywordtype">int</span>* resultArray){
+<a name="l00043"></a><a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">00043</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt</a>(<span class="keywordtype">int</span> initSpeedLeft, <span class="keywordtype">int</span> initSpeedRight){
+<a name="l00044"></a>00044   <a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(initSpeedLeft, initSpeedRight, 0, 0, 0);
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 
+<a name="l00055"></a><a class="code" href="class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481">00055</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt</a>(<span class="keywordtype">int</span> initSpeedLeft, <span class="keywordtype">int</span> initSpeedRight, <span class="keywordtype">int</span> reduceSpeedTime, byte reducedSpeedLeftMotor, byte reducedSpeedRightMotor){
+<a name="l00056"></a>00056   <a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> = <span class="keyword">false</span>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058   <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a> = 0;
+<a name="l00059"></a>00059   <a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a> = 0;
+<a name="l00060"></a>00060   <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a> = 0;
+<a name="l00061"></a>00061   <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a> = millis();
+<a name="l00062"></a>00062   <a class="code" href="class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5" title="Holds the timestamp of when the line follow process started with startIt();.">_timeLineFollowStarted</a> = millis();
+<a name="l00063"></a>00063   <a class="code" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8" title="Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _red...">_reduceSpeedTime</a> = reduceSpeedTime;
+<a name="l00064"></a>00064   <a class="code" href="class_line_follow.html#ad32fe2529a251e97ff6ac6c33b70b157" title="The reduced speed (0-255) of the left motor that can be assigned after _reduceSpeedTime has been reac...">_reducedSpeedLeftMotor</a> = reducedSpeedLeftMotor;
+<a name="l00065"></a>00065   <a class="code" href="class_line_follow.html#ae83633ebfeb7e27ca75e6a1fc84b42f9" title="The reduced speed (0-255) of the right motor that can be assigned after _reduceSpeedTime has been rea...">_reducedSpeedRightMotor</a> = reducedSpeedRightMotor;
+<a name="l00066"></a>00066   <a class="code" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66" title="The current base speed of the left motor. The regulation of the motor speed is done based on that val...">_currentSpeedLeftMotor</a> = initSpeedLeft;
+<a name="l00067"></a>00067   <a class="code" href="class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0" title="The current base speed of the right motor. The regulation of the motor speed is done based on that va...">_currentSpeedRightMotor</a> = initSpeedRight;
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069   <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, initSpeedLeft, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, initSpeedRight);
+<a name="l00070"></a>00070 }
+<a name="l00071"></a>00071 
+<a name="l00087"></a><a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">00087</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">LineFollow::doJob</a>(){
+<a name="l00088"></a>00088   <span class="keywordflow">if</span>(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a> == 0 || millis() &gt; <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a> + <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa799e7ed6a4722085506a31c051bf103" title="Interval in milliseconds in which the line follow job shall be executed.">lineFollowInterval</a>){
+<a name="l00089"></a>00089     <a class="code" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e" title="Holds the timestamp of the time when the last line follow check was done.">_timeLastLineFollowCheck</a> = millis();
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091     <span class="keywordtype">int</span> sensorValues[2];
+<a name="l00092"></a>00092     <a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">readFrontLineSensors</a>(sensorValues);
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094     <span class="comment">//check if a 90° curve is needed</span>
+<a name="l00095"></a>00095     <span class="keywordflow">if</span>(sensorValues[0] &lt; <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>){
+<a name="l00096"></a>00096       <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(55, sensorValues[0]);
+<a name="l00097"></a>00097       <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
+<a name="l00098"></a>00098       <a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> = <span class="keyword">true</span>;
+<a name="l00099"></a>00099       <span class="keywordflow">return</span>;
+<a name="l00100"></a>00100     }
 <a name="l00101"></a>00101 
-<a name="l00102"></a>00102   resultArray[0] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>);
-<a name="l00104"></a>00104   resultArray[1] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa">lineFollowRightFrontSensorPin</a>);
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(1, resultArray, 2);
-<a name="l00107"></a>00107 }
-<a name="l00108"></a>00108 
-<a name="l00113"></a><a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">00113</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">LineFollow::readLineSensors</a>(<span class="keywordtype">int</span>* resultArray){
+<a name="l00102"></a>00102     <span class="comment">//check if it&#39;s already time to proceed with the reduced speed</span>
+<a name="l00103"></a>00103     <span class="keywordflow">if</span>(<a class="code" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8" title="Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _red...">_reduceSpeedTime</a> != 0 &amp;&amp; millis() &gt; <a class="code" href="class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5" title="Holds the timestamp of when the line follow process started with startIt();.">_timeLineFollowStarted</a> + <a class="code" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8" title="Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _red...">_reduceSpeedTime</a>){
+<a name="l00104"></a>00104       <span class="keywordtype">int</span> parameters[3];
+<a name="l00105"></a>00105       <a class="code" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66" title="The current base speed of the left motor. The regulation of the motor speed is done based on that val...">_currentSpeedLeftMotor</a> = <a class="code" href="class_line_follow.html#ad32fe2529a251e97ff6ac6c33b70b157" title="The reduced speed (0-255) of the left motor that can be assigned after _reduceSpeedTime has been reac...">_reducedSpeedLeftMotor</a>;
+<a name="l00106"></a>00106       <a class="code" href="class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0" title="The current base speed of the right motor. The regulation of the motor speed is done based on that va...">_currentSpeedRightMotor</a> = <a class="code" href="class_line_follow.html#ae83633ebfeb7e27ca75e6a1fc84b42f9" title="The reduced speed (0-255) of the right motor that can be assigned after _reduceSpeedTime has been rea...">_reducedSpeedRightMotor</a>;
+<a name="l00107"></a>00107       parameters[0] = <a class="code" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8" title="Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _red...">_reduceSpeedTime</a>;
+<a name="l00108"></a>00108       parameters[1] = <a class="code" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66" title="The current base speed of the left motor. The regulation of the motor speed is done based on that val...">_currentSpeedLeftMotor</a>;
+<a name="l00109"></a>00109       parameters[2] = <a class="code" href="class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0" title="The current base speed of the right motor. The regulation of the motor speed is done based on that va...">_currentSpeedRightMotor</a>;
+<a name="l00110"></a>00110       <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(71, parameters, 3);
+<a name="l00111"></a>00111       <span class="comment">//no more checks are needed</span>
+<a name="l00112"></a>00112       <a class="code" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8" title="Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _red...">_reduceSpeedTime</a> = 0;
+<a name="l00113"></a>00113     }
 <a name="l00114"></a>00114 
-<a name="l00115"></a>00115   resultArray[0] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a09d83c2f3c4485fd864bf998e62788d7">lineFollowLeftSensorPin</a>);
-<a name="l00117"></a>00117   resultArray[1] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a254b7ac19c994603776d47645235a132">lineFollowRightSensorPin</a>);
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(2, resultArray, 2);
-<a name="l00120"></a>00120 }
-<a name="l00121"></a>00121 
-<a name="l00143"></a><a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39">00143</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors.">LineFollow::calibrateSensors</a>(){
-<a name="l00144"></a>00144   <span class="keywordtype">float</span> sensorValue;
-<a name="l00145"></a>00145   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(200);
-<a name="l00146"></a>00146   delay(10000);
-<a name="l00147"></a>00147   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(201);
+<a name="l00115"></a>00115     <span class="comment">//Do the line following</span>
+<a name="l00116"></a>00116     <a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">readLineSensors</a>(sensorValues);
+<a name="l00117"></a>00117     <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a> = sensorValues[0]-sensorValues[1];
+<a name="l00118"></a>00118     <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(3, <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>);
+<a name="l00119"></a>00119     <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a> = (int) ( ((<span class="keywordtype">float</span>)<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabaf837f8816911a6d0b1e8cd7867cb9">lineFollowKp</a>) * (((float)<a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>)/100) + ((<span class="keywordtype">float</span>)<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aad2572d8c68520c2ef6613d29f38a9cf">lineFollowKd</a>)/100 * (<span class="keywordtype">float</span>)(_deltasensor-<a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a>) );
+<a name="l00120"></a>00120     <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(4, <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>);
+<a name="l00121"></a>00121     <a class="code" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">_sensoralt</a> = <a class="code" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">_deltasensor</a>;
+<a name="l00122"></a>00122     <a class="code" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5">setMotorSpeed</a>(<a class="code" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66" title="The current base speed of the left motor. The regulation of the motor speed is done based on that val...">_currentSpeedLeftMotor</a> + <a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>, <a class="code" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66" title="The current base speed of the left motor. The regulation of the motor speed is done based on that val...">_currentSpeedLeftMotor</a> + ((-1)*<a class="code" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">_deltaPWM</a>)); 
+<a name="l00123"></a>00123   }
+<a name="l00124"></a>00124 }
+<a name="l00125"></a>00125 
+<a name="l00130"></a><a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">00130</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">LineFollow::readFrontLineSensors</a>(<span class="keywordtype">int</span>* resultArray){
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132   resultArray[0] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>);
+<a name="l00134"></a>00134   resultArray[1] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa">lineFollowRightFrontSensorPin</a>);
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(1, resultArray, 2);
+<a name="l00137"></a>00137 }
+<a name="l00138"></a>00138 
+<a name="l00143"></a><a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">00143</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">LineFollow::readLineSensors</a>(<span class="keywordtype">int</span>* resultArray){
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145   resultArray[0] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a09d83c2f3c4485fd864bf998e62788d7">lineFollowLeftSensorPin</a>);
+<a name="l00147"></a>00147   resultArray[1] = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a254b7ac19c994603776d47645235a132">lineFollowRightSensorPin</a>);
 <a name="l00148"></a>00148 
-<a name="l00149"></a>00149   <span class="comment">//sensor measurement on black ground</span>
-<a name="l00150"></a>00150   <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a> = 1023;
-<a name="l00151"></a>00151   <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a> = 0;
-<a name="l00152"></a>00152   <span class="keywordflow">for</span>(byte i = 0; i &lt; 50; i++){
-<a name="l00153"></a>00153     sensorValue = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>);
-<a name="l00154"></a>00154     <span class="keywordflow">if</span>(sensorValue &lt; <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a>){
-<a name="l00155"></a>00155       <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a> = sensorValue;
-<a name="l00156"></a>00156     }
-<a name="l00157"></a>00157     <span class="keywordflow">if</span>(sensorValue &gt; <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a>){
-<a name="l00158"></a>00158       <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a> = sensorValue;
-<a name="l00159"></a>00159     }
-<a name="l00160"></a>00160     delay(100);
-<a name="l00161"></a>00161   }
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(202);
-<a name="l00164"></a>00164   delay(10000);
-<a name="l00165"></a>00165   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(201);
-<a name="l00166"></a>00166 
-<a name="l00167"></a>00167   <span class="comment">//sensor measurement on white ground</span>
-<a name="l00168"></a>00168   <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a> = 1023;
-<a name="l00169"></a>00169   <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a> = 0;
-<a name="l00170"></a>00170   <span class="keywordflow">for</span>(byte i = 0; i &lt; 50; i++){
-<a name="l00171"></a>00171     sensorValue = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>);
-<a name="l00172"></a>00172     <span class="keywordflow">if</span>(sensorValue &lt; <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a>){
-<a name="l00173"></a>00173       <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a> = sensorValue;
-<a name="l00174"></a>00174     }
-<a name="l00175"></a>00175     <span class="keywordflow">if</span>(sensorValue &gt; <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>){
-<a name="l00176"></a>00176       <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a> = sensorValue;
-<a name="l00177"></a>00177     }
-<a name="l00178"></a>00178     delay(100);
-<a name="l00179"></a>00179   }
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181   <span class="comment">//calculate the white threshold value</span>
-<a name="l00182"></a>00182   <span class="keywordtype">int</span> rangeWhiteMaxToBlackMin = <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a> - <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>;
-<a name="l00183"></a>00183   <span class="comment">//calculate 1/3 out of the range and add it to the whiteMax. This will be the new whiteThreshold value.</span>
-<a name="l00184"></a>00184   <span class="comment">//(We know that the calculation doesn&#39;t use float even though a division is made here.)</span>
-<a name="l00185"></a>00185   <span class="keywordtype">int</span> oneThirdOfRange = rangeWhiteMaxToBlackMin/3;
-<a name="l00186"></a>00186   <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a> = _calibrationSensorWhiteMax + oneThirdOfRange;
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188   <span class="keywordtype">int</span> measurements[] = {
-<a name="l00189"></a>00189     <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a>, <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a>, <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a>, <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>,
-<a name="l00190"></a>00190     oneThirdOfRange, <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>
-<a name="l00191"></a>00191   };
+<a name="l00149"></a>00149   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(2, resultArray, 2);
+<a name="l00150"></a>00150 }
+<a name="l00151"></a>00151 
+<a name="l00173"></a><a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39">00173</a> <span class="keywordtype">void</span> <a class="code" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39" title="Calibrates the sensors.">LineFollow::calibrateSensors</a>(){
+<a name="l00174"></a>00174   <span class="keywordtype">float</span> sensorValue;
+<a name="l00175"></a>00175   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(200);
+<a name="l00176"></a>00176   delay(10000);
+<a name="l00177"></a>00177   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(201);
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179   <span class="comment">//sensor measurement on black ground</span>
+<a name="l00180"></a>00180   <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a> = 1023;
+<a name="l00181"></a>00181   <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a> = 0;
+<a name="l00182"></a>00182   <span class="keywordflow">for</span>(byte i = 0; i &lt; 50; i++){
+<a name="l00183"></a>00183     sensorValue = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>);
+<a name="l00184"></a>00184     <span class="keywordflow">if</span>(sensorValue &lt; <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a>){
+<a name="l00185"></a>00185       <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a> = sensorValue;
+<a name="l00186"></a>00186     }
+<a name="l00187"></a>00187     <span class="keywordflow">if</span>(sensorValue &gt; <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a>){
+<a name="l00188"></a>00188       <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a> = sensorValue;
+<a name="l00189"></a>00189     }
+<a name="l00190"></a>00190     delay(100);
+<a name="l00191"></a>00191   }
 <a name="l00192"></a>00192 
-<a name="l00193"></a>00193   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(203, measurements, 6);
-<a name="l00194"></a>00194 }
-<a name="l00195"></a>00195 
+<a name="l00193"></a>00193   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(202);
+<a name="l00194"></a>00194   delay(10000);
+<a name="l00195"></a>00195   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(201);
 <a name="l00196"></a>00196 
-<a name="l00197"></a>00197 
+<a name="l00197"></a>00197   <span class="comment">//sensor measurement on white ground</span>
+<a name="l00198"></a>00198   <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a> = 1023;
+<a name="l00199"></a>00199   <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a> = 0;
+<a name="l00200"></a>00200   <span class="keywordflow">for</span>(byte i = 0; i &lt; 50; i++){
+<a name="l00201"></a>00201     sensorValue = analogRead(<a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a683b496d15eca4addb13325d9707abcf">lineFollowLeftFrontSensorPin</a>);
+<a name="l00202"></a>00202     <span class="keywordflow">if</span>(sensorValue &lt; <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a>){
+<a name="l00203"></a>00203       <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a> = sensorValue;
+<a name="l00204"></a>00204     }
+<a name="l00205"></a>00205     <span class="keywordflow">if</span>(sensorValue &gt; <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>){
+<a name="l00206"></a>00206       <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a> = sensorValue;
+<a name="l00207"></a>00207     }
+<a name="l00208"></a>00208     delay(100);
+<a name="l00209"></a>00209   }
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211   <span class="comment">//calculate the white threshold value</span>
+<a name="l00212"></a>00212   <span class="keywordtype">int</span> rangeWhiteMaxToBlackMin = <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a> - <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>;
+<a name="l00213"></a>00213   <span class="comment">//calculate 1/3 out of the range and add it to the whiteMax. This will be the new whiteThreshold value.</span>
+<a name="l00214"></a>00214   <span class="comment">//(We know that the calculation doesn&#39;t use float even though a division is made here.)</span>
+<a name="l00215"></a>00215   <span class="keywordtype">int</span> oneThirdOfRange = rangeWhiteMaxToBlackMin/3;
+<a name="l00216"></a>00216   <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a> = _calibrationSensorWhiteMax + oneThirdOfRange;
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218   <span class="keywordtype">int</span> measurements[] = {
+<a name="l00219"></a>00219     <a class="code" href="class_line_follow.html#aeb722614b85d484aafe0714f9d319f3e" title="Holds the minimum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMin</a>, <a class="code" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba" title="Holds the maximum value that was measured during the calibration for &quot;black&quot;.">_calibrationSensorBlackMax</a>, <a class="code" href="class_line_follow.html#a6f7f1f6ff879d0ce76823b03844bfc9a" title="Holds the minimum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMin</a>, <a class="code" href="class_line_follow.html#a7b4f3695a0133e9ba170199ddb1bdde6" title="Holds the maximum value that was measured during the calibration for &quot;white&quot;.">_calibrationSensorWhiteMax</a>,
+<a name="l00220"></a>00220     oneThirdOfRange, <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">lineFollowWhiteThreshold</a>
+<a name="l00221"></a>00221   };
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223   <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(203, measurements, 6);
+<a name="l00224"></a>00224 }
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_line_follow_8cpp.html">LineFollow.cpp</a>      </li>
 
-    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 23:52:14 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

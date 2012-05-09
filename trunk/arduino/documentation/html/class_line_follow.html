@@ -148,7 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a93ff35747f2ae3bb26998f07243afc3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a> ()</td></tr>
 <tr class="memitem:a9db172747e4457a6b01f8d27ed41ac39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39">calibrateSensors</a> ()</td></tr>
 <tr class="memdesc:a9db172747e4457a6b01f8d27ed41ac39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibrates the sensors.  <a href="#a9db172747e4457a6b01f8d27ed41ac39"></a><br/></td></tr>
-<tr class="memitem:a5f3e76e795bacff24be60b7f65d84d94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">startIt</a> ()</td></tr>
+<tr class="memitem:a98fad8edd42d3096bb61f9e68293490c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a> (int initSpeedLeft, int initSpeedRight)</td></tr>
+<tr class="memitem:a46aa4b76c945adf0119a5dbb83a47481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481">startIt</a> (int initSpeedLeft, int initSpeedRight, int reduceSpeedTime, byte reducedSpeedLeftMotor, byte reducedSpeedRightMotor)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:accb339a7a953d66032b9329a2b3a1b4d"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d">hasReachedCurve</a></td></tr>
@@ -167,6 +168,18 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:aeb722614b85d484aafe0714f9d319f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the minimum value that was measured during the calibration for "black".  <a href="#aeb722614b85d484aafe0714f9d319f3e"></a><br/></td></tr>
 <tr class="memitem:aaeea70b897deb0295401aa316189c2ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#aaeea70b897deb0295401aa316189c2ba">_calibrationSensorBlackMax</a></td></tr>
 <tr class="memdesc:aaeea70b897deb0295401aa316189c2ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the maximum value that was measured during the calibration for "black".  <a href="#aaeea70b897deb0295401aa316189c2ba"></a><br/></td></tr>
+<tr class="memitem:a0ef29e6c86e00848490a0ea4ee973ab5"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5">_timeLineFollowStarted</a></td></tr>
+<tr class="memdesc:a0ef29e6c86e00848490a0ea4ee973ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the timestamp of when the line follow process started with <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt()</a>;.  <a href="#a0ef29e6c86e00848490a0ea4ee973ab5"></a><br/></td></tr>
+<tr class="memitem:ad32fe2529a251e97ff6ac6c33b70b157"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#ad32fe2529a251e97ff6ac6c33b70b157">_reducedSpeedLeftMotor</a></td></tr>
+<tr class="memdesc:ad32fe2529a251e97ff6ac6c33b70b157"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reduced speed (0-255) of the left motor that can be assigned after _reduceSpeedTime has been reached.  <a href="#ad32fe2529a251e97ff6ac6c33b70b157"></a><br/></td></tr>
+<tr class="memitem:ae83633ebfeb7e27ca75e6a1fc84b42f9"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#ae83633ebfeb7e27ca75e6a1fc84b42f9">_reducedSpeedRightMotor</a></td></tr>
+<tr class="memdesc:ae83633ebfeb7e27ca75e6a1fc84b42f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reduced speed (0-255) of the right motor that can be assigned after _reduceSpeedTime has been reached.  <a href="#ae83633ebfeb7e27ca75e6a1fc84b42f9"></a><br/></td></tr>
+<tr class="memitem:a9c2f2bdeb9061e726893fca132d795f8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8">_reduceSpeedTime</a></td></tr>
+<tr class="memdesc:a9c2f2bdeb9061e726893fca132d795f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _reducedSpeedRightMotor. Set 0 to not use this.  <a href="#a9c2f2bdeb9061e726893fca132d795f8"></a><br/></td></tr>
+<tr class="memitem:a8d69bcb80adfdb89a24299227809bf66"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66">_currentSpeedLeftMotor</a></td></tr>
+<tr class="memdesc:a8d69bcb80adfdb89a24299227809bf66"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current base speed of the left motor. The regulation of the motor speed is done based on that value.  <a href="#a8d69bcb80adfdb89a24299227809bf66"></a><br/></td></tr>
+<tr class="memitem:affc9250b97071106f0a570b97ab3e6a0"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0">_currentSpeedRightMotor</a></td></tr>
+<tr class="memdesc:affc9250b97071106f0a570b97ab3e6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current base speed of the right motor. The regulation of the motor speed is done based on that value.  <a href="#affc9250b97071106f0a570b97ab3e6a0"></a><br/></td></tr>
 <tr class="memitem:a8c494126e578f00240532b866b051718"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#a8c494126e578f00240532b866b051718">_com</a></td></tr>
 <tr class="memdesc:a8c494126e578f00240532b866b051718"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the serial communication class.  <a href="#a8c494126e578f00240532b866b051718"></a><br/></td></tr>
 <tr class="memitem:ac6fe17d43571248ea2e74fade7ceb5bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_move.html">Move</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">_move</a></td></tr>
@@ -280,9 +293,9 @@ The minimum and maximum measured value are evaluated and stored into _calibratio
 Out of this measurements the <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> value gets calculated and stored. It will be +100 than _calibrationSensorWhiteMax. </li>
 </ol>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>The calculation of <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> can be done using some config value as well so that the behavior can be influenced by the configuration. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>The calculation of <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> can be done using some config value as well so that the behavior can be influenced by the configuration. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00143">143</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00173">173</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -318,26 +331,29 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 <p>Does the job for which this class was written.<br/>
- This method has to be called in regular intervals (as short as possible).<br/>
+ This method has to be called in regular intervals.<br/>
  The sensor data of the sensors is captured and based on the result the motor speed is adjusted.</p>
+<p><b>Important: Call <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt()</a> first!</b></p>
 <p>What's done in detail: </p>
 <ol>
 <li>
 Read the front sensors to check, if a 90° courve is needed. </li>
+<li>
+Check _reduceSpeedTime (if not 0) if it's already time to proceed with the reduced speed. </li>
 <li>
 Read the line sensor values to check if one line sensor has detected white ground (line follow algorithm). </li>
 </ol>
 
 <p>Reimplemented in <a class="el" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">CurveLeft</a>.</p>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00064">64</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00087">87</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_line_follow_a93ff35747f2ae3bb26998f07243afc3c_cgraph.png" border="0" usemap="#class_line_follow_a93ff35747f2ae3bb26998f07243afc3c_cgraph" alt=""/></div>
 <map name="class_line_follow_a93ff35747f2ae3bb26998f07243afc3c_cgraph" id="class_line_follow_a93ff35747f2ae3bb26998f07243afc3c_cgraph">
-<area shape="rect" id="node3" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="520,5,739,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="809,132,957,159"/><area shape="rect" id="node10" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="551,107,707,133"/><area shape="rect" id="node13" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="231,157,419,184"/><area shape="rect" id="node16" href="class_move.html#a5ba1c7d78d6a067bc3cfa5f9cdca921f" title="Move::changeMotorSpeedBasedOnInitialSpeed" alt="" coords="179,208,472,235"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1027,132,1261,159"/><area shape="rect" id="node19" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="560,259,699,285"/><area shape="rect" id="node22" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="791,233,974,260"/><area shape="rect" id="node24" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="787,284,979,311"/></map>
+<area shape="rect" id="node3" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="416,5,635,32"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="705,132,853,159"/><area shape="rect" id="node10" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="447,107,603,133"/><area shape="rect" id="node13" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="179,157,367,184"/><area shape="rect" id="node16" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="199,208,347,235"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="923,132,1157,159"/><area shape="rect" id="node19" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="456,259,595,285"/><area shape="rect" id="node22" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="687,233,870,260"/><area shape="rect" id="node24" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="683,284,875,311"/></map>
 </div>
 </p>
 
@@ -373,9 +389,9 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00100">100</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00130">130</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -418,9 +434,9 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00113">113</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00143">143</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -442,40 +458,114 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a5f3e76e795bacff24be60b7f65d84d94"></a>
+<a class="anchor" id="a98fad8edd42d3096bb61f9e68293490c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_line_follow.html#a5f3e76e795bacff24be60b7f65d84d94">LineFollow::startIt</a> </td>
+          <td class="memname">void <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initSpeedLeft</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initSpeedRight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Starts the line following process. </p>
+<p>Starts the line following process with the given initial speed. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initSpeedLeft</td><td>Initial speed for the left motor. </td></tr>
+    <tr><td class="paramname">initSpeedRight</td><td>Initial speed for the right motor. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Reimplemented in <a class="el" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">CurveLeft</a>.</p>
-
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00041">41</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_cgraph.png" border="0" usemap="#class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_cgraph" alt=""/></div>
-<map name="class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_cgraph" id="class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_cgraph">
-<area shape="rect" id="node3" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="179,56,317,83"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="387,5,535,32"/><area shape="rect" id="node9" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="370,56,553,83"/><area shape="rect" id="node11" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="365,107,557,133"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="605,5,840,32"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00043">43</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_icgraph.png" border="0" usemap="#class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_icgraph" alt=""/></div>
-<map name="class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_icgraph" id="class_line_follow_a5f3e76e795bacff24be60b7f65d84d94_icgraph">
+<div class="center"><img src="class_line_follow_a98fad8edd42d3096bb61f9e68293490c_icgraph.png" border="0" usemap="#class_line_follow_a98fad8edd42d3096bb61f9e68293490c_icgraph" alt=""/></div>
+<map name="class_line_follow_a98fad8edd42d3096bb61f9e68293490c_icgraph" id="class_line_follow_a98fad8edd42d3096bb61f9e68293490c_icgraph">
 <area shape="rect" id="node3" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="675,5,819,32"/><area shape="rect" id="node5" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="179,31,367,57"/><area shape="rect" id="node7" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="416,31,627,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a46aa4b76c945adf0119a5dbb83a47481"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initSpeedLeft</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initSpeedRight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>reduceSpeedTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>reducedSpeedLeftMotor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>reducedSpeedRightMotor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initSpeedLeft</td><td>Initial speed for the left motor. </td></tr>
+    <tr><td class="paramname">initSpeedRight</td><td>Initial speed for the right motor. </td></tr>
+    <tr><td class="paramname">reduceSpeedTime</td><td>Time after which the line follow process shall proceed with the speed of reducedSpeedLeftMotor and reducedSpeedRightMotor. 0 to not use this function. </td></tr>
+    <tr><td class="paramname">reducedSpeedLeftMotor</td><td>Base speed for the PD controller after reduceSpeedTime milliseconds. </td></tr>
+    <tr><td class="paramname">reducedSpeedRightMotor</td><td>Base speed for the PD controller after reduceSpeedTime milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00055">55</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_follow_a46aa4b76c945adf0119a5dbb83a47481_cgraph.png" border="0" usemap="#class_line_follow_a46aa4b76c945adf0119a5dbb83a47481_cgraph" alt=""/></div>
+<map name="class_line_follow_a46aa4b76c945adf0119a5dbb83a47481_cgraph" id="class_line_follow_a46aa4b76c945adf0119a5dbb83a47481_cgraph">
+<area shape="rect" id="node3" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="179,56,317,83"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="387,5,535,32"/><area shape="rect" id="node9" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="370,56,553,83"/><area shape="rect" id="node11" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="365,107,557,133"/><area shape="rect" id="node7" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="605,5,840,32"/></map>
 </div>
 </p>
 
@@ -495,7 +585,7 @@ Here is the caller graph for this function:</div>
 
 <p>Holds the maximum value that was measured during the calibration for "black". </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00021">21</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00022">22</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -512,7 +602,7 @@ Here is the caller graph for this function:</div>
 
 <p>Holds the minimum value that was measured during the calibration for "black". </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00020">20</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00021">21</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +619,7 @@ Here is the caller graph for this function:</div>
 
 <p>Holds the maximum value that was measured during the calibration for "white". </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00019">19</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00020">20</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -546,7 +636,7 @@ Here is the caller graph for this function:</div>
 
 <p>Holds the minimum value that was measured during the calibration for "white". </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00018">18</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00019">19</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -563,7 +653,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the serial communication class. </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00023">23</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00033">33</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -580,7 +670,41 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the configuration class. </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00025">25</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00035">35</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d69bcb80adfdb89a24299227809bf66"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66">LineFollow::_currentSpeedLeftMotor</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The current base speed of the left motor. The regulation of the motor speed is done based on that value. </p>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00030">30</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="affc9250b97071106f0a570b97ab3e6a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0">LineFollow::_currentSpeedRightMotor</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The current base speed of the right motor. The regulation of the motor speed is done based on that value. </p>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00031">31</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -594,9 +718,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>write comment </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00034">34</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00044">44</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -610,9 +734,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>write comment </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00032">32</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00042">42</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -629,7 +753,58 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the move class to control the motors. </p>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00024">24</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00034">34</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad32fe2529a251e97ff6ac6c33b70b157"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_line_follow.html#ad32fe2529a251e97ff6ac6c33b70b157">LineFollow::_reducedSpeedLeftMotor</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The reduced speed (0-255) of the left motor that can be assigned after _reduceSpeedTime has been reached. </p>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00026">26</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae83633ebfeb7e27ca75e6a1fc84b42f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_line_follow.html#ae83633ebfeb7e27ca75e6a1fc84b42f9">LineFollow::_reducedSpeedRightMotor</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The reduced speed (0-255) of the right motor that can be assigned after _reduceSpeedTime has been reached. </p>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00027">27</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c2f2bdeb9061e726893fca132d795f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8">LineFollow::_reduceSpeedTime</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Time after which the speed of the motors shall be reduced to _reducedSpeedLeftMotor respectively _reducedSpeedRightMotor. Set 0 to not use this. </p>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00028">28</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -643,9 +818,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>write comment </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00033">33</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00043">43</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -663,7 +838,24 @@ Here is the caller graph for this function:</div>
 <p>Holds the timestamp of the time when the last line follow check was done. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00031">31</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00041">41</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ef29e6c86e00848490a0ea4ee973ab5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long <a class="el" href="class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5">LineFollow::_timeLineFollowStarted</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Holds the timestamp of when the line follow process started with <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt()</a>;. </p>
+
+<p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00024">24</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
 </div>
 </div>
@@ -694,7 +886,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_line_follow.html">LineFollow</a>      </li>
 
-    <li class="footer">Generated on Wed May 9 2012 18:50:35 for prencar by
+    <li class="footer">Generated on Wed May 9 2012 23:52:15 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

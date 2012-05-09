@@ -13,6 +13,8 @@ var searchData=
   ['_5fconfig',['_config',['../class_communication.html#aa0bca76c6a5180371c2d2e9f978a33e9',1,'Communication']]],
   ['_5fconfigurationversion',['_CONFIGURATIONVERSION',['../class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6',1,'Configuration']]],
   ['_5fcurrentposition',['_currentPosition',['../class_lift_cube.html#a9626cc456176b07611aeefedf6fd8b48',1,'LiftCube']]],
+  ['_5fcurrentspeedleftmotor',['_currentSpeedLeftMotor',['../class_line_follow.html#a8d69bcb80adfdb89a24299227809bf66',1,'LineFollow']]],
+  ['_5fcurrentspeedrightmotor',['_currentSpeedRightMotor',['../class_line_follow.html#affc9250b97071106f0a570b97ab3e6a0',1,'LineFollow']]],
   ['_5fdebuggeractive',['_debuggerActive',['../class_sensor_debug.html#a85317d887c5c2953a5da29aaaaa55562',1,'SensorDebug']]],
   ['_5fdeltapwm',['_deltaPWM',['../class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d',1,'LineFollow']]],
   ['_5fdeltasensor',['_deltasensor',['../class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0',1,'LineFollow']]],
@@ -42,6 +44,9 @@ var searchData=
   ['_5fpwmleftpin',['_pwmLeftPin',['../class_move.html#a25f061becd68304548bad61fad7550b4',1,'Move']]],
   ['_5fpwmrightpin',['_pwmRightPin',['../class_move.html#adf25d07750cdd6f8ac4938cf82165296',1,'Move']]],
   ['_5freadycommandssize',['_READYCOMMANDSSIZE',['../class_communication.html#a9c8bdd0590074d523a055e50284f5ce1',1,'Communication']]],
+  ['_5freducedspeedleftmotor',['_reducedSpeedLeftMotor',['../class_line_follow.html#ad32fe2529a251e97ff6ac6c33b70b157',1,'LineFollow']]],
+  ['_5freducedspeedrightmotor',['_reducedSpeedRightMotor',['../class_line_follow.html#ae83633ebfeb7e27ca75e6a1fc84b42f9',1,'LineFollow']]],
+  ['_5freducespeedtime',['_reduceSpeedTime',['../class_line_follow.html#a9c2f2bdeb9061e726893fca132d795f8',1,'LineFollow']]],
   ['_5fsensoralt',['_sensoralt',['../class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7',1,'LineFollow']]],
   ['_5fserialspeed',['_SERIALSPEED',['../class_configuration.html#a7e97b2bad64cee71271070bde2f71b74',1,'Configuration']]],
   ['_5fspeedleft',['_speedLeft',['../class_move.html#ada9423f195c9ee65b5448fcaabb96877',1,'Move']]],
@@ -49,5 +54,6 @@ var searchData=
   ['_5ftimecurveleftstarted',['_timeCurveLeftStarted',['../class_curve_left.html#a3f46785750e729247f26099a93cfaeb9',1,'CurveLeft']]],
   ['_5ftimelastcurveleftcheck',['_timeLastCurveLeftCheck',['../class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6',1,'CurveLeft']]],
   ['_5ftimelastlinefollowcheck',['_timeLastLineFollowCheck',['../class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e',1,'LineFollow']]],
-  ['_5ftimelastsensordebugcheck',['_timeLastSensorDebugCheck',['../class_sensor_debug.html#a98cd6a619406c182a157fff82df60a46',1,'SensorDebug']]]
+  ['_5ftimelastsensordebugcheck',['_timeLastSensorDebugCheck',['../class_sensor_debug.html#a98cd6a619406c182a157fff82df60a46',1,'SensorDebug']]],
+  ['_5ftimelinefollowstarted',['_timeLineFollowStarted',['../class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5',1,'LineFollow']]]
 ];
