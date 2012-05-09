@@ -22,7 +22,7 @@ public:
   static Communication* getInstance();
   void doJob();
   void send(byte messageId);
-  void send(byte messageId, int param);
+  void send(byte messageId, long param);
   void sendBinary(byte messageId, unsigned long param);
   void send(byte messageId, long const params[], byte paramSize);
   void send(byte messageId, int const params[], byte paramSize);

@@ -93,6 +93,7 @@ void StateMachine::doJob(){
       //for now just stop the car
       _move->performFastStop();
       changeState(finished);
+      _com->send(209, (millis() - startParcoursTimestamp));
     }
     else{
       curveLeft.doJob();
@@ -132,9 +133,7 @@ void StateMachine::checkCommands(){
         //if the desired state is > than 1, start with that state. If the parameter is 0 or 1 just start with
         //the first state.
         if(parameters[0] > 1){
-          parcoursState = (TParcoursState)(parameters[0] - 1);
-          forceChangeSate = true;
-          _com->send(205, parcoursState + 1);
+          startParcoursAtState((TParcoursState)parameters[0]);
         }
         else{
           startParcours();
@@ -201,7 +200,24 @@ void StateMachine::startParcours(){
   changeState(followingFirstLine);
   //send the current configuration
   _com->sendCurrentConfiguration();
+  startParcoursTimestamp = millis();
   lineFollow.startIt();
+}
+
+/**
+ * Starts the parcours at the given state. The car will start moving autonomous.
+ * @param state Start state.
+ */
+void StateMachine::startParcoursAtState(TParcoursState state){
+  //We go to the previous state of the state where we want to start
+  //and perform the actions that are performed at the very end of this previous state by setting forceChangeState to true.
+  state = (TParcoursState)((int)state - 1);
+  parcoursState = state;
+  forceChangeSate = true;
+  _com->send(205, state + 1);
+  //send the current configuration
+  _com->sendCurrentConfiguration();
+  startParcoursTimestamp = millis();
 }
 
 /**
@@ -235,6 +251,11 @@ void StateMachine::changeActivateMessageFilter(boolean newState){
     _com->send(208, 0); 
   }
 }
+
+
+
+
+
 
 
 

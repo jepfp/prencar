@@ -57,8 +57,10 @@ private:
 public:
   static StateMachine* getInstance();
   TParcoursState parcoursState;
+  unsigned long startParcoursTimestamp; ///< Holds the timestamp when the parcours starts.
   void doJob();
   void startParcours();
+  void startParcoursAtState(TParcoursState state);
   void stopParcours();
   void changeActivateMessageFilter(boolean newState);
 };

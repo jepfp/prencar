@@ -143,7 +143,7 @@ void Communication::send(byte messageId){
  * @param messageId Id of the message that will be sent.
  * @param param Parameter that will be sent with this message.
  */
-void Communication::send(byte messageId, int param){
+void Communication::send(byte messageId, long param){
   if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print(":");
