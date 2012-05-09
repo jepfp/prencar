@@ -80,6 +80,8 @@ newAverageSpeed: %%");
             messages.Add(67, @"Start driving curve left.");
             messages.Add(68, @"Free memory: %% (place of measurement: %%)");
             messages.Add(69, @"End switch has been set to one --> Lift cube.");
+            messages.Add(70, @"Changed speed of left motor to %% and right motor to %%.");
+            messages.Add(71, @"Line follow process switches after %% milliseconds to reduced base speed (left: %%, right: %%).");
             #endregion
 
             #region 100-149 Information
@@ -123,7 +125,12 @@ curveInterval:%%
 curveActivateEndSensorOffset:%%
 sensorDebugInterval:%%
 sensorDebugReadGap:%%
-liftCubeDownUpDuration:%%");
+liftCubeDownUpDuration:%%
+lineFollowReducedSpeedLeft:%%
+lineFollowReducedSpeedRight:%%
+lineFollowReduceSpeedTimeFirstLine:%%
+lineFollowReduceSpeedTimeSecondLine:%%
+cubeApproachDetectThreshold:%%");
             messages.Add(205, "Starting parcours at state %%.");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");
