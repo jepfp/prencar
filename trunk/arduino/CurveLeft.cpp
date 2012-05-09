@@ -26,13 +26,32 @@ void CurveLeft::begin(){
  * Starts the car doing the left curve.
  */
 void CurveLeft::startIt(){
+  int speedLeft;
+  int speedRight;
+  TMotorDirection leftMotorDir = forward;
+  TMotorDirection rightMotorDir = forward;
+  
   _com->send(67);
   
   drivingCurveIsFinished = false;
 
   _timeCurveLeftStarted = millis();
+  
+  if(_conf->curveSpeedSlowMotor < 0){
+    speedLeft = _conf->curveSpeedSlowMotor * -1;
+    leftMotorDir = backwards;
+  }else{
+    speedLeft = _conf->curveSpeedSlowMotor;
+  }
+  
+  if(_conf->curveSpeedFastMotor < 0){
+    speedRight = _conf->curveSpeedFastMotor * -1;
+    rightMotorDir = backwards;
+  }else{
+    speedRight = _conf->curveSpeedFastMotor;
+  }
 
-  _move->controlMotors(forward, _conf->curveSpeedSlowMotor, forward, _conf->curveSpeedFastMotor);
+  _move->controlMotors(leftMotorDir, speedLeft, rightMotorDir, speedRight);
 }
 
 /**

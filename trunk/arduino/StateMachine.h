@@ -1,5 +1,5 @@
-#ifndef StateMaschine_h
-#define StateMaschine_h
+#ifndef StateMachine_h
+#define StateMachine_h
 
 #include "Arduino.h"
 #include "Communication.h"
@@ -25,11 +25,11 @@ enum TParcoursState{
   finished
 };
 
-class StateMaschine
+class StateMachine
 {
 private:
-  StateMaschine();
-  static StateMaschine _instance;
+  StateMachine();
+  static StateMachine _instance;
   static boolean _instanceCreated;
   void begin();
 
@@ -41,7 +41,7 @@ private:
   LineFollow lineFollow;
   CurveLeft curveLeft;
 
-  /** \brief Will be set to true if the stateMaschine shall switch to the next state immediately.
+  /** \brief Will be set to true if the stateMachine shall switch to the next state immediately.
    * 
    * In the state machine the work of every state is started at the end of the previous state. For example
    * the CurveLeft job starts at the end of the LineFollow job.<br>
@@ -55,11 +55,12 @@ private:
   void checkCommands();
   void changeState(TParcoursState newState);
 public:
-  static StateMaschine* getInstance();
+  static StateMachine* getInstance();
   TParcoursState parcoursState;
   void doJob();
   void startParcours();
   void stopParcours();
+  void changeActivateMessageFilter(boolean newState);
 };
 #endif
 

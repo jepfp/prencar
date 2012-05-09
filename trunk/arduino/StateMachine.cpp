@@ -1,17 +1,17 @@
 #include "Arduino.h"
-#include "StateMaschine.h"
+#include "StateMachine.h"
 
-StateMaschine StateMaschine::_instance; ///< Static reference to the singleton object
-boolean StateMaschine::_instanceCreated = false;
+StateMachine StateMachine::_instance; ///< Static reference to the singleton object
+boolean StateMachine::_instanceCreated = false;
 
 /**
- * Get the StateMaschine instance
- * @return Pointer to the StateMaschine instance
+ * Get the StateMachine instance
+ * @return Pointer to the StateMachine instance
  */
-StateMaschine* StateMaschine::getInstance()
+StateMachine* StateMachine::getInstance()
 {
   if ( !_instanceCreated ){
-    _instance = StateMaschine();
+    _instance = StateMachine();
     _instanceCreated = true;
 
     //do the configuration stuff so that a call to begin() from the outside of the
@@ -25,16 +25,16 @@ StateMaschine* StateMaschine::getInstance()
 /**
  * Constructur for the class.
  */
-StateMaschine::StateMaschine()
+StateMachine::StateMachine()
 {
   parcoursState = notStarted;
   forceChangeSate = false;
 }
 
 /**
- * Prepares the StateMaschine object to work.
+ * Prepares the StateMachine object to work.
  */
-void StateMaschine::begin(){
+void StateMachine::begin(){
   _com = Communication::getInstance();
   _conf = Configuration::getInstance();
   _move = Move::getInstance();
@@ -49,7 +49,7 @@ void StateMaschine::begin(){
  * This method has to be called in regular intervals (as short as possible). It manages the parcours
  * with it's states.
  */
-void StateMaschine::doJob(){
+void StateMachine::doJob(){
 
   checkCommands();
 
@@ -107,7 +107,7 @@ void StateMaschine::doJob(){
  * This method checks different possible arriving commands and performs the defined
  * action if necessary.
  */
-void StateMaschine::checkCommands(){
+void StateMachine::checkCommands(){
   Command c;
 
   //the following commands are only available, if the parcours is not started
@@ -177,6 +177,17 @@ void StateMaschine::checkCommands(){
     }
   }
 
+  //check for command 102
+  if(_com->getAndRemoveCommandFromReadyCommands(&c, 102)){
+    int* parameters = c.parameters;
+    if(parameters[0] == 1){
+      changeActivateMessageFilter(true);
+    }
+    else{
+      changeActivateMessageFilter(false);   
+    }
+  }
+
   //check for command 301
   if(_com->getAndRemoveCommandFromReadyCommands(&c, 301)){
     stopParcours();
@@ -186,7 +197,7 @@ void StateMaschine::checkCommands(){
 /**
  * Starts the parcours. The car will start moving autonomous.
  */
-void StateMaschine::startParcours(){
+void StateMachine::startParcours(){
   changeState(followingFirstLine);
   //send the current configuration
   _com->sendCurrentConfiguration();
@@ -196,19 +207,36 @@ void StateMaschine::startParcours(){
 /**
  * Stops the car if it is currently driving autonomously.
  */
-void StateMaschine::stopParcours(){
+void StateMachine::stopParcours(){
   _move->performFastStop();
   changeState(notStarted);
 }
 
 /**
- * Changes the state of the Maschine to the given new state.
+ * Changes the state of the Machine to the given new state.
  * @param New state for the state maschine.
  */
-void StateMaschine::changeState(TParcoursState newState){
+void StateMachine::changeState(TParcoursState newState){
   _com->send(100, newState);
   parcoursState = newState;
 }
+
+/**
+ * Changes the state of the boolean Configuration::activateMessageFilter to the given state.
+ * @param newState State to which activateMessageFilter shall be set.
+ * @see Configuration::activateMessageFilter
+ */
+void StateMachine::changeActivateMessageFilter(boolean newState){
+  _conf->activateMessageFilter = newState;
+  if(newState){
+    _com->send(208, 1);  
+  }
+  else{
+    _com->send(208, 0); 
+  }
+}
+
+
 
 
 

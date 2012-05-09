@@ -34,6 +34,12 @@ private:
   SensorDebug();
 
   void readSensorAndSendValue(TSensorJunctionPoint* sjp);
+  
+  /**
+  * SensorDebug changes the value Configuration::activateMessageFilterState temporarily. The previous state is saved
+  * in this private variable so that we can recover that state at the end again.
+  */
+  boolean _activateMessageFilterStateB4Start;
 };
 #endif
 

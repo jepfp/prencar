@@ -103,10 +103,17 @@ void SensorDebug::doJob(){
     int* parameters = c.parameters;
     if(parameters[0] == 1){
       _debuggerActive = true;
+      //backup the current state of _conf->activateMessageFilter
+      _activateMessageFilterStateB4Start = _conf->activateMessageFilter;
+      _conf->activateMessageFilter = false;
+      _com->send(208, 0);
       _com->send(206);
     }
     else{
       _debuggerActive = false;
+      //rescue the state of _conf->activateMessageFilter
+      _conf->activateMessageFilter = _activateMessageFilterStateB4Start;
+      _com->send(208, _conf->activateMessageFilter ? 1 : 0);
       _com->send(207);
     }
   }

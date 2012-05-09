@@ -1,12 +1,12 @@
 #include "Configuration.h"
 #include "Communication.h"
-#include "StateMaschine.h"
+#include "StateMachine.h"
 #include "SensorDebug.h"
 #include <Servo.h>
 
 Communication* _com;
 Configuration* _conf;
-StateMaschine* _stateMaschine;
+StateMachine* _stateMachine;
 SensorDebug* _sensorDebug;
 
 void setup()
@@ -17,7 +17,7 @@ void setup()
   //the serial communication doesn't work.
   _conf = Configuration::getInstance();
   _com = Communication::getInstance();
-  _stateMaschine = StateMaschine::getInstance();
+  _stateMachine = StateMachine::getInstance();
   _sensorDebug = SensorDebug::getInstance();
 }
 
@@ -30,7 +30,7 @@ void loop()
 
   //several jobs that have to be performed always.
   _com->doJob();
-  _stateMaschine->doJob();
+  _stateMachine->doJob();
   _sensorDebug->doJob();
 }
 

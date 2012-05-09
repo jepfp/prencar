@@ -21,6 +21,7 @@ Configuration* Configuration::getInstance()
 
 Configuration::Configuration(){
   //set default values
+  activateMessageFilter = true; //don't change this value because the master software expects it to be true at startup (state is not read at the beginning)!!
   _messageFilterLevel = 99;
   doJobDelay = 0;
   lineFollowWhiteThreshold = 300;

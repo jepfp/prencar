@@ -127,12 +127,13 @@ boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int comm
 
 /**
  * Sends the message code over the configured serial interface.<br>
- * The message will be filtered according to the configured filter level in the configuration.
+ * The message will be filtered according to the configured filter level in the configuration if activateMessageFilter is set to true.
  * @see Configuration::getMessageFilterLevel()
+ * @see Configuration::activateMessageFilter
  * @param messageId Id of the message that will be sent.
  */
 void Communication::send(byte messageId){
-  if(messageId > _config->getMessageFilterLevel()){
+  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
     sc.println(messageId);
   }
 }
@@ -143,7 +144,7 @@ void Communication::send(byte messageId){
  * @param param Parameter that will be sent with this message.
  */
 void Communication::send(byte messageId, int param){
-  if(messageId > _config->getMessageFilterLevel()){
+  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print(":");
     sc.println(param);
@@ -153,11 +154,13 @@ void Communication::send(byte messageId, int param){
 /**
  * Sends the message code with the unsigned long parameter. The param will be
  * sent as binary ascii characters and decimal number.
+ *
+ * Note: This method should only temporarly be used to test the library. It doesn't fit the protocol needs!
  * @param messageId Id of the message that will be sent.
  * @param param Parameter that will be sent with this message.
  */
 void Communication::sendBinary(byte messageId, unsigned long param){
-  if(messageId > _config->getMessageFilterLevel()){
+  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print(":");
     sc.print(param, DEC);
@@ -168,7 +171,7 @@ void Communication::sendBinary(byte messageId, unsigned long param){
 
 /**
  * Sends the message code over the configured serial interface.<br>
- * The message will be filtered according to the configured filter level in the configuration.<br><br>
+ * The message will be filtered according to the configured filter level in the configuration if activateMessageFilter is set to true.<br><br>
  * The message will be sent in the following format:<br>
  * <code>202-4:12,323,4399,2292\\n</code><br>
  * <code>[messageId]-[sizeOfParameters]:[parameter 1],[parameter 2],[parameter 3],[parameter n]\\n</code>
@@ -177,7 +180,7 @@ void Communication::sendBinary(byte messageId, unsigned long param){
  * @param paramSize Size of params[].
  */
 void Communication::send(byte messageId, const long params[], byte paramSize){
-  if(messageId > _config->getMessageFilterLevel()){
+  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print("-");
     sc.print(paramSize);
@@ -200,7 +203,7 @@ void Communication::send(byte messageId, const long params[], byte paramSize){
  * @todo Find a better implementation so that we don't have a copy of code.
  */
 void Communication::send(byte messageId, const int params[], byte paramSize){
-  if(messageId > _config->getMessageFilterLevel()){
+  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print("-");
     sc.print(paramSize);

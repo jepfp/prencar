@@ -42,6 +42,8 @@ public:
   void setMoveModeFirstRightPin(byte value);
   byte getMoveModeSecondRightPin();
   void setMoveModeSecondRightPin(byte value);
+  
+  boolean activateMessageFilter; ///< True if _messageFilterLevel shall be taken into account.
 
   int doJobDelay; ///< Time in milliseconds to wait before the main loop starts. Can be used for debug purposes.
 
@@ -77,8 +79,8 @@ public:
   int liftCubeDownUpDuration; ///< Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()
   byte liftCubeSwitchPin; ///< Hardware pin to which the end switch is attached.
 
-  byte curveSpeedSlowMotor; ///< The speed of the slower motor (in a left curve, left motor) during a 90° curve.
-  byte curveSpeedFastMotor; ///< The speed of the faster motor (in a left curve, right motor) during a 90° curve.
+  int curveSpeedSlowMotor; ///< The speed of the slower motor (in a left curve, left motor) during a 90° curve. This value can go from -255 to +255.
+  int curveSpeedFastMotor; ///< The speed of the faster motor (in a left curve, right motor) during a 90° curve. This value can go from -255 to +255.
   int curveInterval; ///< Interval in milliseconds in which the curve job shall be executed.
   /** \brief Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated.
    * In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left"
