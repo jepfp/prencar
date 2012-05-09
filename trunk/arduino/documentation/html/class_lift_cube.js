@@ -11,7 +11,10 @@ var class_lift_cube =
     [ "_com", "class_lift_cube.html#afb428580284ed0c38d6cf3745904d060", null ],
     [ "_conf", "class_lift_cube.html#aea8e72092e201140adecaf04a98706d5", null ],
     [ "_currentPosition", "class_lift_cube.html#a9626cc456176b07611aeefedf6fd8b48", null ],
+    [ "_hoistServo", "class_lift_cube.html#ac1cad13e4bcc8f961b5ef642a685455b", null ],
     [ "_instance", "class_lift_cube.html#a93b949abb4659fd6801c8b5c53d17f49", null ],
     [ "_instanceCreated", "class_lift_cube.html#a4cec38045e6a075620851c7c848c0584", null ],
-    [ "_liftDownStartTimestamp", "class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc", null ]
+    [ "_liftDownStartTimestamp", "class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc", null ],
+    [ "_liftingStarted", "class_lift_cube.html#acfefe1c0364c233a5bf5e8b52bcab385", null ],
+    [ "cubeLifted", "class_lift_cube.html#a7a13f30623f88cfa1de6437665854990", null ]
 ];

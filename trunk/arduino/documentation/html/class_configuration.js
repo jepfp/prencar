@@ -44,6 +44,7 @@ var class_configuration =
     [ "liftCubeDownPosition", "class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83", null ],
     [ "liftCubeDownUpDuration", "class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c", null ],
     [ "liftCubePwmPin", "class_configuration.html#a25401bc6511b005d70f71e4b72f71c03", null ],
+    [ "liftCubeSwitchPin", "class_configuration.html#a795f86091deeb53575bf3818eeaf0071", null ],
     [ "liftCubeUpPosition", "class_configuration.html#af6652efed17691fef4fa435e38c1642f", null ],
     [ "lineFollowInitialSpeedLeft", "class_configuration.html#a24e118088874b8f9d56bcaf245f1461d", null ],
     [ "lineFollowInitialSpeedRight", "class_configuration.html#aabc113e529eb659768ca98f15d3952a3", null ],

@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['liftcube',['LiftCube',['../class_lift_cube.html',1,'LiftCube'],['../class_lift_cube.html#a5bf2f6939ce4578fbf54d9214dd91fb3',1,'LiftCube::LiftCube()'],['../class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd',1,'LiftCube::liftCube()'],['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3',1,'liftCube():&#160;StateMaschine.h']]],
+  ['liftcube',['LiftCube',['../class_lift_cube.html',1,'LiftCube'],['../class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd',1,'LiftCube::liftCube()'],['../class_lift_cube.html#a5bf2f6939ce4578fbf54d9214dd91fb3',1,'LiftCube::LiftCube()'],['../_state_maschine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3',1,'liftCube():&#160;StateMaschine.h']]],
   ['liftcube_2ecpp',['LiftCube.cpp',['../_lift_cube_8cpp.html',1,'']]],
   ['liftcube_2eh',['LiftCube.h',['../_lift_cube_8h.html',1,'']]],
   ['liftcubedownposition',['liftCubeDownPosition',['../class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83',1,'Configuration']]],
   ['liftcubedownupduration',['liftCubeDownUpDuration',['../class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c',1,'Configuration']]],
   ['liftcubepwmpin',['liftCubePwmPin',['../class_configuration.html#a25401bc6511b005d70f71e4b72f71c03',1,'Configuration']]],
+  ['liftcubeswitchpin',['liftCubeSwitchPin',['../class_configuration.html#a795f86091deeb53575bf3818eeaf0071',1,'Configuration']]],
   ['liftcubeupposition',['liftCubeUpPosition',['../class_configuration.html#af6652efed17691fef4fa435e38c1642f',1,'Configuration']]],
   ['liftdown',['liftDown',['../class_lift_cube.html#a652d399235cafb5179a2d6c65df11112',1,'LiftCube']]],
   ['liftup',['liftUp',['../class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64',1,'LiftCube']]],

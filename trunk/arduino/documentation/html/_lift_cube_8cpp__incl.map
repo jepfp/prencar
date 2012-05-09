@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$_lift_cube_8h.html" title="LiftCube.h" alt="" coords="64,80,144,107"/>
-<area shape="rect" id="node8" href="$_communication_8h.html" title="Communication.h" alt="" coords="120,155,243,181"/>
-<area shape="rect" id="node11" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="269,229,376,256"/>
-<area shape="rect" id="node14" href="$_command_8h.html" title="Command.h" alt="" coords="153,229,244,256"/>
+<area shape="rect" id="node5" href="$_lift_cube_8h.html" title="LiftCube.h" alt="" coords="55,80,135,107"/>
+<area shape="rect" id="node8" href="$_communication_8h.html" title="Communication.h" alt="" coords="141,155,264,181"/>
+<area shape="rect" id="node11" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="233,229,340,256"/>
+<area shape="rect" id="node14" href="$_command_8h.html" title="Command.h" alt="" coords="117,229,208,256"/>
 </map>

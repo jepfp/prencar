@@ -174,10 +174,12 @@ Static Private Attributes</h2></td></tr>
 <tr>
 <td>400</td><td>Control car</td><td>speedLeft, direction Left, speedRight, direction Right</td><td>Speed between 0-255; direction: 0 - phaseOut, 1 - forwards, 2 - backwards, 3 - fastStop </td></tr>
 <tr>
-<td>401</td><td>Control hoist</td><td>hoist position (pwm value between 0-255)</td><td></td></tr>
+<td>401</td><td>Control hoist</td><td>hoist position (pwm value between 0-255)This can control the servo directly and should only be used for debug reasons (can destroy the servo).</td><td></td></tr>
+<tr>
+<td>402</td><td><a class="el" href="class_move.html">Move</a> hoist down or up</td><td>1 = move hoist down; 0 = move hoist up</td><td>Sets the hoist to the configured up / down position to crab the cube. </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00033">33</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00034">34</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18df2d81039392daeb0b78c346a70537"></a>
 <div class="memitem">
@@ -313,7 +315,7 @@ Here is the caller graph for this function:</div>
 
 <p>Defines, how many parameters a command can have. </p>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00037">37</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00038">38</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -328,7 +330,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00043">43</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00044">44</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -343,7 +345,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00041">41</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00042">42</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -358,7 +360,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00042">42</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00043">43</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -372,7 +374,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_command.html">Command</a>      </li>
 
-    <li class="footer">Generated on Thu Apr 26 2012 09:42:56 for prencar by
+    <li class="footer">Generated on Fri May 4 2012 09:56:53 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>
