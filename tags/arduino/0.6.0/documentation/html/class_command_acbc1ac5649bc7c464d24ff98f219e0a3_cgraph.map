@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_communication.html#acfbc09567d9cdc37fd1fc333f8b21d85" title="Communication::sendString" alt="" coords="403,5,586,32"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="421,68,569,95"/>
+<area shape="rect" id="node9" href="$class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537" title="Command::copyBytesUntil" alt="" coords="177,31,354,57"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="635,68,869,95"/>
+</map>

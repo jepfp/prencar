@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_move.html" title="Move" alt="" coords="401,187,452,213"/>
+<area shape="rect" id="node15" href="$class_line_follow.html" title="LineFollow" alt="" coords="385,277,468,304"/>
+<area shape="rect" id="node5" href="$class_communication.html" title="Communication" alt="" coords="228,96,340,123"/>
+<area shape="rect" id="node24" href="$class_lift_cube.html" title="LiftCube" alt="" coords="85,187,155,213"/>
+<area shape="rect" id="node7" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="5,5,85,32"/>
+<area shape="rect" id="node10" href="$class_configuration.html" title="Configuration" alt="" coords="425,5,521,32"/>
+<area shape="rect" id="node20" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="424,368,499,395"/>
+</map>
