@@ -49,7 +49,7 @@ rightSensor: %%");
 1 - forwards
 2 - backwards
 3 - fastStop");
-            messages.Add(52, @"Direction of left motor set to: %%
+            messages.Add(52, @"Direction of right motor set to: %%
 0 - phaseOut
 1 - forwards
 2 - backwards
@@ -74,7 +74,7 @@ newAverageSpeed: %%");
             messages.Add(61, "Put command with code %% to spot number %% out of %% spots in readyCommands.");
             messages.Add(62, "Took command with code %% from the list. Spot %% is empty again.");
             messages.Add(63, "Lift cube started...");
-            messages.Add(64, "Finishing lift cube by lifting up host...");
+            messages.Add(64, "Finishing lift cube by lifting up hoist...");
             messages.Add(65, "Set hoist position to %%.");
             messages.Add(66, @"Left line sensor detected white ground (Value: %%).");
             messages.Add(67, @"Start driving curve left.");

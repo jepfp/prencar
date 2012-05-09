@@ -159,6 +159,7 @@ namespace prencar
                 {
                     MessageBox.Show("The parcours will be started with the state " + ((ListBoxItem)lbState.SelectedItem).Content + ".");
                 }
+                newSession();
                 sendCommand("300-1:" + lbState.SelectedIndex);
             }
             else
@@ -246,7 +247,6 @@ namespace prencar
             }
             else
             {
-                newSession();
                 btnStartStoppParcours.Content = "Stop";
             }
         }
