@@ -74,6 +74,18 @@ namespace prencar
             {
                 remoteChangedParcoursState((ParcoursState)message.Parameters[0]);
             }
+            else if (message.MessageCode == 208)
+            {
+                if (message.Parameters[0] == 1)
+                {
+                    btnDisableMessageFilter.IsChecked = false;
+                }
+                else
+                {
+                    btnDisableMessageFilter.IsChecked = true;
+                }
+                
+            }
             appendDebugText(message.MessageCombined);
         }
 
@@ -232,6 +244,18 @@ namespace prencar
                 MessageBox.Show("Opening logfile failed (path: " + path + ")\n" + ex.Message.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btnDisableMessageFilter_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnDisableMessageFilter.IsChecked == true)
+            {
+                sc.SendCommand("102-1:0");
+            }
+            else
+            {
+                sc.SendCommand("102-1:1");
+            }
+        }
         #endregion
 
         #region Parcours state machine
@@ -271,7 +295,7 @@ namespace prencar
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            ch.hslu.prencar.Properties.Settings.Default.Save(); 
+            ch.hslu.prencar.Properties.Settings.Default.Save();
         }
     }
 }

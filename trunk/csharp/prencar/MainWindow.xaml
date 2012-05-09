@@ -20,12 +20,15 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Name="grid2">
                 <TextBox Name="tbSerialInput" AcceptsReturn="True" Text="nothing to display yet..." FontFamily="Courier New" FontSize="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,33" />
-                <ToggleButton Margin="6,0,0,6" Name="btnShowDebugOutput" ToolTip="Enable / Disable debug output in GUI" HorizontalAlignment="Left" Width="21" Height="21" VerticalAlignment="Bottom" IsChecked="True">
+                <ToggleButton Margin="33,0,0,6" Name="btnShowDebugOutput" ToolTip="Enable / Disable debug output in GUI" HorizontalAlignment="Left" Width="21" Height="21" VerticalAlignment="Bottom" IsChecked="True">
                     <Image Name="image3" Source="/prencar;component/Images/comment.png" Stretch="Fill" />
                 </ToggleButton>
-                <Button Height="21" Margin="33,0,0,6" Name="btnOpenLogfile" ToolTip="Open current / latest logfile." VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="21" Click="btnOpenLogfile_Click">
+                <Button Height="21" Margin="60,0,0,6" Name="btnOpenLogfile" ToolTip="Open current / latest logfile." VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="21" Click="btnOpenLogfile_Click">
                     <Image Name="image6" Source="/prencar;component/Images/page_go.png" Stretch="Fill" />
                 </Button>
+                <ToggleButton Height="21" HorizontalAlignment="Left" IsChecked="False" Margin="6,0,0,6" Name="btnDisableMessageFilter" ToolTip="Enable to instruct the MC to send all messages without taking the messageFilterLevel into account." VerticalAlignment="Bottom" Width="21" Click="btnDisableMessageFilter_Click">
+                    <Image Name="image8" Source="/prencar;component/Images/bug.png" Stretch="Fill" />
+                </ToggleButton>
             </Grid>
             <Grid Name="grid3">
                 <Grid.ColumnDefinitions>
