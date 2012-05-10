@@ -40,6 +40,8 @@ rightSensor: %%");
             messages.Add(15, @"Cube approach left top sensor (debug): %%");
             messages.Add(16, @"Cube approach right bottom sensor (debug): %%");
             messages.Add(17, @"Cube approach right top sensor (debug): %%");
+            messages.Add(18, @"Results from bottom distance sensors measurement (leftBottomSensor: %%, rightBottomSensor: %%)");
+            messages.Add(19, @"Results from top distance sensors measurement (leftTopSensor: %%, rightTopSensor: %%)");
             #endregion
 
             #region 50-99 Debug
@@ -82,6 +84,14 @@ newAverageSpeed: %%");
             messages.Add(69, @"End switch has been set to one --> Lift cube.");
             messages.Add(70, @"Changed speed of left motor to %% and right motor to %%.");
             messages.Add(71, @"Line follow process switches after %% milliseconds to reduced base speed (left: %%, right: %%).");
+            messages.Add(72, @"Cube not detected (left bottom: %%, right bottom: %%)");
+            messages.Add(73, @"Cube detected with both sensors (left bottom: %%, right bottom: %%");
+            messages.Add(74, @"Cube approach: Verification of left bottom sensor failed (bottom: %%, top: %%).");
+            messages.Add(75, @"Cube approach: Verification of right bottom sensor failed (bottom: %%, top: %%).");
+            messages.Add(76, @"Cube with left sensor detected: (left: %%, right: %%).");
+            messages.Add(77, @"Cube with right sensor detected: (left: %%, right: %%).");
+            messages.Add(78, @"Cube detected with left sensor. Turning right.");
+            messages.Add(79, @"Cube detected with right sensor. Turning left.");
             #endregion
 
             #region 100-149 Information
@@ -130,7 +140,8 @@ lineFollowReducedSpeedLeft:%%
 lineFollowReducedSpeedRight:%%
 lineFollowReduceSpeedTimeFirstLine:%%
 lineFollowReduceSpeedTimeSecondLine:%%
-cubeApproachDetectThreshold:%%");
+cubeApproachDetectThreshold:%%
+cubeApproachInterval:%%");
             messages.Add(205, "Starting parcours at state %%.");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");
