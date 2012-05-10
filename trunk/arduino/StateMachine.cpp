@@ -28,7 +28,7 @@ StateMachine* StateMachine::getInstance()
 StateMachine::StateMachine()
 {
   parcoursState = notStarted;
-  forceChangeSate = false;
+  forceChangeState = false;
 }
 
 /**
@@ -41,6 +41,7 @@ void StateMachine::begin(){
   _liftCube = LiftCube::getInstance();
   lineFollow.begin();
   curveLeft.begin();
+  _cubeApproach.begin();
   _liftCube->liftUp();
 }
 
@@ -58,7 +59,7 @@ void StateMachine::doJob(){
 
   if(parcoursState == followingFirstLine){
     //go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)
-    if(lineFollow.hasReachedCurve || forceChangeSate){
+    if(lineFollow.hasReachedCurve || forceChangeState){
       changeState(firstTurn);
       curveLeft.startIt();
     }
@@ -68,7 +69,7 @@ void StateMachine::doJob(){
   }
   else if(parcoursState == firstTurn){
     //go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)
-    if(curveLeft.drivingCurveIsFinished || forceChangeSate){
+    if(curveLeft.drivingCurveIsFinished || forceChangeState){
       changeState(followingSecondLine);
       lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
       _conf->lineFollowReduceSpeedTimeSecondLine, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
@@ -79,7 +80,7 @@ void StateMachine::doJob(){
   }
   else if(parcoursState == followingSecondLine){
     //go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)
-    if(lineFollow.hasReachedCurve || forceChangeSate){
+    if(lineFollow.hasReachedCurve || forceChangeState){
       changeState(secondTurn);
       curveLeft.startIt();
     }
@@ -89,20 +90,44 @@ void StateMachine::doJob(){
   }
   else if(parcoursState == secondTurn){
     //go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)
-    if(curveLeft.drivingCurveIsFinished || forceChangeSate){
-      //changeState(followingThirdLineToCube);
+    if(curveLeft.drivingCurveIsFinished || forceChangeState){
+      changeState(followingThirdLineToCube);
+      _cubeApproach.startIt();
+    }
+    else{
+      curveLeft.doJob();
+    }
+  }
+  else if(parcoursState == followingThirdLineToCube){
+    //go to the next state if the car has detected the cube at least once
+    if(_cubeApproach.amountOfCubeDetections > 0 || forceChangeState){
+      changeState(cubeApproach);
+      if(forceChangeState){
+        //if we jump directly into the next state, we need to call the startIt method manually because that needs to be done every
+        //parcours start and in the normal flow is done at the and of the previous state (secondTurn)
+        _cubeApproach.startIt(); 
+      }
+    }
+    else{
+      _cubeApproach.doJob(true);
+    }
+  }
+  else if(parcoursState == cubeApproach){
+    //go to the next state if the car has detected the cube in the center
+    if((_cubeApproach.amountOfCubeDetections > 0 && _cubeApproach.cubeDetections[_cubeApproach.amountOfCubeDetections - 1].cubeIsCentered == true) || forceChangeState){
+      //changeState(liftCube);
       //for now just stop the car
       _move->performFastStop();
       changeState(finished);
       _com->send(209, (millis() - startParcoursTimestamp));
     }
     else{
-      curveLeft.doJob();
+      _cubeApproach.doJob(false);
     }
   }
 
-  //set forceChangeSate back to false in order to continue normally
-  forceChangeSate = false;
+  //set forceChangeState back to false in order to continue normally
+  forceChangeState = false;
 }
 
 /**
@@ -122,7 +147,7 @@ void StateMachine::checkCommands(){
     //check for command 300
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 300)){
       int* parameters = c.parameters;
-      int highestImplementedState = 4;
+      int highestImplementedState = 6;
       if(parameters[0] > highestImplementedState){
         int p[2];
         p[0] = parameters[0];
@@ -215,7 +240,7 @@ void StateMachine::startParcoursAtState(TParcoursState state){
   //and perform the actions that are performed at the very end of this previous state by setting forceChangeState to true.
   state = (TParcoursState)((int)state - 1);
   parcoursState = state;
-  forceChangeSate = true;
+  forceChangeState = true;
   _com->send(205, state + 1);
   //send the current configuration
   _com->sendCurrentConfiguration();
@@ -253,6 +278,7 @@ void StateMachine::changeActivateMessageFilter(boolean newState){
     _com->send(208, 0); 
   }
 }
+
 
 
 

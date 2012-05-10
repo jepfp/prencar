@@ -23,7 +23,7 @@ public:
    * 
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 22;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 23;
   
   static Configuration* getInstance();
   byte getConfigurationVersion();
@@ -108,8 +108,8 @@ public:
   byte cubeApproachLeftTopSensor; ///< The pin where the left top distance sensor is connected to.
   byte cubeApproachRightBottomSensor; ///< The pin where the right bottom distance sensor is connected to.
   byte cubeApproachRightTopSensor; ///< The pin where the right top distance sensor is connected to.
-  
   int cubeApproachDetectThreshold; ///< Threshold for cube detection. Measuring a value below this threshold means that the cube has been detected with this sensor.
+  int cubeApproachInterval; ///< Interval in milliseconds in which the distance sensors shall be checked.
 
   int sensorDebugInterval; ///< Interval in milliseconds in which the debug sensors
   int sensorDebugReadGap; ///< Time in milliseconds between reading every sensor.

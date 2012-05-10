@@ -60,6 +60,7 @@ Configuration::Configuration(){
   cubeApproachRightBottomSensor = A2;
   cubeApproachRightTopSensor = A3;
   cubeApproachDetectThreshold = 1000;
+  cubeApproachInterval = 15;
 
   sensorDebugInterval = 1000;
   sensorDebugReadGap = 0;
@@ -212,6 +213,7 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[19] = lineFollowReduceSpeedTimeFirstLine;
   spaceForConfigValues[20] = lineFollowReduceSpeedTimeSecondLine;
   spaceForConfigValues[21] = cubeApproachDetectThreshold;
+  spaceForConfigValues[22] = cubeApproachInterval;
 }
 
 /**
@@ -242,10 +244,11 @@ void Configuration::updateConfiguration(int* parameters){
   sensorDebugReadGap = parameters[15];
   liftCubeDownUpDuration = parameters[16];
   lineFollowReducedSpeedLeft = parameters[17];
-  lineFollowReducedSpeedRight = parameters[18];;
-  lineFollowReduceSpeedTimeFirstLine = parameters[19];;
-  lineFollowReduceSpeedTimeSecondLine = parameters[20];;
-  cubeApproachDetectThreshold = parameters[21];;
+  lineFollowReducedSpeedRight = parameters[18];
+  lineFollowReduceSpeedTimeFirstLine = parameters[19];
+  lineFollowReduceSpeedTimeSecondLine = parameters[20];
+  cubeApproachDetectThreshold = parameters[21];
+  cubeApproachInterval = parameters[22];
 }
 
 /**

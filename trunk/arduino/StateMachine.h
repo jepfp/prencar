@@ -7,6 +7,7 @@
 #include "LineFollow.h"
 #include "CurveLeft.h"
 #include "LiftCube.h"
+#include "CubeApproach.h"
 
 /**
  * The enum with values about the current state.
@@ -40,6 +41,7 @@ private:
 
   LineFollow lineFollow;
   CurveLeft curveLeft;
+  CubeApproach _cubeApproach;
 
   /** \brief Will be set to true if the stateMachine shall switch to the next state immediately.
    * 
@@ -50,7 +52,7 @@ private:
    * the given state and set forceChangeState to true. Doing so the state machine starts the job
    * of the next state and immediately switches to the next state.
    */
-  boolean forceChangeSate;
+  boolean forceChangeState;
 
   void checkCommands();
   void changeState(TParcoursState newState);
@@ -65,6 +67,7 @@ public:
   void changeActivateMessageFilter(boolean newState);
 };
 #endif
+
 
 
 
