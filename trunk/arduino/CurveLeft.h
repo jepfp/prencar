@@ -3,6 +3,8 @@
 
 #include "Arduino.h"
 #include "LineFollow.h"
+#include "ExtendedMove.h"
+#include "LineCenter.h"
 
 /**
  * \brief The CurveLeft class will control the car during the 90° left curve.
@@ -39,6 +41,9 @@ public:
    */
   boolean drivingCurveIsFinished;
 private:
+  ExtendedMove* _extMove; ///< The reference to the extended move class.
+  
+  LineCenter lineCenter;
 
   /**
    * This variable holds the timestamp when the curve left was started.
@@ -46,6 +51,8 @@ private:
   unsigned long _timeCurveLeftStarted;
   
   unsigned long _timeLastCurveLeftCheck; ///< Holds the timestamp of the time when the last curve left check was done. @see doJob()
+  
+  boolean _lineCenteringStarted; ///< Set to true, as soon as the car has reached the line but a line centering is done before continuing.
 
   
 };

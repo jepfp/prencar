@@ -20,6 +20,7 @@ void CubeApproach::begin(){
   _com = Communication::getInstance();
   _move = Move::getInstance();
   _conf = Configuration::getInstance();
+  _extMove = ExtendedMove::getInstance();
 
   pinMode(_conf->cubeApproachLeftBottomSensor, INPUT);
   pinMode(_conf->cubeApproachLeftTopSensor, INPUT);
@@ -43,6 +44,7 @@ void CubeApproach::startIt(){
   amountOfCubeDetections = 0;
   _lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
   _conf->lineFollowReduceSpeedTimeThirdLine, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
+  _lineFollow.frontLineSensorsEnabled = false;
 }
 
 /**
@@ -72,15 +74,23 @@ void CubeApproach::doJob(boolean followLine){
   if(_conf->cubeApproachInterval == 0 || millis() > _timeLastCubeApproachCheck + _conf->cubeApproachInterval){
     _timeLastCubeApproachCheck = millis();
 
-    CubeDetection* cd = tryToDetectCube();
-    if(cd != 0){
-      amountOfCubeDetections++;
-      if(cd->turnedRight){
-        _com->send(78);
+    //only try to detect cube if no turn is in progress
+    if(!_extMove->isExecutionInProcess()){
+      CubeDetection* cd = tryToDetectCube();
+      if(cd != 0){
+        amountOfCubeDetections++;
+        if(cd->turnedRight){
+          _com->send(78);
+          turn(2);
+        }
+        else if(cd->turnedLeft){
+          _com->send(79);
+          turn(1);
+        }
       }
-      else if(cd->turnedLeft){
-        _com->send(79);
-      }
+    }
+    else{
+      _com->send(83);
     }
   }
 }
@@ -111,12 +121,16 @@ void CubeApproach::readTopSensors(int* resultArray){
   _com->send(19, resultArray, 2);
 }
 
+/**
+ * Tries to detect the cube and returns 0 if no detection was possible or a reference to the latest object inside cubeDetections if the cube could be detected.
+ * @return 0 if the cube was not detected or a reference to the lastest object inside cubeDetections if the cube could be detected.
+ */
 CubeDetection* CubeApproach::tryToDetectCube(){
   //get the next free spot.
-  CubeDetection cd = cubeDetections[amountOfCubeDetections];
-  cd.turnedRight = false;
-  cd.turnedLeft = false;
-  cd.cubeIsCentered = false;
+  CubeDetection* cd = &cubeDetections[amountOfCubeDetections];
+  cd->turnedRight = false;
+  cd->turnedLeft = false;
+  cd->cubeIsCentered = false;
 
   boolean left = false;
   boolean right = false;
@@ -124,20 +138,20 @@ CubeDetection* CubeApproach::tryToDetectCube(){
 
   int sensorValues[2];
   readBottomSensors(sensorValues);
-  cd.leftBottom = sensorValues[0];
-  cd.rightBottom = sensorValues[1];
-  
+  cd->leftBottom = sensorValues[0];
+  cd->rightBottom = sensorValues[1];
+
   int sensorTopValues[2];
   sensorTopValues[0] = 0;
   sensorTopValues[1] = 0;
 
-  if(cd.leftBottom < _conf->cubeApproachDetectThreshold){
+  if(cd->leftBottom > _conf->cubeApproachDetectThreshold){
     //verify the result
     readTopSensors(sensorTopValues);
-    cd.leftTop = sensorTopValues[0];
-    cd.rightTop = sensorTopValues[1];
+    cd->leftTop = sensorTopValues[0];
+    cd->rightTop = sensorTopValues[1];
     topSensorsRead = true;
-    if(cd.leftTop > _conf->cubeApproachDetectThreshold){
+    if(cd->leftTop < _conf->cubeApproachDetectThreshold){
       //verification successful.
       left = true;
     }
@@ -148,14 +162,14 @@ CubeDetection* CubeApproach::tryToDetectCube(){
     }
   }
 
-  if(cd.rightBottom < _conf->cubeApproachDetectThreshold){
+  if(cd->rightBottom > _conf->cubeApproachDetectThreshold){
     //verify the result
     if(!topSensorsRead){
       readTopSensors(sensorTopValues);
-      cd.leftTop = sensorTopValues[0];
-      cd.rightTop = sensorTopValues[1];
+      cd->leftTop = sensorTopValues[0];
+      cd->rightTop = sensorTopValues[1];
     }
-    if(cd.rightTop > _conf->cubeApproachDetectThreshold){
+    if(cd->rightTop < _conf->cubeApproachDetectThreshold){
       //verification successful.
       right = true;
     }
@@ -173,19 +187,77 @@ CubeDetection* CubeApproach::tryToDetectCube(){
   }
 
   if(left && right){
-    cd.cubeIsCentered = true;
+    cd->cubeIsCentered = true;
     _com->send(73, sensorValues, 2);
   }
   else if(left){
-    cd.turnedRight = true;
+    cd->turnedRight = true;
     _com->send(76, sensorValues, 2);
   }
   else if(right){
-    cd.turnedLeft = true;
+    cd->turnedLeft = true;
     _com->send(77, sensorValues, 2);
   }
-  return &cd;
+  return cd;
 }
+
+/**
+ * Creates an extended move command and executes it.
+ * @param direction 1=turn left, 2=turn right
+ */
+void CubeApproach::turn(int direction){
+  MoveCommand* mc = _extMove->commandQueue;
+  mc[0].duration = _conf->cubeApproachTurnDuration;
+
+  int speedSlow = _conf->cubeApproachTurnSpeedSlowMotor;
+  int speedFast = _conf->cubeApproachTurnSpeedFastMotor;
+  TMotorDirection dirSlow;
+  TMotorDirection dirFast;
+
+  if(speedSlow >= 0){
+    dirSlow = forward;
+  }
+  else
+  {
+    dirSlow = backwards;
+    speedSlow = speedSlow * (-1);
+  }
+
+  if(speedFast >= 0){
+    dirFast = forward;
+  }
+  else
+  {
+    dirFast = backwards;
+    speedFast = speedFast * (-1);
+  }
+
+  if(direction == 1){
+    mc[0].dirLeftMotor = dirSlow;
+    mc[0].speedLeftMotor = speedSlow;
+    mc[0].dirRightMotor = dirFast;
+    mc[0].speedRightMotor = speedFast;
+  }
+  else
+  {
+    mc[0].dirLeftMotor = dirFast;
+    mc[0].speedLeftMotor = speedFast;
+    mc[0].dirRightMotor = dirSlow;
+    mc[0].speedRightMotor = speedSlow;
+  }
+
+  _extMove->startCurrentQueue(1);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

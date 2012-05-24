@@ -24,7 +24,8 @@ Configuration::Configuration(){
   activateMessageFilter = true; //don't change this value because the master software expects it to be true at startup (state is not read at the beginning)!!
   _messageFilterLevel = 99;
   doJobDelay = 0;
-  lineFollowWhiteThreshold = 300;
+  lineFollowWhiteThresholdFrontSensors = 300;
+  lineFollowWhiteThresholdLineSensors = 300;
   lineFollowInterval = 15;
   lineFollowInitialSpeedLeft = 150; //150 out of 255
   lineFollowInitialSpeedRight = 150; //150 out of 255
@@ -32,6 +33,8 @@ Configuration::Configuration(){
   lineFollowReducedSpeedRight = 120;
   lineFollowReduceSpeedTimeFirstLine = 0;
   lineFollowReduceSpeedTimeSecondLine = 0;
+  lineFollowReduceSpeedTimeThirdLine = 0;
+  lineFollowActivateFrontSensorOffset = 1000;
   _movePwmLeftPin = 2;
   _movePwmRightPin = 3;
   _moveModeFirstLeftPin = 23;
@@ -54,13 +57,24 @@ Configuration::Configuration(){
   curveSpeedFastMotor = 120;
   curveInterval = 0;
   curveActivateEndSensorOffset = 500;
+  curveDriveStraightTime = 500;
 
   cubeApproachLeftBottomSensor = A0;
   cubeApproachLeftTopSensor = A1;
   cubeApproachRightBottomSensor = A2;
   cubeApproachRightTopSensor = A3;
-  cubeApproachDetectThreshold = 1000;
+  cubeApproachDetectThreshold = 40;
   cubeApproachInterval = 15;
+  cubeApproachTurnDuration = 750;
+  cubeApproachTurnSpeedSlowMotor = 0;
+  cubeApproachTurnSpeedFastMotor = 110;
+  
+  lineCenterInterval = 15;
+  lineCenterLineInMiddleDifference = 30;
+  lineCenterFastMotor = 110;
+  lineCenterSlowMotor = 0;
+  lineCenterStraightSpeed = 120;
+  lineCenterDriveBackDuration = 1000;
 
   sensorDebugInterval = 1000;
   sensorDebugReadGap = 0;
@@ -200,7 +214,7 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[6] = lineFollowInterval;
   spaceForConfigValues[7] = lineFollowKp;
   spaceForConfigValues[8] = lineFollowKd;
-  spaceForConfigValues[9] = lineFollowWhiteThreshold;
+  spaceForConfigValues[9] = lineFollowWhiteThresholdLineSensors;
   spaceForConfigValues[10] = curveSpeedSlowMotor;
   spaceForConfigValues[11] = curveSpeedFastMotor;
   spaceForConfigValues[12] = curveInterval;
@@ -212,8 +226,20 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[18] = lineFollowReducedSpeedRight;
   spaceForConfigValues[19] = lineFollowReduceSpeedTimeFirstLine;
   spaceForConfigValues[20] = lineFollowReduceSpeedTimeSecondLine;
-  spaceForConfigValues[21] = cubeApproachDetectThreshold;
-  spaceForConfigValues[22] = cubeApproachInterval;
+  spaceForConfigValues[21] = lineFollowReduceSpeedTimeThirdLine;
+  spaceForConfigValues[22] = cubeApproachDetectThreshold;
+  spaceForConfigValues[23] = cubeApproachInterval;
+  spaceForConfigValues[24] = cubeApproachTurnDuration;
+  spaceForConfigValues[25] = cubeApproachTurnSpeedSlowMotor;
+  spaceForConfigValues[26] = cubeApproachTurnSpeedFastMotor;
+  spaceForConfigValues[27] = curveDriveStraightTime;
+  spaceForConfigValues[28] = lineFollowActivateFrontSensorOffset;
+  spaceForConfigValues[29] = lineCenterInterval;
+  spaceForConfigValues[30] = lineCenterLineInMiddleDifference;
+  spaceForConfigValues[31] = lineCenterFastMotor;
+  spaceForConfigValues[32] = lineCenterSlowMotor;
+  spaceForConfigValues[33] = lineCenterStraightSpeed;
+  spaceForConfigValues[34] = lineCenterDriveBackDuration;
 }
 
 /**
@@ -222,7 +248,7 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
  * <b>WARNING: Be aware of the fact that the Serial library of the Arduino board at the moment
  * only accepts 64 characters for the timebeing (because of a ring buffer). If more configuration
  * values are added, we have to adjust that ring buffer in the core libs!!!!</b><br>
- * <b>The ringbuffer has been adjusted now inside C:/Program Files (X86)/Arduino/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp to 128!!</b>
+ * <b>The ringbuffer has been adjusted now inside C:/Program Files (X86)/Arduino/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp to 256!!</b>
  * @param parameters Pointer to a long array with SIZEOFDYNAMICCONFIGURATION parameters.
  */
 void Configuration::updateConfiguration(int* parameters){
@@ -235,7 +261,7 @@ void Configuration::updateConfiguration(int* parameters){
   lineFollowInterval = parameters[6];
   lineFollowKp = parameters[7];
   lineFollowKd = parameters[8];
-  lineFollowWhiteThreshold = parameters[9];
+  lineFollowWhiteThresholdLineSensors = parameters[9];
   curveSpeedSlowMotor = parameters[10];
   curveSpeedFastMotor = parameters[11];
   curveInterval = parameters[12];
@@ -247,8 +273,20 @@ void Configuration::updateConfiguration(int* parameters){
   lineFollowReducedSpeedRight = parameters[18];
   lineFollowReduceSpeedTimeFirstLine = parameters[19];
   lineFollowReduceSpeedTimeSecondLine = parameters[20];
-  cubeApproachDetectThreshold = parameters[21];
-  cubeApproachInterval = parameters[22];
+  lineFollowReduceSpeedTimeThirdLine = parameters[21];
+  cubeApproachDetectThreshold = parameters[22];
+  cubeApproachInterval = parameters[23];
+  cubeApproachTurnDuration = parameters[24];
+  cubeApproachTurnSpeedSlowMotor = parameters[25];
+  cubeApproachTurnSpeedFastMotor = parameters[26];
+  curveDriveStraightTime = parameters[27];
+  lineFollowActivateFrontSensorOffset = parameters[28];
+  lineCenterInterval = parameters[29];
+  lineCenterLineInMiddleDifference = parameters[30];
+  lineCenterFastMotor = parameters[31];
+  lineCenterSlowMotor = parameters[32];
+  lineCenterStraightSpeed = parameters[33];
+  lineCenterDriveBackDuration = parameters[34];
 }
 
 /**
@@ -268,6 +306,8 @@ int Configuration::getFreeMemory()
 
   return free_memory;
 }
+
+
 
 
 

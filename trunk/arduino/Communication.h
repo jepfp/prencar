@@ -12,7 +12,7 @@ private:
   static boolean _instanceCreated;
   Communication();
   Configuration* _config;
-  static int const _INCOMINGDATABUFFERSIZE = 128; ///< The buffer size for the incomingDataBuffer
+  static int const _INCOMINGDATABUFFERSIZE = 256; ///< The buffer size for the incomingDataBuffer
   static int const _READYCOMMANDSSIZE = 15; ///< The amount of commands that can be stored into the readyCommands array.
   byte _incomingDataBuffer[_INCOMINGDATABUFFERSIZE]; ///< Buffer to store ONE incoming line which is not yet completely transmitted
   int _lastBufferCharacter; ///< The position of the last character in the buffer (lastBufferChar + 1 will be the next empty spot)

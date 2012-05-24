@@ -23,7 +23,7 @@ public:
    * 
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 23;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 35;
   
   static Configuration* getInstance();
   byte getConfigurationVersion();
@@ -61,7 +61,10 @@ public:
    * The default value 156 is based on first measurements and set as long as no calibration is done.
    * @see LineFollow::calibrateSensors()
    */
-  int lineFollowWhiteThreshold;
+  int lineFollowWhiteThresholdLineSensors;
+  /** \brief See lineFollowWhiteThresholdLineSensors
+   */
+  int lineFollowWhiteThresholdFrontSensors;
   byte lineFollowReducedSpeedLeft; ///< The reduced speed of the left motor that can be assigned after a defined amount of time (0-255).
   byte lineFollowReducedSpeedRight; ///< The reduced speed of the left motor that can be assigned after a defined amount of time (0-255).
   /**
@@ -79,6 +82,24 @@ public:
    * defined reduced speed (0 to disable this function).
    */
   int lineFollowReduceSpeedTimeThirdLine;
+  /**
+   * \brief Milliseconds (after a call to startIt() of LineFollow) after which the front line sensors shall be activated. 
+   *
+   * This offset is helpful at the beginning of the parours in order to be able to start the parcours <b>behind</b> the start line
+   * and after driving a curve if at the end of the curve one of the front line sensors still is on top of the 90°-line. If
+   * set to 0 the front line sensors are always on.
+   */
+  int lineFollowActivateFrontSensorOffset;
+  
+  int lineCenterInterval; ///< Interval in milliseconds in which the line centering job shall be executed.
+  /**
+   * During line centering a value below this difference will mean, that the line centering process is finished.
+   */
+  int lineCenterLineInMiddleDifference;
+  int lineCenterFastMotor; ///< The speed of the fast motor during the line centering process.
+  int lineCenterSlowMotor; ///< The speed of the slow motor during the line centering process.
+  int lineCenterStraightSpeed; ///< The speed of both motors while driving straight during the line centering.
+  int lineCenterDriveBackDuration; ///< The duration while the car during the correction is driving backwards.
 
   /**
    * P factor for the PD controller
@@ -103,13 +124,17 @@ public:
    * procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started.
    */
   int curveActivateEndSensorOffset;
+  int curveDriveStraightTime; ///< The time after which the car shall drive straight again to find the line (no more curve is done).
 
   byte cubeApproachLeftBottomSensor; ///< The pin where the left bottom distance sensor is connected to.
   byte cubeApproachLeftTopSensor; ///< The pin where the left top distance sensor is connected to.
   byte cubeApproachRightBottomSensor; ///< The pin where the right bottom distance sensor is connected to.
   byte cubeApproachRightTopSensor; ///< The pin where the right top distance sensor is connected to.
-  int cubeApproachDetectThreshold; ///< Threshold for cube detection. Measuring a value below this threshold means that the cube has been detected with this sensor.
+  int cubeApproachDetectThreshold; ///< Threshold for cube detection. Measuring a value higher than this threshold means that the cube has been detected with this sensor.
   int cubeApproachInterval; ///< Interval in milliseconds in which the distance sensors shall be checked.
+  int cubeApproachTurnDuration; ///< Duration in milliseconds of a turn when the cube has been detected.
+  int cubeApproachTurnSpeedSlowMotor; ///< Speed of slow motor during a turn when the cube has been detected. This value can be nagative.
+  int cubeApproachTurnSpeedFastMotor; ///< Speed of fast motor during a turn when the cube has been detected. This value can be nagative.
 
   int sensorDebugInterval; ///< Interval in milliseconds in which the debug sensors
   int sensorDebugReadGap; ///< Time in milliseconds between reading every sensor.

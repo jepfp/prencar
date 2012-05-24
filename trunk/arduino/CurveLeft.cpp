@@ -18,8 +18,12 @@ CurveLeft::CurveLeft()
  */
 void CurveLeft::begin(){
   LineFollow::begin();
+  lineCenter.begin();
+
+  _extMove = ExtendedMove::getInstance();
 
   drivingCurveIsFinished = false;
+  _lineCenteringStarted = false;
 }
 
 /**
@@ -30,28 +34,51 @@ void CurveLeft::startIt(){
   int speedRight;
   TMotorDirection leftMotorDir = forward;
   TMotorDirection rightMotorDir = forward;
-  
+
   _com->send(67);
-  
+
   drivingCurveIsFinished = false;
+  _lineCenteringStarted = false;
 
   _timeCurveLeftStarted = millis();
-  
+
   if(_conf->curveSpeedSlowMotor < 0){
     speedLeft = _conf->curveSpeedSlowMotor * -1;
     leftMotorDir = backwards;
-  }else{
+  }
+  else{
     speedLeft = _conf->curveSpeedSlowMotor;
   }
-  
+
   if(_conf->curveSpeedFastMotor < 0){
     speedRight = _conf->curveSpeedFastMotor * -1;
     rightMotorDir = backwards;
-  }else{
+  }
+  else{
     speedRight = _conf->curveSpeedFastMotor;
   }
 
-  _move->controlMotors(leftMotorDir, speedLeft, rightMotorDir, speedRight);
+  //create an extMove command and add start it's execution
+  MoveCommand* mc = _extMove->commandQueue;
+  mc[0].duration = 500;
+  mc[0].dirLeftMotor = backwards;
+  mc[0].speedLeftMotor = 100;
+  mc[0].dirRightMotor = backwards;
+  mc[0].speedRightMotor = 100;
+
+  mc[1].duration = _conf->curveDriveStraightTime;
+  mc[1].dirLeftMotor = leftMotorDir;
+  mc[1].speedLeftMotor = speedLeft;
+  mc[1].dirRightMotor = rightMotorDir;
+  mc[1].speedRightMotor = speedRight;
+
+  mc[2].duration = 10000; //just long enough
+  mc[2].dirLeftMotor = forward;
+  mc[2].speedLeftMotor = 150;
+  mc[2].dirRightMotor = forward;
+  mc[2].speedRightMotor = 150;
+
+  _extMove->startCurrentQueue(3);
 }
 
 /**
@@ -60,7 +87,7 @@ void CurveLeft::startIt(){
  * The 90° left curve is driven. For details, how this is done, see the class description of CurveLeft.
  */
 void CurveLeft::doJob(){
-  if(_conf->curveInterval == 0 || millis() > _timeLastCurveLeftCheck + _conf->curveInterval){
+  if((_conf->curveInterval == 0 || millis() > _timeLastCurveLeftCheck + _conf->curveInterval) && !_lineCenteringStarted){
     _timeLastCurveLeftCheck = millis();
 
     //read the left line sensor, if it's already time to do so
@@ -68,14 +95,26 @@ void CurveLeft::doJob(){
       int sensorValues[2];
       readLineSensors(sensorValues);
 
-      if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
+      if(sensorValues[0] < _conf->lineFollowWhiteThresholdLineSensors){
         _com->send(66, sensorValues[0]);
-        _move->performFastStop();
-        drivingCurveIsFinished = true;
+        lineCenter.startIt(true);
+        _lineCenteringStarted = true;
+        _extMove->stopCurrentQueue();
       }
     }
   }
+
+  //line centering needs to be done after the curve is done.
+  if(_lineCenteringStarted){
+    lineCenter.doJob();
+    if(lineCenter.lineCenteringIsFinished){
+      drivingCurveIsFinished = true;
+    }
+  }
 }
+
+
+
 
 
 
