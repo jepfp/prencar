@@ -1,6 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="264,5,451,32"/>
-<area shape="rect" id="node6" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="499,5,621,32"/>
-<area shape="rect" id="node8" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="669,5,811,32"/>
-<area shape="rect" id="node10" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="859,5,1037,32"/>
+<area shape="rect" id="node3" href="$class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="264,31,451,57"/>
+<area shape="rect" id="node6" href="$class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="669,5,816,32"/>
+<area shape="rect" id="node13" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="499,56,621,83"/>
+<area shape="rect" id="node8" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="864,31,1005,57"/>
+<area shape="rect" id="node10" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="1054,31,1231,57"/>
 </map>

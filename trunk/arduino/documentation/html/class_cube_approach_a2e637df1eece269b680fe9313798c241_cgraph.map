@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765" title="CubeApproach::readBottomSensors" alt="" coords="267,5,498,32"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="547,56,695,83"/>
+<area shape="rect" id="node9" href="$class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580" title="CubeApproach::readTopSensors" alt="" coords="278,107,487,133"/>
+<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="744,56,979,83"/>
+</map>

@@ -2,12 +2,14 @@
 #include "Communication.h"
 #include "StateMachine.h"
 #include "SensorDebug.h"
+#include "ExtendedMove.h"
 #include <Servo.h>
 
 Communication* _com;
 Configuration* _conf;
 StateMachine* _stateMachine;
 SensorDebug* _sensorDebug;
+ExtendedMove* _extMove;
 
 void setup()
 {
@@ -19,6 +21,7 @@ void setup()
   _com = Communication::getInstance();
   _stateMachine = StateMachine::getInstance();
   _sensorDebug = SensorDebug::getInstance();
+  _extMove = ExtendedMove::getInstance();
 }
 
 void loop()
@@ -32,7 +35,9 @@ void loop()
   _com->doJob();
   _stateMachine->doJob();
   _sensorDebug->doJob();
+  _extMove->doJob();
 }
+
 
 
 

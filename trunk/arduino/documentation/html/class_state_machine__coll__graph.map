@@ -1,9 +1,14 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$class_move.html" title="Move" alt="" coords="401,187,452,213"/>
-<area shape="rect" id="node15" href="$class_line_follow.html" title="LineFollow" alt="" coords="385,277,468,304"/>
-<area shape="rect" id="node5" href="$class_communication.html" title="Communication" alt="" coords="228,96,340,123"/>
-<area shape="rect" id="node24" href="$class_lift_cube.html" title="LiftCube" alt="" coords="85,187,155,213"/>
-<area shape="rect" id="node7" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="5,5,85,32"/>
-<area shape="rect" id="node10" href="$class_configuration.html" title="Configuration" alt="" coords="425,5,521,32"/>
-<area shape="rect" id="node21" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="424,368,499,395"/>
+<area shape="rect" id="node2" href="$class_move.html" title="Move" alt="" coords="483,237,535,264"/>
+<area shape="rect" id="node15" href="$class_cube_approach.html" title="CubeApproach" alt="" coords="965,303,1072,329"/>
+<area shape="rect" id="node19" href="$class_line_follow.html" title="LineFollow" alt="" coords="727,384,809,411"/>
+<area shape="rect" id="node26" href="$class_extended_move.html" title="Allows to define extended car control instuctions." alt="" coords="715,532,821,559"/>
+<area shape="rect" id="node5" href="$class_communication.html" title="Communication" alt="" coords="256,228,368,255"/>
+<area shape="rect" id="node45" href="$class_lift_cube.html" title="LiftCube" alt="" coords="475,96,544,123"/>
+<area shape="rect" id="node7" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="14,227,95,253"/>
+<area shape="rect" id="node10" href="$class_configuration.html" title="Configuration" alt="" coords="6,377,103,404"/>
+<area shape="rect" id="node37" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="1195,449,1269,476"/>
+<area shape="rect" id="node41" href="$class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="977,492,1061,519"/>
+<area shape="rect" id="node24" href="$struct_cube_detection.html" title="CubeDetection" alt="" coords="715,283,821,309"/>
+<area shape="rect" id="node31" href="$struct_move_command.html" title="MoveCommand" alt="" coords="454,592,565,619"/>
 </map>

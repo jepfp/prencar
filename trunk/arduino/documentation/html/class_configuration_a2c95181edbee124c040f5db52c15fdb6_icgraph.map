@@ -1,7 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="333,5,424,32"/>
-<area shape="rect" id="node5" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="473,5,599,32"/>
-<area shape="rect" id="node7" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="648,5,771,32"/>
-<area shape="rect" id="node9" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="819,5,960,32"/>
-<area shape="rect" id="node11" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="1009,5,1186,32"/>
+<area shape="rect" id="node3" href="$class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="333,31,424,57"/>
+<area shape="rect" id="node5" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="473,31,599,57"/>
+<area shape="rect" id="node7" href="$class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="819,5,965,32"/>
+<area shape="rect" id="node14" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="648,56,771,83"/>
+<area shape="rect" id="node9" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="1013,31,1155,57"/>
+<area shape="rect" id="node11" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="1203,31,1381,57"/>
 </map>

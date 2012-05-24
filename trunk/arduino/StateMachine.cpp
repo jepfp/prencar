@@ -39,6 +39,7 @@ void StateMachine::begin(){
   _conf = Configuration::getInstance();
   _move = Move::getInstance();
   _liftCube = LiftCube::getInstance();
+  _extMove = ExtendedMove::getInstance();
   lineFollow.begin();
   curveLeft.begin();
   _cubeApproach.begin();
@@ -251,6 +252,7 @@ void StateMachine::startParcoursAtState(TParcoursState state){
  * Stops the car if it is currently driving autonomously.
  */
 void StateMachine::stopParcours(){
+  _extMove->stopCurrentQueue();
   _move->performFastStop();
   changeState(notStarted);
 }

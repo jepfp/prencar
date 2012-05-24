@@ -25,5 +25,6 @@ var class_line_follow =
     [ "_sensoralt", "class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7", null ],
     [ "_timeLastLineFollowCheck", "class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e", null ],
     [ "_timeLineFollowStarted", "class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5", null ],
+    [ "frontLineSensorsEnabled", "class_line_follow.html#a9f9086563dd7db17b36c660f3793eba6", null ],
     [ "hasReachedCurve", "class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d", null ]
 ];

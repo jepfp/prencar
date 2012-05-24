@@ -8,6 +8,7 @@
 #include "CurveLeft.h"
 #include "LiftCube.h"
 #include "CubeApproach.h"
+#include "ExtendedMove.h"
 
 /**
  * The enum with values about the current state.
@@ -38,6 +39,7 @@ private:
   Configuration* _conf; ///< The reference to the configuration class.
   Move* _move; ///< The reference to the move class.
   LiftCube* _liftCube; ///< The reference to the LiftCube class.
+  ExtendedMove* _extMove; ///< The reference to the ExtendedMove class.
 
   LineFollow lineFollow;
   CurveLeft curveLeft;

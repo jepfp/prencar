@@ -1,4 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="272,5,397,32"/>
-<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="445,5,589,32"/>
+<area shape="rect" id="node3" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="272,31,397,57"/>
+<area shape="rect" id="node5" href="$class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="445,5,595,32"/>
+<area shape="rect" id="node7" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="643,31,787,57"/>
 </map>

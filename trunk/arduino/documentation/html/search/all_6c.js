@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['leftbottom',['leftBottom',['../struct_cube_detection.html#a3d4467976c600d4752ceb51dfd84b7e3',1,'CubeDetection']]],
+  ['lefttop',['leftTop',['../struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77',1,'CubeDetection']]],
   ['liftcube',['LiftCube',['../class_lift_cube.html',1,'LiftCube'],['../class_lift_cube.html#a5bf2f6939ce4578fbf54d9214dd91fb3',1,'LiftCube::LiftCube()'],['../class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd',1,'LiftCube::liftCube()'],['../_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3',1,'liftCube():&#160;StateMachine.h']]],
   ['liftcube_2ecpp',['LiftCube.cpp',['../_lift_cube_8cpp.html',1,'']]],
   ['liftcube_2eh',['LiftCube.h',['../_lift_cube_8h.html',1,'']]],
@@ -10,9 +12,20 @@ var searchData=
   ['liftcubeupposition',['liftCubeUpPosition',['../class_configuration.html#af6652efed17691fef4fa435e38c1642f',1,'Configuration']]],
   ['liftdown',['liftDown',['../class_lift_cube.html#a652d399235cafb5179a2d6c65df11112',1,'LiftCube']]],
   ['liftup',['liftUp',['../class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64',1,'LiftCube']]],
-  ['linefollow',['LineFollow',['../class_line_follow.html',1,'LineFollow'],['../class_line_follow.html#ace2e49549627ad0682ed71e0be714086',1,'LineFollow::LineFollow()'],['../class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5',1,'StateMachine::lineFollow()']]],
+  ['linecenter',['LineCenter',['../class_line_center.html',1,'LineCenter'],['../class_line_center.html#adee08b78d744f632971ae14d653f36a0',1,'LineCenter::LineCenter()'],['../class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7',1,'CurveLeft::lineCenter()']]],
+  ['linecenter_2ecpp',['LineCenter.cpp',['../_line_center_8cpp.html',1,'']]],
+  ['linecenter_2eh',['LineCenter.h',['../_line_center_8h.html',1,'']]],
+  ['linecenterdrivebackduration',['lineCenterDriveBackDuration',['../class_configuration.html#aa7231458f16484140c8e08b5aa81a009',1,'Configuration']]],
+  ['linecenterfastmotor',['lineCenterFastMotor',['../class_configuration.html#a5bb25f9cf61d7938fba95a22b234a613',1,'Configuration']]],
+  ['linecenteringisfinished',['lineCenteringIsFinished',['../class_line_center.html#a56e3c04c97ecffaa6cd16a16d37992bc',1,'LineCenter']]],
+  ['linecenterinterval',['lineCenterInterval',['../class_configuration.html#a38df8bfaaee037f566990d464bd25904',1,'Configuration']]],
+  ['linecenterlineinmiddledifference',['lineCenterLineInMiddleDifference',['../class_configuration.html#aebf76a63207191515e8fc7a61ae6b51e',1,'Configuration']]],
+  ['linecenterslowmotor',['lineCenterSlowMotor',['../class_configuration.html#a1c97bc292a75de3d67f67442c792086b',1,'Configuration']]],
+  ['linecenterstraightspeed',['lineCenterStraightSpeed',['../class_configuration.html#a2ad74fa43a9a580b64d7720fb89ca38b',1,'Configuration']]],
+  ['linefollow',['LineFollow',['../class_line_follow.html',1,'LineFollow'],['../class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5',1,'StateMachine::lineFollow()'],['../class_line_follow.html#ace2e49549627ad0682ed71e0be714086',1,'LineFollow::LineFollow()']]],
   ['linefollow_2ecpp',['LineFollow.cpp',['../_line_follow_8cpp.html',1,'']]],
   ['linefollow_2eh',['LineFollow.h',['../_line_follow_8h.html',1,'']]],
+  ['linefollowactivatefrontsensoroffset',['lineFollowActivateFrontSensorOffset',['../class_configuration.html#a9ef6ba2bfd04ec756c58207799f1b9ab',1,'Configuration']]],
   ['linefollowinitialspeedleft',['lineFollowInitialSpeedLeft',['../class_configuration.html#a24e118088874b8f9d56bcaf245f1461d',1,'Configuration']]],
   ['linefollowinitialspeedright',['lineFollowInitialSpeedRight',['../class_configuration.html#aabc113e529eb659768ca98f15d3952a3',1,'Configuration']]],
   ['linefollowinterval',['lineFollowInterval',['../class_configuration.html#aa799e7ed6a4722085506a31c051bf103',1,'Configuration']]],
@@ -27,5 +40,6 @@ var searchData=
   ['linefollowreducespeedtimethirdline',['lineFollowReduceSpeedTimeThirdLine',['../class_configuration.html#a314c771160067421a3afc56ddce835a8',1,'Configuration']]],
   ['linefollowrightfrontsensorpin',['lineFollowRightFrontSensorPin',['../class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa',1,'Configuration']]],
   ['linefollowrightsensorpin',['lineFollowRightSensorPin',['../class_configuration.html#a254b7ac19c994603776d47645235a132',1,'Configuration']]],
-  ['linefollowwhitethreshold',['lineFollowWhiteThreshold',['../class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906',1,'Configuration']]]
+  ['linefollowwhitethresholdfrontsensors',['lineFollowWhiteThresholdFrontSensors',['../class_configuration.html#a9a08ba1b3e5805a9dbb8240f46bb7d0c',1,'Configuration']]],
+  ['linefollowwhitethresholdlinesensors',['lineFollowWhiteThresholdLineSensors',['../class_configuration.html#a0bbff058cd779deef5a06b5884f1d882',1,'Configuration']]]
 ];

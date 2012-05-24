@@ -7,6 +7,7 @@ var searchData=
   ['followingsecondline',['followingSecondLine',['../_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8abdec259af1c38a7275c56d3e3a00430b',1,'StateMachine.h']]],
   ['followingthirdlinetocube',['followingThirdLineToCube',['../_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a4843e80df3f3ff6711be6e75a66a2aee',1,'StateMachine.h']]],
   ['followingthirdlinetofinish',['followingThirdLineToFinish',['../_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ac5ddb79d1c7997a726b2a4a1d94d1382',1,'StateMachine.h']]],
-  ['forcechangesate',['forceChangeSate',['../class_state_machine.html#ae478761ede92cd3904738ac7ad2b76b8',1,'StateMachine']]],
-  ['forward',['forward',['../_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21',1,'Move.h']]]
+  ['forcechangestate',['forceChangeState',['../class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b',1,'StateMachine']]],
+  ['forward',['forward',['../_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21',1,'Move.h']]],
+  ['frontlinesensorsenabled',['frontLineSensorsEnabled',['../class_line_follow.html#a9f9086563dd7db17b36c660f3793eba6',1,'LineFollow']]]
 ];

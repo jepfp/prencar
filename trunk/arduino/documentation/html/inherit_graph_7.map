@@ -1,3 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_state_machine.html" title="StateMachine" alt="" coords="6,5,109,32"/>
+<area shape="rect" id="node1" href="$class_line_follow.html" title="LineFollow" alt="" coords="5,31,88,57"/>
+<area shape="rect" id="node3" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="141,5,216,32"/>
+<area shape="rect" id="node5" href="$class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="137,56,221,83"/>
 </map>

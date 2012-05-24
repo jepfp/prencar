@@ -1,0 +1,26 @@
+var class_extended_move =
+[
+    [ "ExtendedMove", "class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528", null ],
+    [ "begin", "class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149", null ],
+    [ "doJob", "class_extended_move.html#ab03bf2a16ad494c392c209d5c0b3b65d", null ],
+    [ "executeCommand", "class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee", null ],
+    [ "getCurrentCommandIndexInQueue", "class_extended_move.html#a27d912c36366495cd3b6b75f70b2b187", null ],
+    [ "getCurrentCommandInQueue", "class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054", null ],
+    [ "getCurrentCommandQueueId", "class_extended_move.html#af44fd7e191b2484d1b70450835b43604", null ],
+    [ "getInstance", "class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a", null ],
+    [ "isExecutionInProcess", "class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a", null ],
+    [ "isExecutionInProcess", "class_extended_move.html#a2d7b6db52a2c01d73e245c8648bdb5d6", null ],
+    [ "startCurrentQueue", "class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba", null ],
+    [ "stopCurrentQueue", "class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6", null ],
+    [ "_com", "class_extended_move.html#a1220d0c15a28d8d5e2baf32b02ad33bc", null ],
+    [ "_conf", "class_extended_move.html#a10b4e2c0017fc427074934dae39b8971", null ],
+    [ "_currentCommandIndexInQueue", "class_extended_move.html#a778375b1b506e93fb882cafd2ccf5b76", null ],
+    [ "_currentCommandQueueId", "class_extended_move.html#acd3af4d980730abd98da550fbd3c5333", null ],
+    [ "_currentCommandQueueSize", "class_extended_move.html#a343c183651181db5fb85ed4084d9a7a2", null ],
+    [ "_instance", "class_extended_move.html#a024e8f637662966bece3ae472feca23d", null ],
+    [ "_instanceCreated", "class_extended_move.html#a54bdfab5b9684ba2ede313e438d11611", null ],
+    [ "_MAXAMOUNTOFQUEUEDCOMMANDS", "class_extended_move.html#a2af24920a90b5da13c36c78e9f0053f7", null ],
+    [ "_move", "class_extended_move.html#a920b4f3eb82cd5d59a136f2e4a6d3be5", null ],
+    [ "_queueExecutionInProgress", "class_extended_move.html#a48469d3672fb0e89c02c81cc725528ff", null ],
+    [ "commandQueue", "class_extended_move.html#a5f34e9081613ec4d1796cac234b9cbb5", null ]
+];

@@ -1,7 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="492,5,609,32"/>
-<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="704,81,848,108"/>
-<area shape="rect" id="node7" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="241,107,367,133"/>
-<area shape="rect" id="node11" href="$class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a" title="StateMachine::stopParcours" alt="" coords="211,157,397,184"/>
-<area shape="rect" id="node13" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="445,157,656,184"/>
+<area shape="rect" id="node3" href="$class_extended_move.html#ab03bf2a16ad494c392c209d5c0b3b65d" title="ExtendedMove::doJob" alt="" coords="229,5,379,32"/>
+<area shape="rect" id="node5" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="241,56,367,83"/>
+<area shape="rect" id="node9" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="704,81,848,108"/>
+<area shape="rect" id="node13" href="$class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a" title="StateMachine::stopParcours" alt="" coords="211,157,397,184"/>
+<area shape="rect" id="node7" href="$class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="476,5,625,32"/>
+<area shape="rect" id="node15" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="445,157,656,184"/>
 </map>

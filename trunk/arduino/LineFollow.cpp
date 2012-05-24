@@ -33,6 +33,7 @@ void LineFollow::begin(){
   digitalWrite(_conf->lineFollowRightFrontSensorPin, LOW);
 
   hasReachedCurve = false;
+  frontLineSensorsEnabled = true;
 }
 
 /**
@@ -65,6 +66,7 @@ void LineFollow::startIt(int initSpeedLeft, int initSpeedRight, int reduceSpeedT
   _reducedSpeedRightMotor = reducedSpeedRightMotor;
   _currentSpeedLeftMotor = initSpeedLeft;
   _currentSpeedRightMotor = initSpeedRight;
+  frontLineSensorsEnabled = true;
 
   _move->controlMotors(forward, initSpeedLeft, forward, initSpeedRight);
 }
@@ -91,12 +93,14 @@ void LineFollow::doJob(){
     int sensorValues[2];
     readFrontLineSensors(sensorValues);
 
-    //check if a 90° curve is needed
-    if(sensorValues[0] < _conf->lineFollowWhiteThreshold){
-      _com->send(55, sensorValues[0]);
-      _move->performFastStop();
-      hasReachedCurve = true;
-      return;
+    //check if a 90° curve is needed (but only if the lineFollowActivateFrontSensorOffset is already reached AND the front line sensors are enabled)
+    if((_conf->lineFollowActivateFrontSensorOffset == 0 || millis() > _timeLineFollowStarted + _conf->lineFollowActivateFrontSensorOffset) && frontLineSensorsEnabled){
+      if(sensorValues[0] < _conf->lineFollowWhiteThresholdFrontSensors){
+        _com->send(55, sensorValues[0]);
+        _move->performFastStop();
+        hasReachedCurve = true;
+        return;
+      }
     }
 
     //check if it's already time to proceed with the reduced speed
@@ -213,15 +217,16 @@ void LineFollow::calibrateSensors(){
   //calculate 1/3 out of the range and add it to the whiteMax. This will be the new whiteThreshold value.
   //(We know that the calculation doesn't use float even though a division is made here.)
   int oneThirdOfRange = rangeWhiteMaxToBlackMin/3;
-  _conf->lineFollowWhiteThreshold = _calibrationSensorWhiteMax + oneThirdOfRange;
+  _conf->lineFollowWhiteThresholdFrontSensors = _calibrationSensorWhiteMax + oneThirdOfRange;
 
   int measurements[] = {
     _calibrationSensorBlackMin, _calibrationSensorBlackMax, _calibrationSensorWhiteMin, _calibrationSensorWhiteMax,
-    oneThirdOfRange, _conf->lineFollowWhiteThreshold
+    oneThirdOfRange, _conf->lineFollowWhiteThresholdFrontSensors
   };
 
   _com->send(203, measurements, 6);
 }
+
 
 
 

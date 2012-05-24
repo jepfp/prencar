@@ -115,21 +115,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dd>
 <dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="class_configuration.html#a13c417c35f720cae9917b7bed7ceb159">Configuration::updateConfiguration</a>  (int *parameters)</dt>
 <dd>Add a check for the configuration version!  </dd>
-<dt><a class="anchor" id="_todo000009"></a>Member <a class="el" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">LineFollow::_deltaPWM</a>  </dt>
-<dd>write comment  </dd>
-<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">LineFollow::_deltasensor</a>  </dt>
-<dd>write comment  </dd>
-<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">LineFollow::_sensoralt</a>  </dt>
-<dd>write comment  </dd>
-<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39">LineFollow::calibrateSensors</a>  ()</dt>
-<dd>The calculation of <a class="el" href="class_configuration.html#a6c0d6f8b78ea6b6e167c80bce9447906" title="Threshold value from black to white.">Configuration::lineFollowWhiteThreshold</a> can be done using some config value as well so that the behavior can be influenced by the configuration.  </dd>
-<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">LineFollow::readFrontLineSensors</a>  (int *resultArray)</dt>
+<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">CubeApproach::doJob</a>  (boolean followLine)</dt>
+<dd>Put some details in here.   </dd>
+<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">CubeApproach::readBottomSensors</a>  (int *resultArray)</dt>
 <dd>Maybe a delay is needed between the readings.  </dd>
-<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">LineFollow::readLineSensors</a>  (int *resultArray)</dt>
+<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">CubeApproach::readTopSensors</a>  (int *resultArray)</dt>
 <dd>Maybe a delay is needed between the readings.  </dd>
-<dt><a class="anchor" id="_todo000011"></a>Member <a class="el" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">StateMachine::checkCommands</a>  ()</dt>
+<dt><a class="anchor" id="_todo000012"></a>Member <a class="el" href="class_line_follow.html#aaef3837f6fd0ea4d69458dbe7a5ed54d">LineFollow::_deltaPWM</a>  </dt>
+<dd>write comment  </dd>
+<dt><a class="anchor" id="_todo000010"></a>Member <a class="el" href="class_line_follow.html#a44ff5bd13460ce3d6737319c6d0023f0">LineFollow::_deltasensor</a>  </dt>
+<dd>write comment  </dd>
+<dt><a class="anchor" id="_todo000011"></a>Member <a class="el" href="class_line_follow.html#ae28a165a4eaf1ab88fe0cab11e325ba7">LineFollow::_sensoralt</a>  </dt>
+<dd>write comment  </dd>
+<dt><a class="anchor" id="_todo000009"></a>Member <a class="el" href="class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39">LineFollow::calibrateSensors</a>  ()</dt>
+<dd>The calculation of Configuration::lineFollowWhiteThreshold can be done using some config value as well so that the behavior can be influenced by the configuration.  </dd>
+<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">LineFollow::readFrontLineSensors</a>  (int *resultArray)</dt>
+<dd>Maybe a delay is needed between the readings.  </dd>
+<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d">LineFollow::readLineSensors</a>  (int *resultArray)</dt>
+<dd>Maybe a delay is needed between the readings.  </dd>
+<dt><a class="anchor" id="_todo000014"></a>Member <a class="el" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">StateMachine::checkCommands</a>  ()</dt>
 <dd>the following line has to go to the begin of the liftCube state later on!  </dd>
-<dt><a class="anchor" id="_todo000010"></a>Member <a class="el" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">StateMachine::doJob</a>  ()</dt>
+<dt><a class="anchor" id="_todo000013"></a>Member <a class="el" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">StateMachine::doJob</a>  ()</dt>
 <dd>this do job has to go to the right state. </dd>
 </dl>
 </div></div><!-- contents -->
@@ -137,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Wed May 9 2012 23:52:15 for prencar by
+    <li class="footer">Generated on Thu May 24 2012 09:20:25 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

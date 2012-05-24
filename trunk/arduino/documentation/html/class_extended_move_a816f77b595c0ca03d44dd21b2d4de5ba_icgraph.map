@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="289,5,426,32"/>
+<area shape="rect" id="node9" href="$class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="494,56,610,83"/>
+<area shape="rect" id="node12" href="$class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="275,107,440,133"/>
+<area shape="rect" id="node5" href="$class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="664,5,813,32"/>
+<area shape="rect" id="node7" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="861,56,1005,83"/>
+<area shape="rect" id="node14" href="$class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="489,107,615,133"/>
+<area shape="rect" id="node16" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="680,107,797,133"/>
+</map>

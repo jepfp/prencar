@@ -17,9 +17,11 @@ var searchData=
   ['setmovepwmleftpin',['setMovePwmLeftPin',['../class_configuration.html#a2298db2f115e9c7daa6924158eac0ee5',1,'Configuration']]],
   ['setmovepwmrightpin',['setMovePwmRightPin',['../class_configuration.html#a40c3af95f85bb649a09f67c52e52e5f8',1,'Configuration']]],
   ['setrightmotordirection',['setRightMotorDirection',['../class_move.html#a06e67dafd581bbd086da404a90c4eeec',1,'Move']]],
-  ['startit',['startIt',['../class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336',1,'CurveLeft::startIt()'],['../class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c',1,'LineFollow::startIt(int initSpeedLeft, int initSpeedRight)'],['../class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481',1,'LineFollow::startIt(int initSpeedLeft, int initSpeedRight, int reduceSpeedTime, byte reducedSpeedLeftMotor, byte reducedSpeedRightMotor)']]],
+  ['startcurrentqueue',['startCurrentQueue',['../class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba',1,'ExtendedMove']]],
+  ['startit',['startIt',['../class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2',1,'CubeApproach::startIt()'],['../class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336',1,'CurveLeft::startIt()'],['../class_line_center.html#a736d4cd402c6dc398b374cae8aab5740',1,'LineCenter::startIt()'],['../class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c',1,'LineFollow::startIt(int initSpeedLeft, int initSpeedRight)'],['../class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481',1,'LineFollow::startIt(int initSpeedLeft, int initSpeedRight, int reduceSpeedTime, byte reducedSpeedLeftMotor, byte reducedSpeedRightMotor)']]],
   ['startparcours',['startParcours',['../class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e',1,'StateMachine']]],
   ['startparcoursatstate',['startParcoursAtState',['../class_state_machine.html#a2581b0509842f049b330fa2c358aaa77',1,'StateMachine']]],
   ['statemachine',['StateMachine',['../class_state_machine.html#a2fb07002510ea9141019559750acfab8',1,'StateMachine']]],
+  ['stopcurrentqueue',['stopCurrentQueue',['../class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6',1,'ExtendedMove']]],
   ['stopparcours',['stopParcours',['../class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a',1,'StateMachine']]]
 ];

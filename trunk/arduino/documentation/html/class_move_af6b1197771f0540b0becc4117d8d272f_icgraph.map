@@ -1,10 +1,18 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="237,82,376,109"/>
-<area shape="rect" id="node5" href="$class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="693,32,809,58"/>
-<area shape="rect" id="node9" href="$class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481" title="LineFollow::startIt" alt="" coords="449,32,573,58"/>
-<area shape="rect" id="node11" href="$class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="425,82,597,109"/>
-<area shape="rect" id="node13" href="$class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="437,133,585,160"/>
-<area shape="rect" id="node18" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="645,184,856,210"/>
-<area shape="rect" id="node7" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="904,133,1048,160"/>
-<area shape="rect" id="node15" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="688,133,813,160"/>
+<area shape="rect" id="node3" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="237,233,376,260"/>
+<area shape="rect" id="node5" href="$class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="425,63,645,89"/>
+<area shape="rect" id="node22" href="$class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="1218,157,1345,184"/>
+<area shape="rect" id="node28" href="$class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481" title="LineFollow::startIt" alt="" coords="473,309,597,336"/>
+<area shape="rect" id="node30" href="$class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c" title="Move::changeMotorSpeed" alt="" coords="449,360,621,387"/>
+<area shape="rect" id="node32" href="$class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="730,139,878,165"/>
+<area shape="rect" id="node38" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="1176,247,1387,273"/>
+<area shape="rect" id="node7" href="$class_extended_move.html#ab03bf2a16ad494c392c209d5c0b3b65d" title="ExtendedMove::doJob" alt="" coords="729,12,879,39"/>
+<area shape="rect" id="node9" href="$class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="693,63,915,89"/>
+<area shape="rect" id="node11" href="$class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="977,56,1114,83"/>
+<area shape="rect" id="node17" href="$class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="1435,5,1551,32"/>
+<area shape="rect" id="node20" href="$class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="963,157,1128,184"/>
+<area shape="rect" id="node13" href="$class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="1207,56,1356,83"/>
+<area shape="rect" id="node15" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="1600,107,1744,133"/>
+<area shape="rect" id="node24" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="1435,157,1552,184"/>
+<area shape="rect" id="node34" href="$class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="983,107,1108,133"/>
 </map>

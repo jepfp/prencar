@@ -1,6 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="254,5,410,32"/>
-<area shape="rect" id="node9" href="$class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd" title="StateMachine::changeState" alt="" coords="241,56,423,83"/>
-<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="473,31,621,57"/>
-<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="669,31,904,57"/>
+<area shape="rect" id="node3" href="$class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6" title="ExtendedMove::stopCurrentQueue" alt="" coords="241,5,461,32"/>
+<area shape="rect" id="node5" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="273,56,429,83"/>
+<area shape="rect" id="node11" href="$class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd" title="StateMachine::changeState" alt="" coords="259,107,442,133"/>
+<area shape="rect" id="node7" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="510,81,658,108"/>
+<area shape="rect" id="node9" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="707,81,941,108"/>
 </map>

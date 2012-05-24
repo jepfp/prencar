@@ -1,9 +1,12 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$_communication_8h.html" title="Communication.h" alt="" coords="277,304,400,331"/>
-<area shape="rect" id="node8" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="94,379,201,405"/>
-<area shape="rect" id="node15" href="$_line_follow_8h.html" title="LineFollow.h" alt="" coords="227,155,321,181"/>
-<area shape="rect" id="node23" href="$_curve_left_8h.html" title="CurveLeft.h" alt="" coords="398,80,484,107"/>
-<area shape="rect" id="node27" href="$_lift_cube_8h.html" title="LiftCube.h" alt="" coords="496,229,576,256"/>
-<area shape="rect" id="node11" href="$_command_8h.html" title="Command.h" alt="" coords="329,379,420,405"/>
-<area shape="rect" id="node19" href="$_move_8h.html" title="Move.h" alt="" coords="209,229,271,256"/>
+<area shape="rect" id="node5" href="$_communication_8h.html" title="Communication.h" alt="" coords="453,379,576,405"/>
+<area shape="rect" id="node8" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="586,453,693,480"/>
+<area shape="rect" id="node15" href="$_line_follow_8h.html" title="LineFollow.h" alt="" coords="306,229,400,256"/>
+<area shape="rect" id="node23" href="$_curve_left_8h.html" title="CurveLeft.h" alt="" coords="153,80,239,107"/>
+<area shape="rect" id="node27" href="$_extended_move_8h.html" title="ExtendedMove.h" alt="" coords="163,229,281,256"/>
+<area shape="rect" id="node36" href="$_lift_cube_8h.html" title="LiftCube.h" alt="" coords="680,304,760,331"/>
+<area shape="rect" id="node42" href="$_cube_approach_8h.html" title="CubeApproach.h" alt="" coords="417,155,535,181"/>
+<area shape="rect" id="node11" href="$_command_8h.html" title="Command.h" alt="" coords="470,453,561,480"/>
+<area shape="rect" id="node19" href="$_move_8h.html" title="Move.h" alt="" coords="249,304,311,331"/>
+<area shape="rect" id="node31" href="$_line_center_8h.html" title="LineCenter.h" alt="" coords="94,155,188,181"/>
 </map>

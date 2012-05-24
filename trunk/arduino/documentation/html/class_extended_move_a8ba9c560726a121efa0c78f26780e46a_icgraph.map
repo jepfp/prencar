@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="432,5,579,32"/>
+<area shape="rect" id="node10" href="$class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="448,56,563,83"/>
+<area shape="rect" id="node13" href="$class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="237,107,384,133"/>
+<area shape="rect" id="node16" href="$class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="249,157,372,184"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="627,31,768,57"/>
+<area shape="rect" id="node7" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="817,31,994,57"/>
+</map>

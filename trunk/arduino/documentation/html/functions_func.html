@@ -97,11 +97,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
     </ul>
   </div>
@@ -138,12 +140,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>begin()
-: <a class="el" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">CurveLeft</a>
+: <a class="el" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">CubeApproach</a>
 , <a class="el" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8">StateMachine</a>
 , <a class="el" href="class_sensor_debug.html#a6a5a39f8183bcf051170051888b6ba97">SensorDebug</a>
 , <a class="el" href="class_move.html#afcff6c5d4fd9e58382ee01d6270f4707">Move</a>
 , <a class="el" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48">LineFollow</a>
+, <a class="el" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d">LineCenter</a>
 , <a class="el" href="class_lift_cube.html#a9da2ca841910ad988f5b7e0313714968">LiftCube</a>
+, <a class="el" href="class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149">ExtendedMove</a>
+, <a class="el" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">CurveLeft</a>
 </li>
 </ul>
 
@@ -180,6 +185,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>copyBytesUntil()
 : <a class="el" href="class_command.html#ad23d2c8f8c6c24b71bae06c5aefcc537">Command</a>
 </li>
+<li>CubeApproach()
+: <a class="el" href="class_cube_approach.html#aa02cb409570970adeb89e13c12678254">CubeApproach</a>
+</li>
 <li>CurveLeft()
 : <a class="el" href="class_curve_left.html#ad874ee9409da16dccd20549e6c2726b5">CurveLeft</a>
 </li>
@@ -187,13 +195,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>doCorrection()
+: <a class="el" href="class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7">LineCenter</a>
+</li>
 <li>doJob()
-: <a class="el" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963">Communication</a>
-, <a class="el" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">StateMachine</a>
+: <a class="el" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">StateMachine</a>
 , <a class="el" href="class_sensor_debug.html#a4d1d3e3732cdc45c7c191330bbc09327">SensorDebug</a>
 , <a class="el" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">LineFollow</a>
+, <a class="el" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f">LineCenter</a>
 , <a class="el" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6">LiftCube</a>
+, <a class="el" href="class_extended_move.html#ab03bf2a16ad494c392c209d5c0b3b65d">ExtendedMove</a>
 , <a class="el" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">CurveLeft</a>
+, <a class="el" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">CubeApproach</a>
+, <a class="el" href="class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963">Communication</a>
 </li>
 </ul>
 
@@ -201,6 +215,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
 <li>equalizeMotorsSpeed()
 : <a class="el" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692">Move</a>
+</li>
+<li>executeCommand()
+: <a class="el" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee">ExtendedMove</a>
+</li>
+<li>ExtendedMove()
+: <a class="el" href="class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528">ExtendedMove</a>
 </li>
 </ul>
 
@@ -212,6 +232,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getConfigurationVersion()
 : <a class="el" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">Configuration</a>
 </li>
+<li>getCurrentCommandIndexInQueue()
+: <a class="el" href="class_extended_move.html#a27d912c36366495cd3b6b75f70b2b187">ExtendedMove</a>
+</li>
+<li>getCurrentCommandInQueue()
+: <a class="el" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054">ExtendedMove</a>
+</li>
+<li>getCurrentCommandQueueId()
+: <a class="el" href="class_extended_move.html#af44fd7e191b2484d1b70450835b43604">ExtendedMove</a>
+</li>
 <li>getCurrentConfiguration()
 : <a class="el" href="class_configuration.html#a0b0009b5114b418831478c031372d12c">Configuration</a>
 </li>
@@ -219,12 +248,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_configuration.html#a6ecb6e35520b0877eb8a1ccb47b577b4">Configuration</a>
 </li>
 <li>getInstance()
-: <a class="el" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850">Move</a>
-, <a class="el" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169">SensorDebug</a>
-, <a class="el" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd">Communication</a>
-, <a class="el" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">StateMachine</a>
+: <a class="el" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd">Communication</a>
 , <a class="el" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e">Configuration</a>
+, <a class="el" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a">ExtendedMove</a>
 , <a class="el" href="class_lift_cube.html#a7482caae31a755370d072f6ec85ad598">LiftCube</a>
+, <a class="el" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850">Move</a>
+, <a class="el" href="class_sensor_debug.html#aebe52870c5631e86d2b175ffd958c169">SensorDebug</a>
+, <a class="el" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">StateMachine</a>
 </li>
 <li>getMessageFilterLevel()
 : <a class="el" href="class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e">Configuration</a>
@@ -253,6 +283,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 
 
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>isExecutionInProcess()
+: <a class="el" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">ExtendedMove</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>LiftCube()
 : <a class="el" href="class_lift_cube.html#a5bf2f6939ce4578fbf54d9214dd91fb3">LiftCube</a>
@@ -265,6 +302,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>liftUp()
 : <a class="el" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">LiftCube</a>
+</li>
+<li>LineCenter()
+: <a class="el" href="class_line_center.html#adee08b78d744f632971ae14d653f36a0">LineCenter</a>
 </li>
 <li>LineFollow()
 : <a class="el" href="class_line_follow.html#ace2e49549627ad0682ed71e0be714086">LineFollow</a>
@@ -293,6 +333,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>readBottomSensors()
+: <a class="el" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">CubeApproach</a>
+</li>
 <li>readFrontLineSensors()
 : <a class="el" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634">LineFollow</a>
 </li>
@@ -301,6 +344,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>readSensorAndSendValue()
 : <a class="el" href="class_sensor_debug.html#a857e98949954a1bee4ab5ecaf502cf89">SensorDebug</a>
+</li>
+<li>readTopSensors()
+: <a class="el" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">CubeApproach</a>
 </li>
 </ul>
 
@@ -357,9 +403,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setRightMotorDirection()
 : <a class="el" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">Move</a>
 </li>
+<li>startCurrentQueue()
+: <a class="el" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba">ExtendedMove</a>
+</li>
 <li>startIt()
-: <a class="el" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">CurveLeft</a>
-, <a class="el" href="class_line_follow.html#a46aa4b76c945adf0119a5dbb83a47481">LineFollow</a>
+: <a class="el" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">CubeApproach</a>
+, <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow</a>
+, <a class="el" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">CurveLeft</a>
+, <a class="el" href="class_line_center.html#a736d4cd402c6dc398b374cae8aab5740">LineCenter</a>
 </li>
 <li>startParcours()
 : <a class="el" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">StateMachine</a>
@@ -370,8 +421,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>StateMachine()
 : <a class="el" href="class_state_machine.html#a2fb07002510ea9141019559750acfab8">StateMachine</a>
 </li>
+<li>stopCurrentQueue()
+: <a class="el" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6">ExtendedMove</a>
+</li>
 <li>stopParcours()
 : <a class="el" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">StateMachine</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>tryToDetectCube()
+: <a class="el" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">CubeApproach</a>
+</li>
+<li>turn()
+: <a class="el" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">CubeApproach</a>
 </li>
 </ul>
 
@@ -386,7 +450,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Wed May 9 2012 23:52:15 for prencar by
+    <li class="footer">Generated on Thu May 24 2012 09:20:26 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

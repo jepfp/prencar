@@ -26,7 +26,7 @@ SensorDebug* SensorDebug::getInstance()
  */
 SensorDebug::SensorDebug()
 {
-
+  _debuggerActive = false;
 }
 
 /**

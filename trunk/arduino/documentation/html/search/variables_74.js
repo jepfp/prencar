@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timesincecorrectionstarted',['timeSinceCorrectionStarted',['../class_line_follow.html#aca2ef7b59aca4bf6e1e331d927492397',1,'LineFollow']]]
+  ['turnedleft',['turnedLeft',['../struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5',1,'CubeDetection']]],
+  ['turnedright',['turnedRight',['../struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd',1,'CubeDetection']]]
 ];
