@@ -78,20 +78,30 @@ newAverageSpeed: %%");
             messages.Add(63, "Lift cube started...");
             messages.Add(64, "Finishing lift cube by lifting up hoist...");
             messages.Add(65, "Set hoist position to %%.");
-            messages.Add(66, @"Left line sensor detected white ground (Value: %%).");
+            messages.Add(66, @"Left line sensor detected white ground (Value: %%). Starting line centering.");
             messages.Add(67, @"Start driving curve left.");
             messages.Add(68, @"Free memory: %% (place of measurement: %%)");
             messages.Add(69, @"End switch has been set to one --> Lift cube.");
             messages.Add(70, @"Changed speed of left motor to %% and right motor to %%.");
             messages.Add(71, @"Line follow process switches after %% milliseconds to reduced base speed (left: %%, right: %%).");
             messages.Add(72, @"Cube not detected (left bottom: %%, right bottom: %%)");
-            messages.Add(73, @"Cube detected with both sensors (left bottom: %%, right bottom: %%");
+            messages.Add(73, @"Cube detected with both sensors (left bottom: %%, right bottom: %%)");
             messages.Add(74, @"Cube approach: Verification of left bottom sensor failed (bottom: %%, top: %%).");
             messages.Add(75, @"Cube approach: Verification of right bottom sensor failed (bottom: %%, top: %%).");
             messages.Add(76, @"Cube with left sensor detected: (left: %%, right: %%).");
             messages.Add(77, @"Cube with right sensor detected: (left: %%, right: %%).");
             messages.Add(78, @"Cube detected with left sensor. Turning right.");
             messages.Add(79, @"Cube detected with right sensor. Turning left.");
+            messages.Add(80, @"Execution of extended move command queue with id %% has finished.");
+            messages.Add(81, @"Executing extended move command #%% (0 based index) out of %% commands from command queue #%% for %% milliseconds.");
+            messages.Add(82, @"Started execution of extended move command queue #%% with %% commands.");
+            messages.Add(83, @"No cube detection is done because turning is still in progress.");
+            messages.Add(84, @"Starting line centering process from left.");
+            messages.Add(85, @"Starting line centering process from right.");
+            messages.Add(86, @"The car is aligned the line. Line Center process has finished.");
+            messages.Add(87, @"Car centering: Sensor measured black --> driving straight (left sensor: %%, right sensor: %%, threshold: %%).");
+            messages.Add(88, @"Car centering: Driving curve (left sensor: %%, right sensor: %%, threshold: %%).");
+            messages.Add(89, @"Car centering: Correction in progress.");
             #endregion
 
             #region 100-149 Information
@@ -140,8 +150,20 @@ lineFollowReducedSpeedLeft:%%
 lineFollowReducedSpeedRight:%%
 lineFollowReduceSpeedTimeFirstLine:%%
 lineFollowReduceSpeedTimeSecondLine:%%
+lineFollowReduceSpeedTimeThirdLine:%%
 cubeApproachDetectThreshold:%%
-cubeApproachInterval:%%");
+cubeApproachInterval:%%
+cubeApproachTurnDuration:%%
+cubeApproachTurnSpeedSlowMotor:%%
+cubeApproachTurnSpeedFastMotor:%%
+curveDriveStraightTime:%%
+lineFollowActivateFrontSensorOffset:%%
+lineCenterInterval:%%
+lineCenterLineInMiddleDifference:%%
+lineCenterFastMotor:%%
+lineCenterSlowMotor:%%
+lineCenterStraightSpeed:%%
+lineCenterDriveBackDuration:%%");
             messages.Add(205, "Starting parcours at state %%.");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");

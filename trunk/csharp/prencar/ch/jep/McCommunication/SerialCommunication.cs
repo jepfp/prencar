@@ -116,7 +116,7 @@ namespace ch.jep.McCommunication
 
         public void SendCommand(String command)
         {
-            if (command.Length > 128)
+            if (command.Length > 256)
             {
                 throw new Exception("To many characters. Check the incoming data buffer of the board!!");
             }

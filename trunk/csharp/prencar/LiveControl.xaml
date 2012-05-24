@@ -5,9 +5,9 @@
     <Grid>
         <GroupBox Header="Motor Speed" Height="167" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="96">
             <Grid>
-                <Slider Height="100" HorizontalAlignment="Left" Margin="11,6,0,0" Name="sSpeedLeftMotor" VerticalAlignment="Top" Width="23" Orientation="Vertical" Maximum="255" SmallChange="1" TickFrequency="17" TickPlacement="TopLeft" Value="150" IsSnapToTickEnabled="True" />
+                <Slider Height="100" HorizontalAlignment="Left" Margin="11,6,0,0" Name="sSpeedLeftMotor" VerticalAlignment="Top" Width="23" Orientation="Vertical" Maximum="255" SmallChange="1" TickFrequency="17" TickPlacement="TopLeft" Value="200" IsSnapToTickEnabled="True" />
                 <TextBox Height="23" HorizontalAlignment="Left" Margin="6,112,0,0" Name="tbSpeedLeftMotor" VerticalAlignment="Top" Width="33" Text="{Binding ElementName=sSpeedLeftMotor, Path=Value}" TextChanged="tbSpeedLeftMotor_TextChanged" />
-                <Slider Height="100" HorizontalAlignment="Left" IsSnapToTickEnabled="True" Margin="50,6,0,0" Maximum="255" Name="sSpeedRightMotor" Orientation="Vertical" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="150" VerticalAlignment="Top" Width="23" />
+                <Slider Height="100" HorizontalAlignment="Left" IsSnapToTickEnabled="True" Margin="50,6,0,0" Maximum="255" Name="sSpeedRightMotor" Orientation="Vertical" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="200" VerticalAlignment="Top" Width="23" />
                 <TextBox Height="23" HorizontalAlignment="Left" Margin="45,112,0,0" Name="tbSpeedRightMotor" Text="{Binding ElementName=sSpeedRightMotor, Path=Value}" VerticalAlignment="Top" Width="33" TextChanged="tbSpeedRightMotor_TextChanged" />
             </Grid>
         </GroupBox>
