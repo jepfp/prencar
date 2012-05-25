@@ -102,6 +102,8 @@ newAverageSpeed: %%");
             messages.Add(87, @"Car centering: Sensor measured black --> driving straight (left sensor: %%, right sensor: %%, threshold: %%).");
             messages.Add(88, @"Car centering: Driving curve (left sensor: %%, right sensor: %%, threshold: %%).");
             messages.Add(89, @"Car centering: Correction in progress.");
+            messages.Add(90, @"Cube approach: Starting 'stop car' action (ext move command).");
+            messages.Add(91, @"Cube approach: 'stop car' action (ext move command) has finished after %%ms.");
             #endregion
 
             #region 100-149 Information
