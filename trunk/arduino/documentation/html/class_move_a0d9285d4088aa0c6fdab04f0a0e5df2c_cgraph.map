@@ -1,7 +1,6 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="435,5,583,32"/>
-<area shape="rect" id="node7" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="227,56,365,83"/>
-<area shape="rect" id="node5" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="653,5,888,32"/>
-<area shape="rect" id="node10" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="418,56,601,83"/>
-<area shape="rect" id="node12" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="413,107,605,133"/>
+<area shape="rect" id="node5" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="227,56,365,83"/>
+<area shape="rect" id="node8" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="418,56,601,83"/>
+<area shape="rect" id="node10" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="413,107,605,133"/>
 </map>

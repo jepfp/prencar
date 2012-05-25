@@ -1,9 +1,8 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="814,28,962,54"/>
-<area shape="rect" id="node7" href="$class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="306,28,526,54"/>
-<area shape="rect" id="node17" href="$class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="275,78,557,105"/>
-<area shape="rect" id="node5" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="1032,28,1267,54"/>
-<area shape="rect" id="node10" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="605,78,744,105"/>
-<area shape="rect" id="node13" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="797,78,979,105"/>
-<area shape="rect" id="node15" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="792,129,984,156"/>
+<area shape="rect" id="node5" href="$class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="306,28,526,54"/>
+<area shape="rect" id="node15" href="$class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="275,78,557,105"/>
+<area shape="rect" id="node8" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="605,78,744,105"/>
+<area shape="rect" id="node11" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="797,78,979,105"/>
+<area shape="rect" id="node13" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="792,129,984,156"/>
 </map>

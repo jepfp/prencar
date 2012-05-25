@@ -38,6 +38,7 @@ var NAVTREEINDEX =
 "functions_0x73.html":[1,3,0,14],
 "functions_0x74.html":[1,3,0,15],
 "functions_0x75.html":[1,3,0,16],
+"functions_0x77.html":[1,3,0,17],
 "functions_func.html":[1,3,1],
 "functions_vars.html":[1,3,2],
 "files.html":[2,0],

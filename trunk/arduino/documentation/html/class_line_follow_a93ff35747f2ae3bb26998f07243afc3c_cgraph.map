@@ -1,11 +1,10 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="416,5,635,32"/>
 <area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="705,132,853,159"/>
-<area shape="rect" id="node10" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="447,107,603,133"/>
-<area shape="rect" id="node13" href="$class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="179,157,367,184"/>
-<area shape="rect" id="node16" href="$class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="199,208,347,235"/>
-<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="923,132,1157,159"/>
-<area shape="rect" id="node19" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="456,259,595,285"/>
-<area shape="rect" id="node22" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="687,233,870,260"/>
-<area shape="rect" id="node24" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="683,284,875,311"/>
+<area shape="rect" id="node8" href="$class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="447,107,603,133"/>
+<area shape="rect" id="node11" href="$class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="179,157,367,184"/>
+<area shape="rect" id="node14" href="$class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="199,208,347,235"/>
+<area shape="rect" id="node17" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="456,259,595,285"/>
+<area shape="rect" id="node20" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="687,233,870,260"/>
+<area shape="rect" id="node22" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="683,284,875,311"/>
 </map>

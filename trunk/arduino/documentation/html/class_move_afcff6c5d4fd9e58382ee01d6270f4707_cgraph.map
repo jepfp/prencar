@@ -1,10 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="221,5,347,32"/>
-<area shape="rect" id="node8" href="$class_configuration.html#aecc6c34b834bb9adb42d5f8c7314cd9c" title="Configuration::getMovePwmLeftPin" alt="" coords="173,56,395,83"/>
-<area shape="rect" id="node10" href="$class_configuration.html#a156dc7d1360c8e70c7aba5eb20481afa" title="Configuration::getMovePwmRightPin" alt="" coords="169,107,399,133"/>
-<area shape="rect" id="node12" href="$class_configuration.html#aa1599159aa8233fe3f974fb2e51129e4" title="Configuration::getMoveModeFirstLeftPin" alt="" coords="159,157,409,184"/>
-<area shape="rect" id="node14" href="$class_configuration.html#a4d1252f0afd9ebb35cc7f38a769fdeff" title="Configuration::getMoveModeSecondLeftPin" alt="" coords="149,208,419,235"/>
-<area shape="rect" id="node16" href="$class_configuration.html#a9bf200a445b05745a678d18e46ca446d" title="Configuration::getMoveModeFirstRightPin" alt="" coords="154,259,414,285"/>
-<area shape="rect" id="node18" href="$class_configuration.html#a2c95181edbee124c040f5db52c15fdb6" title="Configuration::getMoveModeSecondRightPin" alt="" coords="145,309,423,336"/>
-<area shape="rect" id="node5" href="$class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="472,5,563,32"/>
+<area shape="rect" id="node3" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="145,5,271,32"/>
+<area shape="rect" id="node5" href="$class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="320,5,411,32"/>
 </map>

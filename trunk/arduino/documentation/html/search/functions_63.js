@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['calibratesensors',['calibrateSensors',['../class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39',1,'LineFollow']]],
   ['changeactivatemessagefilter',['changeActivateMessageFilter',['../class_state_machine.html#afef8b4998682dc7448db148a4a3de74e',1,'StateMachine']]],
   ['changemotorspeed',['changeMotorSpeed',['../class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c',1,'Move']]],
   ['changestate',['changeState',['../class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd',1,'StateMachine']]],

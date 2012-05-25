@@ -1,6 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="566,5,714,32"/>
-<area shape="rect" id="node7" href="$class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="173,31,296,57"/>
-<area shape="rect" id="node5" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="763,5,997,32"/>
-<area shape="rect" id="node9" href="$class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="345,31,517,57"/>
+<area shape="rect" id="node5" href="$class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="173,31,296,57"/>
+<area shape="rect" id="node7" href="$class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="345,31,517,57"/>
 </map>

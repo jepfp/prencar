@@ -1,9 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="294,56,559,83"/>
+<area shape="rect" id="node3" href="$class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="294,81,559,108"/>
 <area shape="rect" id="node5" href="$class_communication.html#a43c8f2812f29ab78f7213838e715cf49" title="Communication::checkCommands" alt="" coords="613,5,835,32"/>
-<area shape="rect" id="node9" href="$class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="630,56,818,83"/>
-<area shape="rect" id="node15" href="$class_state_machine.html#a2581b0509842f049b330fa2c358aaa77" title="StateMachine::startParcoursAtState" alt="" coords="608,107,840,133"/>
+<area shape="rect" id="node9" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="888,107,1099,133"/>
+<area shape="rect" id="node13" href="$class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="630,107,818,133"/>
+<area shape="rect" id="node16" href="$class_state_machine.html#a2581b0509842f049b330fa2c358aaa77" title="StateMachine::startParcoursAtState" alt="" coords="608,157,840,184"/>
 <area shape="rect" id="node7" href="$class_communication.html#ab405d4412e7f2515e4fdc2e61a8d5963" title="Communication::doJob" alt="" coords="916,5,1071,32"/>
-<area shape="rect" id="node11" href="$class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="888,81,1099,108"/>
-<area shape="rect" id="node13" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="1147,81,1291,108"/>
+<area shape="rect" id="node11" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="1147,107,1291,133"/>
 </map>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['calibratesensors',['calibrateSensors',['../class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39',1,'LineFollow']]],
   ['changeactivatemessagefilter',['changeActivateMessageFilter',['../class_state_machine.html#afef8b4998682dc7448db148a4a3de74e',1,'StateMachine']]],
   ['changemotorspeed',['changeMotorSpeed',['../class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c',1,'Move']]],
   ['changestate',['changeState',['../class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd',1,'StateMachine']]],
@@ -25,11 +24,16 @@ var searchData=
   ['cubeapproachinterval',['cubeApproachInterval',['../class_configuration.html#abab4e9ea7d056a9dbcd50dafbe24d6a0',1,'Configuration']]],
   ['cubeapproachleftbottomsensor',['cubeApproachLeftBottomSensor',['../class_configuration.html#a64566ef4e13d578a41614a643acfdd51',1,'Configuration']]],
   ['cubeapproachlefttopsensor',['cubeApproachLeftTopSensor',['../class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b',1,'Configuration']]],
+  ['cubeapproachlinefollowreducedspeedleft',['cubeApproachLineFollowReducedSpeedLeft',['../class_configuration.html#a9a580fe87402bf1d5b7bc29ba9eff0c5',1,'Configuration']]],
+  ['cubeapproachlinefollowreducedspeedright',['cubeApproachLineFollowReducedSpeedRight',['../class_configuration.html#ae920e24aa143468fb512ffc9ac2f07e0',1,'Configuration']]],
+  ['cubeapproachlinefollowreducespeedtime',['cubeApproachLineFollowReduceSpeedTime',['../class_configuration.html#af79ee39fe47d0ccd880559a62bdc17e7',1,'Configuration']]],
   ['cubeapproachrightbottomsensor',['cubeApproachRightBottomSensor',['../class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1',1,'Configuration']]],
   ['cubeapproachrighttopsensor',['cubeApproachRightTopSensor',['../class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d',1,'Configuration']]],
+  ['cubeapproachstraightspeed',['cubeApproachStraightSpeed',['../class_configuration.html#a905f3bbd8e6b527a0e21092d682a4a6e',1,'Configuration']]],
   ['cubeapproachturnduration',['cubeApproachTurnDuration',['../class_configuration.html#a9da11857b45fd2f6773dbcdfc7331b40',1,'Configuration']]],
   ['cubeapproachturnspeedfastmotor',['cubeApproachTurnSpeedFastMotor',['../class_configuration.html#a38804c3d44ecfb2d0fb3946663c6cd93',1,'Configuration']]],
   ['cubeapproachturnspeedslowmotor',['cubeApproachTurnSpeedSlowMotor',['../class_configuration.html#aa284621b913e16639f3389791c5eb28a',1,'Configuration']]],
+  ['cubeapproachusetopsensors',['cubeApproachUseTopSensors',['../class_configuration.html#a90bbb5bb0965db13214cd9f383d7c96f',1,'Configuration']]],
   ['cubedetection',['CubeDetection',['../struct_cube_detection.html',1,'']]],
   ['cubedetections',['cubeDetections',['../class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9',1,'CubeApproach']]],
   ['cubeiscentered',['cubeIsCentered',['../struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656',1,'CubeDetection']]],
@@ -41,5 +45,7 @@ var searchData=
   ['curveleft_2ecpp',['CurveLeft.cpp',['../_curve_left_8cpp.html',1,'']]],
   ['curveleft_2eh',['CurveLeft.h',['../_curve_left_8h.html',1,'']]],
   ['curvespeedfastmotor',['curveSpeedFastMotor',['../class_configuration.html#a01c64f5ae58a66ab565936b67bbb2b58',1,'Configuration']]],
-  ['curvespeedslowmotor',['curveSpeedSlowMotor',['../class_configuration.html#affa93f2156dbf8041bf4b8084051cd83',1,'Configuration']]]
+  ['curvespeedslowmotor',['curveSpeedSlowMotor',['../class_configuration.html#affa93f2156dbf8041bf4b8084051cd83',1,'Configuration']]],
+  ['curvestopduration',['curveStopDuration',['../class_configuration.html#aa88d485a2c671d043ff03b8222f3d880',1,'Configuration']]],
+  ['curvestopspeed',['curveStopSpeed',['../class_configuration.html#a6478e762e926dc1a0a534f158b50d0d1',1,'Configuration']]]
 ];

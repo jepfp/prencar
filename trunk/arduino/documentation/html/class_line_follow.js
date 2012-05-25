@@ -2,7 +2,6 @@ var class_line_follow =
 [
     [ "LineFollow", "class_line_follow.html#ace2e49549627ad0682ed71e0be714086", null ],
     [ "begin", "class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48", null ],
-    [ "calibrateSensors", "class_line_follow.html#a9db172747e4457a6b01f8d27ed41ac39", null ],
     [ "doJob", "class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c", null ],
     [ "readFrontLineSensors", "class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634", null ],
     [ "readLineSensors", "class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d", null ],

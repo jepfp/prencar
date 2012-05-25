@@ -16,12 +16,6 @@ var class_move =
     [ "_dirRightMotor", "class_move.html#ace1041b9df6281fdc960013ccac5c32a", null ],
     [ "_instance", "class_move.html#a1ce3157933da403944e754b380365c93", null ],
     [ "_instanceCreated", "class_move.html#ab5a52d3f029707c767ef27a44fa5269a", null ],
-    [ "_modeFirstLeftPin", "class_move.html#a764f1ffe93f4a0793257351fdc1297eb", null ],
-    [ "_modeFirstRightPin", "class_move.html#acce4bc3657e0c5e0b9e0360306dcb1ad", null ],
-    [ "_modeSecondLeftPin", "class_move.html#ac74fa5cde8e507bd53fa47adfa80c19f", null ],
-    [ "_modeSecondRightPin", "class_move.html#a5bebefe9530ab54b6de73aa8cf08c477", null ],
-    [ "_pwmLeftPin", "class_move.html#a25f061becd68304548bad61fad7550b4", null ],
-    [ "_pwmRightPin", "class_move.html#adf25d07750cdd6f8ac4938cf82165296", null ],
     [ "_speedLeft", "class_move.html#ada9423f195c9ee65b5448fcaabb96877", null ],
     [ "_speedRight", "class_move.html#a13362460beddf2de2415d51f3ed70841", null ]
 ];

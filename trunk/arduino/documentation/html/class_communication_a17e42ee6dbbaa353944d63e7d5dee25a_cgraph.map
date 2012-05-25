@@ -1,5 +1,4 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="320,5,560,32"/>
 <area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="366,56,514,83"/>
-<area shape="rect" id="node7" href="$class_configuration.html#ad398e1915b07ffc4091d4d5827bd6c6e" title="Configuration::getMessageFilterLevel" alt="" coords="608,56,843,83"/>
 </map>
