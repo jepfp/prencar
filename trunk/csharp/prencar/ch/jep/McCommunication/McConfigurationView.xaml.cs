@@ -31,7 +31,7 @@ namespace ch.jep.McCommunication
             this.currentConf = currentConf;
             this.sc = sc;
 
-            refreshConfigurationList();
+            RefreshConfigurationList();
         }
 
         private void lbAvailableConfigurations_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -49,7 +49,7 @@ namespace ch.jep.McCommunication
             }
         }
 
-        private void refreshConfigurationList()
+        public void RefreshConfigurationList()
         {
             this.lbAvailableConfigurations.Items.Clear();
             this.lbAvailableConfigurations.Items.Add(currentConf);
@@ -81,11 +81,12 @@ namespace ch.jep.McCommunication
             Debug.Print(command);
             sc.SendCommand(command);
 
-            McConfiguration c = new McConfiguration();
+            /*McConfiguration c = new McConfiguration();
             c.parseFileConfiguration(confToUpload.GetFileConfigurationDump());
             c.Title = "Current Configuration on Car";
-            this.currentConf = c;
-            refreshConfigurationList();
+            this.currentConf = c;*/
+
+            //refreshConfigurationList();
         }
 
         private void btnSelectSourceFolder_Click(object sender, RoutedEventArgs e)
@@ -123,8 +124,14 @@ namespace ch.jep.McCommunication
             if (dialogRes == true)
             {
                 File.WriteAllText(dlg.FileName, confToDuplicate.GetFileConfigurationDump());
-                refreshConfigurationList();
+                RefreshConfigurationList();
             }
+        }
+
+        internal void DisplayConfigUpdateError(Message message)
+        {
+            MessageBox.Show(message.MessageCombined, "Error while updating the configuration", MessageBoxButton.OK, MessageBoxImage.Error);
+            this.RefreshConfigurationList();
         }
     }
 }

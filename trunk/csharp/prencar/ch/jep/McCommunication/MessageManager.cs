@@ -113,6 +113,8 @@ newAverageSpeed: %%");
             #region 150-199 Error
             messages.Add(150, "No empty spot found for new command. Discarding command!!");
             messages.Add(151, "The state %% does not exist or is not yet implemented. Highest implemented state at the moment: %%");
+            messages.Add(152, @"Updating the configuration was not successful because the config versions don't match.
+The microcontrollers current configuration version is %%.");
             #endregion
 
             #region 200-255 User Information
@@ -129,41 +131,53 @@ _calibrationSensorWhiteMin: %%
 _calibrationSensorWhiteMax: %%
 oneThirdOfRange: %% ((BlackMin - WhiteMax) / 3)
 lineFollowWhiteThreshold: %% (WhiteMax + oneThirdOfRange)");
-            messages.Add(204, @"_CONFIGURATIONVERSION:%%
-_SERIALSPEED:%%
+            messages.Add(204, @"CONFIGURATIONVERSION:%%
+SERIALSPEED:%%
 messageFilterLevel:%%
+activateMessageFilter:%% 
 doJobDelay:%%
+whiteThresholdLineSensors:%%
+whiteThresholdFrontSensors:%% 
+lineFollowInterval:%%
 lineFollowInitialSpeedLeft:%%
 lineFollowInitialSpeedRight:%%
-lineFollowInterval:%%
 lineFollowKp:%%
 lineFollowKd:%%
-lineFollowWhiteThreshold:%%
-curveSpeedSlowMotor:%%
-curveSpeedFastMotor:%%
-curveInterval:%%
-curveActivateEndSensorOffset:%%
-sensorDebugInterval:%%
-sensorDebugReadGap:%%
-liftCubeDownUpDuration:%%
 lineFollowReducedSpeedLeft:%%
 lineFollowReducedSpeedRight:%%
 lineFollowReduceSpeedTimeFirstLine:%%
 lineFollowReduceSpeedTimeSecondLine:%%
-lineFollowReduceSpeedTimeThirdLine:%%
+lineFollowActivateFrontSensorOffset:%%
+lineCenterInterval:%%
+lineCenterLineInMiddleDifference:%%
+lineCenterStraightSpeed:%%
+lineCenterFromLeftMotorLeft:%%
+lineCenterFromLeftMotorRight:%%
+lineCenterFromRightMotorLeft:%%
+lineCenterFromRightMotorRight:%%
+lineCenterDriveBackDuration:%%
+liftCubeUpPosition:%%
+liftCubeDownPosition:%%
+liftCubeDownUpDuration:%%
+curveStopDuration:%%
+curveStopSpeed:%%
+curveInterval:%%
+curveSpeedSlowMotor:%%
+curveSpeedFastMotor:%%
+curveDriveStraightTime:%%
+curveActivateEndSensorOffset:%%
+cubeApproachUseTopSensors:%%
+cubeApproachLineFollowReduceSpeedTime:%%
+cubeApproachLineFollowReducedSpeedLeft:%%
+cubeApproachLineFollowReducedSpeedRight:%%
 cubeApproachDetectThreshold:%%
 cubeApproachInterval:%%
 cubeApproachTurnDuration:%%
 cubeApproachTurnSpeedSlowMotor:%%
 cubeApproachTurnSpeedFastMotor:%%
-curveDriveStraightTime:%%
-lineFollowActivateFrontSensorOffset:%%
-lineCenterInterval:%%
-lineCenterLineInMiddleDifference:%%
-lineCenterFastMotor:%%
-lineCenterSlowMotor:%%
-lineCenterStraightSpeed:%%
-lineCenterDriveBackDuration:%%");
+cubeApproachStraightSpeed:%%
+sensorDebugInterval:%%
+sensorDebugReadGap:%%");
             messages.Add(205, "Starting parcours at state %%.");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");

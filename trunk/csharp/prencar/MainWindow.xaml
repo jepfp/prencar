@@ -85,9 +85,6 @@
                 <Button Name="btnOpenMcConfigurationView" ToolTip="Save the selected configuration" Click="btnOpenMcConfigurationView_Click">
                     <Image Name="image4" Stretch="Fill" Source="/prencar;component/Images/database_table.png" ToolTip="Open Configuration Dialog"/>
                     </Button>
-                <Button Name="btnCalibrateLineSensors" ToolTip="Load configuration from microcontroller" Click="btnCalibrateLineSensors_Click">
-                    <Image Name="image2" Stretch="Fill" Source="/prencar;component/Images/vector.png" ToolTip="Calibrate Line Sensors" />
-                </Button>
                 <Button Name="btnOpenLiveControl" IsEnabled="True" Click="btnOpenLiveControl_Click">
                     <Image Name="image1" Stretch="Fill" Source="/prencar;component/Images/controller.png" ToolTip="Open Live Control" />
                 </Button>

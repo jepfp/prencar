@@ -31,6 +31,7 @@ namespace prencar
         McConfiguration conf = new McConfiguration();
         DebugOutputHandler debug;
         private DispatcherTimer stopwatch;
+        McConfigurationView configurationView = null;
 
         enum ParcoursState
         {
@@ -71,6 +72,11 @@ namespace prencar
             {
                 conf.parseFileConfiguration(message.MessageCombined);
                 conf.Title = "Current Configuration on Car";
+                if (configurationView != null) configurationView.RefreshConfigurationList();
+            }
+            else if (message.MessageCode == 152)
+            {
+                if (configurationView != null) configurationView.DisplayConfigUpdateError(message);
             }
             else if (message.MessageCode == 100)
             {
@@ -146,21 +152,14 @@ namespace prencar
 
         private void btnOpenMcConfigurationView_Click(object sender, RoutedEventArgs e)
         {
-            McConfigurationView cv = new McConfigurationView(sc, conf);
-            cv.ShowDialog();
-
-            //after closing, tell the MC to send the new configuration again.
-            sendCommand("100");
+            configurationView = new McConfigurationView(sc, conf);
+            configurationView.ShowDialog();
+            configurationView = null;
         }
 
         private void btnSendDebugSerialCommand_Click(object sender, RoutedEventArgs e)
         {
             sendCommand(tbDebugSerialCommand.Text);
-        }
-
-        private void btnCalibrateLineSensors_Click(object sender, RoutedEventArgs e)
-        {
-            sendCommand("200-0:");
         }
 
         private void btnStartStoppParcours_Click(object sender, RoutedEventArgs e)
