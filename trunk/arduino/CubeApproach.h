@@ -29,6 +29,16 @@ private:
   ExtendedMove* _extMove; ///< The reference to the extended move class.
   
   LineFollow _lineFollow; ///< LineFollow instance for the cube approach.
+  
+  /**
+   * \brief The id of the ext move command that is responsible for stopping the car after the cube has been detected the first time.
+   *
+   * Per default this value is set to -1. This means, that the command has not yet been executed. The doJob() method will therefore
+   * execute this command. After starting it's execution doJob() will wait until the execution of this command has finished. Then
+   * the second part of the cube approach algorithm (second part: cube approach without following the line) starts.
+   */
+  int _stopCarExtMoveCommandId;
+  boolean _stopCarNotYetDone; ///< True as long as "stop car" has not yet been performed. @see _stopCarExtMoveCommandId
 
   void readBottomSensors(int* resultArray);
   void readTopSensors(int* resultArray);

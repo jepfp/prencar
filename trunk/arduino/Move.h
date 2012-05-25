@@ -21,12 +21,6 @@ private:
   static Move _instance;
   static boolean _instanceCreated;
   void begin();
-  byte _pwmLeftPin;
-  byte _pwmRightPin;
-  byte _modeFirstLeftPin;
-  byte _modeSecondLeftPin;
-  byte _modeFirstRightPin;
-  byte _modeSecondRightPin;
   TMotorDirection _dirLeftMotor; ///< current direction of left motor
   TMotorDirection _dirRightMotor; ///< current direction of right motor
   byte _speedLeft; ///< current speed of left motor (pwm value 0-255)

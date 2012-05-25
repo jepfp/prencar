@@ -140,11 +140,6 @@ void StateMachine::checkCommands(){
 
   //the following commands are only available, if the parcours is not started
   if(parcoursState == notStarted || parcoursState == finished){
-    //check for command 200
-    if(_com->getAndRemoveCommandFromReadyCommands(&c, 200)){
-      lineFollow.calibrateSensors();
-    }
-
     //check for command 300
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 300)){
       int* parameters = c.parameters;
@@ -174,8 +169,13 @@ void StateMachine::checkCommands(){
     //check for command 101
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 101)){
       int* parameters = c.parameters;
-      _conf->updateConfiguration(parameters);
-      _com->send(102);
+      if(_conf->updateConfiguration(parameters)){
+        _com->send(102);
+        _com->sendCurrentConfiguration();
+      }
+      else{
+        _com->send(152, _conf->getConfigurationVersion());
+      }
     }
 
     /*----------- offline control car -----------*/
@@ -280,6 +280,7 @@ void StateMachine::changeActivateMessageFilter(boolean newState){
     _com->send(208, 0); 
   }
 }
+
 
 
 

@@ -95,7 +95,7 @@ void LineFollow::doJob(){
 
     //check if a 90° curve is needed (but only if the lineFollowActivateFrontSensorOffset is already reached AND the front line sensors are enabled)
     if((_conf->lineFollowActivateFrontSensorOffset == 0 || millis() > _timeLineFollowStarted + _conf->lineFollowActivateFrontSensorOffset) && frontLineSensorsEnabled){
-      if(sensorValues[0] < _conf->lineFollowWhiteThresholdFrontSensors){
+      if(sensorValues[0] < _conf->whiteThresholdFrontSensors){
         _com->send(55, sensorValues[0]);
         _move->performFastStop();
         hasReachedCurve = true;
@@ -152,82 +152,6 @@ void LineFollow::readLineSensors(int* resultArray){
 
   _com->send(2, resultArray, 2);
 }
-
-/**
- * \brief Calibrates the sensors.
- *
- * This method can be called before the car starts with it's parcours. It evaluates the max and min values
- * for the sensor when it's physical position is on black or white ground. For every position 50 measurements are taken and
- * stored afterwords.<br>
- * This method uses serial communication to instruct the person where to place the car.<br><br>
- * <b>Important: All measurements are done using to front left sensor. The other sensors are not measured separately
- * since we have equivalent sensors.</b>
- * <ol>
- * <li>Calibration function is called. Place the front left sensor on black ground. The microcontroller sleeps for 10 seconds.</li>
- * <li>50 measurements are taken (time between measurements: 100ms).</li>
- * <li>The minimum and maximum measured value are evaluated and stored into _calibrationSensorBlackMin and _calibrationSensorBlackMax.</li>
- * <li>Place the front left sensor on white ground. The microcontroller sleeps for 10 seconds.</li>
- * <li>50 measurements are taken (time between measurements: 100ms).</li>
- * <li>The minimum and maximum measured value are evaluated and stored into _calibrationSensorWhiteMin and _calibrationSensorWhiteMax.</li>
- * <li>Out of this measurements the Configuration::lineFollowWhiteThreshold value gets calculated and stored. It will be +100 than _calibrationSensorWhiteMax.</li> 
- * </ol>
- * @see Configuration::lineFollowWhiteThreshold
- * @todo The calculation of Configuration::lineFollowWhiteThreshold can be done using some config value as well so that the behavior can be influenced by the configuration.
- */
-void LineFollow::calibrateSensors(){
-  float sensorValue;
-  _com->send(200);
-  delay(10000);
-  _com->send(201);
-
-  //sensor measurement on black ground
-  _calibrationSensorBlackMin = 1023;
-  _calibrationSensorBlackMax = 0;
-  for(byte i = 0; i < 50; i++){
-    sensorValue = analogRead(_conf->lineFollowLeftFrontSensorPin);
-    if(sensorValue < _calibrationSensorBlackMin){
-      _calibrationSensorBlackMin = sensorValue;
-    }
-    if(sensorValue > _calibrationSensorBlackMax){
-      _calibrationSensorBlackMax = sensorValue;
-    }
-    delay(100);
-  }
-
-  _com->send(202);
-  delay(10000);
-  _com->send(201);
-
-  //sensor measurement on white ground
-  _calibrationSensorWhiteMin = 1023;
-  _calibrationSensorWhiteMax = 0;
-  for(byte i = 0; i < 50; i++){
-    sensorValue = analogRead(_conf->lineFollowLeftFrontSensorPin);
-    if(sensorValue < _calibrationSensorWhiteMin){
-      _calibrationSensorWhiteMin = sensorValue;
-    }
-    if(sensorValue > _calibrationSensorWhiteMax){
-      _calibrationSensorWhiteMax = sensorValue;
-    }
-    delay(100);
-  }
-
-  //calculate the white threshold value
-  int rangeWhiteMaxToBlackMin = _calibrationSensorBlackMin - _calibrationSensorWhiteMax;
-  //calculate 1/3 out of the range and add it to the whiteMax. This will be the new whiteThreshold value.
-  //(We know that the calculation doesn't use float even though a division is made here.)
-  int oneThirdOfRange = rangeWhiteMaxToBlackMin/3;
-  _conf->lineFollowWhiteThresholdFrontSensors = _calibrationSensorWhiteMax + oneThirdOfRange;
-
-  int measurements[] = {
-    _calibrationSensorBlackMin, _calibrationSensorBlackMax, _calibrationSensorWhiteMin, _calibrationSensorWhiteMax,
-    oneThirdOfRange, _conf->lineFollowWhiteThresholdFrontSensors
-  };
-
-  _com->send(203, measurements, 6);
-}
-
-
 
 
 

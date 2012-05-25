@@ -133,7 +133,7 @@ boolean Communication::getAndRemoveCommandFromReadyCommands(Command* c, int comm
  * @param messageId Id of the message that will be sent.
  */
 void Communication::send(byte messageId){
-  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
+  if(messageId > _config->messageFilterLevel || !_config->activateMessageFilter){
     sc.println(messageId);
   }
 }
@@ -144,7 +144,7 @@ void Communication::send(byte messageId){
  * @param param Parameter that will be sent with this message.
  */
 void Communication::send(byte messageId, long param){
-  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
+  if(messageId > _config->messageFilterLevel || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print(":");
     sc.println(param);
@@ -160,7 +160,7 @@ void Communication::send(byte messageId, long param){
  * @param param Parameter that will be sent with this message.
  */
 void Communication::sendBinary(byte messageId, unsigned long param){
-  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
+  if(messageId > _config->messageFilterLevel || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print(":");
     sc.print(param, DEC);
@@ -180,7 +180,7 @@ void Communication::sendBinary(byte messageId, unsigned long param){
  * @param paramSize Size of params[].
  */
 void Communication::send(byte messageId, const long params[], byte paramSize){
-  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
+  if(messageId > _config->messageFilterLevel || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print("-");
     sc.print(paramSize);
@@ -202,7 +202,7 @@ void Communication::send(byte messageId, const long params[], byte paramSize){
  * @todo Find a better implementation so that we don't have a copy of code.
  */
 void Communication::send(byte messageId, const int params[], byte paramSize){
-  if(messageId > _config->getMessageFilterLevel() || !_config->activateMessageFilter){
+  if(messageId > _config->messageFilterLevel || !_config->activateMessageFilter){
     sc.print(messageId);
     sc.print("-");
     sc.print(paramSize);

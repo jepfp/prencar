@@ -44,19 +44,12 @@ void Move::begin(){
   _conf = Configuration::getInstance();
   _com = Communication::getInstance();
 
-  _pwmLeftPin = _conf->getMovePwmLeftPin();
-  _pwmRightPin = _conf->getMovePwmRightPin();
-  _modeFirstLeftPin = _conf->getMoveModeFirstLeftPin();
-  _modeSecondLeftPin = _conf->getMoveModeSecondLeftPin();
-  _modeFirstRightPin = _conf->getMoveModeFirstRightPin();
-  _modeSecondRightPin = _conf->getMoveModeSecondRightPin();
-
-  pinMode(_pwmLeftPin, OUTPUT);
-  pinMode(_pwmRightPin, OUTPUT);
-  pinMode(_modeFirstLeftPin, OUTPUT);
-  pinMode(_modeSecondLeftPin, OUTPUT);
-  pinMode(_modeFirstRightPin, OUTPUT);
-  pinMode(_modeSecondRightPin, OUTPUT);
+  pinMode(_conf->movePwmLeftPin, OUTPUT);
+  pinMode(_conf->movePwmRightPin, OUTPUT);
+  pinMode(_conf->moveModeFirstLeftPin, OUTPUT);
+  pinMode(_conf->moveModeSecondLeftPin, OUTPUT);
+  pinMode(_conf->moveModeFirstRightPin, OUTPUT);
+  pinMode(_conf->moveModeSecondRightPin, OUTPUT);
 }
 
 /**
@@ -65,10 +58,10 @@ void Move::begin(){
 void Move::performFastStop()
 {
   _com->send(60);
-  digitalWrite(_modeFirstLeftPin, HIGH);
-  digitalWrite(_modeSecondLeftPin, HIGH);
-  digitalWrite(_modeFirstRightPin, HIGH);
-  digitalWrite(_modeSecondRightPin, HIGH);
+  digitalWrite(_conf->moveModeFirstLeftPin, HIGH);
+  digitalWrite(_conf->moveModeSecondLeftPin, HIGH);
+  digitalWrite(_conf->moveModeFirstRightPin, HIGH);
+  digitalWrite(_conf->moveModeSecondRightPin, HIGH);
 }
 
 /**
@@ -98,9 +91,9 @@ void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMoto
 
   _com->send(58, parameters, 4);
   
-  analogWrite(_pwmLeftPin, _speedLeft);
+  analogWrite(_conf->movePwmLeftPin, _speedLeft);
   setLeftMotorDirection(dirLeftMotor);
-  analogWrite(_pwmRightPin, _speedRight);
+  analogWrite(_conf->movePwmRightPin, _speedRight);
   setRightMotorDirection(dirRightMotor);
 }
 
@@ -112,23 +105,23 @@ void Move::setLeftMotorDirection(enum TMotorDirection dir){
   int dirCode;
   _dirLeftMotor = dir;
   if(dir == phaseOut){
-    digitalWrite(_modeFirstLeftPin, LOW);
-    digitalWrite(_modeSecondLeftPin, LOW);
+    digitalWrite(_conf->moveModeFirstLeftPin, LOW);
+    digitalWrite(_conf->moveModeSecondLeftPin, LOW);
     dirCode = 0;
   }
   else if(dir == forward){
-    digitalWrite(_modeFirstLeftPin, HIGH);
-    digitalWrite(_modeSecondLeftPin, LOW);
+    digitalWrite(_conf->moveModeFirstLeftPin, HIGH);
+    digitalWrite(_conf->moveModeSecondLeftPin, LOW);
     dirCode = 1;
   }
   else if(dir == backwards){
-    digitalWrite(_modeFirstLeftPin, LOW);
-    digitalWrite(_modeSecondLeftPin, HIGH);
+    digitalWrite(_conf->moveModeFirstLeftPin, LOW);
+    digitalWrite(_conf->moveModeSecondLeftPin, HIGH);
     dirCode = 2;
   }
   else if(dir == fastStop){
-    digitalWrite(_modeFirstLeftPin, HIGH);
-    digitalWrite(_modeSecondLeftPin, HIGH);
+    digitalWrite(_conf->moveModeFirstLeftPin, HIGH);
+    digitalWrite(_conf->moveModeSecondLeftPin, HIGH);
     dirCode = 3;
   }
 
@@ -143,23 +136,23 @@ void Move::setRightMotorDirection(TMotorDirection dir){
   int dirCode;
   _dirRightMotor = dir;
   if(dir == phaseOut){
-    digitalWrite(_modeFirstRightPin, LOW);
-    digitalWrite(_modeSecondRightPin, LOW);
+    digitalWrite(_conf->moveModeFirstRightPin, LOW);
+    digitalWrite(_conf->moveModeSecondRightPin, LOW);
     dirCode = 0;
   }
   else if(dir == forward){
-    digitalWrite(_modeFirstRightPin, HIGH);
-    digitalWrite(_modeSecondRightPin, LOW);
+    digitalWrite(_conf->moveModeFirstRightPin, HIGH);
+    digitalWrite(_conf->moveModeSecondRightPin, LOW);
     dirCode = 1;
   }
   else if(dir == backwards){
-    digitalWrite(_modeFirstRightPin, LOW);
-    digitalWrite(_modeSecondRightPin, HIGH);
+    digitalWrite(_conf->moveModeFirstRightPin, LOW);
+    digitalWrite(_conf->moveModeSecondRightPin, HIGH);
     dirCode = 2;
   }
   else if(dir == fastStop){
-    digitalWrite(_modeFirstRightPin, HIGH);
-    digitalWrite(_modeSecondRightPin, HIGH);
+    digitalWrite(_conf->moveModeFirstRightPin, HIGH);
+    digitalWrite(_conf->moveModeSecondRightPin, HIGH);
     dirCode = 3;
   }
 
@@ -221,8 +214,8 @@ void Move::equalizeMotorsSpeed(){
   _speedLeft = averageSpeed;
   _speedRight = averageSpeed;
 
-  analogWrite(_pwmLeftPin, _speedLeft);
-  analogWrite(_pwmRightPin, _speedRight);
+  analogWrite(_conf->movePwmLeftPin, _speedLeft);
+  analogWrite(_conf->movePwmRightPin, _speedRight);
 }
 
 

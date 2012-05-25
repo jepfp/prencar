@@ -11,7 +11,6 @@ public:
   LineFollow();
   void begin();
   void doJob();
-  void calibrateSensors();
 
   boolean hasReachedCurve; ///< Is set to true, if the left curve line is reached
   boolean frontLineSensorsEnabled; ///< Defines if the line follow class shall check the front line sensors (default's true after every new start!)

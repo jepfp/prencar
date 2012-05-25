@@ -60,11 +60,11 @@ void CurveLeft::startIt(){
 
   //create an extMove command and add start it's execution
   MoveCommand* mc = _extMove->commandQueue;
-  mc[0].duration = 500;
+  mc[0].duration = _conf->curveStopDuration;
   mc[0].dirLeftMotor = backwards;
-  mc[0].speedLeftMotor = 100;
+  mc[0].speedLeftMotor = _conf->curveStopSpeed;
   mc[0].dirRightMotor = backwards;
-  mc[0].speedRightMotor = 100;
+  mc[0].speedRightMotor = _conf->curveStopSpeed;
 
   mc[1].duration = _conf->curveDriveStraightTime;
   mc[1].dirLeftMotor = leftMotorDir;
@@ -95,7 +95,7 @@ void CurveLeft::doJob(){
       int sensorValues[2];
       readLineSensors(sensorValues);
 
-      if(sensorValues[0] < _conf->lineFollowWhiteThresholdLineSensors){
+      if(sensorValues[0] < _conf->whiteThresholdLineSensors){
         _com->send(66, sensorValues[0]);
         lineCenter.startIt(true);
         _lineCenteringStarted = true;

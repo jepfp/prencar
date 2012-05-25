@@ -9,6 +9,8 @@
 CubeApproach::CubeApproach()
 {
   amountOfCubeDetections = 0;
+  _stopCarExtMoveCommandId = -1;
+  _stopCarNotYetDone = true;
 }
 
 /**
@@ -42,8 +44,10 @@ void CubeApproach::begin(){
 void CubeApproach::startIt(){
   _timeLastCubeApproachCheck = millis();
   amountOfCubeDetections = 0;
+  _stopCarExtMoveCommandId = -1;
+  _stopCarNotYetDone = true;
   _lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
-  _conf->lineFollowReduceSpeedTimeThirdLine, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
+  _conf->cubeApproachLineFollowReduceSpeedTime, _conf->cubeApproachLineFollowReducedSpeedLeft, _conf->cubeApproachLineFollowReducedSpeedRight);
   _lineFollow.frontLineSensorsEnabled = false;
 }
 
@@ -66,15 +70,36 @@ void CubeApproach::doJob(boolean followLine){
     //follow the line
     _lineFollow.doJob();
   }
-  else{
-    //control the car directly without following a line.
-    //@todo just drive straight
+  else if(_stopCarExtMoveCommandId == -1){
+    _com->send(90);
+    //If doJob is called the first time with lineFollow = false, then firt the car needs to be stopped.
+    //See the comment of _stopCarExtMoveCommandId for details.
+    MoveCommand* mc = _extMove->commandQueue;
+    mc[0].duration = 500;
+    mc[0].dirLeftMotor = backwards;
+    mc[0].speedLeftMotor = 130;
+    mc[0].dirRightMotor = backwards;
+    mc[0].speedRightMotor = 130;
+
+    _stopCarExtMoveCommandId = _extMove->startCurrentQueue(1);
+    return;
+  }else if(_stopCarNotYetDone){
+    if(_extMove->isExecutionInProcess(_stopCarExtMoveCommandId)){
+     return; 
+    }else{
+      _com->send(91, 500);
+      _stopCarNotYetDone = false;
+    }
+  }
+  else if(!_extMove->isExecutionInProcess()){
+    //just drive straight
+    _move->controlMotors(forward, _conf->cubeApproachStraightSpeed, forward, _conf->cubeApproachStraightSpeed);
   }
 
   if(_conf->cubeApproachInterval == 0 || millis() > _timeLastCubeApproachCheck + _conf->cubeApproachInterval){
     _timeLastCubeApproachCheck = millis();
 
-    //only try to detect cube if no turn is in progress
+    //only try to detect the cube if no turn is in progress
     if(!_extMove->isExecutionInProcess()){
       CubeDetection* cd = tryToDetectCube();
       if(cd != 0){
@@ -151,7 +176,7 @@ CubeDetection* CubeApproach::tryToDetectCube(){
     cd->leftTop = sensorTopValues[0];
     cd->rightTop = sensorTopValues[1];
     topSensorsRead = true;
-    if(cd->leftTop < _conf->cubeApproachDetectThreshold){
+    if(cd->leftTop < _conf->cubeApproachDetectThreshold || !_conf->cubeApproachUseTopSensors){
       //verification successful.
       left = true;
     }
@@ -169,7 +194,7 @@ CubeDetection* CubeApproach::tryToDetectCube(){
       cd->leftTop = sensorTopValues[0];
       cd->rightTop = sensorTopValues[1];
     }
-    if(cd->rightTop < _conf->cubeApproachDetectThreshold){
+    if(cd->rightTop < _conf->cubeApproachDetectThreshold || !_conf->cubeApproachUseTopSensors){
       //verification successful.
       right = true;
     }
@@ -248,6 +273,9 @@ void CubeApproach::turn(int direction){
 
   _extMove->startCurrentQueue(1);
 }
+
+
+
 
 
 

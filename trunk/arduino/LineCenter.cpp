@@ -61,12 +61,12 @@ void LineCenter::doJob(){
     readLineSensors(sensorValues);
     parameters[0] = sensorValues[0];
     parameters[1] = sensorValues[1];
-    parameters[2] = _conf->lineFollowWhiteThresholdLineSensors;
+    parameters[2] = _conf->whiteThresholdLineSensors;
 
     //first check, if the measured values are in the range defined in _conf->lineCenterLineInMiddleDifference
     int sensorGap = sensorValues[0] - sensorValues[1];
     if(sensorGap < 0) sensorGap *= -1;
-    if(sensorGap < _conf->lineCenterLineInMiddleDifference && sensorValues[0] > _conf->lineFollowWhiteThresholdLineSensors){
+    if(sensorGap < _conf->lineCenterLineInMiddleDifference && sensorValues[0] > _conf->whiteThresholdLineSensors){
       _extMove->stopCurrentQueue();
       lineCenteringIsFinished = true;
       _com->send(86);
@@ -82,7 +82,7 @@ void LineCenter::doJob(){
     //measures black ground.
     //if not drive a curve according to the value set in "centeringFromLeft"
     if(_centeringFromLeft){
-      if(sensorValues[0] > _conf->lineFollowWhiteThresholdLineSensors){
+      if(sensorValues[0] > _conf->whiteThresholdLineSensors){
         _com->send(87, parameters, 3);
         _move->controlMotors(forward, _conf->lineCenterStraightSpeed, forward, _conf->lineCenterStraightSpeed);
       }
@@ -92,7 +92,7 @@ void LineCenter::doJob(){
       }
     }
     else{
-      if(sensorValues[0] > _conf->lineFollowWhiteThresholdLineSensors){
+      if(sensorValues[0] > _conf->whiteThresholdLineSensors){
         _com->send(87, parameters, 3);
         _move->controlMotors(forward, _conf->lineCenterStraightSpeed, forward, _conf->lineCenterStraightSpeed);
       }
@@ -112,11 +112,11 @@ void LineCenter::doCorrection(){
   mc[0].dirRightMotor = backwards;
 
   if(_centeringFromLeft){
-    mc[0].speedLeftMotor = _conf->lineCenterFastMotor;
-    mc[0].speedRightMotor = _conf->lineCenterSlowMotor;
+    mc[0].speedLeftMotor = _conf->lineCenterFromLeftMotorLeft;
+    mc[0].speedRightMotor = _conf->lineCenterFromLeftMotorRight;
   }else{
-    mc[0].speedLeftMotor = _conf->lineCenterSlowMotor;
-    mc[0].speedRightMotor = _conf->lineCenterFastMotor;
+    mc[0].speedLeftMotor = _conf->lineCenterFromRightMotorLeft;
+    mc[0].speedRightMotor = _conf->lineCenterFromRightMotorRight;
   }
 
   _extMove->startCurrentQueue(1);
