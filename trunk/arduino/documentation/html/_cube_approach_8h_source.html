@@ -145,39 +145,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a><a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be">00029</a>   <a class="code" href="class_extended_move.html" title="Allows to define extended car control instuctions.">ExtendedMove</a>* <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>; 
 <a name="l00030"></a>00030   
 <a name="l00031"></a><a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d">00031</a>   <a class="code" href="class_line_follow.html">LineFollow</a> <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>; 
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">readBottomSensors</a>(<span class="keywordtype">int</span>* resultArray);
-<a name="l00034"></a>00034   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">readTopSensors</a>(<span class="keywordtype">int</span>* resultArray);
-<a name="l00035"></a>00035   <a class="code" href="struct_cube_detection.html">CubeDetection</a>* <a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">tryToDetectCube</a>();
-<a name="l00036"></a>00036   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">turn</a>(<span class="keywordtype">int</span> direction);
-<a name="l00037"></a>00037 <span class="keyword">public</span>:
-<a name="l00038"></a><a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">00038</a>   <a class="code" href="struct_cube_detection.html">CubeDetection</a> <a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">cubeDetections</a>[<a class="code" href="class_cube_approach.html#a0e1bfa9a8ab15c7762e4af35b4605003" title="Defines, how many cube detections can be recorded.">_MAXRECORDABLECUBEDETECTIONS</a>];
-<a name="l00039"></a><a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df">00039</a>   <span class="keywordtype">int</span> <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a>; 
-<a name="l00040"></a>00040   
-<a name="l00041"></a>00041   <a class="code" href="class_cube_approach.html#aa02cb409570970adeb89e13c12678254">CubeApproach</a>();
-<a name="l00042"></a>00042   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">begin</a>();
-<a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob</a>(<span class="keywordtype">boolean</span> followLine);
-<a name="l00044"></a>00044   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">startIt</a>();
-<a name="l00045"></a>00045 };
-<a name="l00046"></a>00046 <span class="preprocessor">#endif</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span>
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 
+<a name="l00032"></a>00032   
+<a name="l00040"></a><a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4">00040</a>   <span class="keywordtype">int</span> <a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a>;
+<a name="l00041"></a><a class="code" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2">00041</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2" title="True as long as &quot;stop car&quot; has not yet been performed.">_stopCarNotYetDone</a>; 
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">readBottomSensors</a>(<span class="keywordtype">int</span>* resultArray);
+<a name="l00044"></a>00044   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">readTopSensors</a>(<span class="keywordtype">int</span>* resultArray);
+<a name="l00045"></a>00045   <a class="code" href="struct_cube_detection.html">CubeDetection</a>* <a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">tryToDetectCube</a>();
+<a name="l00046"></a>00046   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">turn</a>(<span class="keywordtype">int</span> direction);
+<a name="l00047"></a>00047 <span class="keyword">public</span>:
+<a name="l00048"></a><a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">00048</a>   <a class="code" href="struct_cube_detection.html">CubeDetection</a> <a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">cubeDetections</a>[<a class="code" href="class_cube_approach.html#a0e1bfa9a8ab15c7762e4af35b4605003" title="Defines, how many cube detections can be recorded.">_MAXRECORDABLECUBEDETECTIONS</a>];
+<a name="l00049"></a><a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df">00049</a>   <span class="keywordtype">int</span> <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a>; 
+<a name="l00050"></a>00050   
+<a name="l00051"></a>00051   <a class="code" href="class_cube_approach.html#aa02cb409570970adeb89e13c12678254">CubeApproach</a>();
+<a name="l00052"></a>00052   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">begin</a>();
+<a name="l00053"></a>00053   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob</a>(<span class="keywordtype">boolean</span> followLine);
+<a name="l00054"></a>00054   <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">startIt</a>();
+<a name="l00055"></a>00055 };
+<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_cube_approach_8h.html">CubeApproach.h</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 10:25:49 for prencar by
+    <li class="footer">Generated on Fri May 25 2012 11:01:20 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

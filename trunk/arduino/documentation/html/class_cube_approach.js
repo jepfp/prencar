@@ -14,6 +14,8 @@ var class_cube_approach =
     [ "_lineFollow", "class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d", null ],
     [ "_MAXRECORDABLECUBEDETECTIONS", "class_cube_approach.html#a0e1bfa9a8ab15c7762e4af35b4605003", null ],
     [ "_move", "class_cube_approach.html#a91fd46dd8a9d594c3d6e516406bc4440", null ],
+    [ "_stopCarExtMoveCommandId", "class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4", null ],
+    [ "_stopCarNotYetDone", "class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2", null ],
     [ "_timeLastCubeApproachCheck", "class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd", null ],
     [ "amountOfCubeDetections", "class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df", null ],
     [ "cubeDetections", "class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9", null ]

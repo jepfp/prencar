@@ -165,6 +165,10 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a4e47fc77ece35197d5c1e2dda55334be"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the extended move class.  <a href="#a4e47fc77ece35197d5c1e2dda55334be"></a><br/></td></tr>
 <tr class="memitem:a2d3ac039bdca41b375557b0f0270e20d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_line_follow.html">LineFollow</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d">_lineFollow</a></td></tr>
 <tr class="memdesc:a2d3ac039bdca41b375557b0f0270e20d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_line_follow.html">LineFollow</a> instance for the cube approach.  <a href="#a2d3ac039bdca41b375557b0f0270e20d"></a><br/></td></tr>
+<tr class="memitem:a3831bd3f8a43dcdb1ca3c1ba185f43c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4">_stopCarExtMoveCommandId</a></td></tr>
+<tr class="memdesc:a3831bd3f8a43dcdb1ca3c1ba185f43c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of the ext move command that is responsible for stopping the car after the cube has been detected the first time.  <a href="#a3831bd3f8a43dcdb1ca3c1ba185f43c4"></a><br/></td></tr>
+<tr class="memitem:aae0fa8f88f1ea1c01e8528d7798a7db2"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2">_stopCarNotYetDone</a></td></tr>
+<tr class="memdesc:aae0fa8f88f1ea1c01e8528d7798a7db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">True as long as "stop car" has not yet been performed.  <a href="#aae0fa8f88f1ea1c01e8528d7798a7db2"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a0e1bfa9a8ab15c7762e4af35b4605003"><td class="memItemLeft" align="right" valign="top">static int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_approach.html#a0e1bfa9a8ab15c7762e4af35b4605003">_MAXRECORDABLECUBEDETECTIONS</a> = 20</td></tr>
@@ -209,7 +213,7 @@ Static Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Prepares the <a class="el" href="class_cube_approach.html">CubeApproach</a> object to work together with other classes. The preparations done in here can not be done from within the constructor because of dependencies such as Serial communication. <b>This method needs to be called before this class can be fully used.</b> </p>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00019">19</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00021">21</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -262,14 +266,14 @@ Here is the caller graph for this function:</div>
 </li>
 </ol>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00064">64</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00068">68</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_cube_approach_ac36a5c38b1108d4cd77172062e1795be_cgraph.png" border="0" usemap="#class_cube_approach_ac36a5c38b1108d4cd77172062e1795be_cgraph" alt=""/></div>
 <map name="class_cube_approach_ac36a5c38b1108d4cd77172062e1795be_cgraph" id="class_cube_approach_ac36a5c38b1108d4cd77172062e1795be_cgraph">
-<area shape="rect" id="node3" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="541,191,667,217"/><area shape="rect" id="node7" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1395,292,1543,319"/><area shape="rect" id="node19" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1140,571,1279,597"/><area shape="rect" id="node26" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a" title="ExtendedMove::isExecutionInProcess" alt="" coords="203,647,445,673"/><area shape="rect" id="node29" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241" title="CubeApproach::tryToDetectCube" alt="" coords="798,368,1010,395"/><area shape="rect" id="node39" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="255,467,393,493"/><area shape="rect" id="node5" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="1100,115,1319,141"/><area shape="rect" id="node10" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="1131,165,1287,192"/><area shape="rect" id="node13" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="810,216,998,243"/><area shape="rect" id="node16" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="830,267,978,293"/><area shape="rect" id="node22" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1378,596,1561,623"/><area shape="rect" id="node24" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1373,545,1565,572"/><area shape="rect" id="node31" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765" title="CubeApproach::readBottomSensors" alt="" coords="1094,368,1325,395"/><area shape="rect" id="node34" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580" title="CubeApproach::readTopSensors" alt="" coords="1105,419,1314,445"/><area shape="rect" id="node41" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="493,485,715,512"/><area shape="rect" id="node44" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="794,545,1014,572"/><area shape="rect" id="node48" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="763,495,1045,521"/></map>
+<area shape="rect" id="node3" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="541,191,667,217"/><area shape="rect" id="node7" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1395,292,1543,319"/><area shape="rect" id="node19" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1140,571,1279,597"/><area shape="rect" id="node27" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="493,513,715,540"/><area shape="rect" id="node36" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a" title="ExtendedMove::isExecutionInProcess" alt="" coords="203,668,445,695"/><area shape="rect" id="node39" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241" title="CubeApproach::tryToDetectCube" alt="" coords="798,393,1010,420"/><area shape="rect" id="node48" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="255,513,393,540"/><area shape="rect" id="node5" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="1100,115,1319,141"/><area shape="rect" id="node10" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="1131,165,1287,192"/><area shape="rect" id="node13" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="810,216,998,243"/><area shape="rect" id="node16" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="830,267,978,293"/><area shape="rect" id="node22" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1378,596,1561,623"/><area shape="rect" id="node24" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1373,545,1565,572"/><area shape="rect" id="node30" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="794,567,1014,593"/><area shape="rect" id="node34" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="763,516,1045,543"/><area shape="rect" id="node41" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765" title="CubeApproach::readBottomSensors" alt="" coords="1094,419,1325,445"/><area shape="rect" id="node44" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580" title="CubeApproach::readTopSensors" alt="" coords="1105,317,1314,344"/></map>
 </div>
 </p>
 
@@ -307,7 +311,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00103">103</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00127">127</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -352,7 +356,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00116">116</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00140">140</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -389,7 +393,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Starts the cube detection process. </p>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00042">42</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00044">44</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -427,7 +431,7 @@ Here is the caller graph for this function:</div>
 <p>Tries to detect the cube and returns 0 if no detection was possible or a reference to the latest object inside cubeDetections if the cube could be detected. </p>
 <dl class="section return"><dt>Returns:</dt><dd>0 if the cube was not detected or a reference to the lastest object inside cubeDetections if the cube could be detected. </dd></dl>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00129">129</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00153">153</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -471,7 +475,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00209">209</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8cpp_source.html#l00233">233</a> of file <a class="el" href="_cube_approach_8cpp_source.html">CubeApproach.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -596,6 +600,42 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a3831bd3f8a43dcdb1ca3c1ba185f43c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4">CubeApproach::_stopCarExtMoveCommandId</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The id of the ext move command that is responsible for stopping the car after the cube has been detected the first time. </p>
+<p>Per default this value is set to -1. This means, that the command has not yet been executed. The <a class="el" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob()</a> method will therefore execute this command. After starting it's execution <a class="el" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob()</a> will wait until the execution of this command has finished. Then the second part of the cube approach algorithm (second part: cube approach without following the line) starts. </p>
+
+<p>Definition at line <a class="el" href="_cube_approach_8h_source.html#l00040">40</a> of file <a class="el" href="_cube_approach_8h_source.html">CubeApproach.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae0fa8f88f1ea1c01e8528d7798a7db2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean <a class="el" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2">CubeApproach::_stopCarNotYetDone</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>True as long as "stop car" has not yet been performed. </p>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_cube_approach_8h_source.html#l00041">41</a> of file <a class="el" href="_cube_approach_8h_source.html">CubeApproach.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae99890596905ad65ee8a36a072a151cd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -627,7 +667,7 @@ Here is the caller graph for this function:</div>
 
 <p>Counter that is increased each time the cube is detected by either the left or the right sensor. </p>
 
-<p>Definition at line <a class="el" href="_cube_approach_8h_source.html#l00039">39</a> of file <a class="el" href="_cube_approach_8h_source.html">CubeApproach.h</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8h_source.html#l00049">49</a> of file <a class="el" href="_cube_approach_8h_source.html">CubeApproach.h</a>.</p>
 
 </div>
 </div>
@@ -642,7 +682,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_cube_approach_8h_source.html#l00038">38</a> of file <a class="el" href="_cube_approach_8h_source.html">CubeApproach.h</a>.</p>
+<p>Definition at line <a class="el" href="_cube_approach_8h_source.html#l00048">48</a> of file <a class="el" href="_cube_approach_8h_source.html">CubeApproach.h</a>.</p>
 
 </div>
 </div>
@@ -656,7 +696,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_cube_approach.html">CubeApproach</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 10:25:53 for prencar by
+    <li class="footer">Generated on Fri May 25 2012 11:01:21 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

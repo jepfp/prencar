@@ -49,6 +49,8 @@ var searchData=
   ['_5fserialspeed',['_SERIALSPEED',['../class_configuration.html#a7e97b2bad64cee71271070bde2f71b74',1,'Configuration']]],
   ['_5fspeedleft',['_speedLeft',['../class_move.html#ada9423f195c9ee65b5448fcaabb96877',1,'Move']]],
   ['_5fspeedright',['_speedRight',['../class_move.html#a13362460beddf2de2415d51f3ed70841',1,'Move']]],
+  ['_5fstopcarextmovecommandid',['_stopCarExtMoveCommandId',['../class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4',1,'CubeApproach']]],
+  ['_5fstopcarnotyetdone',['_stopCarNotYetDone',['../class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2',1,'CubeApproach']]],
   ['_5ftimecurveleftstarted',['_timeCurveLeftStarted',['../class_curve_left.html#a3f46785750e729247f26099a93cfaeb9',1,'CurveLeft']]],
   ['_5ftimelastcubeapproachcheck',['_timeLastCubeApproachCheck',['../class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd',1,'CubeApproach']]],
   ['_5ftimelastcurveleftcheck',['_timeLastCurveLeftCheck',['../class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6',1,'CurveLeft']]],

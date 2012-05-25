@@ -122,235 +122,261 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00009"></a><a class="code" href="class_cube_approach.html#aa02cb409570970adeb89e13c12678254">00009</a> <a class="code" href="class_cube_approach.html#aa02cb409570970adeb89e13c12678254">CubeApproach::CubeApproach</a>()
 <a name="l00010"></a>00010 {
 <a name="l00011"></a>00011   <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> = 0;
-<a name="l00012"></a>00012 }
-<a name="l00013"></a>00013 
-<a name="l00019"></a><a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">00019</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">CubeApproach::begin</a>(){
-<a name="l00020"></a>00020   <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a> = <a class="code" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd">Communication::getInstance</a>();
-<a name="l00021"></a>00021   <a class="code" href="class_cube_approach.html#a91fd46dd8a9d594c3d6e516406bc4440" title="The reference to the move class to control the motors.">_move</a> = <a class="code" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850">Move::getInstance</a>();
-<a name="l00022"></a>00022   <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a> = <a class="code" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e">Configuration::getInstance</a>();
-<a name="l00023"></a>00023   <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a> = <a class="code" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a">ExtendedMove::getInstance</a>();
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a64566ef4e13d578a41614a643acfdd51" title="The pin where the left bottom distance sensor is connected to.">cubeApproachLeftBottomSensor</a>, INPUT);
-<a name="l00026"></a>00026   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b" title="The pin where the left top distance sensor is connected to.">cubeApproachLeftTopSensor</a>, INPUT);
-<a name="l00027"></a>00027   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1" title="The pin where the right bottom distance sensor is connected to.">cubeApproachRightBottomSensor</a>, INPUT);
-<a name="l00028"></a>00028   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d" title="The pin where the right top distance sensor is connected to.">cubeApproachRightTopSensor</a>, INPUT);
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030   <span class="comment">//make sure, the pull up resistors are off</span>
-<a name="l00031"></a>00031   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a64566ef4e13d578a41614a643acfdd51" title="The pin where the left bottom distance sensor is connected to.">cubeApproachLeftBottomSensor</a>, LOW);
-<a name="l00032"></a>00032   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b" title="The pin where the left top distance sensor is connected to.">cubeApproachLeftTopSensor</a>, LOW);
-<a name="l00033"></a>00033   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1" title="The pin where the right bottom distance sensor is connected to.">cubeApproachRightBottomSensor</a>, LOW);
-<a name="l00034"></a>00034   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d" title="The pin where the right top distance sensor is connected to.">cubeApproachRightTopSensor</a>, LOW);
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036   <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48">begin</a>();
-<a name="l00037"></a>00037 }
-<a name="l00038"></a>00038 
-<a name="l00042"></a><a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">00042</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">CubeApproach::startIt</a>(){
-<a name="l00043"></a>00043   <a class="code" href="class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd" title="Holds the timestamp of the time when the last cube approach check was done.">_timeLastCubeApproachCheck</a> = millis();
-<a name="l00044"></a>00044   <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> = 0;
-<a name="l00045"></a>00045   <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
-<a name="l00046"></a>00046   <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af79ee39fe47d0ccd880559a62bdc17e7" title="The time in milliseconds (after a call to LineFollow::startIt()) on the third line after which the li...">cubeApproachLineFollowReduceSpeedTime</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a9a580fe87402bf1d5b7bc29ba9eff0c5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (see cubeAppr...">cubeApproachLineFollowReducedSpeedLeft</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae920e24aa143468fb512ffc9ac2f07e0" title="See cubeApproachLineFollowReducedSpeedLeft.">cubeApproachLineFollowReducedSpeedRight</a>);
-<a name="l00047"></a>00047   <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#a9f9086563dd7db17b36c660f3793eba6" title="Defines if the line follow class shall check the front line sensors (default&#39;s true after every new s...">frontLineSensorsEnabled</a> = <span class="keyword">false</span>;
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00064"></a><a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">00064</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">CubeApproach::doJob</a>(<span class="keywordtype">boolean</span> followLine){
-<a name="l00065"></a>00065   <span class="keywordflow">if</span>(followLine){
-<a name="l00066"></a>00066     <span class="comment">//follow the line</span>
-<a name="l00067"></a>00067     <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
-<a name="l00068"></a>00068   }
-<a name="l00069"></a>00069   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!<a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>()){
-<a name="l00070"></a>00070     <span class="comment">//just drive straight</span>
-<a name="l00071"></a>00071     <span class="comment">//_move-&gt;controlMotors(forward, _conf-&gt;cubeApproachStraightSpeed, forward, _conf-&gt;cubeApproachStraightSpeed);</span>
-<a name="l00072"></a>00072     <a class="code" href="class_cube_approach.html#a91fd46dd8a9d594c3d6e516406bc4440" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a049b8264eb2ab78dd89a7332008912a5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (0-255)...">lineFollowReducedSpeedLeft</a>, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a357c494e08ca9c933550bb64ec997cbb" title="See lineFollowReducedSpeedLeft.">lineFollowReducedSpeedRight</a>);
-<a name="l00073"></a>00073   }
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075   <span class="keywordflow">if</span>(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#abab4e9ea7d056a9dbcd50dafbe24d6a0" title="Interval in milliseconds in which the distance sensors shall be checked.">cubeApproachInterval</a> == 0 || millis() &gt; <a class="code" href="class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd" title="Holds the timestamp of the time when the last cube approach check was done.">_timeLastCubeApproachCheck</a> + <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#abab4e9ea7d056a9dbcd50dafbe24d6a0" title="Interval in milliseconds in which the distance sensors shall be checked.">cubeApproachInterval</a>){
-<a name="l00076"></a>00076     <a class="code" href="class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd" title="Holds the timestamp of the time when the last cube approach check was done.">_timeLastCubeApproachCheck</a> = millis();
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078     <span class="comment">//only try to detect the cube if no turn is in progress</span>
-<a name="l00079"></a>00079     <span class="keywordflow">if</span>(!<a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>()){
-<a name="l00080"></a>00080       <a class="code" href="struct_cube_detection.html">CubeDetection</a>* cd = <a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">tryToDetectCube</a>();
-<a name="l00081"></a>00081       <span class="keywordflow">if</span>(cd != 0){
-<a name="l00082"></a>00082         <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a>++;
-<a name="l00083"></a>00083         <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd" title="Set to true if the car has turned right after this detection.">turnedRight</a>){
-<a name="l00084"></a>00084           <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(78);
-<a name="l00085"></a>00085           <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">turn</a>(2);
-<a name="l00086"></a>00086         }
-<a name="l00087"></a>00087         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5" title="Set to true if the car has turned left after this detection.">turnedLeft</a>){
-<a name="l00088"></a>00088           <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(79);
-<a name="l00089"></a>00089           <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">turn</a>(1);
-<a name="l00090"></a>00090         }
-<a name="l00091"></a>00091       }
+<a name="l00012"></a>00012   <a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a> = -1;
+<a name="l00013"></a>00013   <a class="code" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2" title="True as long as &quot;stop car&quot; has not yet been performed.">_stopCarNotYetDone</a> = <span class="keyword">true</span>;
+<a name="l00014"></a>00014 }
+<a name="l00015"></a>00015 
+<a name="l00021"></a><a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">00021</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">CubeApproach::begin</a>(){
+<a name="l00022"></a>00022   <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a> = <a class="code" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd">Communication::getInstance</a>();
+<a name="l00023"></a>00023   <a class="code" href="class_cube_approach.html#a91fd46dd8a9d594c3d6e516406bc4440" title="The reference to the move class to control the motors.">_move</a> = <a class="code" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850">Move::getInstance</a>();
+<a name="l00024"></a>00024   <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a> = <a class="code" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e">Configuration::getInstance</a>();
+<a name="l00025"></a>00025   <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a> = <a class="code" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a">ExtendedMove::getInstance</a>();
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a64566ef4e13d578a41614a643acfdd51" title="The pin where the left bottom distance sensor is connected to.">cubeApproachLeftBottomSensor</a>, INPUT);
+<a name="l00028"></a>00028   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b" title="The pin where the left top distance sensor is connected to.">cubeApproachLeftTopSensor</a>, INPUT);
+<a name="l00029"></a>00029   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1" title="The pin where the right bottom distance sensor is connected to.">cubeApproachRightBottomSensor</a>, INPUT);
+<a name="l00030"></a>00030   pinMode(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d" title="The pin where the right top distance sensor is connected to.">cubeApproachRightTopSensor</a>, INPUT);
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032   <span class="comment">//make sure, the pull up resistors are off</span>
+<a name="l00033"></a>00033   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a64566ef4e13d578a41614a643acfdd51" title="The pin where the left bottom distance sensor is connected to.">cubeApproachLeftBottomSensor</a>, LOW);
+<a name="l00034"></a>00034   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b" title="The pin where the left top distance sensor is connected to.">cubeApproachLeftTopSensor</a>, LOW);
+<a name="l00035"></a>00035   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1" title="The pin where the right bottom distance sensor is connected to.">cubeApproachRightBottomSensor</a>, LOW);
+<a name="l00036"></a>00036   digitalWrite(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d" title="The pin where the right top distance sensor is connected to.">cubeApproachRightTopSensor</a>, LOW);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038   <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48">begin</a>();
+<a name="l00039"></a>00039 }
+<a name="l00040"></a>00040 
+<a name="l00044"></a><a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">00044</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">CubeApproach::startIt</a>(){
+<a name="l00045"></a>00045   <a class="code" href="class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd" title="Holds the timestamp of the time when the last cube approach check was done.">_timeLastCubeApproachCheck</a> = millis();
+<a name="l00046"></a>00046   <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> = 0;
+<a name="l00047"></a>00047   <a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a> = -1;
+<a name="l00048"></a>00048   <a class="code" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2" title="True as long as &quot;stop car&quot; has not yet been performed.">_stopCarNotYetDone</a> = <span class="keyword">true</span>;
+<a name="l00049"></a>00049   <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
+<a name="l00050"></a>00050   <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af79ee39fe47d0ccd880559a62bdc17e7" title="The time in milliseconds (after a call to LineFollow::startIt()) on the third line after which the li...">cubeApproachLineFollowReduceSpeedTime</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a9a580fe87402bf1d5b7bc29ba9eff0c5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (see cubeAppr...">cubeApproachLineFollowReducedSpeedLeft</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae920e24aa143468fb512ffc9ac2f07e0" title="See cubeApproachLineFollowReducedSpeedLeft.">cubeApproachLineFollowReducedSpeedRight</a>);
+<a name="l00051"></a>00051   <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#a9f9086563dd7db17b36c660f3793eba6" title="Defines if the line follow class shall check the front line sensors (default&#39;s true after every new s...">frontLineSensorsEnabled</a> = <span class="keyword">false</span>;
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 
+<a name="l00068"></a><a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">00068</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">CubeApproach::doJob</a>(<span class="keywordtype">boolean</span> followLine){
+<a name="l00069"></a>00069   <span class="keywordflow">if</span>(followLine){
+<a name="l00070"></a>00070     <span class="comment">//follow the line</span>
+<a name="l00071"></a>00071     <a class="code" href="class_cube_approach.html#a2d3ac039bdca41b375557b0f0270e20d" title="LineFollow instance for the cube approach.">_lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
+<a name="l00072"></a>00072   }
+<a name="l00073"></a>00073   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a> == -1){
+<a name="l00074"></a>00074     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(90);
+<a name="l00075"></a>00075     <span class="comment">//If doJob is called the first time with lineFollow = false, then firt the car needs to be stopped.</span>
+<a name="l00076"></a>00076     <span class="comment">//See the comment of _stopCarExtMoveCommandId for details.</span>
+<a name="l00077"></a>00077     <a class="code" href="struct_move_command.html">MoveCommand</a>* mc = <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a5f34e9081613ec4d1796cac234b9cbb5" title="Current queue with commands that are executed.">commandQueue</a>;
+<a name="l00078"></a>00078     mc[0].<a class="code" href="struct_move_command.html#ada8cf3cf629ff7847de2844abb8db7ad" title="Defines for how long this command shall be executed (milliseconds).">duration</a> = 500;
+<a name="l00079"></a>00079     mc[0].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00080"></a>00080     mc[0].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = 130;
+<a name="l00081"></a>00081     mc[0].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00082"></a>00082     mc[0].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = 130;
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a> = <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba">startCurrentQueue</a>(1);
+<a name="l00085"></a>00085     <span class="keywordflow">return</span>;
+<a name="l00086"></a>00086   }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2" title="True as long as &quot;stop car&quot; has not yet been performed.">_stopCarNotYetDone</a>){
+<a name="l00087"></a>00087     <span class="keywordflow">if</span>(<a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>(<a class="code" href="class_cube_approach.html#a3831bd3f8a43dcdb1ca3c1ba185f43c4" title="The id of the ext move command that is responsible for stopping the car after the cube has been detec...">_stopCarExtMoveCommandId</a>)){
+<a name="l00088"></a>00088      <span class="keywordflow">return</span>; 
+<a name="l00089"></a>00089     }<span class="keywordflow">else</span>{
+<a name="l00090"></a>00090       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(91, 500);
+<a name="l00091"></a>00091       <a class="code" href="class_cube_approach.html#aae0fa8f88f1ea1c01e8528d7798a7db2" title="True as long as &quot;stop car&quot; has not yet been performed.">_stopCarNotYetDone</a> = <span class="keyword">false</span>;
 <a name="l00092"></a>00092     }
-<a name="l00093"></a>00093     <span class="keywordflow">else</span>{
-<a name="l00094"></a>00094       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(83);
-<a name="l00095"></a>00095     }
-<a name="l00096"></a>00096   }
-<a name="l00097"></a>00097 }
+<a name="l00093"></a>00093   }
+<a name="l00094"></a>00094   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!<a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>()){
+<a name="l00095"></a>00095     <span class="comment">//just drive straight</span>
+<a name="l00096"></a>00096     <a class="code" href="class_cube_approach.html#a91fd46dd8a9d594c3d6e516406bc4440" title="The reference to the move class to control the motors.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a905f3bbd8e6b527a0e21092d682a4a6e" title="Speed during cube approach while the car is driving straight.">cubeApproachStraightSpeed</a>, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a905f3bbd8e6b527a0e21092d682a4a6e" title="Speed during cube approach while the car is driving straight.">cubeApproachStraightSpeed</a>);
+<a name="l00097"></a>00097   }
 <a name="l00098"></a>00098 
-<a name="l00103"></a><a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">00103</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">CubeApproach::readBottomSensors</a>(<span class="keywordtype">int</span>* resultArray){
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105   resultArray[0] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a64566ef4e13d578a41614a643acfdd51" title="The pin where the left bottom distance sensor is connected to.">cubeApproachLeftBottomSensor</a>);
-<a name="l00107"></a>00107   resultArray[1] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1" title="The pin where the right bottom distance sensor is connected to.">cubeApproachRightBottomSensor</a>);
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109   <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(18, resultArray, 2);
-<a name="l00110"></a>00110 }
-<a name="l00111"></a>00111 
-<a name="l00116"></a><a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">00116</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">CubeApproach::readTopSensors</a>(<span class="keywordtype">int</span>* resultArray){
-<a name="l00117"></a>00117 
-<a name="l00118"></a>00118   resultArray[0] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b" title="The pin where the left top distance sensor is connected to.">cubeApproachLeftTopSensor</a>);
-<a name="l00120"></a>00120   resultArray[1] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d" title="The pin where the right top distance sensor is connected to.">cubeApproachRightTopSensor</a>);
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122   <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(19, resultArray, 2);
-<a name="l00123"></a>00123 }
-<a name="l00124"></a>00124 
-<a name="l00129"></a><a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">00129</a> <a class="code" href="struct_cube_detection.html">CubeDetection</a>* <a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">CubeApproach::tryToDetectCube</a>(){
-<a name="l00130"></a>00130   <span class="comment">//get the next free spot.</span>
-<a name="l00131"></a>00131   <a class="code" href="struct_cube_detection.html">CubeDetection</a>* cd = &amp;<a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">cubeDetections</a>[<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a>];
-<a name="l00132"></a>00132   cd-&gt;<a class="code" href="struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd" title="Set to true if the car has turned right after this detection.">turnedRight</a> = <span class="keyword">false</span>;
-<a name="l00133"></a>00133   cd-&gt;<a class="code" href="struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5" title="Set to true if the car has turned left after this detection.">turnedLeft</a> = <span class="keyword">false</span>;
-<a name="l00134"></a>00134   cd-&gt;<a class="code" href="struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656" title="Set to true if the cube has been detected with both bottom sensors at this detection.">cubeIsCentered</a> = <span class="keyword">false</span>;
+<a name="l00099"></a>00099   <span class="keywordflow">if</span>(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#abab4e9ea7d056a9dbcd50dafbe24d6a0" title="Interval in milliseconds in which the distance sensors shall be checked.">cubeApproachInterval</a> == 0 || millis() &gt; <a class="code" href="class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd" title="Holds the timestamp of the time when the last cube approach check was done.">_timeLastCubeApproachCheck</a> + <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#abab4e9ea7d056a9dbcd50dafbe24d6a0" title="Interval in milliseconds in which the distance sensors shall be checked.">cubeApproachInterval</a>){
+<a name="l00100"></a>00100     <a class="code" href="class_cube_approach.html#ae99890596905ad65ee8a36a072a151cd" title="Holds the timestamp of the time when the last cube approach check was done.">_timeLastCubeApproachCheck</a> = millis();
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102     <span class="comment">//only try to detect the cube if no turn is in progress</span>
+<a name="l00103"></a>00103     <span class="keywordflow">if</span>(!<a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>()){
+<a name="l00104"></a>00104       <a class="code" href="struct_cube_detection.html">CubeDetection</a>* cd = <a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">tryToDetectCube</a>();
+<a name="l00105"></a>00105       <span class="keywordflow">if</span>(cd != 0){
+<a name="l00106"></a>00106         <a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a>++;
+<a name="l00107"></a>00107         <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd" title="Set to true if the car has turned right after this detection.">turnedRight</a>){
+<a name="l00108"></a>00108           <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(78);
+<a name="l00109"></a>00109           <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">turn</a>(2);
+<a name="l00110"></a>00110         }
+<a name="l00111"></a>00111         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5" title="Set to true if the car has turned left after this detection.">turnedLeft</a>){
+<a name="l00112"></a>00112           <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(79);
+<a name="l00113"></a>00113           <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">turn</a>(1);
+<a name="l00114"></a>00114         }
+<a name="l00115"></a>00115       }
+<a name="l00116"></a>00116     }
+<a name="l00117"></a>00117     <span class="keywordflow">else</span>{
+<a name="l00118"></a>00118       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(83);
+<a name="l00119"></a>00119     }
+<a name="l00120"></a>00120   }
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 
+<a name="l00127"></a><a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">00127</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">CubeApproach::readBottomSensors</a>(<span class="keywordtype">int</span>* resultArray){
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129   resultArray[0] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a64566ef4e13d578a41614a643acfdd51" title="The pin where the left bottom distance sensor is connected to.">cubeApproachLeftBottomSensor</a>);
+<a name="l00131"></a>00131   resultArray[1] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a87c9f78ce74ac840afac408a4d321cf1" title="The pin where the right bottom distance sensor is connected to.">cubeApproachRightBottomSensor</a>);
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133   <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(18, resultArray, 2);
+<a name="l00134"></a>00134 }
 <a name="l00135"></a>00135 
-<a name="l00136"></a>00136   <span class="keywordtype">boolean</span> left = <span class="keyword">false</span>;
-<a name="l00137"></a>00137   <span class="keywordtype">boolean</span> right = <span class="keyword">false</span>;
-<a name="l00138"></a>00138   <span class="keywordtype">boolean</span> topSensorsRead = <span class="keyword">false</span>;
-<a name="l00139"></a>00139 
-<a name="l00140"></a>00140   <span class="keywordtype">int</span> sensorValues[2];
-<a name="l00141"></a>00141   <a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">readBottomSensors</a>(sensorValues);
-<a name="l00142"></a>00142   cd-&gt;<a class="code" href="struct_cube_detection.html#a3d4467976c600d4752ceb51dfd84b7e3">leftBottom</a> = sensorValues[0];
-<a name="l00143"></a>00143   cd-&gt;<a class="code" href="struct_cube_detection.html#a1ee12e3851183c6dce9777c1767c7527">rightBottom</a> = sensorValues[1];
-<a name="l00144"></a>00144 
-<a name="l00145"></a>00145   <span class="keywordtype">int</span> sensorTopValues[2];
-<a name="l00146"></a>00146   sensorTopValues[0] = 0;
-<a name="l00147"></a>00147   sensorTopValues[1] = 0;
+<a name="l00140"></a><a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">00140</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">CubeApproach::readTopSensors</a>(<span class="keywordtype">int</span>* resultArray){
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142   resultArray[0] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a5c4874ad8b2a3f5888a0c69fbbb2bb8b" title="The pin where the left top distance sensor is connected to.">cubeApproachLeftTopSensor</a>);
+<a name="l00144"></a>00144   resultArray[1] = analogRead(<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d" title="The pin where the right top distance sensor is connected to.">cubeApproachRightTopSensor</a>);
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146   <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(19, resultArray, 2);
+<a name="l00147"></a>00147 }
 <a name="l00148"></a>00148 
-<a name="l00149"></a>00149   <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a3d4467976c600d4752ceb51dfd84b7e3">leftBottom</a> &gt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a>){
-<a name="l00150"></a>00150     <span class="comment">//verify the result</span>
-<a name="l00151"></a>00151     <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">readTopSensors</a>(sensorTopValues);
-<a name="l00152"></a>00152     cd-&gt;<a class="code" href="struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77">leftTop</a> = sensorTopValues[0];
-<a name="l00153"></a>00153     cd-&gt;<a class="code" href="struct_cube_detection.html#a588f97b6e820b6dc1614ae67717f8206">rightTop</a> = sensorTopValues[1];
-<a name="l00154"></a>00154     topSensorsRead = <span class="keyword">true</span>;
-<a name="l00155"></a>00155     <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77">leftTop</a> &lt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a> || !<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a90bbb5bb0965db13214cd9f383d7c96f" title="If set to true the top sensors are taken into account during the cube approach process.">cubeApproachUseTopSensors</a>){
-<a name="l00156"></a>00156       <span class="comment">//verification successful.</span>
-<a name="l00157"></a>00157       left = <span class="keyword">true</span>;
-<a name="l00158"></a>00158     }
-<a name="l00159"></a>00159     <span class="keywordflow">else</span>{
-<a name="l00160"></a>00160       <span class="comment">//verification not passed --&gt; revert result from left bottom sensor.</span>
-<a name="l00161"></a>00161       left = <span class="keyword">false</span>;
-<a name="l00162"></a>00162       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(74, sensorTopValues, 2);
-<a name="l00163"></a>00163     }
-<a name="l00164"></a>00164   }
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166   <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a1ee12e3851183c6dce9777c1767c7527">rightBottom</a> &gt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a>){
-<a name="l00167"></a>00167     <span class="comment">//verify the result</span>
-<a name="l00168"></a>00168     <span class="keywordflow">if</span>(!topSensorsRead){
-<a name="l00169"></a>00169       <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">readTopSensors</a>(sensorTopValues);
-<a name="l00170"></a>00170       cd-&gt;<a class="code" href="struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77">leftTop</a> = sensorTopValues[0];
-<a name="l00171"></a>00171       cd-&gt;<a class="code" href="struct_cube_detection.html#a588f97b6e820b6dc1614ae67717f8206">rightTop</a> = sensorTopValues[1];
-<a name="l00172"></a>00172     }
-<a name="l00173"></a>00173     <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a588f97b6e820b6dc1614ae67717f8206">rightTop</a> &lt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a> || !<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a90bbb5bb0965db13214cd9f383d7c96f" title="If set to true the top sensors are taken into account during the cube approach process.">cubeApproachUseTopSensors</a>){
-<a name="l00174"></a>00174       <span class="comment">//verification successful.</span>
-<a name="l00175"></a>00175       right = <span class="keyword">true</span>;
-<a name="l00176"></a>00176     }
-<a name="l00177"></a>00177     <span class="keywordflow">else</span>{
-<a name="l00178"></a>00178       <span class="comment">//verification not passed --&gt; revert result from right bottom sensor.</span>
-<a name="l00179"></a>00179       right = <span class="keyword">false</span>;
-<a name="l00180"></a>00180       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(75, sensorTopValues, 2);
-<a name="l00181"></a>00181     }
-<a name="l00182"></a>00182   }
-<a name="l00183"></a>00183 
-<a name="l00184"></a>00184   <span class="comment">//nothing found --&gt; return 0</span>
-<a name="l00185"></a>00185   <span class="keywordflow">if</span>(!left &amp;&amp; !right){
-<a name="l00186"></a>00186     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(72, sensorValues, 2);
-<a name="l00187"></a>00187     <span class="keywordflow">return</span> 0;
+<a name="l00153"></a><a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">00153</a> <a class="code" href="struct_cube_detection.html">CubeDetection</a>* <a class="code" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241">CubeApproach::tryToDetectCube</a>(){
+<a name="l00154"></a>00154   <span class="comment">//get the next free spot.</span>
+<a name="l00155"></a>00155   <a class="code" href="struct_cube_detection.html">CubeDetection</a>* cd = &amp;<a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">cubeDetections</a>[<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a>];
+<a name="l00156"></a>00156   cd-&gt;<a class="code" href="struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd" title="Set to true if the car has turned right after this detection.">turnedRight</a> = <span class="keyword">false</span>;
+<a name="l00157"></a>00157   cd-&gt;<a class="code" href="struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5" title="Set to true if the car has turned left after this detection.">turnedLeft</a> = <span class="keyword">false</span>;
+<a name="l00158"></a>00158   cd-&gt;<a class="code" href="struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656" title="Set to true if the cube has been detected with both bottom sensors at this detection.">cubeIsCentered</a> = <span class="keyword">false</span>;
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160   <span class="keywordtype">boolean</span> left = <span class="keyword">false</span>;
+<a name="l00161"></a>00161   <span class="keywordtype">boolean</span> right = <span class="keyword">false</span>;
+<a name="l00162"></a>00162   <span class="keywordtype">boolean</span> topSensorsRead = <span class="keyword">false</span>;
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164   <span class="keywordtype">int</span> sensorValues[2];
+<a name="l00165"></a>00165   <a class="code" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765">readBottomSensors</a>(sensorValues);
+<a name="l00166"></a>00166   cd-&gt;<a class="code" href="struct_cube_detection.html#a3d4467976c600d4752ceb51dfd84b7e3">leftBottom</a> = sensorValues[0];
+<a name="l00167"></a>00167   cd-&gt;<a class="code" href="struct_cube_detection.html#a1ee12e3851183c6dce9777c1767c7527">rightBottom</a> = sensorValues[1];
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169   <span class="keywordtype">int</span> sensorTopValues[2];
+<a name="l00170"></a>00170   sensorTopValues[0] = 0;
+<a name="l00171"></a>00171   sensorTopValues[1] = 0;
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173   <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a3d4467976c600d4752ceb51dfd84b7e3">leftBottom</a> &gt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a>){
+<a name="l00174"></a>00174     <span class="comment">//verify the result</span>
+<a name="l00175"></a>00175     <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">readTopSensors</a>(sensorTopValues);
+<a name="l00176"></a>00176     cd-&gt;<a class="code" href="struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77">leftTop</a> = sensorTopValues[0];
+<a name="l00177"></a>00177     cd-&gt;<a class="code" href="struct_cube_detection.html#a588f97b6e820b6dc1614ae67717f8206">rightTop</a> = sensorTopValues[1];
+<a name="l00178"></a>00178     topSensorsRead = <span class="keyword">true</span>;
+<a name="l00179"></a>00179     <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77">leftTop</a> &lt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a> || !<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a90bbb5bb0965db13214cd9f383d7c96f" title="If set to true the top sensors are taken into account during the cube approach process.">cubeApproachUseTopSensors</a>){
+<a name="l00180"></a>00180       <span class="comment">//verification successful.</span>
+<a name="l00181"></a>00181       left = <span class="keyword">true</span>;
+<a name="l00182"></a>00182     }
+<a name="l00183"></a>00183     <span class="keywordflow">else</span>{
+<a name="l00184"></a>00184       <span class="comment">//verification not passed --&gt; revert result from left bottom sensor.</span>
+<a name="l00185"></a>00185       left = <span class="keyword">false</span>;
+<a name="l00186"></a>00186       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(74, sensorTopValues, 2);
+<a name="l00187"></a>00187     }
 <a name="l00188"></a>00188   }
 <a name="l00189"></a>00189 
-<a name="l00190"></a>00190   <span class="keywordflow">if</span>(left &amp;&amp; right){
-<a name="l00191"></a>00191     cd-&gt;<a class="code" href="struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656" title="Set to true if the cube has been detected with both bottom sensors at this detection.">cubeIsCentered</a> = <span class="keyword">true</span>;
-<a name="l00192"></a>00192     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(73, sensorValues, 2);
-<a name="l00193"></a>00193   }
-<a name="l00194"></a>00194   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(left){
-<a name="l00195"></a>00195     cd-&gt;<a class="code" href="struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd" title="Set to true if the car has turned right after this detection.">turnedRight</a> = <span class="keyword">true</span>;
-<a name="l00196"></a>00196     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(76, sensorValues, 2);
-<a name="l00197"></a>00197   }
-<a name="l00198"></a>00198   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(right){
-<a name="l00199"></a>00199     cd-&gt;<a class="code" href="struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5" title="Set to true if the car has turned left after this detection.">turnedLeft</a> = <span class="keyword">true</span>;
-<a name="l00200"></a>00200     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(77, sensorValues, 2);
-<a name="l00201"></a>00201   }
-<a name="l00202"></a>00202   <span class="keywordflow">return</span> cd;
-<a name="l00203"></a>00203 }
-<a name="l00204"></a>00204 
-<a name="l00209"></a><a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">00209</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">CubeApproach::turn</a>(<span class="keywordtype">int</span> direction){
-<a name="l00210"></a>00210   <a class="code" href="struct_move_command.html">MoveCommand</a>* mc = <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a5f34e9081613ec4d1796cac234b9cbb5" title="Current queue with commands that are executed.">commandQueue</a>;
-<a name="l00211"></a>00211   mc[0].<a class="code" href="struct_move_command.html#ada8cf3cf629ff7847de2844abb8db7ad" title="Defines for how long this command shall be executed (milliseconds).">duration</a> = <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a9da11857b45fd2f6773dbcdfc7331b40" title="Duration in milliseconds of a turn when the cube has been detected.">cubeApproachTurnDuration</a>;
-<a name="l00212"></a>00212 
-<a name="l00213"></a>00213   <span class="keywordtype">int</span> speedSlow = <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa284621b913e16639f3389791c5eb28a" title="Speed of slow motor during a turn when the cube has been detected. This value can be nagative...">cubeApproachTurnSpeedSlowMotor</a>;
-<a name="l00214"></a>00214   <span class="keywordtype">int</span> speedFast = <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a38804c3d44ecfb2d0fb3946663c6cd93" title="Speed of fast motor during a turn when the cube has been detected. This value can be nagative...">cubeApproachTurnSpeedFastMotor</a>;
-<a name="l00215"></a>00215   <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirSlow;
-<a name="l00216"></a>00216   <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirFast;
-<a name="l00217"></a>00217 
-<a name="l00218"></a>00218   <span class="keywordflow">if</span>(speedSlow &gt;= 0){
-<a name="l00219"></a>00219     dirSlow = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
-<a name="l00220"></a>00220   }
-<a name="l00221"></a>00221   <span class="keywordflow">else</span>
-<a name="l00222"></a>00222   {
-<a name="l00223"></a>00223     dirSlow = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
-<a name="l00224"></a>00224     speedSlow = speedSlow * (-1);
+<a name="l00190"></a>00190   <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a1ee12e3851183c6dce9777c1767c7527">rightBottom</a> &gt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a>){
+<a name="l00191"></a>00191     <span class="comment">//verify the result</span>
+<a name="l00192"></a>00192     <span class="keywordflow">if</span>(!topSensorsRead){
+<a name="l00193"></a>00193       <a class="code" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580">readTopSensors</a>(sensorTopValues);
+<a name="l00194"></a>00194       cd-&gt;<a class="code" href="struct_cube_detection.html#a9c7f9d19aa3c950b1d7873b965016e77">leftTop</a> = sensorTopValues[0];
+<a name="l00195"></a>00195       cd-&gt;<a class="code" href="struct_cube_detection.html#a588f97b6e820b6dc1614ae67717f8206">rightTop</a> = sensorTopValues[1];
+<a name="l00196"></a>00196     }
+<a name="l00197"></a>00197     <span class="keywordflow">if</span>(cd-&gt;<a class="code" href="struct_cube_detection.html#a588f97b6e820b6dc1614ae67717f8206">rightTop</a> &lt; <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a31dba4b7dc79224cda66882244363829" title="Threshold for the cube detection.">cubeApproachDetectThreshold</a> || !<a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a90bbb5bb0965db13214cd9f383d7c96f" title="If set to true the top sensors are taken into account during the cube approach process.">cubeApproachUseTopSensors</a>){
+<a name="l00198"></a>00198       <span class="comment">//verification successful.</span>
+<a name="l00199"></a>00199       right = <span class="keyword">true</span>;
+<a name="l00200"></a>00200     }
+<a name="l00201"></a>00201     <span class="keywordflow">else</span>{
+<a name="l00202"></a>00202       <span class="comment">//verification not passed --&gt; revert result from right bottom sensor.</span>
+<a name="l00203"></a>00203       right = <span class="keyword">false</span>;
+<a name="l00204"></a>00204       <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(75, sensorTopValues, 2);
+<a name="l00205"></a>00205     }
+<a name="l00206"></a>00206   }
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208   <span class="comment">//nothing found --&gt; return 0</span>
+<a name="l00209"></a>00209   <span class="keywordflow">if</span>(!left &amp;&amp; !right){
+<a name="l00210"></a>00210     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(72, sensorValues, 2);
+<a name="l00211"></a>00211     <span class="keywordflow">return</span> 0;
+<a name="l00212"></a>00212   }
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214   <span class="keywordflow">if</span>(left &amp;&amp; right){
+<a name="l00215"></a>00215     cd-&gt;<a class="code" href="struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656" title="Set to true if the cube has been detected with both bottom sensors at this detection.">cubeIsCentered</a> = <span class="keyword">true</span>;
+<a name="l00216"></a>00216     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(73, sensorValues, 2);
+<a name="l00217"></a>00217   }
+<a name="l00218"></a>00218   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(left){
+<a name="l00219"></a>00219     cd-&gt;<a class="code" href="struct_cube_detection.html#ab04af3b4a2e12f918532d92513f3f0dd" title="Set to true if the car has turned right after this detection.">turnedRight</a> = <span class="keyword">true</span>;
+<a name="l00220"></a>00220     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(76, sensorValues, 2);
+<a name="l00221"></a>00221   }
+<a name="l00222"></a>00222   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(right){
+<a name="l00223"></a>00223     cd-&gt;<a class="code" href="struct_cube_detection.html#a76e665b130c62b29bd22af9f93525ce5" title="Set to true if the car has turned left after this detection.">turnedLeft</a> = <span class="keyword">true</span>;
+<a name="l00224"></a>00224     <a class="code" href="class_cube_approach.html#a1b9e5a99d916ad25e8cb522e9786afe7" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(77, sensorValues, 2);
 <a name="l00225"></a>00225   }
-<a name="l00226"></a>00226 
-<a name="l00227"></a>00227   <span class="keywordflow">if</span>(speedFast &gt;= 0){
-<a name="l00228"></a>00228     dirFast = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
-<a name="l00229"></a>00229   }
-<a name="l00230"></a>00230   <span class="keywordflow">else</span>
-<a name="l00231"></a>00231   {
-<a name="l00232"></a>00232     dirFast = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
-<a name="l00233"></a>00233     speedFast = speedFast * (-1);
-<a name="l00234"></a>00234   }
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236   <span class="keywordflow">if</span>(direction == 1){
-<a name="l00237"></a>00237     mc[0].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = dirSlow;
-<a name="l00238"></a>00238     mc[0].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = speedSlow;
-<a name="l00239"></a>00239     mc[0].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = dirFast;
-<a name="l00240"></a>00240     mc[0].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = speedFast;
-<a name="l00241"></a>00241   }
-<a name="l00242"></a>00242   <span class="keywordflow">else</span>
-<a name="l00243"></a>00243   {
-<a name="l00244"></a>00244     mc[0].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = dirFast;
-<a name="l00245"></a>00245     mc[0].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = speedFast;
-<a name="l00246"></a>00246     mc[0].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = dirSlow;
-<a name="l00247"></a>00247     mc[0].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = speedSlow;
-<a name="l00248"></a>00248   }
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250   <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba">startCurrentQueue</a>(1);
-<a name="l00251"></a>00251 }
-<a name="l00252"></a>00252 
-<a name="l00253"></a>00253 
-<a name="l00254"></a>00254 
-<a name="l00255"></a>00255 
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257 
-<a name="l00258"></a>00258 
+<a name="l00226"></a>00226   <span class="keywordflow">return</span> cd;
+<a name="l00227"></a>00227 }
+<a name="l00228"></a>00228 
+<a name="l00233"></a><a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">00233</a> <span class="keywordtype">void</span> <a class="code" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633">CubeApproach::turn</a>(<span class="keywordtype">int</span> direction){
+<a name="l00234"></a>00234   <a class="code" href="struct_move_command.html">MoveCommand</a>* mc = <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a5f34e9081613ec4d1796cac234b9cbb5" title="Current queue with commands that are executed.">commandQueue</a>;
+<a name="l00235"></a>00235   mc[0].<a class="code" href="struct_move_command.html#ada8cf3cf629ff7847de2844abb8db7ad" title="Defines for how long this command shall be executed (milliseconds).">duration</a> = <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a9da11857b45fd2f6773dbcdfc7331b40" title="Duration in milliseconds of a turn when the cube has been detected.">cubeApproachTurnDuration</a>;
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237   <span class="keywordtype">int</span> speedSlow = <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa284621b913e16639f3389791c5eb28a" title="Speed of slow motor during a turn when the cube has been detected. This value can be nagative...">cubeApproachTurnSpeedSlowMotor</a>;
+<a name="l00238"></a>00238   <span class="keywordtype">int</span> speedFast = <a class="code" href="class_cube_approach.html#a69026de7ba3ae39f7298469faf69759e" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a38804c3d44ecfb2d0fb3946663c6cd93" title="Speed of fast motor during a turn when the cube has been detected. This value can be nagative...">cubeApproachTurnSpeedFastMotor</a>;
+<a name="l00239"></a>00239   <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirSlow;
+<a name="l00240"></a>00240   <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirFast;
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242   <span class="keywordflow">if</span>(speedSlow &gt;= 0){
+<a name="l00243"></a>00243     dirSlow = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
+<a name="l00244"></a>00244   }
+<a name="l00245"></a>00245   <span class="keywordflow">else</span>
+<a name="l00246"></a>00246   {
+<a name="l00247"></a>00247     dirSlow = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00248"></a>00248     speedSlow = speedSlow * (-1);
+<a name="l00249"></a>00249   }
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251   <span class="keywordflow">if</span>(speedFast &gt;= 0){
+<a name="l00252"></a>00252     dirFast = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
+<a name="l00253"></a>00253   }
+<a name="l00254"></a>00254   <span class="keywordflow">else</span>
+<a name="l00255"></a>00255   {
+<a name="l00256"></a>00256     dirFast = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00257"></a>00257     speedFast = speedFast * (-1);
+<a name="l00258"></a>00258   }
 <a name="l00259"></a>00259 
-<a name="l00260"></a>00260 
-<a name="l00261"></a>00261 
-<a name="l00262"></a>00262 
-<a name="l00263"></a>00263 
-<a name="l00264"></a>00264 
-<a name="l00265"></a>00265 
-<a name="l00266"></a>00266 
-<a name="l00267"></a>00267 
-<a name="l00268"></a>00268 
-<a name="l00269"></a>00269 
-<a name="l00270"></a>00270 
-<a name="l00271"></a>00271 
-<a name="l00272"></a>00272 
+<a name="l00260"></a>00260   <span class="keywordflow">if</span>(direction == 1){
+<a name="l00261"></a>00261     mc[0].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = dirSlow;
+<a name="l00262"></a>00262     mc[0].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = speedSlow;
+<a name="l00263"></a>00263     mc[0].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = dirFast;
+<a name="l00264"></a>00264     mc[0].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = speedFast;
+<a name="l00265"></a>00265   }
+<a name="l00266"></a>00266   <span class="keywordflow">else</span>
+<a name="l00267"></a>00267   {
+<a name="l00268"></a>00268     mc[0].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = dirFast;
+<a name="l00269"></a>00269     mc[0].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = speedFast;
+<a name="l00270"></a>00270     mc[0].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = dirSlow;
+<a name="l00271"></a>00271     mc[0].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = speedSlow;
+<a name="l00272"></a>00272   }
 <a name="l00273"></a>00273 
+<a name="l00274"></a>00274   <a class="code" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba">startCurrentQueue</a>(1);
+<a name="l00275"></a>00275 }
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278 
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280 
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283 
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285 
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288 
+<a name="l00289"></a>00289 
+<a name="l00290"></a>00290 
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293 
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297 
+<a name="l00298"></a>00298 
+<a name="l00299"></a>00299 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_cube_approach_8cpp.html">CubeApproach.cpp</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 10:25:49 for prencar by
+    <li class="footer">Generated on Fri May 25 2012 11:01:20 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>
