@@ -67,6 +67,7 @@ void Move::performFastStop()
 /**
  * Set the direction and the speed of both motors. If the value speedLeftMotor or speedRightMotor is not in the range
  * between 0 and 255, the maximum / minimum value of 255 or 0 will be set.
+ * If the direction is set to valueDependant, negative numbers are allowed which will cause the motor to rotate backwards (0 will set the motor to phaseOut).
  * First the speed is set then the direction. First the left motor is set then the right.
  * @param dirLeftMotor direction of left motor
  * @param speedLeftMotor speed of left motor (0-255)
@@ -74,6 +75,32 @@ void Move::performFastStop()
  * @param speedRightMotor speed of right motor (0-255)
  */
 void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMotorDirection dirRightMotor, int speedRightMotor){
+  if(dirLeftMotor = valueDependant){
+    if(speedLeftMotor > 0){
+      dirLeftMotor = forward;
+    }
+    else if(speedLeftMotor < 0){
+      dirLeftMotor = backwards;
+      speedLeftMotor = (-1) * speedLeftMotor;
+    }
+    else{ //0
+      dirLeftMotor = phaseOut;
+    }
+  }
+  
+  if(dirRightMotor = valueDependant){
+    if(speedRightMotor > 0){
+      dirRightMotor = forward;
+    }
+    else if(speedRightMotor < 0){
+      dirRightMotor = backwards;
+      speedRightMotor = (-1) * speedRightMotor;
+    }
+    else{ //0
+      dirRightMotor = phaseOut;
+    }
+  }
+
   if(speedLeftMotor > 255) speedLeftMotor = 255;
   if(speedRightMotor > 255) speedRightMotor = 255;
 
@@ -82,7 +109,7 @@ void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMoto
 
   _speedLeft = speedLeftMotor;
   _speedRight = speedRightMotor;
-  
+
   int parameters[4];
   parameters[0] = _speedLeft;
   parameters[1] = dirLeftMotor;
@@ -90,7 +117,7 @@ void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMoto
   parameters[3] = dirRightMotor;
 
   _com->send(58, parameters, 4);
-  
+
   analogWrite(_conf->movePwmLeftPin, _speedLeft);
   setLeftMotorDirection(dirLeftMotor);
   analogWrite(_conf->movePwmRightPin, _speedRight);
@@ -98,7 +125,8 @@ void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMoto
 }
 
 /**
- * Set the direction of the left motor according to the given enum value.
+ * Set the direction of the left motor according to the given enum value.<br>
+ * <b>The enum value valueDependant will be ignored.</b>
  * @param dir direction to set for the left motor
  */
 void Move::setLeftMotorDirection(enum TMotorDirection dir){
@@ -130,6 +158,7 @@ void Move::setLeftMotorDirection(enum TMotorDirection dir){
 
 /**
  * Set the direction of the right motor according to the given enum value.
+ * <b>The enum value valueDependant will be ignored.</b>
  * @param dir direction to set for the right motor
  */
 void Move::setRightMotorDirection(TMotorDirection dir){
@@ -217,6 +246,7 @@ void Move::equalizeMotorsSpeed(){
   analogWrite(_conf->movePwmLeftPin, _speedLeft);
   analogWrite(_conf->movePwmRightPin, _speedRight);
 }
+
 
 
 

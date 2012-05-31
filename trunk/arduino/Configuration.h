@@ -17,7 +17,7 @@ public:
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.<br>
    * <b>Please make sure that the constant Command::_COMMANDMAXPARAMETERAMOUNT is big enough.</b>
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 47;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 56;
 
   //-----------------------------------
   //PIN ASSIGNMENT
@@ -92,6 +92,12 @@ public:
    */
   int lineFollowReduceSpeedTimeSecondLine;
   /**
+   * \brief The time in milliseconds (after a call to LineFollow::startIt()) on the third line and after the cube has been lifted
+   * after which the line follow shall continue with the
+   * defined reduced speed (0 to disable this function).
+   */
+  int lineFollowReduceSpeedTimeThirdLineToFinish;
+  /**
    * \brief Milliseconds (after a call to LineFollow::startIt()) after which the front line sensors shall be activated. 
    *
    * This offset is helpful at the beginning of the parours in order to be able to start the parcours <b>behind</b> the start line
@@ -120,6 +126,14 @@ public:
   byte liftCubeDownPosition; ///< Pwm value to set if the hoist has to be moved up fully.
   int liftCubeDownUpDuration; ///< Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()
   byte liftCubeSwitchPin; ///< Hardware pin to which the end switch is attached.
+  /**
+   * \brief Time for which the motors shall "rotate" backwards with the speed set in liftCubeStopSpeed.
+   *
+   * This stop action is performed right after the car has started lifting the cube. The goal of this action is to stop the car to prevent
+   * it from driving across the parcours boarders.
+   */
+  int liftCubeStopDuration;
+  int liftCubeStopSpeed; ///< The speed for the stop action which is performed after the cube lifting process has started. @see liftCubeStopDuration
 
   //-----------------------------------
   //CURVE
@@ -174,6 +188,23 @@ public:
   int cubeApproachTurnSpeedSlowMotor; ///< Speed of slow motor during a turn when the cube has been detected. This value can be nagative.
   int cubeApproachTurnSpeedFastMotor; ///< Speed of fast motor during a turn when the cube has been detected. This value can be nagative.
   int cubeApproachStraightSpeed; ///< Speed during cube approach while the car is driving straight.
+  
+  //-----------------------------------
+  //MOVE BACK TO LINE
+  int moveBackToLineInterval; ///< Interval in which during driving back to the line the line sensors shall be checked.
+  int moveBackToLine1stTurnDuration; ///< Duration of the 1st turn to move / rotate the car in direction where the line is.
+  int moveBackToLine1stTurnSlowSpeed; ///< Speed of the slow motor during the 1st turn (can be a negative number). @see moveBackToLine1stTurnDuration
+  int moveBackToLine1stTurnFastSpeed; ///< Speed of the fast motor during the 1st turn (can be a negative number). @see moveBackToLine1stTurnDuration
+  int moveBackToLineStraightSpeed; ///< Speed of the car when it drives straight back to the line.
+  
+  //-----------------------------------
+  //FINISH LINE
+  /**
+   * \brief Time in milliseconds of how long the car shall drive straight to cross the finish line.
+   *
+   * The car is driving with lineFollowInitialSpeedLeft and lineFollowInitialSpeedRight.
+   */
+  int finishLineDriveOverDuration;
 
   //-----------------------------------
   //SENSOR DEBUG

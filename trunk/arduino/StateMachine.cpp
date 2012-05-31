@@ -29,6 +29,7 @@ StateMachine::StateMachine()
 {
   parcoursState = notStarted;
   forceChangeState = false;
+  extMoveCommandDriveOverFinishLineStarted = false;
 }
 
 /**
@@ -43,6 +44,7 @@ void StateMachine::begin(){
   lineFollow.begin();
   curveLeft.begin();
   _cubeApproach.begin();
+  _moveBackToLine.begin();
   _liftCube->liftUp();
 }
 
@@ -55,7 +57,7 @@ void StateMachine::doJob(){
 
   checkCommands();
 
-  ///@todo this do job has to go to the right state.
+  //The lift cube job is done always so that the car can lift the cube in every possible state (fall back).
   _liftCube->doJob();
 
   if(parcoursState == followingFirstLine){
@@ -101,6 +103,10 @@ void StateMachine::doJob(){
   }
   else if(parcoursState == followingThirdLineToCube){
     //go to the next state if the car has detected the cube at least once
+    /**
+     * @todo add an else if statement that also checks if lineFollow.hasReachedCurve for the case if the cube was not detected but the
+     * car is at the end of the parcours.
+     */
     if(_cubeApproach.amountOfCubeDetections > 0 || forceChangeState){
       changeState(cubeApproach);
       if(forceChangeState){
@@ -109,6 +115,11 @@ void StateMachine::doJob(){
         _cubeApproach.startIt(); 
       }
     }
+    else if(_liftCube->liftingStarted){
+      //fallback: If the cube would switch the end sensor even though the car is not yet in the "lift cube" state --> switch to that state
+      _com->send(103);
+      changeState(liftCube);
+    }
     else{
       _cubeApproach.doJob(true);
     }
@@ -116,14 +127,61 @@ void StateMachine::doJob(){
   else if(parcoursState == cubeApproach){
     //go to the next state if the car has detected the cube in the center
     if((_cubeApproach.amountOfCubeDetections > 0 && _cubeApproach.cubeDetections[_cubeApproach.amountOfCubeDetections - 1].cubeIsCentered == true) || forceChangeState){
-      //changeState(liftCube);
-      //for now just stop the car
-      _move->performFastStop();
-      changeState(finished);
-      _com->send(209, (millis() - startParcoursTimestamp));
+      changeState(liftCube);
+      //drive until the cube is lifted
+      _move->controlMotors(forward, _conf->cubeApproachStraightSpeed, forward, _conf->cubeApproachStraightSpeed);
+    }
+    else if(_liftCube->liftingStarted){
+      //fallback: If the cube would switch the end sensor even though the car is not yet in the "lift cube" state --> switch to that state
+      _com->send(103);
+      changeState(liftCube);
     }
     else{
       _cubeApproach.doJob(false);
+    }
+  }
+  else if(parcoursState == liftCube){
+    //go to the next state if the car has lifted the cube
+    if(_liftCube->cubeLifted || forceChangeState){
+      //don't go to the next state if still a car stopping process is being executed.
+      if(!_extMove->isExecutionInProcess()){
+        changeState(moveBackToLine);
+        _moveBackToLine.startIt(&_cubeApproach);
+      }
+      else{
+        //send a message that the state won't get changed yet because the execution of the stop command is still in progress.
+        _com->send(92);
+      }
+    }
+    else{
+      //the lift cube job is done always so nothing needs to be done in here...
+    }
+  }
+  else if(parcoursState == moveBackToLine){
+    //go to the next state if the car is centered on the line again or if an error has occured.
+    if(_moveBackToLine.isBackOnLine || _moveBackToLine.errorNoCubeApproachInformation || forceChangeState){
+      _extMove->stopCurrentQueue(); //just, if there are still any executions in progress.
+      changeState(followingThirdLineToFinish);
+      lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
+      _conf->lineFollowReduceSpeedTimeThirdLineToFinish, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
+    }
+    else{
+      _moveBackToLine.doJob();
+    }
+  }
+  else if(parcoursState == followingThirdLineToFinish){
+    //go to the next state if the car has detected the cube in the center
+    if(lineFollow.hasReachedCurve || forceChangeState){
+      if(!extMoveCommandDriveOverFinishLineStarted){
+        startDriveOverFinishLineExtMoveCommand();
+      }
+      else if(extMoveCommandDriveOverFinishLineStarted && !_extMove->isExecutionInProcess()){
+        changeState(finished);
+        _com->send(209, (millis() - startParcoursTimestamp));
+      }
+    }
+    else{
+      lineFollow.doJob();
     }
   }
 
@@ -228,6 +286,7 @@ void StateMachine::startParcours(){
   //send the current configuration
   _com->sendCurrentConfiguration();
   startParcoursTimestamp = millis();
+  extMoveCommandDriveOverFinishLineStarted = false;
   lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
   _conf->lineFollowReduceSpeedTimeFirstLine, _conf->lineFollowReducedSpeedLeft, _conf->lineFollowReducedSpeedRight);
 }
@@ -242,6 +301,7 @@ void StateMachine::startParcoursAtState(TParcoursState state){
   state = (TParcoursState)((int)state - 1);
   parcoursState = state;
   forceChangeState = true;
+  extMoveCommandDriveOverFinishLineStarted = false;
   _com->send(205, state + 1);
   //send the current configuration
   _com->sendCurrentConfiguration();
@@ -280,6 +340,36 @@ void StateMachine::changeActivateMessageFilter(boolean newState){
     _com->send(208, 0); 
   }
 }
+
+/**
+ * Creates an Extended Move command which moves the car over the finish line and stops it afterwords.
+ * It also sets extMoveCommandDriveOverFinishLineStarted to true as soon as this method is called.
+ */
+void StateMachine::startDriveOverFinishLineExtMoveCommand(){
+  extMoveCommandDriveOverFinishLineStarted = true;
+
+  //create an extMove command and add start it's execution
+  MoveCommand* mc = _extMove->commandQueue;
+  mc[0].duration = _conf->finishLineDriveOverDuration;
+  mc[0].dirLeftMotor = forward;
+  mc[0].speedLeftMotor = _conf->lineFollowInitialSpeedLeft;
+  mc[0].dirRightMotor = forward;
+  mc[0].speedRightMotor = _conf->lineFollowInitialSpeedRight;
+
+  mc[1].duration = 250;
+  mc[1].dirLeftMotor = backwards;
+  mc[1].speedLeftMotor = 130;
+  mc[1].dirRightMotor = backwards;
+  mc[1].speedRightMotor = 130;
+
+  _extMove->startCurrentQueue(2);
+}
+
+
+
+
+
+
 
 
 

@@ -134,7 +134,6 @@ void LineFollow::doJob(){
 void LineFollow::readFrontLineSensors(int* resultArray){
 
   resultArray[0] = analogRead(_conf->lineFollowLeftFrontSensorPin);
-  ///@todo Maybe a delay is needed between the readings.
   resultArray[1] = analogRead(_conf->lineFollowRightFrontSensorPin);
 
   _com->send(1, resultArray, 2);
@@ -147,7 +146,6 @@ void LineFollow::readFrontLineSensors(int* resultArray){
 void LineFollow::readLineSensors(int* resultArray){
 
   resultArray[0] = analogRead(_conf->lineFollowLeftSensorPin);
-  ///@todo Maybe a delay is needed between the readings.
   resultArray[1] = analogRead(_conf->lineFollowRightSensorPin);
 
   _com->send(2, resultArray, 2);

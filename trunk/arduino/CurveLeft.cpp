@@ -97,9 +97,9 @@ void CurveLeft::doJob(){
 
       if(sensorValues[0] < _conf->whiteThresholdLineSensors){
         _com->send(66, sensorValues[0]);
+        _extMove->stopCurrentQueue();
         lineCenter.startIt(true);
         _lineCenteringStarted = true;
-        _extMove->stopCurrentQueue();
       }
     }
   }

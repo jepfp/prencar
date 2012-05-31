@@ -3,7 +3,7 @@
 Configuration Configuration::_instance; ///< Static reference to the singleton object
 boolean Configuration::_instanceCreated = false;
 
-byte const Configuration::_CONFIGURATIONVERSION = 2; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
+byte const Configuration::_CONFIGURATIONVERSION = 3; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
 long const Configuration::_SERIALSPEED = 9600; ///< Defines the serial data rate.
 
 /**
@@ -62,6 +62,7 @@ Configuration::Configuration(){
   lineFollowReducedSpeedRight = 130;
   lineFollowReduceSpeedTimeFirstLine = 2500;
   lineFollowReduceSpeedTimeSecondLine = 500;
+  lineFollowReduceSpeedTimeThirdLineToFinish = 500;
   lineFollowActivateFrontSensorOffset = 500;
 
   //-----------------------------------
@@ -80,6 +81,8 @@ Configuration::Configuration(){
   liftCubeUpPosition = 26;
   liftCubeDownPosition = 47;
   liftCubeDownUpDuration = 700;
+  liftCubeStopDuration = 350;
+  liftCubeStopSpeed = 130;
 
   //-----------------------------------
   //CURVE
@@ -103,6 +106,18 @@ Configuration::Configuration(){
   cubeApproachTurnSpeedSlowMotor = 0;
   cubeApproachTurnSpeedFastMotor = 180;
   cubeApproachStraightSpeed = 160;
+
+  //-----------------------------------
+  //MOVE BACK TO LINE
+  moveBackToLineInterval = 0;
+  moveBackToLine1stTurnDuration = 1750;
+  moveBackToLine1stTurnSlowSpeed = 0;
+  moveBackToLine1stTurnFastSpeed = 180;
+  moveBackToLineStraightSpeed = 180;
+
+  //-----------------------------------
+  //FINISH LINE
+  finishLineDriveOverDuration = 1750;
 
   //-----------------------------------
   //SENSOR DEBUG
@@ -148,37 +163,46 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[13] = lineFollowReducedSpeedRight;
   spaceForConfigValues[14] = lineFollowReduceSpeedTimeFirstLine;
   spaceForConfigValues[15] = lineFollowReduceSpeedTimeSecondLine;
-  spaceForConfigValues[16] = lineFollowActivateFrontSensorOffset;
-  spaceForConfigValues[17] = lineCenterInterval;
-  spaceForConfigValues[18] = lineCenterLineInMiddleDifference;
-  spaceForConfigValues[19] = lineCenterStraightSpeed;
-  spaceForConfigValues[20] = lineCenterFromLeftMotorLeft;
-  spaceForConfigValues[21] = lineCenterFromLeftMotorRight;
-  spaceForConfigValues[22] = lineCenterFromRightMotorLeft;
-  spaceForConfigValues[23] = lineCenterFromRightMotorRight;
-  spaceForConfigValues[24] = lineCenterDriveBackDuration;
-  spaceForConfigValues[25] = liftCubeUpPosition;
-  spaceForConfigValues[26] = liftCubeDownPosition;
-  spaceForConfigValues[27] = liftCubeDownUpDuration;
-  spaceForConfigValues[28] = curveStopDuration;
-  spaceForConfigValues[29] = curveStopSpeed;
-  spaceForConfigValues[30] = curveInterval;
-  spaceForConfigValues[31] = curveSpeedSlowMotor;
-  spaceForConfigValues[32] = curveSpeedFastMotor;
-  spaceForConfigValues[33] = curveDriveStraightTime;
-  spaceForConfigValues[34] = curveActivateEndSensorOffset;
-  spaceForConfigValues[35] = cubeApproachUseTopSensors;
-  spaceForConfigValues[36] = cubeApproachLineFollowReduceSpeedTime;
-  spaceForConfigValues[37] = cubeApproachLineFollowReducedSpeedLeft;
-  spaceForConfigValues[38] = cubeApproachLineFollowReducedSpeedRight;
-  spaceForConfigValues[39] = cubeApproachDetectThreshold;
-  spaceForConfigValues[40] = cubeApproachInterval;
-  spaceForConfigValues[41] = cubeApproachTurnDuration;
-  spaceForConfigValues[42] = cubeApproachTurnSpeedSlowMotor;
-  spaceForConfigValues[43] = cubeApproachTurnSpeedFastMotor;
-  spaceForConfigValues[44] = cubeApproachStraightSpeed;
-  spaceForConfigValues[45] = sensorDebugInterval;
-  spaceForConfigValues[46] = sensorDebugReadGap;
+  spaceForConfigValues[16] = lineFollowReduceSpeedTimeThirdLineToFinish;
+  spaceForConfigValues[17] = lineFollowActivateFrontSensorOffset;
+  spaceForConfigValues[18] = lineCenterInterval;
+  spaceForConfigValues[19] = lineCenterLineInMiddleDifference;
+  spaceForConfigValues[20] = lineCenterStraightSpeed;
+  spaceForConfigValues[21] = lineCenterFromLeftMotorLeft;
+  spaceForConfigValues[22] = lineCenterFromLeftMotorRight;
+  spaceForConfigValues[23] = lineCenterFromRightMotorLeft;
+  spaceForConfigValues[24] = lineCenterFromRightMotorRight;
+  spaceForConfigValues[25] = lineCenterDriveBackDuration;
+  spaceForConfigValues[26] = liftCubeUpPosition;
+  spaceForConfigValues[27] = liftCubeDownPosition;
+  spaceForConfigValues[28] = liftCubeDownUpDuration;
+  spaceForConfigValues[29] = liftCubeStopDuration;
+  spaceForConfigValues[30] = liftCubeStopSpeed;
+  spaceForConfigValues[31] = curveStopDuration;
+  spaceForConfigValues[32] = curveStopSpeed;
+  spaceForConfigValues[33] = curveInterval;
+  spaceForConfigValues[34] = curveSpeedSlowMotor;
+  spaceForConfigValues[35] = curveSpeedFastMotor;
+  spaceForConfigValues[36] = curveDriveStraightTime;
+  spaceForConfigValues[37] = curveActivateEndSensorOffset;
+  spaceForConfigValues[38] = cubeApproachUseTopSensors;
+  spaceForConfigValues[39] = cubeApproachLineFollowReduceSpeedTime;
+  spaceForConfigValues[40] = cubeApproachLineFollowReducedSpeedLeft;
+  spaceForConfigValues[41] = cubeApproachLineFollowReducedSpeedRight;
+  spaceForConfigValues[42] = cubeApproachDetectThreshold;
+  spaceForConfigValues[43] = cubeApproachInterval;
+  spaceForConfigValues[44] = cubeApproachTurnDuration;
+  spaceForConfigValues[45] = cubeApproachTurnSpeedSlowMotor;
+  spaceForConfigValues[46] = cubeApproachTurnSpeedFastMotor;
+  spaceForConfigValues[47] = cubeApproachStraightSpeed;
+  spaceForConfigValues[48] = moveBackToLineInterval;
+  spaceForConfigValues[49] = moveBackToLine1stTurnDuration;
+  spaceForConfigValues[50] = moveBackToLine1stTurnSlowSpeed;
+  spaceForConfigValues[51] = moveBackToLine1stTurnFastSpeed;
+  spaceForConfigValues[52] = moveBackToLineStraightSpeed;
+  spaceForConfigValues[53] = finishLineDriveOverDuration;
+  spaceForConfigValues[54] = sensorDebugInterval;
+  spaceForConfigValues[55] = sensorDebugReadGap;
 }
 
 /**
@@ -197,12 +221,12 @@ boolean Configuration::updateConfiguration(int* parameters){
   if(parameters[0] != _CONFIGURATIONVERSION){
     return false;
   }
-  
+
   messageFilterLevel = parameters[2];
-  activateMessageFilter = parameters[3]; 
+  activateMessageFilter = parameters[3];
   doJobDelay = parameters[4];
   whiteThresholdLineSensors = parameters[5];
-  whiteThresholdFrontSensors = parameters[6]; 
+  whiteThresholdFrontSensors = parameters[6];
   lineFollowInterval = parameters[7];
   lineFollowInitialSpeedLeft = parameters[8];
   lineFollowInitialSpeedRight = parameters[9];
@@ -212,37 +236,46 @@ boolean Configuration::updateConfiguration(int* parameters){
   lineFollowReducedSpeedRight = parameters[13];
   lineFollowReduceSpeedTimeFirstLine = parameters[14];
   lineFollowReduceSpeedTimeSecondLine = parameters[15];
-  lineFollowActivateFrontSensorOffset = parameters[16];
-  lineCenterInterval = parameters[17];
-  lineCenterLineInMiddleDifference = parameters[18];
-  lineCenterStraightSpeed = parameters[19];
-  lineCenterFromLeftMotorLeft = parameters[20];
-  lineCenterFromLeftMotorRight = parameters[21];
-  lineCenterFromRightMotorLeft = parameters[22];
-  lineCenterFromRightMotorRight = parameters[23];
-  lineCenterDriveBackDuration = parameters[24];
-  liftCubeUpPosition = parameters[25];
-  liftCubeDownPosition = parameters[26];
-  liftCubeDownUpDuration = parameters[27];
-  curveStopDuration = parameters[28];
-  curveStopSpeed = parameters[29];
-  curveInterval = parameters[30];
-  curveSpeedSlowMotor = parameters[31];
-  curveSpeedFastMotor = parameters[32];
-  curveDriveStraightTime = parameters[33];
-  curveActivateEndSensorOffset = parameters[34];
-  cubeApproachUseTopSensors = parameters[35];
-  cubeApproachLineFollowReduceSpeedTime = parameters[36];
-  cubeApproachLineFollowReducedSpeedLeft = parameters[37];
-  cubeApproachLineFollowReducedSpeedRight = parameters[38];
-  cubeApproachDetectThreshold = parameters[39];
-  cubeApproachInterval = parameters[40];
-  cubeApproachTurnDuration = parameters[41];
-  cubeApproachTurnSpeedSlowMotor = parameters[42];
-  cubeApproachTurnSpeedFastMotor = parameters[43];
-  cubeApproachStraightSpeed = parameters[44];
-  sensorDebugInterval = parameters[45];
-  sensorDebugReadGap = parameters[46];
+  lineFollowReduceSpeedTimeThirdLineToFinish = parameters[16];
+  lineFollowActivateFrontSensorOffset = parameters[17];
+  lineCenterInterval = parameters[18];
+  lineCenterLineInMiddleDifference = parameters[19];
+  lineCenterStraightSpeed = parameters[20];
+  lineCenterFromLeftMotorLeft = parameters[21];
+  lineCenterFromLeftMotorRight = parameters[22];
+  lineCenterFromRightMotorLeft = parameters[23];
+  lineCenterFromRightMotorRight = parameters[24];
+  lineCenterDriveBackDuration = parameters[25];
+  liftCubeUpPosition = parameters[26];
+  liftCubeDownPosition = parameters[27];
+  liftCubeDownUpDuration = parameters[28];
+  liftCubeStopDuration = parameters[29];
+  liftCubeStopSpeed = parameters[30];
+  curveStopDuration = parameters[31];
+  curveStopSpeed = parameters[32];
+  curveInterval = parameters[33];
+  curveSpeedSlowMotor = parameters[34];
+  curveSpeedFastMotor = parameters[35];
+  curveDriveStraightTime = parameters[36];
+  curveActivateEndSensorOffset = parameters[37];
+  cubeApproachUseTopSensors = parameters[38];
+  cubeApproachLineFollowReduceSpeedTime = parameters[39];
+  cubeApproachLineFollowReducedSpeedLeft = parameters[40];
+  cubeApproachLineFollowReducedSpeedRight = parameters[41];
+  cubeApproachDetectThreshold = parameters[42];
+  cubeApproachInterval = parameters[43];
+  cubeApproachTurnDuration = parameters[44];
+  cubeApproachTurnSpeedSlowMotor = parameters[45];
+  cubeApproachTurnSpeedFastMotor = parameters[46];
+  cubeApproachStraightSpeed = parameters[47];
+  moveBackToLineInterval = parameters[48];
+  moveBackToLine1stTurnDuration = parameters[49];
+  moveBackToLine1stTurnSlowSpeed = parameters[50];
+  moveBackToLine1stTurnFastSpeed = parameters[51];
+  moveBackToLineStraightSpeed = parameters[52];
+  finishLineDriveOverDuration = parameters[53];
+  sensorDebugInterval = parameters[54];
+  sensorDebugReadGap = parameters[55];
   return true;
 }
 
@@ -263,6 +296,8 @@ int Configuration::getFreeMemory()
 
   return free_memory;
 }
+
+
 
 
 

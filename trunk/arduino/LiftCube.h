@@ -4,6 +4,7 @@
 #include "Arduino.h"
 #include "Communication.h"
 #include <Servo.h>
+#include "ExtendedMove.h"
 
 class LiftCube
 {
@@ -17,13 +18,13 @@ private:
 
   Communication* _com; ///< The reference to the serial communication class.
   Configuration* _conf; ///< The reference to the configuration class.
-
-  boolean _liftingStarted; ///< Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to liftCube().
+  ExtendedMove* _extMove; ///< The reference to the ExtendedMove class.
 
   Servo _hoistServo;
 public:
   static LiftCube* getInstance();
 
+  boolean liftingStarted; ///< Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to liftCube().
   boolean cubeLifted; ///< Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again automatically (a parcours restart is needed first).
 
   void doJob();

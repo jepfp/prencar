@@ -43,6 +43,7 @@ LiftCube::LiftCube()
 void LiftCube::begin(){
   _conf = Configuration::getInstance();
   _com = Communication::getInstance();
+  _extMove = ExtendedMove::getInstance();
 
   pinMode(_conf->liftCubePwmPin, OUTPUT);
   pinMode(_conf->liftCubeSwitchPin, INPUT);
@@ -52,7 +53,7 @@ void LiftCube::begin(){
   //the chord attached to that pin is connected to the ground
   digitalWrite(_conf->liftCubeSwitchPin, HIGH);
 
-  _liftingStarted = false;
+  liftingStarted = false;
   cubeLifted = false;
 
   _hoistServo.attach(_conf->liftCubePwmPin);
@@ -64,10 +65,20 @@ void LiftCube::begin(){
  */
 void LiftCube::doJob(){
   int switchState = digitalRead(_conf->liftCubeSwitchPin);
-  if(switchState == 0 && _liftingStarted == false && cubeLifted == false){
+  if(switchState == 0 && liftingStarted == false && cubeLifted == false){
     _com->send(69);
     liftCube();
-    _liftingStarted = true;
+    liftingStarted = true;
+
+    //stop the moving car to be sure not to drive over the parcours boarders.
+    MoveCommand* mc = _extMove->commandQueue;
+    mc[0].duration = _conf->liftCubeStopDuration;
+    mc[0].dirLeftMotor = backwards;
+    mc[0].speedLeftMotor = _conf->liftCubeStopSpeed;
+    mc[0].dirRightMotor = backwards;
+    mc[0].speedRightMotor = _conf->liftCubeStopSpeed;
+
+    _extMove->startCurrentQueue(1);
   }
 
   if(_liftDownStartTimestamp != 0 && millis() > _liftDownStartTimestamp + _conf->liftCubeDownUpDuration){
@@ -76,7 +87,7 @@ void LiftCube::doJob(){
     _liftDownStartTimestamp = 0;
     liftUp();
     cubeLifted = true;
-    _liftingStarted = false;
+    liftingStarted = false;
   }
 }
 
@@ -101,6 +112,7 @@ void LiftCube::liftDown()
 /**
  * Moves the hoist to the bottom position (according to the configuration), waits for the time defined in
  * Configuration::liftCubeDownUpDuration and then moves the hoist to the top position again.<br>
+ * When this method is called, also the car will be stopped (see Configuration::liftCubeStopDuration, Configuration::liftCubeStopSpeed).
  * <b>Make sure the doJob method is called in regular intervals.</b>
  * @see Configuration::liftCubeDownPosition
  * @see Configuration::liftCubeUpPosition
@@ -120,6 +132,7 @@ void LiftCube::setHoistPosition(byte pos){
   _com->send(65, pos);
   _hoistServo.write(pos);
 }
+
 
 
 

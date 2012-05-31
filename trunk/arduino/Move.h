@@ -11,7 +11,8 @@ enum TMotorDirection{
   phaseOut, ///< Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimers still.  
   forward, ///< The motor rotates forward.
   backwards, ///< The motor rotates backward.
-  fastStop ///< The motor is stopped immediately. This is done by shortly giving power in the other direction.
+  fastStop, ///< The motor is stopped immediately. This is done by shortly giving power in the other direction.
+  valueDependant ///< The motor rotates forward or backwards depending on the speed set: positive int value --> forward, negative --> backwards, 0 --> fade out)
 };
 
 class Move

@@ -6,6 +6,7 @@
 #include "Configuration.h"
 #include "LineFollow.h"
 #include "CurveLeft.h"
+#include "MoveBackToLine.h"
 #include "LiftCube.h"
 #include "CubeApproach.h"
 #include "ExtendedMove.h"
@@ -44,6 +45,7 @@ private:
   LineFollow lineFollow;
   CurveLeft curveLeft;
   CubeApproach _cubeApproach;
+  MoveBackToLine _moveBackToLine;
 
   /** \brief Will be set to true if the stateMachine shall switch to the next state immediately.
    * 
@@ -55,9 +57,16 @@ private:
    * of the next state and immediately switches to the next state.
    */
   boolean forceChangeState;
+  
+  /**
+   * Set to true as soon as the ext move command has been started which moves the car over the finish line
+   * and stops the car afterwords.
+   */
+  boolean extMoveCommandDriveOverFinishLineStarted;
 
   void checkCommands();
   void changeState(TParcoursState newState);
+  void startDriveOverFinishLineExtMoveCommand();
 public:
   static StateMachine* getInstance();
   TParcoursState parcoursState;

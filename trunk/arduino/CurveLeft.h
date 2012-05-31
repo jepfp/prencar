@@ -36,8 +36,7 @@ public:
   /** \brief This variable is set to true as soon as the curve is driven fully.
    * 
    * With other words this means that the left line sensor has detected white
-   * ground so we can continue with the normal line following (this will start with a
-   * correction to the left side of course).
+   * ground so we can continue with the normal line following.
    */
   boolean drivingCurveIsFinished;
 private:
