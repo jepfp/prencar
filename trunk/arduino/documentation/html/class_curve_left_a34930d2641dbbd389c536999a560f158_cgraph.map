@@ -1,8 +1,8 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="374,43,562,69"/>
 <area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1446,144,1594,171"/>
-<area shape="rect" id="node8" href="$class_line_center.html#a736d4cd402c6dc398b374cae8aab5740" title="LineCenter::startIt" alt="" coords="685,93,811,120"/>
-<area shape="rect" id="node11" href="$class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6" title="ExtendedMove::stopCurrentQueue" alt="" coords="358,423,578,449"/>
+<area shape="rect" id="node8" href="$class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6" title="ExtendedMove::stopCurrentQueue" alt="" coords="358,423,578,449"/>
+<area shape="rect" id="node10" href="$class_line_center.html#a736d4cd402c6dc398b374cae8aab5740" title="LineCenter::startIt" alt="" coords="685,93,811,120"/>
 <area shape="rect" id="node13" href="$class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="171,245,298,272"/>
 <area shape="rect" id="node18" href="$class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a" title="ExtendedMove::isExecutionInProcess" alt="" coords="347,372,589,399"/>
 <area shape="rect" id="node20" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1237,296,1376,323"/>

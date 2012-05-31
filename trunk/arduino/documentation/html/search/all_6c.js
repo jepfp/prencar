@@ -8,11 +8,14 @@ var searchData=
   ['liftcubedownposition',['liftCubeDownPosition',['../class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83',1,'Configuration']]],
   ['liftcubedownupduration',['liftCubeDownUpDuration',['../class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c',1,'Configuration']]],
   ['liftcubepwmpin',['liftCubePwmPin',['../class_configuration.html#a25401bc6511b005d70f71e4b72f71c03',1,'Configuration']]],
+  ['liftcubestopduration',['liftCubeStopDuration',['../class_configuration.html#af69fe1dd7d85d1b7b1772f5abfc1ab54',1,'Configuration']]],
+  ['liftcubestopspeed',['liftCubeStopSpeed',['../class_configuration.html#ace271e960cae68a452d5330d0af7d46a',1,'Configuration']]],
   ['liftcubeswitchpin',['liftCubeSwitchPin',['../class_configuration.html#a795f86091deeb53575bf3818eeaf0071',1,'Configuration']]],
   ['liftcubeupposition',['liftCubeUpPosition',['../class_configuration.html#af6652efed17691fef4fa435e38c1642f',1,'Configuration']]],
   ['liftdown',['liftDown',['../class_lift_cube.html#a652d399235cafb5179a2d6c65df11112',1,'LiftCube']]],
+  ['liftingstarted',['liftingStarted',['../class_lift_cube.html#ac3ef9d92dc8953be1cb25b47e3d1ba6a',1,'LiftCube']]],
   ['liftup',['liftUp',['../class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64',1,'LiftCube']]],
-  ['linecenter',['LineCenter',['../class_line_center.html',1,'LineCenter'],['../class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7',1,'CurveLeft::lineCenter()'],['../class_line_center.html#adee08b78d744f632971ae14d653f36a0',1,'LineCenter::LineCenter()']]],
+  ['linecenter',['LineCenter',['../class_line_center.html',1,'LineCenter'],['../class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7',1,'CurveLeft::lineCenter()'],['../class_move_back_to_line.html#a0646d987470af65de0848c93d4101e7f',1,'MoveBackToLine::lineCenter()'],['../class_line_center.html#adee08b78d744f632971ae14d653f36a0',1,'LineCenter::LineCenter()']]],
   ['linecenter_2ecpp',['LineCenter.cpp',['../_line_center_8cpp.html',1,'']]],
   ['linecenter_2eh',['LineCenter.h',['../_line_center_8h.html',1,'']]],
   ['linecenterdrivebackduration',['lineCenterDriveBackDuration',['../class_configuration.html#aa7231458f16484140c8e08b5aa81a009',1,'Configuration']]],
@@ -39,6 +42,8 @@ var searchData=
   ['linefollowreducedspeedright',['lineFollowReducedSpeedRight',['../class_configuration.html#a357c494e08ca9c933550bb64ec997cbb',1,'Configuration']]],
   ['linefollowreducespeedtimefirstline',['lineFollowReduceSpeedTimeFirstLine',['../class_configuration.html#ac03d06e3aa3a299981f60bd9429d6849',1,'Configuration']]],
   ['linefollowreducespeedtimesecondline',['lineFollowReduceSpeedTimeSecondLine',['../class_configuration.html#a7b35d7c77230da94fe0fe12904974371',1,'Configuration']]],
+  ['linefollowreducespeedtimethirdlinetofinish',['lineFollowReduceSpeedTimeThirdLineToFinish',['../class_configuration.html#a03ba79c747a491d0ded2aa0ddfad1cf2',1,'Configuration']]],
   ['linefollowrightfrontsensorpin',['lineFollowRightFrontSensorPin',['../class_configuration.html#ab8d7a8d9f62cfafe082cc32915ef4bfa',1,'Configuration']]],
-  ['linefollowrightsensorpin',['lineFollowRightSensorPin',['../class_configuration.html#a254b7ac19c994603776d47645235a132',1,'Configuration']]]
+  ['linefollowrightsensorpin',['lineFollowRightSensorPin',['../class_configuration.html#a254b7ac19c994603776d47645235a132',1,'Configuration']]],
+  ['linehasbeenreached',['lineHasBeenReached',['../class_move_back_to_line.html#a688a4ed1c80d6e0b419e30fcca9534d7',1,'MoveBackToLine']]]
 ];

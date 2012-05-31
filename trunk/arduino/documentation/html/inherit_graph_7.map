@@ -1,5 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_line_follow.html" title="LineFollow" alt="" coords="5,31,88,57"/>
-<area shape="rect" id="node3" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="141,5,216,32"/>
-<area shape="rect" id="node5" href="$class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="137,56,221,83"/>
+<area shape="rect" id="node1" href="$class_line_follow.html" title="LineFollow" alt="" coords="5,56,88,83"/>
+<area shape="rect" id="node3" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="159,5,233,32"/>
+<area shape="rect" id="node5" href="$class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="154,56,238,83"/>
+<area shape="rect" id="node7" href="$class_move_back_to_line.html" title="The MoveBackToLine class will navigate car back to the line according to the stored information from ..." alt="" coords="136,107,256,133"/>
 </map>

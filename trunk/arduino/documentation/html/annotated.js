@@ -11,6 +11,7 @@ var annotated =
     [ "LineCenter", "class_line_center.html", "class_line_center" ],
     [ "LineFollow", "class_line_follow.html", "class_line_follow" ],
     [ "Move", "class_move.html", "class_move" ],
+    [ "MoveBackToLine", "class_move_back_to_line.html", "class_move_back_to_line" ],
     [ "MoveCommand", "struct_move_command.html", "struct_move_command" ],
     [ "SensorDebug", "class_sensor_debug.html", "class_sensor_debug" ],
     [ "StateMachine", "class_state_machine.html", "class_state_machine" ],

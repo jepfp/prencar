@@ -9,7 +9,8 @@ var hierarchy =
     [ "LiftCube", "class_lift_cube.html", null ],
     [ "LineFollow", "class_line_follow.html", [
       [ "CurveLeft", "class_curve_left.html", null ],
-      [ "LineCenter", "class_line_center.html", null ]
+      [ "LineCenter", "class_line_center.html", null ],
+      [ "MoveBackToLine", "class_move_back_to_line.html", null ]
     ] ],
     [ "Move", "class_move.html", null ],
     [ "MoveCommand", "struct_move_command.html", null ],

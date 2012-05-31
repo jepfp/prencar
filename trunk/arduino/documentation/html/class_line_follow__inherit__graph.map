@@ -1,4 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="5,80,80,107"/>
 <area shape="rect" id="node5" href="$class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="105,80,188,107"/>
+<area shape="rect" id="node7" href="$class_move_back_to_line.html" title="The MoveBackToLine class will navigate car back to the line according to the stored information from ..." alt="" coords="213,80,333,107"/>
 </map>

@@ -138,267 +138,350 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a>00029 {
 <a name="l00030"></a>00030   <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> = <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a>;
 <a name="l00031"></a>00031   <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a> = <span class="keyword">false</span>;
-<a name="l00032"></a>00032 }
-<a name="l00033"></a>00033 
-<a name="l00037"></a><a class="code" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8">00037</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8">StateMachine::begin</a>(){
-<a name="l00038"></a>00038   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">Communication::getInstance</a>();
-<a name="l00039"></a>00039   <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">Configuration::getInstance</a>();
-<a name="l00040"></a>00040   <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">Move::getInstance</a>();
-<a name="l00041"></a>00041   <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">LiftCube::getInstance</a>();
-<a name="l00042"></a>00042   <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">ExtendedMove::getInstance</a>();
-<a name="l00043"></a>00043   <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48">begin</a>();
-<a name="l00044"></a>00044   <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">begin</a>();
-<a name="l00045"></a>00045   <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">begin</a>();
-<a name="l00046"></a>00046   <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">liftUp</a>();
-<a name="l00047"></a>00047 }
-<a name="l00048"></a>00048 
-<a name="l00054"></a><a class="code" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">00054</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">StateMachine::doJob</a>(){
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056   <a class="code" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">checkCommands</a>();
+<a name="l00032"></a>00032   <a class="code" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a> = <span class="keyword">false</span>;
+<a name="l00033"></a>00033 }
+<a name="l00034"></a>00034 
+<a name="l00038"></a><a class="code" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8">00038</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8">StateMachine::begin</a>(){
+<a name="l00039"></a>00039   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">Communication::getInstance</a>();
+<a name="l00040"></a>00040   <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">Configuration::getInstance</a>();
+<a name="l00041"></a>00041   <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">Move::getInstance</a>();
+<a name="l00042"></a>00042   <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">LiftCube::getInstance</a>();
+<a name="l00043"></a>00043   <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a> = <a class="code" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60">ExtendedMove::getInstance</a>();
+<a name="l00044"></a>00044   <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48">begin</a>();
+<a name="l00045"></a>00045   <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">begin</a>();
+<a name="l00046"></a>00046   <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2">begin</a>();
+<a name="l00047"></a>00047   <a class="code" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">_moveBackToLine</a>.<a class="code" href="class_move_back_to_line.html#ab5f8b99d6379511c6ed09b4f50432641">begin</a>();
+<a name="l00048"></a>00048   <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">liftUp</a>();
+<a name="l00049"></a>00049 }
+<a name="l00050"></a>00050 
+<a name="l00056"></a><a class="code" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">00056</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78">StateMachine::doJob</a>(){
 <a name="l00057"></a>00057 
-<a name="l00059"></a>00059   <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6">doJob</a>();
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>){
-<a name="l00062"></a>00062     <span class="comment">//go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)</span>
-<a name="l00063"></a>00063     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00064"></a>00064       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a8e86865de2ed193e0b3a38fdfe7bd52a">firstTurn</a>);
-<a name="l00065"></a>00065       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">startIt</a>();
-<a name="l00066"></a>00066     }
-<a name="l00067"></a>00067     <span class="keywordflow">else</span>{
-<a name="l00068"></a>00068       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
-<a name="l00069"></a>00069     }
-<a name="l00070"></a>00070   }
-<a name="l00071"></a>00071   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a8e86865de2ed193e0b3a38fdfe7bd52a">firstTurn</a>){
-<a name="l00072"></a>00072     <span class="comment">//go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)</span>
-<a name="l00073"></a>00073     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa" title="This variable is set to true as soon as the curve is driven fully.">drivingCurveIsFinished</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00074"></a>00074       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8abdec259af1c38a7275c56d3e3a00430b">followingSecondLine</a>);
-<a name="l00075"></a>00075       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
-<a name="l00076"></a>00076       <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a7b35d7c77230da94fe0fe12904974371" title="The time in milliseconds (after a call to LineFollow::startIt()) on the second line after which the l...">lineFollowReduceSpeedTimeSecondLine</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a049b8264eb2ab78dd89a7332008912a5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (0-255)...">lineFollowReducedSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a357c494e08ca9c933550bb64ec997cbb" title="See lineFollowReducedSpeedLeft.">lineFollowReducedSpeedRight</a>);
-<a name="l00077"></a>00077     }
-<a name="l00078"></a>00078     <span class="keywordflow">else</span>{
-<a name="l00079"></a>00079       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">doJob</a>();
-<a name="l00080"></a>00080     }
-<a name="l00081"></a>00081   }
-<a name="l00082"></a>00082   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8abdec259af1c38a7275c56d3e3a00430b">followingSecondLine</a>){
-<a name="l00083"></a>00083     <span class="comment">//go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)</span>
-<a name="l00084"></a>00084     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00085"></a>00085       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f">secondTurn</a>);
-<a name="l00086"></a>00086       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">startIt</a>();
-<a name="l00087"></a>00087     }
-<a name="l00088"></a>00088     <span class="keywordflow">else</span>{
-<a name="l00089"></a>00089       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
-<a name="l00090"></a>00090     }
-<a name="l00091"></a>00091   }
-<a name="l00092"></a>00092   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f">secondTurn</a>){
-<a name="l00093"></a>00093     <span class="comment">//go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)</span>
-<a name="l00094"></a>00094     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa" title="This variable is set to true as soon as the curve is driven fully.">drivingCurveIsFinished</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00095"></a>00095       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a4843e80df3f3ff6711be6e75a66a2aee">followingThirdLineToCube</a>);
-<a name="l00096"></a>00096       <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">startIt</a>();
-<a name="l00097"></a>00097     }
-<a name="l00098"></a>00098     <span class="keywordflow">else</span>{
-<a name="l00099"></a>00099       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">doJob</a>();
-<a name="l00100"></a>00100     }
-<a name="l00101"></a>00101   }
-<a name="l00102"></a>00102   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a4843e80df3f3ff6711be6e75a66a2aee">followingThirdLineToCube</a>){
-<a name="l00103"></a>00103     <span class="comment">//go to the next state if the car has detected the cube at least once</span>
-<a name="l00104"></a>00104     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> &gt; 0 || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00105"></a>00105       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f">cubeApproach</a>);
-<a name="l00106"></a>00106       <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00107"></a>00107         <span class="comment">//if we jump directly into the next state, we need to call the startIt method manually because that needs to be done every</span>
-<a name="l00108"></a>00108         <span class="comment">//parcours start and in the normal flow is done at the and of the previous state (secondTurn)</span>
-<a name="l00109"></a>00109         <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">startIt</a>(); 
-<a name="l00110"></a>00110       }
-<a name="l00111"></a>00111     }
-<a name="l00112"></a>00112     <span class="keywordflow">else</span>{
-<a name="l00113"></a>00113       <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob</a>(<span class="keyword">true</span>);
-<a name="l00114"></a>00114     }
-<a name="l00115"></a>00115   }
-<a name="l00116"></a>00116   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f">cubeApproach</a>){
-<a name="l00117"></a>00117     <span class="comment">//go to the next state if the car has detected the cube in the center</span>
-<a name="l00118"></a>00118     <span class="keywordflow">if</span>((<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> &gt; 0 &amp;&amp; <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">cubeDetections</a>[<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> - 1].<a class="code" href="struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656" title="Set to true if the cube has been detected with both bottom sensors at this detection.">cubeIsCentered</a> == <span class="keyword">true</span>) || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
-<a name="l00119"></a>00119       <span class="comment">//changeState(liftCube);</span>
-<a name="l00120"></a>00120       <span class="comment">//for now just stop the car</span>
-<a name="l00121"></a>00121       <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
-<a name="l00122"></a>00122       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aaf38e35232eb6728664f98c8110d11a4">finished</a>);
-<a name="l00123"></a>00123       <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(209, (millis() - <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a>));
-<a name="l00124"></a>00124     }
-<a name="l00125"></a>00125     <span class="keywordflow">else</span>{
-<a name="l00126"></a>00126       <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob</a>(<span class="keyword">false</span>);
-<a name="l00127"></a>00127     }
-<a name="l00128"></a>00128   }
-<a name="l00129"></a>00129 
-<a name="l00130"></a>00130   <span class="comment">//set forceChangeState back to false in order to continue normally</span>
-<a name="l00131"></a>00131   <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a> = <span class="keyword">false</span>;
-<a name="l00132"></a>00132 }
-<a name="l00133"></a>00133 
-<a name="l00138"></a><a class="code" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">00138</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">StateMachine::checkCommands</a>(){
-<a name="l00139"></a>00139   <a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> c;
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141   <span class="comment">//the following commands are only available, if the parcours is not started</span>
-<a name="l00142"></a>00142   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a> || <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aaf38e35232eb6728664f98c8110d11a4">finished</a>){
-<a name="l00143"></a>00143     <span class="comment">//check for command 300</span>
-<a name="l00144"></a>00144     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 300)){
-<a name="l00145"></a>00145       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
-<a name="l00146"></a>00146       <span class="keywordtype">int</span> highestImplementedState = 6;
-<a name="l00147"></a>00147       <span class="keywordflow">if</span>(parameters[0] &gt; highestImplementedState){
-<a name="l00148"></a>00148         <span class="keywordtype">int</span> p[2];
-<a name="l00149"></a>00149         p[0] = parameters[0];
-<a name="l00150"></a>00150         p[1] = highestImplementedState;
-<a name="l00151"></a>00151         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(151, p, 2);
-<a name="l00152"></a>00152         <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">stopParcours</a>();
-<a name="l00153"></a>00153       }
-<a name="l00154"></a>00154       <span class="keywordflow">else</span>{
-<a name="l00155"></a>00155         <span class="comment">//if the desired state is &gt; than 1, start with that state. If the parameter is 0 or 1 just start with</span>
-<a name="l00156"></a>00156         <span class="comment">//the first state.</span>
-<a name="l00157"></a>00157         <span class="keywordflow">if</span>(parameters[0] &gt; 1){
-<a name="l00158"></a>00158           <a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">startParcoursAtState</a>((<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a>)parameters[0]);
-<a name="l00159"></a>00159         }
-<a name="l00160"></a>00160         <span class="keywordflow">else</span>{
-<a name="l00161"></a>00161           <a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">startParcours</a>();
-<a name="l00162"></a>00162         }
-<a name="l00164"></a>00164         <span class="comment">//make sure that the cubeLifted bool is set to false</span>
-<a name="l00165"></a>00165         <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a7a13f30623f88cfa1de6437665854990" title="Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again a...">cubeLifted</a> = <span class="keyword">false</span>;
-<a name="l00166"></a>00166       }
+<a name="l00058"></a>00058   <a class="code" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">checkCommands</a>();
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060   <span class="comment">//The lift cube job is done always so that the car can lift the cube in every possible state (fall back).</span>
+<a name="l00061"></a>00061   <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6">doJob</a>();
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>){
+<a name="l00064"></a>00064     <span class="comment">//go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)</span>
+<a name="l00065"></a>00065     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00066"></a>00066       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a8e86865de2ed193e0b3a38fdfe7bd52a">firstTurn</a>);
+<a name="l00067"></a>00067       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">startIt</a>();
+<a name="l00068"></a>00068     }
+<a name="l00069"></a>00069     <span class="keywordflow">else</span>{
+<a name="l00070"></a>00070       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072   }
+<a name="l00073"></a>00073   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a8e86865de2ed193e0b3a38fdfe7bd52a">firstTurn</a>){
+<a name="l00074"></a>00074     <span class="comment">//go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)</span>
+<a name="l00075"></a>00075     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa" title="This variable is set to true as soon as the curve is driven fully.">drivingCurveIsFinished</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00076"></a>00076       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8abdec259af1c38a7275c56d3e3a00430b">followingSecondLine</a>);
+<a name="l00077"></a>00077       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
+<a name="l00078"></a>00078       <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a7b35d7c77230da94fe0fe12904974371" title="The time in milliseconds (after a call to LineFollow::startIt()) on the second line after which the l...">lineFollowReduceSpeedTimeSecondLine</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a049b8264eb2ab78dd89a7332008912a5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (0-255)...">lineFollowReducedSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a357c494e08ca9c933550bb64ec997cbb" title="See lineFollowReducedSpeedLeft.">lineFollowReducedSpeedRight</a>);
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080     <span class="keywordflow">else</span>{
+<a name="l00081"></a>00081       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">doJob</a>();
+<a name="l00082"></a>00082     }
+<a name="l00083"></a>00083   }
+<a name="l00084"></a>00084   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8abdec259af1c38a7275c56d3e3a00430b">followingSecondLine</a>){
+<a name="l00085"></a>00085     <span class="comment">//go to the next state if the car has reached the curve (see LineFollow::hasReachedCurve)</span>
+<a name="l00086"></a>00086     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00087"></a>00087       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f">secondTurn</a>);
+<a name="l00088"></a>00088       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">startIt</a>();
+<a name="l00089"></a>00089     }
+<a name="l00090"></a>00090     <span class="keywordflow">else</span>{
+<a name="l00091"></a>00091       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
+<a name="l00092"></a>00092     }
+<a name="l00093"></a>00093   }
+<a name="l00094"></a>00094   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a2f8eb7f135d44d0a27d117159480d80f">secondTurn</a>){
+<a name="l00095"></a>00095     <span class="comment">//go to the next state if the car has finished the curve (see CurveLeft::drivingCurveIsFinished)</span>
+<a name="l00096"></a>00096     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa" title="This variable is set to true as soon as the curve is driven fully.">drivingCurveIsFinished</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00097"></a>00097       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a4843e80df3f3ff6711be6e75a66a2aee">followingThirdLineToCube</a>);
+<a name="l00098"></a>00098       <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">startIt</a>();
+<a name="l00099"></a>00099     }
+<a name="l00100"></a>00100     <span class="keywordflow">else</span>{
+<a name="l00101"></a>00101       <a class="code" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a>.<a class="code" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">doJob</a>();
+<a name="l00102"></a>00102     }
+<a name="l00103"></a>00103   }
+<a name="l00104"></a>00104   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a4843e80df3f3ff6711be6e75a66a2aee">followingThirdLineToCube</a>){
+<a name="l00105"></a>00105     <span class="comment">//go to the next state if the car has detected the cube at least once</span>
+<a name="l00110"></a>00110 <span class="comment"></span>    <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> &gt; 0 || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00111"></a>00111       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f">cubeApproach</a>);
+<a name="l00112"></a>00112       <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00113"></a>00113         <span class="comment">//if we jump directly into the next state, we need to call the startIt method manually because that needs to be done every</span>
+<a name="l00114"></a>00114         <span class="comment">//parcours start and in the normal flow is done at the and of the previous state (secondTurn)</span>
+<a name="l00115"></a>00115         <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2">startIt</a>(); 
+<a name="l00116"></a>00116       }
+<a name="l00117"></a>00117     }
+<a name="l00118"></a>00118     <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#ac3ef9d92dc8953be1cb25b47e3d1ba6a" title="Will be set to true as soon as the cube lift process starts and will therefore prevent a second call ...">liftingStarted</a>){
+<a name="l00119"></a>00119       <span class="comment">//fallback: If the cube would switch the end sensor even though the car is not yet in the &quot;lift cube&quot; state --&gt; switch to that state</span>
+<a name="l00120"></a>00120       <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(103);
+<a name="l00121"></a>00121       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3">liftCube</a>);
+<a name="l00122"></a>00122     }
+<a name="l00123"></a>00123     <span class="keywordflow">else</span>{
+<a name="l00124"></a>00124       <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob</a>(<span class="keyword">true</span>);
+<a name="l00125"></a>00125     }
+<a name="l00126"></a>00126   }
+<a name="l00127"></a>00127   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ae0dc916c0e29132e7162d68bfd586d1f">cubeApproach</a>){
+<a name="l00128"></a>00128     <span class="comment">//go to the next state if the car has detected the cube in the center</span>
+<a name="l00129"></a>00129     <span class="keywordflow">if</span>((<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> &gt; 0 &amp;&amp; <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#aeac3597ee8adcaf33fbf1a523de7c8e9">cubeDetections</a>[<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#a6c44784cf83ba56f87895bb5c841e7df" title="Counter that is increased each time the cube is detected by either the left or the right sensor...">amountOfCubeDetections</a> - 1].<a class="code" href="struct_cube_detection.html#a39d38b7af04517aac94a41958e12f656" title="Set to true if the cube has been detected with both bottom sensors at this detection.">cubeIsCentered</a> == <span class="keyword">true</span>) || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00130"></a>00130       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3">liftCube</a>);
+<a name="l00131"></a>00131       <span class="comment">//drive until the cube is lifted</span>
+<a name="l00132"></a>00132       <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a905f3bbd8e6b527a0e21092d682a4a6e" title="Speed during cube approach while the car is driving straight.">cubeApproachStraightSpeed</a>, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a905f3bbd8e6b527a0e21092d682a4a6e" title="Speed during cube approach while the car is driving straight.">cubeApproachStraightSpeed</a>);
+<a name="l00133"></a>00133     }
+<a name="l00134"></a>00134     <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#ac3ef9d92dc8953be1cb25b47e3d1ba6a" title="Will be set to true as soon as the cube lift process starts and will therefore prevent a second call ...">liftingStarted</a>){
+<a name="l00135"></a>00135       <span class="comment">//fallback: If the cube would switch the end sensor even though the car is not yet in the &quot;lift cube&quot; state --&gt; switch to that state</span>
+<a name="l00136"></a>00136       <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(103);
+<a name="l00137"></a>00137       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3">liftCube</a>);
+<a name="l00138"></a>00138     }
+<a name="l00139"></a>00139     <span class="keywordflow">else</span>{
+<a name="l00140"></a>00140       <a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>.<a class="code" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be">doJob</a>(<span class="keyword">false</span>);
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142   }
+<a name="l00143"></a>00143   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ad60f33d823c837c39f2b77eb289b35a3">liftCube</a>){
+<a name="l00144"></a>00144     <span class="comment">//go to the next state if the car has lifted the cube</span>
+<a name="l00145"></a>00145     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a7a13f30623f88cfa1de6437665854990" title="Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again a...">cubeLifted</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00146"></a>00146       <span class="comment">//don&#39;t go to the next state if still a car stopping process is being executed.</span>
+<a name="l00147"></a>00147       <span class="keywordflow">if</span>(!<a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>()){
+<a name="l00148"></a>00148         <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aba2a7667be1c205c46189759aa4f6377">moveBackToLine</a>);
+<a name="l00149"></a>00149         <a class="code" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">_moveBackToLine</a>.<a class="code" href="class_move_back_to_line.html#a8b48709e127b00072dcce276cff5055b">startIt</a>(&amp;<a class="code" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a>);
+<a name="l00150"></a>00150       }
+<a name="l00151"></a>00151       <span class="keywordflow">else</span>{
+<a name="l00152"></a>00152         <span class="comment">//send a message that the state won&#39;t get changed yet because the execution of the stop command is still in progress.</span>
+<a name="l00153"></a>00153         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(92);
+<a name="l00154"></a>00154       }
+<a name="l00155"></a>00155     }
+<a name="l00156"></a>00156     <span class="keywordflow">else</span>{
+<a name="l00157"></a>00157       <span class="comment">//the lift cube job is done always so nothing needs to be done in here...</span>
+<a name="l00158"></a>00158     }
+<a name="l00159"></a>00159   }
+<a name="l00160"></a>00160   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aba2a7667be1c205c46189759aa4f6377">moveBackToLine</a>){
+<a name="l00161"></a>00161     <span class="comment">//go to the next state if the car is centered on the line again or if an error has occured.</span>
+<a name="l00162"></a>00162     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">_moveBackToLine</a>.<a class="code" href="class_move_back_to_line.html#ab26ab46222db08890998a00b9475bf50" title="Will be set to true as soon as the car is back on the line and the line centering process has finishe...">isBackOnLine</a> || <a class="code" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">_moveBackToLine</a>.<a class="code" href="class_move_back_to_line.html#a281d9785e63b445e7b77a6b3d5a63a19" title="Set to true if no cube approach information has been found.">errorNoCubeApproachInformation</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00163"></a>00163       <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6">stopCurrentQueue</a>(); <span class="comment">//just, if there are still any executions in progress.</span>
+<a name="l00164"></a>00164       <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ac5ddb79d1c7997a726b2a4a1d94d1382">followingThirdLineToFinish</a>);
+<a name="l00165"></a>00165       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
+<a name="l00166"></a>00166       <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a03ba79c747a491d0ded2aa0ddfad1cf2" title="The time in milliseconds (after a call to LineFollow::startIt()) on the third line and after the cube...">lineFollowReduceSpeedTimeThirdLineToFinish</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a049b8264eb2ab78dd89a7332008912a5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (0-255)...">lineFollowReducedSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a357c494e08ca9c933550bb64ec997cbb" title="See lineFollowReducedSpeedLeft.">lineFollowReducedSpeedRight</a>);
 <a name="l00167"></a>00167     }
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169     <span class="comment">//check for command 101</span>
-<a name="l00170"></a>00170     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 101)){
-<a name="l00171"></a>00171       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
-<a name="l00172"></a>00172       <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa6f6680d35f5db5efd93770bbce644ed" title="Updates all configuration values according to the given parameters.">updateConfiguration</a>(parameters)){
-<a name="l00173"></a>00173         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(102);
-<a name="l00174"></a>00174         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
-<a name="l00175"></a>00175       }
-<a name="l00176"></a>00176       <span class="keywordflow">else</span>{
-<a name="l00177"></a>00177         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(152, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">getConfigurationVersion</a>());
-<a name="l00178"></a>00178       }
-<a name="l00179"></a>00179     }
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181     <span class="comment">/*----------- offline control car -----------*/</span>
-<a name="l00182"></a>00182     <span class="comment">//check for command 400</span>
-<a name="l00183"></a>00183     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 400)){
-<a name="l00184"></a>00184       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
-<a name="l00185"></a>00185       <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>((<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a>)parameters[0], parameters[1], (<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a>)parameters[2], parameters[3]);
-<a name="l00186"></a>00186     }
+<a name="l00168"></a>00168     <span class="keywordflow">else</span>{
+<a name="l00169"></a>00169       <a class="code" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">_moveBackToLine</a>.<a class="code" href="class_move_back_to_line.html#a2481a81f7c90dee23d229911c8821e65">doJob</a>();
+<a name="l00170"></a>00170     }
+<a name="l00171"></a>00171   }
+<a name="l00172"></a>00172   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8ac5ddb79d1c7997a726b2a4a1d94d1382">followingThirdLineToFinish</a>){
+<a name="l00173"></a>00173     <span class="comment">//go to the next state if the car has detected the cube in the center</span>
+<a name="l00174"></a>00174     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#accb339a7a953d66032b9329a2b3a1b4d" title="Is set to true, if the left curve line is reached.">hasReachedCurve</a> || <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a>){
+<a name="l00175"></a>00175       <span class="keywordflow">if</span>(!<a class="code" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a>){
+<a name="l00176"></a>00176         <a class="code" href="class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1">startDriveOverFinishLineExtMoveCommand</a>();
+<a name="l00177"></a>00177       }
+<a name="l00178"></a>00178       <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a> &amp;&amp; !<a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a">isExecutionInProcess</a>()){
+<a name="l00179"></a>00179         <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aaf38e35232eb6728664f98c8110d11a4">finished</a>);
+<a name="l00180"></a>00180         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(209, (millis() - <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a>));
+<a name="l00181"></a>00181       }
+<a name="l00182"></a>00182     }
+<a name="l00183"></a>00183     <span class="keywordflow">else</span>{
+<a name="l00184"></a>00184       <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c">doJob</a>();
+<a name="l00185"></a>00185     }
+<a name="l00186"></a>00186   }
 <a name="l00187"></a>00187 
-<a name="l00188"></a>00188     <span class="comment">//check for command 401</span>
-<a name="l00189"></a>00189     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 401)){
-<a name="l00190"></a>00190       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
-<a name="l00191"></a>00191       <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(parameters[0]);
-<a name="l00192"></a>00192     }
-<a name="l00193"></a>00193 
-<a name="l00194"></a>00194     <span class="comment">//check for command 402</span>
-<a name="l00195"></a>00195     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 402)){
-<a name="l00196"></a>00196       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
-<a name="l00197"></a>00197       <span class="keywordflow">if</span>(parameters[0] == 1){
-<a name="l00198"></a>00198         <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">liftDown</a>();
-<a name="l00199"></a>00199       }
-<a name="l00200"></a>00200       <span class="keywordflow">else</span>{
-<a name="l00201"></a>00201         <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">liftUp</a>();
-<a name="l00202"></a>00202       }
-<a name="l00203"></a>00203     }
-<a name="l00204"></a>00204   }
-<a name="l00205"></a>00205 
-<a name="l00206"></a>00206   <span class="comment">//check for command 102</span>
-<a name="l00207"></a>00207   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 102)){
-<a name="l00208"></a>00208     <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
-<a name="l00209"></a>00209     <span class="keywordflow">if</span>(parameters[0] == 1){
-<a name="l00210"></a>00210       <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">changeActivateMessageFilter</a>(<span class="keyword">true</span>);
-<a name="l00211"></a>00211     }
-<a name="l00212"></a>00212     <span class="keywordflow">else</span>{
-<a name="l00213"></a>00213       <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">changeActivateMessageFilter</a>(<span class="keyword">false</span>);   
-<a name="l00214"></a>00214     }
-<a name="l00215"></a>00215   }
-<a name="l00216"></a>00216 
-<a name="l00217"></a>00217   <span class="comment">//check for command 301</span>
-<a name="l00218"></a>00218   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 301)){
-<a name="l00219"></a>00219     <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">stopParcours</a>();
-<a name="l00220"></a>00220   }
-<a name="l00221"></a>00221 }
-<a name="l00222"></a>00222 
-<a name="l00226"></a><a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">00226</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">StateMachine::startParcours</a>(){
-<a name="l00227"></a>00227   <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>);
-<a name="l00228"></a>00228   <span class="comment">//send the current configuration</span>
-<a name="l00229"></a>00229   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
-<a name="l00230"></a>00230   <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a> = millis();
-<a name="l00231"></a>00231   <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
-<a name="l00232"></a>00232   <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ac03d06e3aa3a299981f60bd9429d6849" title="The time in milliseconds (after a call to LineFollow::startIt()) on the first line after which the li...">lineFollowReduceSpeedTimeFirstLine</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a049b8264eb2ab78dd89a7332008912a5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (0-255)...">lineFollowReducedSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a357c494e08ca9c933550bb64ec997cbb" title="See lineFollowReducedSpeedLeft.">lineFollowReducedSpeedRight</a>);
-<a name="l00233"></a>00233 }
-<a name="l00234"></a>00234 
-<a name="l00239"></a><a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">00239</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">StateMachine::startParcoursAtState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> state){
-<a name="l00240"></a>00240   <span class="comment">//We go to the previous state of the state where we want to start</span>
-<a name="l00241"></a>00241   <span class="comment">//and perform the actions that are performed at the very end of this previous state by setting forceChangeState to true.</span>
-<a name="l00242"></a>00242   state = (<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a>)((<span class="keywordtype">int</span>)state - 1);
-<a name="l00243"></a>00243   <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> = state;
-<a name="l00244"></a>00244   <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a> = <span class="keyword">true</span>;
-<a name="l00245"></a>00245   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(205, state + 1);
-<a name="l00246"></a>00246   <span class="comment">//send the current configuration</span>
-<a name="l00247"></a>00247   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
-<a name="l00248"></a>00248   <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a> = millis();
-<a name="l00249"></a>00249 }
-<a name="l00250"></a>00250 
-<a name="l00254"></a><a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">00254</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">StateMachine::stopParcours</a>(){
-<a name="l00255"></a>00255   <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6">stopCurrentQueue</a>();
-<a name="l00256"></a>00256   <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
-<a name="l00257"></a>00257   <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a>);
-<a name="l00258"></a>00258 }
-<a name="l00259"></a>00259 
-<a name="l00264"></a><a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">00264</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">StateMachine::changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> newState){
-<a name="l00265"></a>00265   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(100, newState);
-<a name="l00266"></a>00266   <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> = newState;
-<a name="l00267"></a>00267 }
-<a name="l00268"></a>00268 
-<a name="l00274"></a><a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">00274</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">StateMachine::changeActivateMessageFilter</a>(<span class="keywordtype">boolean</span> newState){
-<a name="l00275"></a>00275   <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">activateMessageFilter</a> = newState;
-<a name="l00276"></a>00276   <span class="keywordflow">if</span>(newState){
-<a name="l00277"></a>00277     <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(208, 1);  
+<a name="l00188"></a>00188   <span class="comment">//set forceChangeState back to false in order to continue normally</span>
+<a name="l00189"></a>00189   <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a> = <span class="keyword">false</span>;
+<a name="l00190"></a>00190 }
+<a name="l00191"></a>00191 
+<a name="l00196"></a><a class="code" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">00196</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">StateMachine::checkCommands</a>(){
+<a name="l00197"></a>00197   <a class="code" href="class_command.html" title="A Command object represents a command sent from the host software.">Command</a> c;
+<a name="l00198"></a>00198 
+<a name="l00199"></a>00199   <span class="comment">//the following commands are only available, if the parcours is not started</span>
+<a name="l00200"></a>00200   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a> || <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> == <a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8aaf38e35232eb6728664f98c8110d11a4">finished</a>){
+<a name="l00201"></a>00201     <span class="comment">//check for command 300</span>
+<a name="l00202"></a>00202     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 300)){
+<a name="l00203"></a>00203       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00204"></a>00204       <span class="keywordtype">int</span> highestImplementedState = 6;
+<a name="l00205"></a>00205       <span class="keywordflow">if</span>(parameters[0] &gt; highestImplementedState){
+<a name="l00206"></a>00206         <span class="keywordtype">int</span> p[2];
+<a name="l00207"></a>00207         p[0] = parameters[0];
+<a name="l00208"></a>00208         p[1] = highestImplementedState;
+<a name="l00209"></a>00209         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(151, p, 2);
+<a name="l00210"></a>00210         <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">stopParcours</a>();
+<a name="l00211"></a>00211       }
+<a name="l00212"></a>00212       <span class="keywordflow">else</span>{
+<a name="l00213"></a>00213         <span class="comment">//if the desired state is &gt; than 1, start with that state. If the parameter is 0 or 1 just start with</span>
+<a name="l00214"></a>00214         <span class="comment">//the first state.</span>
+<a name="l00215"></a>00215         <span class="keywordflow">if</span>(parameters[0] &gt; 1){
+<a name="l00216"></a>00216           <a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">startParcoursAtState</a>((<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a>)parameters[0]);
+<a name="l00217"></a>00217         }
+<a name="l00218"></a>00218         <span class="keywordflow">else</span>{
+<a name="l00219"></a>00219           <a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">startParcours</a>();
+<a name="l00220"></a>00220         }
+<a name="l00222"></a>00222         <span class="comment">//make sure that the cubeLifted bool is set to false</span>
+<a name="l00223"></a>00223         <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a7a13f30623f88cfa1de6437665854990" title="Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again a...">cubeLifted</a> = <span class="keyword">false</span>;
+<a name="l00224"></a>00224       }
+<a name="l00225"></a>00225     }
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227     <span class="comment">//check for command 101</span>
+<a name="l00228"></a>00228     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 101)){
+<a name="l00229"></a>00229       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00230"></a>00230       <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aa6f6680d35f5db5efd93770bbce644ed" title="Updates all configuration values according to the given parameters.">updateConfiguration</a>(parameters)){
+<a name="l00231"></a>00231         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(102);
+<a name="l00232"></a>00232         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
+<a name="l00233"></a>00233       }
+<a name="l00234"></a>00234       <span class="keywordflow">else</span>{
+<a name="l00235"></a>00235         <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(152, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e">getConfigurationVersion</a>());
+<a name="l00236"></a>00236       }
+<a name="l00237"></a>00237     }
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239     <span class="comment">/*----------- offline control car -----------*/</span>
+<a name="l00240"></a>00240     <span class="comment">//check for command 400</span>
+<a name="l00241"></a>00241     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 400)){
+<a name="l00242"></a>00242       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00243"></a>00243       <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>((<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a>)parameters[0], parameters[1], (<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a>)parameters[2], parameters[3]);
+<a name="l00244"></a>00244     }
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246     <span class="comment">//check for command 401</span>
+<a name="l00247"></a>00247     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 401)){
+<a name="l00248"></a>00248       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00249"></a>00249       <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a6b6c013383282736029056541de33844">setHoistPosition</a>(parameters[0]);
+<a name="l00250"></a>00250     }
+<a name="l00251"></a>00251 
+<a name="l00252"></a>00252     <span class="comment">//check for command 402</span>
+<a name="l00253"></a>00253     <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 402)){
+<a name="l00254"></a>00254       <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00255"></a>00255       <span class="keywordflow">if</span>(parameters[0] == 1){
+<a name="l00256"></a>00256         <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112">liftDown</a>();
+<a name="l00257"></a>00257       }
+<a name="l00258"></a>00258       <span class="keywordflow">else</span>{
+<a name="l00259"></a>00259         <a class="code" href="class_state_machine.html#a765e2a69f3af4c9d5f02860cba27de6a" title="The reference to the LiftCube class.">_liftCube</a>-&gt;<a class="code" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64">liftUp</a>();
+<a name="l00260"></a>00260       }
+<a name="l00261"></a>00261     }
+<a name="l00262"></a>00262   }
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264   <span class="comment">//check for command 102</span>
+<a name="l00265"></a>00265   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 102)){
+<a name="l00266"></a>00266     <span class="keywordtype">int</span>* parameters = c.<a class="code" href="class_command.html#a213973ca7ffaf1385a959ceab49f5065">parameters</a>;
+<a name="l00267"></a>00267     <span class="keywordflow">if</span>(parameters[0] == 1){
+<a name="l00268"></a>00268       <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">changeActivateMessageFilter</a>(<span class="keyword">true</span>);
+<a name="l00269"></a>00269     }
+<a name="l00270"></a>00270     <span class="keywordflow">else</span>{
+<a name="l00271"></a>00271       <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">changeActivateMessageFilter</a>(<span class="keyword">false</span>);   
+<a name="l00272"></a>00272     }
+<a name="l00273"></a>00273   }
+<a name="l00274"></a>00274 
+<a name="l00275"></a>00275   <span class="comment">//check for command 301</span>
+<a name="l00276"></a>00276   <span class="keywordflow">if</span>(<a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784">getAndRemoveCommandFromReadyCommands</a>(&amp;c, 301)){
+<a name="l00277"></a>00277     <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">stopParcours</a>();
 <a name="l00278"></a>00278   }
-<a name="l00279"></a>00279   <span class="keywordflow">else</span>{
-<a name="l00280"></a>00280     <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(208, 0); 
-<a name="l00281"></a>00281   }
-<a name="l00282"></a>00282 }
-<a name="l00283"></a>00283 
-<a name="l00284"></a>00284 
-<a name="l00285"></a>00285 
-<a name="l00286"></a>00286 
-<a name="l00287"></a>00287 
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289 
-<a name="l00290"></a>00290 
-<a name="l00291"></a>00291 
-<a name="l00292"></a>00292 
+<a name="l00279"></a>00279 }
+<a name="l00280"></a>00280 
+<a name="l00284"></a><a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">00284</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e">StateMachine::startParcours</a>(){
+<a name="l00285"></a>00285   <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a96474cef925f487adb48d8db38ee3455">followingFirstLine</a>);
+<a name="l00286"></a>00286   <span class="comment">//send the current configuration</span>
+<a name="l00287"></a>00287   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
+<a name="l00288"></a>00288   <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a> = millis();
+<a name="l00289"></a>00289   <a class="code" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a> = <span class="keyword">false</span>;
+<a name="l00290"></a>00290   <a class="code" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a>.<a class="code" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">startIt</a>(<a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>,
+<a name="l00291"></a>00291   <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ac03d06e3aa3a299981f60bd9429d6849" title="The time in milliseconds (after a call to LineFollow::startIt()) on the first line after which the li...">lineFollowReduceSpeedTimeFirstLine</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a049b8264eb2ab78dd89a7332008912a5" title="The reduced speed of the left motor that can be assigned after a defined amount of time (0-255)...">lineFollowReducedSpeedLeft</a>, <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a357c494e08ca9c933550bb64ec997cbb" title="See lineFollowReducedSpeedLeft.">lineFollowReducedSpeedRight</a>);
+<a name="l00292"></a>00292 }
 <a name="l00293"></a>00293 
-<a name="l00294"></a>00294 
-<a name="l00295"></a>00295 
-<a name="l00296"></a>00296 
-<a name="l00297"></a>00297 
-<a name="l00298"></a>00298 
-<a name="l00299"></a>00299 
-<a name="l00300"></a>00300 
-<a name="l00301"></a>00301 
-<a name="l00302"></a>00302 
-<a name="l00303"></a>00303 
-<a name="l00304"></a>00304 
-<a name="l00305"></a>00305 
-<a name="l00306"></a>00306 
-<a name="l00307"></a>00307 
-<a name="l00308"></a>00308 
-<a name="l00309"></a>00309 
+<a name="l00298"></a><a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">00298</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77">StateMachine::startParcoursAtState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> state){
+<a name="l00299"></a>00299   <span class="comment">//We go to the previous state of the state where we want to start</span>
+<a name="l00300"></a>00300   <span class="comment">//and perform the actions that are performed at the very end of this previous state by setting forceChangeState to true.</span>
+<a name="l00301"></a>00301   state = (<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a>)((<span class="keywordtype">int</span>)state - 1);
+<a name="l00302"></a>00302   <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> = state;
+<a name="l00303"></a>00303   <a class="code" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b" title="Will be set to true if the stateMachine shall switch to the next state immediately.">forceChangeState</a> = <span class="keyword">true</span>;
+<a name="l00304"></a>00304   <a class="code" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a> = <span class="keyword">false</span>;
+<a name="l00305"></a>00305   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(205, state + 1);
+<a name="l00306"></a>00306   <span class="comment">//send the current configuration</span>
+<a name="l00307"></a>00307   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a">sendCurrentConfiguration</a>();
+<a name="l00308"></a>00308   <a class="code" href="class_state_machine.html#aba41f59808f08876f67aefcb436ff00a" title="Holds the timestamp when the parcours starts.">startParcoursTimestamp</a> = millis();
+<a name="l00309"></a>00309 }
 <a name="l00310"></a>00310 
-<a name="l00311"></a>00311 
-<a name="l00312"></a>00312 
-<a name="l00313"></a>00313 
-<a name="l00314"></a>00314 
-<a name="l00315"></a>00315 
-<a name="l00316"></a>00316 
-<a name="l00317"></a>00317 
-<a name="l00318"></a>00318 
+<a name="l00314"></a><a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">00314</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a">StateMachine::stopParcours</a>(){
+<a name="l00315"></a>00315   <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6">stopCurrentQueue</a>();
+<a name="l00316"></a>00316   <a class="code" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49" title="The reference to the move class.">_move</a>-&gt;<a class="code" href="class_move.html#a237261f2dd8fc115129f0ba998f13183">performFastStop</a>();
+<a name="l00317"></a>00317   <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8a3dcefcfc73c46cd08fedd1d3c0dbaad1">notStarted</a>);
+<a name="l00318"></a>00318 }
+<a name="l00319"></a>00319 
+<a name="l00324"></a><a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">00324</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">StateMachine::changeState</a>(<a class="code" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> newState){
+<a name="l00325"></a>00325   <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(100, newState);
+<a name="l00326"></a>00326   <a class="code" href="class_state_machine.html#ad5bffb8688259c021049ffd46803a3a1">parcoursState</a> = newState;
+<a name="l00327"></a>00327 }
+<a name="l00328"></a>00328 
+<a name="l00334"></a><a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">00334</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e">StateMachine::changeActivateMessageFilter</a>(<span class="keywordtype">boolean</span> newState){
+<a name="l00335"></a>00335   <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">activateMessageFilter</a> = newState;
+<a name="l00336"></a>00336   <span class="keywordflow">if</span>(newState){
+<a name="l00337"></a>00337     <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(208, 1);  
+<a name="l00338"></a>00338   }
+<a name="l00339"></a>00339   <span class="keywordflow">else</span>{
+<a name="l00340"></a>00340     <a class="code" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(208, 0); 
+<a name="l00341"></a>00341   }
+<a name="l00342"></a>00342 }
+<a name="l00343"></a>00343 
+<a name="l00348"></a><a class="code" href="class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1">00348</a> <span class="keywordtype">void</span> <a class="code" href="class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1">StateMachine::startDriveOverFinishLineExtMoveCommand</a>(){
+<a name="l00349"></a>00349   <a class="code" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a> = <span class="keyword">true</span>;
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351   <span class="comment">//create an extMove command and add start it&#39;s execution</span>
+<a name="l00352"></a>00352   <a class="code" href="struct_move_command.html">MoveCommand</a>* mc = <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a5f34e9081613ec4d1796cac234b9cbb5" title="Current queue with commands that are executed.">commandQueue</a>;
+<a name="l00353"></a>00353   mc[0].<a class="code" href="struct_move_command.html#ada8cf3cf629ff7847de2844abb8db7ad" title="Defines for how long this command shall be executed (milliseconds).">duration</a> = <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ae2d894be3f0f7e276fa40ef61faff989" title="Time in milliseconds of how long the car shall drive straight to cross the finish line...">finishLineDriveOverDuration</a>;
+<a name="l00354"></a>00354   mc[0].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
+<a name="l00355"></a>00355   mc[0].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a24e118088874b8f9d56bcaf245f1461d" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedLeft</a>;
+<a name="l00356"></a>00356   mc[0].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
+<a name="l00357"></a>00357   mc[0].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = <a class="code" href="class_state_machine.html#a432c69d21536a1b991d8493c4aa03d9c" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#aabc113e529eb659768ca98f15d3952a3" title="The initial speed of the left motor when the parcours starts (0-255).">lineFollowInitialSpeedRight</a>;
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359   mc[1].<a class="code" href="struct_move_command.html#ada8cf3cf629ff7847de2844abb8db7ad" title="Defines for how long this command shall be executed (milliseconds).">duration</a> = 250;
+<a name="l00360"></a>00360   mc[1].<a class="code" href="struct_move_command.html#a88e7e4c62bf65a3cf306ff587dd8b55b">dirLeftMotor</a> = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00361"></a>00361   mc[1].<a class="code" href="struct_move_command.html#a6ab4371e644543e7d92dd4f5439998d0">speedLeftMotor</a> = 130;
+<a name="l00362"></a>00362   mc[1].<a class="code" href="struct_move_command.html#a645219cea821358f4a3ae7c8e2192ed9">dirRightMotor</a> = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00363"></a>00363   mc[1].<a class="code" href="struct_move_command.html#aa573be1cf5e1dc2cb21bed08980d379c">speedRightMotor</a> = 130;
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365   <a class="code" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697" title="The reference to the ExtendedMove class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba">startCurrentQueue</a>(2);
+<a name="l00366"></a>00366 }
+<a name="l00367"></a>00367 
+<a name="l00368"></a>00368 
+<a name="l00369"></a>00369 
+<a name="l00370"></a>00370 
+<a name="l00371"></a>00371 
+<a name="l00372"></a>00372 
+<a name="l00373"></a>00373 
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377 
+<a name="l00378"></a>00378 
+<a name="l00379"></a>00379 
+<a name="l00380"></a>00380 
+<a name="l00381"></a>00381 
+<a name="l00382"></a>00382 
+<a name="l00383"></a>00383 
+<a name="l00384"></a>00384 
+<a name="l00385"></a>00385 
+<a name="l00386"></a>00386 
+<a name="l00387"></a>00387 
+<a name="l00388"></a>00388 
+<a name="l00389"></a>00389 
+<a name="l00390"></a>00390 
+<a name="l00391"></a>00391 
+<a name="l00392"></a>00392 
+<a name="l00393"></a>00393 
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395 
+<a name="l00396"></a>00396 
+<a name="l00397"></a>00397 
+<a name="l00398"></a>00398 
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400 
+<a name="l00401"></a>00401 
+<a name="l00402"></a>00402 
+<a name="l00403"></a>00403 
+<a name="l00404"></a>00404 
+<a name="l00405"></a>00405 
+<a name="l00406"></a>00406 
+<a name="l00407"></a>00407 
+<a name="l00408"></a>00408 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_state_machine_8cpp.html">StateMachine.cpp</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:20 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:11 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

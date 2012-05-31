@@ -129,7 +129,7 @@ Inheritance diagram for LineFollow:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_line_follow__inherit__graph.png" border="0" usemap="#_line_follow_inherit__map" alt="Inheritance graph"/></div>
 <map name="_line_follow_inherit__map" id="_line_follow_inherit__map">
-<area shape="rect" id="node3" href="class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="5,80,80,107"/><area shape="rect" id="node5" href="class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="105,80,188,107"/></map>
+<area shape="rect" id="node3" href="class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="5,80,80,107"/><area shape="rect" id="node5" href="class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="105,80,188,107"/><area shape="rect" id="node7" href="class_move_back_to_line.html" title="The MoveBackToLine class will navigate car back to the line according to the stored information from ..." alt="" coords="213,80,333,107"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for LineFollow:</div>
@@ -232,7 +232,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Prepares the <a class="el" href="class_line_follow.html">LineFollow</a> object to work together with other classes. The preparations done in here can not be done from within the constructor because of dependencies such as Serial communication. <b>This method needs to be called before this class can be fully used.</b> </p>
 
-<p>Reimplemented in <a class="el" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">CurveLeft</a>, and <a class="el" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d">LineCenter</a>.</p>
+<p>Reimplemented in <a class="el" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86">CurveLeft</a>, <a class="el" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d">LineCenter</a>, and <a class="el" href="class_move_back_to_line.html#ab5f8b99d6379511c6ed09b4f50432641">MoveBackToLine</a>.</p>
 
 <p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00019">19</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
@@ -283,7 +283,7 @@ Check _reduceSpeedTime (if not 0) if it's already time to proceed with the reduc
 Read the line sensor values to check if one line sensor has detected white ground (line follow algorithm). </li>
 </ol>
 
-<p>Reimplemented in <a class="el" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">CurveLeft</a>, and <a class="el" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f">LineCenter</a>.</p>
+<p>Reimplemented in <a class="el" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">CurveLeft</a>, <a class="el" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f">LineCenter</a>, and <a class="el" href="class_move_back_to_line.html#a2481a81f7c90dee23d229911c8821e65">MoveBackToLine</a>.</p>
 
 <p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00089">89</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
@@ -328,7 +328,6 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00134">134</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
@@ -373,9 +372,8 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Maybe a delay is needed between the readings. </dd></dl>
 
-<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00147">147</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_line_follow_8cpp_source.html#l00146">146</a> of file <a class="el" href="_line_follow_8cpp_source.html">LineFollow.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -391,7 +389,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_line_follow_af85fe355ee0699cabc3c817d10aa8b9d_icgraph.png" border="0" usemap="#class_line_follow_af85fe355ee0699cabc3c817d10aa8b9d_icgraph" alt=""/></div>
 <map name="class_line_follow_af85fe355ee0699cabc3c817d10aa8b9d_icgraph" id="class_line_follow_af85fe355ee0699cabc3c817d10aa8b9d_icgraph">
-<area shape="rect" id="node3" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="435,5,552,32"/><area shape="rect" id="node7" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="243,31,370,57"/><area shape="rect" id="node10" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="244,81,369,108"/><area shape="rect" id="node5" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="616,56,760,83"/><area shape="rect" id="node12" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="419,107,568,133"/></map>
+<area shape="rect" id="node3" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="441,5,559,32"/><area shape="rect" id="node7" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="243,31,370,57"/><area shape="rect" id="node10" href="class_move_back_to_line.html#a2481a81f7c90dee23d229911c8821e65" title="MoveBackToLine::doJob" alt="" coords="419,56,581,83"/><area shape="rect" id="node13" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="244,132,369,159"/><area shape="rect" id="node5" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="629,81,773,108"/><area shape="rect" id="node15" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="425,157,575,184"/></map>
 </div>
 </p>
 
@@ -657,7 +655,7 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00050">50</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
@@ -673,7 +671,7 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00048">48</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
@@ -756,7 +754,7 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>write comment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>write comment </dd></dl>
 
 <p>Definition at line <a class="el" href="_line_follow_8h_source.html#l00049">49</a> of file <a class="el" href="_line_follow_8h_source.html">LineFollow.h</a>.</p>
 
@@ -841,7 +839,7 @@ Here is the call graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_line_follow.html">LineFollow</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:21 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:12 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

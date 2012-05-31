@@ -1,15 +1,19 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_line_follow_8h.html" title="D:/Workspace/Arduino/prencar/LineFollow.h" alt="" coords="459,80,734,107"/>
-<area shape="rect" id="node16" href="$_curve_left_8cpp.html" title="D:/Workspace/Arduino/prencar/CurveLeft.cpp" alt="" coords="90,304,373,331"/>
-<area shape="rect" id="node22" href="$_line_center_8cpp.html" title="D:/Workspace/Arduino/prencar/LineCenter.cpp" alt="" coords="944,229,1234,256"/>
-<area shape="rect" id="node24" href="$_line_follow_8cpp.html" title="D:/Workspace/Arduino/prencar/LineFollow.cpp" alt="" coords="30,155,321,181"/>
-<area shape="rect" id="node27" href="$_extended_move_8h.html" title="D:/Workspace/Arduino/prencar/ExtendedMove.h" alt="" coords="810,80,1109,107"/>
-<area shape="rect" id="node38" href="$_move_8cpp.html" title="D:/Workspace/Arduino/prencar/Move.cpp" alt="" coords="1614,80,1873,107"/>
-<area shape="rect" id="node5" href="$_cube_approach_8h.html" title="D:/Workspace/Arduino/prencar/CubeApproach.h" alt="" coords="447,155,746,181"/>
-<area shape="rect" id="node7" href="$_cube_approach_8cpp.html" title="D:/Workspace/Arduino/prencar/CubeApproach.cpp" alt="" coords="261,229,576,256"/>
-<area shape="rect" id="node9" href="$_state_machine_8h.html" title="D:/Workspace/Arduino/prencar/StateMachine.h" alt="" coords="551,304,845,331"/>
-<area shape="rect" id="node14" href="$_curve_left_8h.html" title="D:/Workspace/Arduino/prencar/CurveLeft.h" alt="" coords="651,229,918,256"/>
-<area shape="rect" id="node19" href="$_line_center_8h.html" title="D:/Workspace/Arduino/prencar/LineCenter.h" alt="" coords="873,155,1150,181"/>
-<area shape="rect" id="node11" href="$_state_machine_8cpp.html" title="D:/Workspace/Arduino/prencar/StateMachine.cpp" alt="" coords="544,379,853,405"/>
-<area shape="rect" id="node32" href="$_extended_move_8cpp.html" title="D:/Workspace/Arduino/prencar/ExtendedMove.cpp" alt="" coords="1225,155,1540,181"/>
+<area shape="rect" id="node3" href="$_line_follow_8h.html" title="D:/Workspace/Arduino/prencar/LineFollow.h" alt="" coords="558,80,834,107"/>
+<area shape="rect" id="node11" href="$_move_back_to_line_8cpp.html" title="D:/Workspace/Arduino/prencar/MoveBackToLine.cpp" alt="" coords="228,304,554,331"/>
+<area shape="rect" id="node21" href="$_curve_left_8cpp.html" title="D:/Workspace/Arduino/prencar/CurveLeft.cpp" alt="" coords="1428,304,1711,331"/>
+<area shape="rect" id="node27" href="$_line_center_8cpp.html" title="D:/Workspace/Arduino/prencar/LineCenter.cpp" alt="" coords="1276,229,1567,256"/>
+<area shape="rect" id="node30" href="$_line_follow_8cpp.html" title="D:/Workspace/Arduino/prencar/LineFollow.cpp" alt="" coords="35,155,326,181"/>
+<area shape="rect" id="node34" href="$_extended_move_8h.html" title="D:/Workspace/Arduino/prencar/ExtendedMove.h" alt="" coords="1093,80,1392,107"/>
+<area shape="rect" id="node51" href="$_move_8cpp.html" title="D:/Workspace/Arduino/prencar/Move.cpp" alt="" coords="2059,80,2318,107"/>
+<area shape="rect" id="node5" href="$_cube_approach_8h.html" title="D:/Workspace/Arduino/prencar/CubeApproach.h" alt="" coords="452,155,751,181"/>
+<area shape="rect" id="node7" href="$_cube_approach_8cpp.html" title="D:/Workspace/Arduino/prencar/CubeApproach.cpp" alt="" coords="256,229,571,256"/>
+<area shape="rect" id="node9" href="$_move_back_to_line_8h.html" title="D:/Workspace/Arduino/prencar/MoveBackToLine.h" alt="" coords="646,229,959,256"/>
+<area shape="rect" id="node13" href="$_state_machine_8h.html" title="D:/Workspace/Arduino/prencar/StateMachine.h" alt="" coords="813,304,1107,331"/>
+<area shape="rect" id="node19" href="$_curve_left_8h.html" title="D:/Workspace/Arduino/prencar/CurveLeft.h" alt="" coords="984,229,1251,256"/>
+<area shape="rect" id="node24" href="$_line_center_8h.html" title="D:/Workspace/Arduino/prencar/LineCenter.h" alt="" coords="928,155,1206,181"/>
+<area shape="rect" id="node15" href="$_state_machine_8cpp.html" title="D:/Workspace/Arduino/prencar/StateMachine.cpp" alt="" coords="806,379,1115,405"/>
+<area shape="rect" id="node39" href="$_extended_move_8cpp.html" title="D:/Workspace/Arduino/prencar/ExtendedMove.cpp" alt="" coords="1331,155,1646,181"/>
+<area shape="rect" id="node41" href="$_lift_cube_8h.html" title="D:/Workspace/Arduino/prencar/LiftCube.h" alt="" coords="1721,155,1983,181"/>
+<area shape="rect" id="node43" href="$_lift_cube_8cpp.html" title="D:/Workspace/Arduino/prencar/LiftCube.cpp" alt="" coords="1708,229,1983,256"/>
 </map>

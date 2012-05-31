@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['instance',['instance',['../class_configuration.html#a71e62367ddc9a097190c110efd5f96a2',1,'Configuration']]]
+  ['isbackonline',['isBackOnLine',['../class_move_back_to_line.html#ab26ab46222db08890998a00b9475bf50',1,'MoveBackToLine']]]
 ];

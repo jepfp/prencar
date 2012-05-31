@@ -1,9 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="195,56,373,83"/>
+<area shape="rect" id="node3" href="$class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="195,81,373,108"/>
 <area shape="rect" id="node8" href="$class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="456,107,579,133"/>
-<area shape="rect" id="node28" href="$class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="227,309,341,336"/>
-<area shape="rect" id="node40" href="$class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="211,157,357,184"/>
-<area shape="rect" id="node47" href="$class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="231,385,337,412"/>
+<area shape="rect" id="node28" href="$class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="227,360,341,387"/>
+<area shape="rect" id="node40" href="$class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="211,183,357,209"/>
+<area shape="rect" id="node47" href="$class_move_back_to_line.html#ab5f8b99d6379511c6ed09b4f50432641" title="MoveBackToLine::begin" alt="" coords="205,309,363,336"/>
+<area shape="rect" id="node51" href="$class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="231,436,337,463"/>
 <area shape="rect" id="node5" href="$class_state_machine.html#a2fb07002510ea9141019559750acfab8" title="StateMachine::StateMachine" alt="" coords="422,5,613,32"/>
 <area shape="rect" id="node10" href="$class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="661,56,848,83"/>
 <area shape="rect" id="node17" href="$class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="691,157,818,184"/>
@@ -13,10 +14,10 @@
 <area shape="rect" id="node19" href="$class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="956,107,1047,133"/>
 <area shape="rect" id="node21" href="$class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="956,157,1047,184"/>
 <area shape="rect" id="node26" href="$class_configuration.html#a779947337bf652f0e773cb29f37f14ba" title="Configuration::Configuration" alt="" coords="911,208,1091,235"/>
-<area shape="rect" id="node30" href="$class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="456,309,579,336"/>
-<area shape="rect" id="node32" href="$class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a" title="ExtendedMove::getInstance" alt="" coords="663,309,846,336"/>
-<area shape="rect" id="node34" href="$class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528" title="ExtendedMove::ExtendedMove" alt="" coords="901,259,1101,285"/>
-<area shape="rect" id="node36" href="$class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="928,309,1075,336"/>
-<area shape="rect" id="node49" href="$class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="431,411,603,437"/>
-<area shape="rect" id="node51" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="681,411,829,437"/>
+<area shape="rect" id="node30" href="$class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="456,360,579,387"/>
+<area shape="rect" id="node32" href="$class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a" title="ExtendedMove::getInstance" alt="" coords="663,335,846,361"/>
+<area shape="rect" id="node34" href="$class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528" title="ExtendedMove::ExtendedMove" alt="" coords="901,284,1101,311"/>
+<area shape="rect" id="node36" href="$class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="928,335,1075,361"/>
+<area shape="rect" id="node53" href="$class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="431,461,603,488"/>
+<area shape="rect" id="node55" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="681,461,829,488"/>
 </map>

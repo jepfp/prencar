@@ -130,7 +130,7 @@ Collaboration diagram for StateMachine:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_state_machine__coll__graph.png" border="0" usemap="#_state_machine_coll__map" alt="Collaboration graph"/></div>
 <map name="_state_machine_coll__map" id="_state_machine_coll__map">
-<area shape="rect" id="node2" href="class_move.html" title="Move" alt="" coords="483,237,535,264"/><area shape="rect" id="node15" href="class_cube_approach.html" title="CubeApproach" alt="" coords="965,303,1072,329"/><area shape="rect" id="node19" href="class_line_follow.html" title="LineFollow" alt="" coords="727,384,809,411"/><area shape="rect" id="node26" href="class_extended_move.html" title="Allows to define extended car control instuctions." alt="" coords="715,532,821,559"/><area shape="rect" id="node5" href="class_communication.html" title="Communication" alt="" coords="256,228,368,255"/><area shape="rect" id="node45" href="class_lift_cube.html" title="LiftCube" alt="" coords="475,96,544,123"/><area shape="rect" id="node7" href="class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="14,227,95,253"/><area shape="rect" id="node10" href="class_configuration.html" title="Configuration" alt="" coords="6,377,103,404"/><area shape="rect" id="node37" href="class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="1195,449,1269,476"/><area shape="rect" id="node41" href="class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="977,492,1061,519"/><area shape="rect" id="node24" href="struct_cube_detection.html" title="CubeDetection" alt="" coords="715,283,821,309"/><area shape="rect" id="node31" href="struct_move_command.html" title="MoveCommand" alt="" coords="454,592,565,619"/></map>
+<area shape="rect" id="node2" href="class_move.html" title="Move" alt="" coords="483,195,535,221"/><area shape="rect" id="node15" href="class_cube_approach.html" title="CubeApproach" alt="" coords="965,179,1072,205"/><area shape="rect" id="node19" href="class_line_follow.html" title="LineFollow" alt="" coords="727,272,809,299"/><area shape="rect" id="node26" href="class_extended_move.html" title="Allows to define extended car control instuctions." alt="" coords="715,464,821,491"/><area shape="rect" id="node5" href="class_communication.html" title="Communication" alt="" coords="256,417,368,444"/><area shape="rect" id="node51" href="class_lift_cube.html" title="LiftCube" alt="" coords="984,668,1053,695"/><area shape="rect" id="node7" href="class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="14,417,95,444"/><area shape="rect" id="node10" href="class_configuration.html" title="Configuration" alt="" coords="6,328,103,355"/><area shape="rect" id="node45" href="class_move_back_to_line.html" title="The MoveBackToLine class will navigate car back to the line according to the stored information from ..." alt="" coords="1216,336,1336,363"/><area shape="rect" id="node37" href="class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve." alt="" coords="1239,465,1313,492"/><area shape="rect" id="node41" href="class_line_center.html" title="The LineCenter class centers the car on the line." alt="" coords="977,352,1061,379"/><area shape="rect" id="node24" href="struct_cube_detection.html" title="CubeDetection" alt="" coords="715,171,821,197"/><area shape="rect" id="node31" href="struct_move_command.html" title="MoveCommand" alt="" coords="454,429,565,456"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_state_machine-members.html">List of all members.</a></p>
@@ -156,6 +156,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a18b495baeae11732b76d252b2b8341c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8">begin</a> ()</td></tr>
 <tr class="memitem:a26dd1980d9d8f24050b624fb16ac0e58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58">checkCommands</a> ()</td></tr>
 <tr class="memitem:a6f5d5d6b56b9b204725798ed786f6dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd">changeState</a> (<a class="el" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a> newState)</td></tr>
+<tr class="memitem:ab3634a64f8a4065a7586fcd7b32883d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1">startDriveOverFinishLineExtMoveCommand</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ac50a9d394f6fb8dcb5fae975feed7ff2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_communication.html">Communication</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#ac50a9d394f6fb8dcb5fae975feed7ff2">_com</a></td></tr>
@@ -171,8 +172,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a51a47153c3502bb1d8c57c4b0343b5c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_line_follow.html">LineFollow</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a51a47153c3502bb1d8c57c4b0343b5c5">lineFollow</a></td></tr>
 <tr class="memitem:abde46fcc0c72e89a79a406658ff15a02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_curve_left.html">CurveLeft</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#abde46fcc0c72e89a79a406658ff15a02">curveLeft</a></td></tr>
 <tr class="memitem:a3c6370e9fff729723a0ccc5f08640912"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cube_approach.html">CubeApproach</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">_cubeApproach</a></td></tr>
+<tr class="memitem:a0b84a9d673ee44b695a28d7b3b625570"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_move_back_to_line.html">MoveBackToLine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">_moveBackToLine</a></td></tr>
 <tr class="memitem:aa1b860ad26d28c1e681c119e67a6a03b"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#aa1b860ad26d28c1e681c119e67a6a03b">forceChangeState</a></td></tr>
 <tr class="memdesc:aa1b860ad26d28c1e681c119e67a6a03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be set to true if the stateMachine shall switch to the next state immediately.  <a href="#aa1b860ad26d28c1e681c119e67a6a03b"></a><br/></td></tr>
+<tr class="memitem:ae77ef910dec803d51efe9f92f145744d"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">extMoveCommandDriveOverFinishLineStarted</a></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a3e925b470557acefe9e63fb9b883fd77"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_state_machine.html">StateMachine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_machine.html#a3e925b470557acefe9e63fb9b883fd77">_instance</a></td></tr>
@@ -181,7 +184,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00030">30</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00031">31</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a2fb07002510ea9141019559750acfab8"></a>
 <div class="memitem">
@@ -227,14 +230,14 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Prepares the <a class="el" href="class_state_machine.html">StateMachine</a> object to work. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00037">37</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00038">38</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_state_machine_a18b495baeae11732b76d252b2b8341c8_cgraph.png" border="0" usemap="#class_state_machine_a18b495baeae11732b76d252b2b8341c8_cgraph" alt=""/></div>
 <map name="class_state_machine_a18b495baeae11732b76d252b2b8341c8_cgraph" id="class_state_machine_a18b495baeae11732b76d252b2b8341c8_cgraph">
-<area shape="rect" id="node3" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="195,56,373,83"/><area shape="rect" id="node8" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="456,107,579,133"/><area shape="rect" id="node28" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="227,309,341,336"/><area shape="rect" id="node40" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="211,157,357,184"/><area shape="rect" id="node47" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="231,385,337,412"/><area shape="rect" id="node5" href="class_state_machine.html#a2fb07002510ea9141019559750acfab8" title="StateMachine::StateMachine" alt="" coords="422,5,613,32"/><area shape="rect" id="node10" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="661,56,848,83"/><area shape="rect" id="node17" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="691,157,818,184"/><area shape="rect" id="node24" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e" title="Configuration::getInstance" alt="" coords="669,208,841,235"/><area shape="rect" id="node12" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="896,56,1107,83"/><area shape="rect" id="node15" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8" title="Configuration::getSerialSpeed" alt="" coords="1155,56,1349,83"/><area shape="rect" id="node19" href="class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="956,107,1047,133"/><area shape="rect" id="node21" href="class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="956,157,1047,184"/><area shape="rect" id="node26" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba" title="Configuration::Configuration" alt="" coords="911,208,1091,235"/><area shape="rect" id="node30" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="456,309,579,336"/><area shape="rect" id="node32" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a" title="ExtendedMove::getInstance" alt="" coords="663,309,846,336"/><area shape="rect" id="node34" href="class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528" title="ExtendedMove::ExtendedMove" alt="" coords="901,259,1101,285"/><area shape="rect" id="node36" href="class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="928,309,1075,336"/><area shape="rect" id="node49" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="431,411,603,437"/><area shape="rect" id="node51" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="681,411,829,437"/></map>
+<area shape="rect" id="node3" href="class_state_machine.html#a7f7482a9af6910035a62f9c116165f60" title="StateMachine::getInstance" alt="" coords="195,81,373,108"/><area shape="rect" id="node8" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="456,107,579,133"/><area shape="rect" id="node28" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="227,360,341,387"/><area shape="rect" id="node40" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="211,183,357,209"/><area shape="rect" id="node47" href="class_move_back_to_line.html#ab5f8b99d6379511c6ed09b4f50432641" title="MoveBackToLine::begin" alt="" coords="205,309,363,336"/><area shape="rect" id="node51" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="231,436,337,463"/><area shape="rect" id="node5" href="class_state_machine.html#a2fb07002510ea9141019559750acfab8" title="StateMachine::StateMachine" alt="" coords="422,5,613,32"/><area shape="rect" id="node10" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="661,56,848,83"/><area shape="rect" id="node17" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="691,157,818,184"/><area shape="rect" id="node24" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e" title="Configuration::getInstance" alt="" coords="669,208,841,235"/><area shape="rect" id="node12" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="896,56,1107,83"/><area shape="rect" id="node15" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8" title="Configuration::getSerialSpeed" alt="" coords="1155,56,1349,83"/><area shape="rect" id="node19" href="class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="956,107,1047,133"/><area shape="rect" id="node21" href="class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="956,157,1047,184"/><area shape="rect" id="node26" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba" title="Configuration::Configuration" alt="" coords="911,208,1091,235"/><area shape="rect" id="node30" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="456,360,579,387"/><area shape="rect" id="node32" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a" title="ExtendedMove::getInstance" alt="" coords="663,335,846,361"/><area shape="rect" id="node34" href="class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528" title="ExtendedMove::ExtendedMove" alt="" coords="901,284,1101,311"/><area shape="rect" id="node36" href="class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="928,335,1075,361"/><area shape="rect" id="node53" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="431,461,603,488"/><area shape="rect" id="node55" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="681,461,829,488"/></map>
 </div>
 </p>
 
@@ -272,7 +275,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">Configuration::activateMessageFilter</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00274">274</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00334">334</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -316,7 +319,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00264">264</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00324">324</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -352,9 +355,9 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 <p>This method checks different possible arriving commands and performs the defined action if necessary. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>the following line has to go to the begin of the liftCube state later on! </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>the following line has to go to the begin of the liftCube state later on! </dd></dl>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00138">138</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00196">196</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -391,16 +394,16 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Does the job for which this class was written.<br/>
  This method has to be called in regular intervals (as short as possible). It manages the parcours with it's states. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>this do job has to go to the right state. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>add an else if statement that also checks if lineFollow.hasReachedCurve for the case if the cube was not detected but the car is at the end of the parcours. </dd></dl>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00054">54</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00056">56</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_state_machine_a32064aba8c9fa4afcb649d01aaf5fd78_cgraph.png" border="0" usemap="#class_state_machine_a32064aba8c9fa4afcb649d01aaf5fd78_cgraph" alt=""/></div>
 <map name="class_state_machine_a32064aba8c9fa4afcb649d01aaf5fd78_cgraph" id="class_state_machine_a32064aba8c9fa4afcb649d01aaf5fd78_cgraph">
-<area shape="rect" id="node3" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="888,493,1099,520"/><area shape="rect" id="node7" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1974,1228,2122,1255"/><area shape="rect" id="node13" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="1662,1076,1818,1103"/><area shape="rect" id="node16" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd" title="StateMachine::changeState" alt="" coords="1649,240,1831,267"/><area shape="rect" id="node31" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c" title="LineFollow::startIt" alt="" coords="1678,63,1802,89"/><area shape="rect" id="node57" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6" title="LiftCube::doJob" alt="" coords="658,797,769,824"/><area shape="rect" id="node66" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="655,1887,771,1913"/><area shape="rect" id="node78" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="931,1431,1056,1457"/><area shape="rect" id="node93" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="213,1101,331,1128"/><area shape="rect" id="node112" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2" title="CubeApproach::startIt" alt="" coords="198,63,346,89"/><area shape="rect" id="node115" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="395,1659,544,1685"/><area shape="rect" id="node5" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="1153,316,1551,343"/><area shape="rect" id="node9" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a" title="StateMachine::stopParcours" alt="" coords="1259,620,1445,647"/><area shape="rect" id="node19" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77" title="StateMachine::startParcoursAtState" alt="" coords="1236,367,1468,393"/><area shape="rect" id="node22" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="1607,303,1873,329"/><area shape="rect" id="node27" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="1258,215,1446,241"/><area shape="rect" id="node33" href="class_configuration.html#aa6f6680d35f5db5efd93770bbce644ed" title="Updates all configuration values according to the given parameters." alt="" coords="1243,519,1461,545"/><area shape="rect" id="node36" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e" title="Configuration::getConfigurationVersion" alt="" coords="1231,164,1473,191"/><area shape="rect" id="node38" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1671,1684,1809,1711"/><area shape="rect" id="node45" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="1654,696,1826,723"/><area shape="rect" id="node48" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="1291,721,1413,748"/><area shape="rect" id="node51" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="1299,671,1405,697"/><area shape="rect" id="node54" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e" title="StateMachine::changeActivateMessageFilter" alt="" coords="1600,556,1880,583"/><area shape="rect" id="node11" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6" title="ExtendedMove::stopCurrentQueue" alt="" coords="1630,924,1850,951"/><area shape="rect" id="node24" href="class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="1928,303,2168,329"/><area shape="rect" id="node41" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1957,1709,2139,1736"/><area shape="rect" id="node43" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1952,1659,2144,1685"/><area shape="rect" id="node60" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="933,772,1053,799"/><area shape="rect" id="node69" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="883,1735,1104,1761"/><area shape="rect" id="node72" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="1242,1735,1462,1761"/><area shape="rect" id="node76" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="1211,1684,1493,1711"/><area shape="rect" id="node80" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="1631,1380,1849,1407"/><area shape="rect" id="node85" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="1258,1279,1446,1305"/><area shape="rect" id="node88" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="1278,1481,1426,1508"/><area shape="rect" id="node97" href="class_line_center.html#a736d4cd402c6dc398b374cae8aab5740" title="LineCenter::startIt" alt="" coords="407,1127,532,1153"/><area shape="rect" id="node101" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="406,1329,533,1356"/><area shape="rect" id="node106" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a" title="ExtendedMove::isExecutionInProcess" alt="" coords="593,1532,834,1559"/><area shape="rect" id="node109" href="class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="631,1481,796,1508"/><area shape="rect" id="node122" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241" title="CubeApproach::tryToDetectCube" alt="" coords="1246,1532,1458,1559"/><area shape="rect" id="node131" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="645,1785,782,1812"/><area shape="rect" id="node124" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765" title="CubeApproach::readBottomSensors" alt="" coords="1625,1481,1855,1508"/><area shape="rect" id="node127" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580" title="CubeApproach::readTopSensors" alt="" coords="1635,1532,1845,1559"/></map>
+<area shape="rect" id="node3" href="class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58" title="StateMachine::checkCommands" alt="" coords="832,487,1043,513"/><area shape="rect" id="node7" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="2235,1348,2383,1375"/><area shape="rect" id="node11" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6" title="ExtendedMove::stopCurrentQueue" alt="" coords="1586,1019,1806,1045"/><area shape="rect" id="node16" href="class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd" title="StateMachine::changeState" alt="" coords="1605,183,1787,209"/><area shape="rect" id="node31" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c" title="LineFollow::startIt" alt="" coords="1634,56,1758,83"/><area shape="rect" id="node38" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1956,2032,2095,2059"/><area shape="rect" id="node57" href="class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6" title="LiftCube::doJob" alt="" coords="882,765,993,792"/><area shape="rect" id="node75" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="879,1525,995,1552"/><area shape="rect" id="node79" href="class_line_follow.html#a93ff35747f2ae3bb26998f07243afc3c" title="LineFollow::doJob" alt="" coords="1244,1576,1369,1603"/><area shape="rect" id="node94" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="220,1297,337,1324"/><area shape="rect" id="node107" href="class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a" title="ExtendedMove::isExecutionInProcess" alt="" coords="817,1627,1058,1653"/><area shape="rect" id="node113" href="class_cube_approach.html#ad221b0dcd79878c1ab47f1ab2a0076f2" title="CubeApproach::startIt" alt="" coords="205,5,353,32"/><area shape="rect" id="node117" href="class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="513,1753,663,1780"/><area shape="rect" id="node138" href="class_move_back_to_line.html#a8b48709e127b00072dcce276cff5055b" title="MoveBackToLine::startIt" alt="" coords="857,1981,1018,2008"/><area shape="rect" id="node143" href="class_move_back_to_line.html#a2481a81f7c90dee23d229911c8821e65" title="MoveBackToLine::doJob" alt="" coords="197,1221,360,1248"/><area shape="rect" id="node150" href="class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1" title="StateMachine::startDriveOverFinishLineExtMoveCommand" alt="" coords="409,1893,767,1920"/><area shape="rect" id="node5" href="class_communication.html#a17bff838a0404ae06482f17bcecd3784" title="Communication::getAndRemoveCommandFromReadyCommands" alt="" coords="1107,563,1506,589"/><area shape="rect" id="node9" href="class_state_machine.html#a7d0130525bd2e5314fd0b17e568c307a" title="StateMachine::stopParcours" alt="" coords="1213,867,1400,893"/><area shape="rect" id="node19" href="class_state_machine.html#a2581b0509842f049b330fa2c358aaa77" title="StateMachine::startParcoursAtState" alt="" coords="1191,309,1423,336"/><area shape="rect" id="node22" href="class_communication.html#a17e42ee6dbbaa353944d63e7d5dee25a" title="Communication::sendCurrentConfiguration" alt="" coords="1563,259,1829,285"/><area shape="rect" id="node27" href="class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e" title="StateMachine::startParcours" alt="" coords="1213,208,1401,235"/><area shape="rect" id="node33" href="class_configuration.html#aa6f6680d35f5db5efd93770bbce644ed" title="Updates all configuration values according to the given parameters." alt="" coords="1197,613,1416,640"/><area shape="rect" id="node36" href="class_configuration.html#aecb79d09fce1b802e93a815cedd2a22e" title="Configuration::getConfigurationVersion" alt="" coords="1185,157,1428,184"/><area shape="rect" id="node45" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="1939,639,2111,665"/><area shape="rect" id="node48" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="1635,613,1757,640"/><area shape="rect" id="node51" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="1253,664,1360,691"/><area shape="rect" id="node54" href="class_state_machine.html#afef8b4998682dc7448db148a4a3de74e" title="StateMachine::changeActivateMessageFilter" alt="" coords="1885,360,2165,387"/><area shape="rect" id="node13" href="class_move.html#a237261f2dd8fc115129f0ba998f13183" title="Move::performFastStop" alt="" coords="1618,1069,1774,1096"/><area shape="rect" id="node24" href="class_configuration.html#a0b0009b5114b418831478c031372d12c" title="Configuration::getCurrentConfiguration" alt="" coords="1905,208,2145,235"/><area shape="rect" id="node41" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="2218,2057,2401,2084"/><area shape="rect" id="node43" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="2213,2007,2405,2033"/><area shape="rect" id="node60" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="1247,715,1367,741"/><area shape="rect" id="node64" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="1196,1880,1417,1907"/><area shape="rect" id="node67" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="1586,1829,1806,1856"/><area shape="rect" id="node71" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="1555,1931,1837,1957"/><area shape="rect" id="node81" href="class_line_follow.html#a1e3bb3e01044c86e7ad87c632bac6634" title="LineFollow::readFrontLineSensors" alt="" coords="1916,1576,2135,1603"/><area shape="rect" id="node86" href="class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="1602,1348,1790,1375"/><area shape="rect" id="node89" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5" title="Move::setMotorSpeed" alt="" coords="1622,1627,1770,1653"/><area shape="rect" id="node99" href="class_line_center.html#a736d4cd402c6dc398b374cae8aab5740" title="LineCenter::startIt" alt="" coords="525,1272,651,1299"/><area shape="rect" id="node102" href="class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="525,1323,651,1349"/><area shape="rect" id="node110" href="class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="855,1373,1020,1400"/><area shape="rect" id="node124" href="class_cube_approach.html#a2e637df1eece269b680fe9313798c241" title="CubeApproach::tryToDetectCube" alt="" coords="1590,1779,1802,1805"/><area shape="rect" id="node133" href="class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="869,1829,1006,1856"/><area shape="rect" id="node126" href="class_cube_approach.html#a9a1321d9d53edf885345d9d4f3b2c765" title="CubeApproach::readBottomSensors" alt="" coords="1910,1829,2141,1856"/><area shape="rect" id="node129" href="class_cube_approach.html#a1e002f33dc385e017d2b38120e8ce580" title="CubeApproach::readTopSensors" alt="" coords="1921,1880,2130,1907"/></map>
 </div>
 </p>
 
@@ -429,7 +432,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_state_machine_a7f7482a9af6910035a62f9c116165f60_cgraph.png" border="0" usemap="#class_state_machine_a7f7482a9af6910035a62f9c116165f60_cgraph" alt=""/></div>
 <map name="class_state_machine_a7f7482a9af6910035a62f9c116165f60_cgraph" id="class_state_machine_a7f7482a9af6910035a62f9c116165f60_cgraph">
-<area shape="rect" id="node3" href="class_state_machine.html#a2fb07002510ea9141019559750acfab8" title="StateMachine::StateMachine" alt="" coords="233,152,423,179"/><area shape="rect" id="node5" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="257,203,399,229"/><area shape="rect" id="node8" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="692,56,815,83"/><area shape="rect" id="node28" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="488,259,603,285"/><area shape="rect" id="node40" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="472,145,619,172"/><area shape="rect" id="node47" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="492,335,599,361"/><area shape="rect" id="node10" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="888,5,1075,32"/><area shape="rect" id="node17" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="918,107,1045,133"/><area shape="rect" id="node24" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e" title="Configuration::getInstance" alt="" coords="895,157,1067,184"/><area shape="rect" id="node12" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="1123,5,1333,32"/><area shape="rect" id="node15" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8" title="Configuration::getSerialSpeed" alt="" coords="1382,5,1575,32"/><area shape="rect" id="node19" href="class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="1183,56,1273,83"/><area shape="rect" id="node21" href="class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="1183,107,1273,133"/><area shape="rect" id="node26" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba" title="Configuration::Configuration" alt="" coords="1138,157,1318,184"/><area shape="rect" id="node30" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="692,309,815,336"/><area shape="rect" id="node32" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a" title="ExtendedMove::getInstance" alt="" coords="890,259,1073,285"/><area shape="rect" id="node34" href="class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528" title="ExtendedMove::ExtendedMove" alt="" coords="1128,208,1328,235"/><area shape="rect" id="node36" href="class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="1155,259,1301,285"/><area shape="rect" id="node49" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="667,360,839,387"/><area shape="rect" id="node51" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="907,360,1055,387"/></map>
+<area shape="rect" id="node3" href="class_state_machine.html#a2fb07002510ea9141019559750acfab8" title="StateMachine::StateMachine" alt="" coords="233,208,423,235"/><area shape="rect" id="node5" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="257,259,399,285"/><area shape="rect" id="node8" href="class_line_follow.html#afac0ad1ff185b7e5f9b47428cb2e5e48" title="LineFollow::begin" alt="" coords="705,56,828,83"/><area shape="rect" id="node28" href="class_curve_left.html#a0e6f8f5d7f869edfaf34cf3e74676a86" title="CurveLeft::begin" alt="" coords="495,309,609,336"/><area shape="rect" id="node40" href="class_cube_approach.html#ac49270ba8b7c5bb6e60ffefc31175fc2" title="CubeApproach::begin" alt="" coords="479,145,625,172"/><area shape="rect" id="node47" href="class_move_back_to_line.html#ab5f8b99d6379511c6ed09b4f50432641" title="MoveBackToLine::begin" alt="" coords="473,259,631,285"/><area shape="rect" id="node51" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="499,385,605,412"/><area shape="rect" id="node10" href="class_communication.html#ad7b13fccf78bfce83efc9bb06c64facd" title="Communication::getInstance" alt="" coords="901,5,1088,32"/><area shape="rect" id="node17" href="class_move.html#a5b53cfa443fe4fe0f1b96f9b3afc4850" title="Move::getInstance" alt="" coords="931,107,1058,133"/><area shape="rect" id="node24" href="class_configuration.html#ae327d26e81014cf46b25802478fe9b8e" title="Configuration::getInstance" alt="" coords="909,157,1081,184"/><area shape="rect" id="node12" href="class_communication.html#a88aa7a2d2ac5202e2b8eef787d1a8689" title="Communication::Communication" alt="" coords="1136,5,1347,32"/><area shape="rect" id="node15" href="class_configuration.html#a75b42e72d9a00415dfafa5d5dd8281b8" title="Configuration::getSerialSpeed" alt="" coords="1395,5,1589,32"/><area shape="rect" id="node19" href="class_move.html#a4b1acc3a67d30c385ad9a6000526393a" title="Move::Move" alt="" coords="1196,56,1287,83"/><area shape="rect" id="node21" href="class_move.html#afcff6c5d4fd9e58382ee01d6270f4707" title="Move::begin" alt="" coords="1196,107,1287,133"/><area shape="rect" id="node26" href="class_configuration.html#a779947337bf652f0e773cb29f37f14ba" title="Configuration::Configuration" alt="" coords="1151,157,1331,184"/><area shape="rect" id="node30" href="class_line_center.html#a13e69abdd08c2da81f189e69642d980d" title="LineCenter::begin" alt="" coords="705,309,828,336"/><area shape="rect" id="node32" href="class_extended_move.html#a8ba9c560726a121efa0c78f26780e46a" title="ExtendedMove::getInstance" alt="" coords="903,284,1086,311"/><area shape="rect" id="node34" href="class_extended_move.html#a4bf87fc8690c78ea76464cc8d006f528" title="ExtendedMove::ExtendedMove" alt="" coords="1141,233,1341,260"/><area shape="rect" id="node36" href="class_extended_move.html#aef13add1eb55a57abf64adbf4ae5f149" title="ExtendedMove::begin" alt="" coords="1168,284,1315,311"/><area shape="rect" id="node53" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="681,411,853,437"/><area shape="rect" id="node55" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="921,411,1069,437"/></map>
 </div>
 </p>
 
@@ -439,6 +442,43 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_state_machine_a7f7482a9af6910035a62f9c116165f60_icgraph.png" border="0" usemap="#class_state_machine_a7f7482a9af6910035a62f9c116165f60_icgraph" alt=""/></div>
 <map name="class_state_machine_a7f7482a9af6910035a62f9c116165f60_icgraph" id="class_state_machine_a7f7482a9af6910035a62f9c116165f60_icgraph">
 <area shape="rect" id="node3" href="class_state_machine.html#a18b495baeae11732b76d252b2b8341c8" title="StateMachine::begin" alt="" coords="232,5,373,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3634a64f8a4065a7586fcd7b32883d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1">StateMachine::startDriveOverFinishLineExtMoveCommand</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Creates an Extended <a class="el" href="class_move.html">Move</a> command which moves the car over the finish line and stops it afterwords. It also sets extMoveCommandDriveOverFinishLineStarted to true as soon as this method is called. </p>
+
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00348">348</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_cgraph.png" border="0" usemap="#class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_cgraph" alt=""/></div>
+<map name="class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_cgraph" id="class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_cgraph">
+<area shape="rect" id="node3" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="413,28,635,54"/><area shape="rect" id="node5" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1222,28,1370,54"/><area shape="rect" id="node7" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="714,28,934,54"/><area shape="rect" id="node17" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="683,78,965,105"/><area shape="rect" id="node10" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1013,78,1152,105"/><area shape="rect" id="node13" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1205,78,1387,105"/><area shape="rect" id="node15" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1200,129,1392,156"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_icgraph.png" border="0" usemap="#class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_icgraph" alt=""/></div>
+<map name="class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_icgraph" id="class_state_machine_ab3634a64f8a4065a7586fcd7b32883d1_icgraph">
+<area shape="rect" id="node3" href="class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="413,5,557,32"/></map>
 </div>
 </p>
 
@@ -459,7 +499,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Starts the parcours. The car will start moving autonomous. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00226">226</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00284">284</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -503,7 +543,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00239">239</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00298">298</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -540,7 +580,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Stops the car if it is currently driving autonomously. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00254">254</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8cpp_source.html#l00314">314</a> of file <a class="el" href="_state_machine_8cpp_source.html">StateMachine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -576,7 +616,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the serial communication class. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00038">38</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00039">39</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -593,7 +633,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the configuration class. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00039">39</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00040">40</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -608,7 +648,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00046">46</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00047">47</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -625,7 +665,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the <a class="el" href="class_extended_move.html" title="Allows to define extended car control instuctions.">ExtendedMove</a> class. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00042">42</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00043">43</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -642,7 +682,7 @@ Here is the caller graph for this function:</div>
 
 <p>Static reference to the singleton object. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00034">34</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00035">35</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -657,7 +697,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00035">35</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00036">36</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -674,7 +714,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the <a class="el" href="class_lift_cube.html">LiftCube</a> class. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00041">41</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00042">42</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +731,22 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the move class. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00040">40</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00041">41</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b84a9d673ee44b695a28d7b3b625570"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_move_back_to_line.html">MoveBackToLine</a> <a class="el" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">StateMachine::_moveBackToLine</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00048">48</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -706,7 +761,23 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00045">45</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00046">46</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae77ef910dec803d51efe9f92f145744d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean <a class="el" href="class_state_machine.html#ae77ef910dec803d51efe9f92f145744d">StateMachine::extMoveCommandDriveOverFinishLineStarted</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Set to true as soon as the ext move command has been started which moves the car over the finish line and stops the car afterwords. </p>
+
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00065">65</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -725,7 +796,7 @@ Here is the caller graph for this function:</div>
 <p>In the state machine the work of every state is started at the end of the previous state. For example the <a class="el" href="class_curve_left.html" title="The CurveLeft class will control the car during the 90° left curve.">CurveLeft</a> job starts at the end of the <a class="el" href="class_line_follow.html">LineFollow</a> job.<br/>
  This boolean is used when the command 300 is sent with a parameter that indicates at which state the state machine shall start. The state machine will then start at the previous (!) state of the given state and set forceChangeState to true. Doing so the state machine starts the job of the next state and immediately switches to the next state. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00057">57</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00059">59</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -740,7 +811,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00044">44</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00045">45</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -755,7 +826,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00063">63</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00072">72</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -772,7 +843,7 @@ Here is the caller graph for this function:</div>
 
 <p>Holds the timestamp when the parcours starts. </p>
 
-<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00064">64</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
+<p>Definition at line <a class="el" href="_state_machine_8h_source.html#l00073">73</a> of file <a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>.</p>
 
 </div>
 </div>
@@ -786,7 +857,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_state_machine.html">StateMachine</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:21 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:13 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="413,28,635,54"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1222,28,1370,54"/>
+<area shape="rect" id="node7" href="$class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="714,28,934,54"/>
+<area shape="rect" id="node17" href="$class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="683,78,965,105"/>
+<area shape="rect" id="node10" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1013,78,1152,105"/>
+<area shape="rect" id="node13" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1205,78,1387,105"/>
+<area shape="rect" id="node15" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1200,129,1392,156"/>
+</map>

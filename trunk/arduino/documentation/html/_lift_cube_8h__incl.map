@@ -1,5 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$_communication_8h.html" title="Communication.h" alt="" coords="75,80,197,107"/>
-<area shape="rect" id="node8" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="105,155,212,181"/>
-<area shape="rect" id="node11" href="$_command_8h.html" title="Command.h" alt="" coords="237,155,328,181"/>
+<area shape="rect" id="node5" href="$_communication_8h.html" title="Communication.h" alt="" coords="88,229,211,256"/>
+<area shape="rect" id="node16" href="$_extended_move_8h.html" title="ExtendedMove.h" alt="" coords="277,80,395,107"/>
+<area shape="rect" id="node8" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="94,304,201,331"/>
+<area shape="rect" id="node11" href="$_command_8h.html" title="Command.h" alt="" coords="226,304,317,331"/>
+<area shape="rect" id="node19" href="$_move_8h.html" title="Move.h" alt="" coords="305,155,367,181"/>
 </map>

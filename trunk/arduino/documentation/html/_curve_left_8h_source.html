@@ -130,22 +130,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00033"></a>00033   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_curve_left.html#a34930d2641dbbd389c536999a560f158">doJob</a>();
 <a name="l00034"></a>00034   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336">startIt</a>();
 <a name="l00035"></a>00035   
-<a name="l00042"></a><a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa">00042</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa" title="This variable is set to true as soon as the curve is driven fully.">drivingCurveIsFinished</a>;
-<a name="l00043"></a>00043 <span class="keyword">private</span>:
-<a name="l00044"></a><a class="code" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c">00044</a>   <a class="code" href="class_extended_move.html" title="Allows to define extended car control instuctions.">ExtendedMove</a>* <a class="code" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c" title="The reference to the extended move class.">_extMove</a>; 
-<a name="l00045"></a>00045   
-<a name="l00046"></a><a class="code" href="class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7">00046</a>   <a class="code" href="class_line_center.html" title="The LineCenter class centers the car on the line.">LineCenter</a> <a class="code" href="class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7">lineCenter</a>;
-<a name="l00047"></a>00047 
-<a name="l00051"></a><a class="code" href="class_curve_left.html#a3f46785750e729247f26099a93cfaeb9">00051</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_curve_left.html#a3f46785750e729247f26099a93cfaeb9">_timeCurveLeftStarted</a>;
-<a name="l00052"></a>00052   
-<a name="l00053"></a><a class="code" href="class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6">00053</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6" title="Holds the timestamp of the time when the last curve left check was done.">_timeLastCurveLeftCheck</a>; 
-<a name="l00054"></a>00054   
-<a name="l00055"></a><a class="code" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5">00055</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5" title="Set to true, as soon as the car has reached the line but a line centering is done before continuing...">_lineCenteringStarted</a>; 
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057   
-<a name="l00058"></a>00058 };
-<a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
-<a name="l00060"></a>00060 <span class="preprocessor"></span>
+<a name="l00041"></a><a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa">00041</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_curve_left.html#a0f7c63a8242780be79a08482380d9caa" title="This variable is set to true as soon as the curve is driven fully.">drivingCurveIsFinished</a>;
+<a name="l00042"></a>00042 <span class="keyword">private</span>:
+<a name="l00043"></a><a class="code" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c">00043</a>   <a class="code" href="class_extended_move.html" title="Allows to define extended car control instuctions.">ExtendedMove</a>* <a class="code" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c" title="The reference to the extended move class.">_extMove</a>; 
+<a name="l00044"></a>00044   
+<a name="l00045"></a><a class="code" href="class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7">00045</a>   <a class="code" href="class_line_center.html" title="The LineCenter class centers the car on the line.">LineCenter</a> <a class="code" href="class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7">lineCenter</a>;
+<a name="l00046"></a>00046 
+<a name="l00050"></a><a class="code" href="class_curve_left.html#a3f46785750e729247f26099a93cfaeb9">00050</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_curve_left.html#a3f46785750e729247f26099a93cfaeb9">_timeCurveLeftStarted</a>;
+<a name="l00051"></a>00051   
+<a name="l00052"></a><a class="code" href="class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6">00052</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="class_curve_left.html#a2906472b9d6c45308fe4e385df6c91b6" title="Holds the timestamp of the time when the last curve left check was done.">_timeLastCurveLeftCheck</a>; 
+<a name="l00053"></a>00053   
+<a name="l00054"></a><a class="code" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5">00054</a>   <span class="keywordtype">boolean</span> <a class="code" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5" title="Set to true, as soon as the car has reached the line but a line centering is done before continuing...">_lineCenteringStarted</a>; 
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056   
+<a name="l00057"></a>00057 };
+<a name="l00058"></a>00058 <span class="preprocessor">#endif</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>
+<a name="l00060"></a>00060 
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063 
@@ -153,14 +154,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00065"></a>00065 
 <a name="l00066"></a>00066 
 <a name="l00067"></a>00067 
-<a name="l00068"></a>00068 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_curve_left_8h.html">CurveLeft.h</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:20 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:11 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

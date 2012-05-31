@@ -197,9 +197,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00097"></a>00097 
 <a name="l00098"></a>00098       <span class="keywordflow">if</span>(sensorValues[0] &lt; <a class="code" href="class_line_follow.html#a0112816d723edd82daf2dabbf1ff074f" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ab86a9d57799e36b0b985ad3b2e3bbfcd" title="Threshold value from black to white.">whiteThresholdLineSensors</a>){
 <a name="l00099"></a>00099         <a class="code" href="class_line_follow.html#a8c494126e578f00240532b866b051718" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(66, sensorValues[0]);
-<a name="l00100"></a>00100         <a class="code" href="class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7">lineCenter</a>.<a class="code" href="class_line_center.html#a736d4cd402c6dc398b374cae8aab5740">startIt</a>(<span class="keyword">true</span>);
-<a name="l00101"></a>00101         <a class="code" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5" title="Set to true, as soon as the car has reached the line but a line centering is done before continuing...">_lineCenteringStarted</a> = <span class="keyword">true</span>;
-<a name="l00102"></a>00102         <a class="code" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6">stopCurrentQueue</a>();
+<a name="l00100"></a>00100         <a class="code" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c" title="The reference to the extended move class.">_extMove</a>-&gt;<a class="code" href="class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6">stopCurrentQueue</a>();
+<a name="l00101"></a>00101         <a class="code" href="class_curve_left.html#a64999fcaca54a93b0c675ee74c3258e7">lineCenter</a>.<a class="code" href="class_line_center.html#a736d4cd402c6dc398b374cae8aab5740">startIt</a>(<span class="keyword">true</span>);
+<a name="l00102"></a>00102         <a class="code" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5" title="Set to true, as soon as the car has reached the line but a line centering is done before continuing...">_lineCenteringStarted</a> = <span class="keyword">true</span>;
 <a name="l00103"></a>00103       }
 <a name="l00104"></a>00104     }
 <a name="l00105"></a>00105   }
@@ -242,7 +242,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="_curve_left_8cpp.html">CurveLeft.cpp</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:20 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:11 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

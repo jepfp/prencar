@@ -130,7 +130,7 @@ Collaboration diagram for LiftCube:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_lift_cube__coll__graph.png" border="0" usemap="#_lift_cube_coll__map" alt="Collaboration graph"/></div>
 <map name="_lift_cube_coll__map" id="_lift_cube_coll__map">
-<area shape="rect" id="node2" href="class_communication.html" title="Communication" alt="" coords="5,96,117,123"/><area shape="rect" id="node4" href="class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="11,5,92,32"/><area shape="rect" id="node7" href="class_configuration.html" title="Configuration" alt="" coords="169,5,265,32"/></map>
+<area shape="rect" id="node2" href="class_communication.html" title="Communication" alt="" coords="160,96,272,123"/><area shape="rect" id="node11" href="class_extended_move.html" title="Allows to define extended car control instuctions." alt="" coords="163,277,269,304"/><area shape="rect" id="node13" href="class_move.html" title="Move" alt="" coords="30,187,81,213"/><area shape="rect" id="node4" href="class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="491,5,572,32"/><area shape="rect" id="node7" href="class_configuration.html" title="Configuration" alt="" coords="70,5,167,32"/><area shape="rect" id="node20" href="struct_move_command.html" title="MoveCommand" alt="" coords="278,187,388,213"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_lift_cube-members.html">List of all members.</a></p>
@@ -147,6 +147,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7482caae31a755370d072f6ec85ad598"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_lift_cube.html">LiftCube</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#a7482caae31a755370d072f6ec85ad598">getInstance</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:ac3ef9d92dc8953be1cb25b47e3d1ba6a"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#ac3ef9d92dc8953be1cb25b47e3d1ba6a">liftingStarted</a></td></tr>
+<tr class="memdesc:ac3ef9d92dc8953be1cb25b47e3d1ba6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">liftCube()</a>.  <a href="#ac3ef9d92dc8953be1cb25b47e3d1ba6a"></a><br/></td></tr>
 <tr class="memitem:a7a13f30623f88cfa1de6437665854990"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#a7a13f30623f88cfa1de6437665854990">cubeLifted</a></td></tr>
 <tr class="memdesc:a7a13f30623f88cfa1de6437665854990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again automatically (a parcours restart is needed first).  <a href="#a7a13f30623f88cfa1de6437665854990"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
@@ -163,8 +165,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:afb428580284ed0c38d6cf3745904d060"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the serial communication class.  <a href="#afb428580284ed0c38d6cf3745904d060"></a><br/></td></tr>
 <tr class="memitem:aea8e72092e201140adecaf04a98706d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_configuration.html">Configuration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#aea8e72092e201140adecaf04a98706d5">_conf</a></td></tr>
 <tr class="memdesc:aea8e72092e201140adecaf04a98706d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the configuration class.  <a href="#aea8e72092e201140adecaf04a98706d5"></a><br/></td></tr>
-<tr class="memitem:acfefe1c0364c233a5bf5e8b52bcab385"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#acfefe1c0364c233a5bf5e8b52bcab385">_liftingStarted</a></td></tr>
-<tr class="memdesc:acfefe1c0364c233a5bf5e8b52bcab385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">liftCube()</a>.  <a href="#acfefe1c0364c233a5bf5e8b52bcab385"></a><br/></td></tr>
+<tr class="memitem:a581b0da85ced4d678fb8a61dd0a51aa4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_extended_move.html">ExtendedMove</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#a581b0da85ced4d678fb8a61dd0a51aa4">_extMove</a></td></tr>
+<tr class="memdesc:a581b0da85ced4d678fb8a61dd0a51aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference to the <a class="el" href="class_extended_move.html" title="Allows to define extended car control instuctions.">ExtendedMove</a> class.  <a href="#a581b0da85ced4d678fb8a61dd0a51aa4"></a><br/></td></tr>
 <tr class="memitem:ac1cad13e4bcc8f961b5ef642a685455b"><td class="memItemLeft" align="right" valign="top">Servo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lift_cube.html#ac1cad13e4bcc8f961b5ef642a685455b">_hoistServo</a></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -174,7 +176,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00008">8</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00009">9</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5bf2f6939ce4578fbf54d9214dd91fb3"></a>
 <div class="memitem">
@@ -259,14 +261,14 @@ Here is the caller graph for this function:</div>
 <p>Checks if it's already time to lift up the hoist again after <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">liftCube()</a> was called. This method has to be called in regular intervals (as short as possible).<br/>
  </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00065">65</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00066">66</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_lift_cube_ab5d1090dfcf43a319666d905b374d4a6_cgraph.png" border="0" usemap="#class_lift_cube_ab5d1090dfcf43a319666d905b374d4a6_cgraph" alt=""/></div>
 <map name="class_lift_cube_ab5d1090dfcf43a319666d905b374d4a6_cgraph" id="class_lift_cube_ab5d1090dfcf43a319666d905b374d4a6_cgraph">
-<area shape="rect" id="node3" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="726,21,874,48"/><area shape="rect" id="node5" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="165,33,285,60"/><area shape="rect" id="node13" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="341,123,448,149"/><area shape="rect" id="node8" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="333,72,456,99"/><area shape="rect" id="node10" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="505,72,677,99"/></map>
+<area shape="rect" id="node3" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1009,268,1157,294"/><area shape="rect" id="node5" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd" title="LiftCube::liftCube" alt="" coords="216,116,336,142"/><area shape="rect" id="node13" href="class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="165,242,387,269"/><area shape="rect" id="node28" href="class_lift_cube.html#a517b1b3c4dc314d228ba4dc79d17de64" title="LiftCube::liftUp" alt="" coords="223,166,329,193"/><area shape="rect" id="node8" href="class_lift_cube.html#a652d399235cafb5179a2d6c65df11112" title="LiftCube::liftDown" alt="" coords="515,116,637,142"/><area shape="rect" id="node10" href="class_lift_cube.html#a6b6c013383282736029056541de33844" title="LiftCube::setHoistPosition" alt="" coords="766,166,938,193"/><area shape="rect" id="node16" href="class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="466,318,686,345"/><area shape="rect" id="node26" href="class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="435,217,717,244"/><area shape="rect" id="node19" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="783,369,921,396"/><area shape="rect" id="node22" href="class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="991,394,1174,421"/><area shape="rect" id="node24" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="987,344,1179,370"/></map>
 </div>
 </p>
 
@@ -333,14 +335,14 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 <p>Moves the hoist to the bottom position (according to the configuration), waits for the time defined in <a class="el" href="class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c" title="Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()">Configuration::liftCubeDownUpDuration</a> and then moves the hoist to the top position again.<br/>
- <b>Make sure the doJob method is called in regular intervals.</b> </p>
+ When this method is called, also the car will be stopped (see <a class="el" href="class_configuration.html#af69fe1dd7d85d1b7b1772f5abfc1ab54" title="Time for which the motors shall &quot;rotate&quot; backwards with the speed set in liftCubeStopSpeed.">Configuration::liftCubeStopDuration</a>, <a class="el" href="class_configuration.html#ace271e960cae68a452d5330d0af7d46a" title="The speed for the stop action which is performed after the cube lifting process has started...">Configuration::liftCubeStopSpeed</a>). <b>Make sure the doJob method is called in regular intervals.</b> </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83" title="Pwm value to set if the hoist has to be moved up fully.">Configuration::liftCubeDownPosition</a> </dd>
 <dd>
 <a class="el" href="class_configuration.html#af6652efed17691fef4fa435e38c1642f" title="Pwm value to set if the hoist has to be moved up fully.">Configuration::liftCubeUpPosition</a> </dd>
 <dd>
 <a class="el" href="class_configuration.html#a3c887c3a7f7aa88ee549c81a62cf1c9c" title="Time in milliseconds between the liftDown and the liftUp command of the method LiftCube::liftCube()">Configuration::liftCubeDownUpDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00109">109</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00121">121</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -378,7 +380,7 @@ Here is the caller graph for this function:</div>
 <p>Moves the hoist to the bottom position according to the configuration. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#ac8a8b2bf842c6559c30c11436eff5c83" title="Pwm value to set if the hoist has to be moved up fully.">Configuration::liftCubeDownPosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00096">96</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00107">107</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -416,7 +418,7 @@ Here is the caller graph for this function:</div>
 <p>Moves the hoist to the top position according to the configuration. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#af6652efed17691fef4fa435e38c1642f" title="Pwm value to set if the hoist has to be moved up fully.">Configuration::liftCubeUpPosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00087">87</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00098">98</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -454,7 +456,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Moves the hoist to the given position (pwm value between 0-255). </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00119">119</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8cpp_source.html#l00131">131</a> of file <a class="el" href="_lift_cube_8cpp_source.html">LiftCube.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -490,7 +492,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the serial communication class. </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00018">18</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00019">19</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
 </div>
@@ -507,7 +509,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reference to the configuration class. </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00019">19</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00020">20</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
 </div>
@@ -524,7 +526,24 @@ Here is the caller graph for this function:</div>
 
 <p>Last position of the servo to which it was set (pwm value 0-255) </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00015">15</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00016">16</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a581b0da85ced4d678fb8a61dd0a51aa4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_extended_move.html">ExtendedMove</a>* <a class="el" href="class_lift_cube.html#a581b0da85ced4d678fb8a61dd0a51aa4">LiftCube::_extMove</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The reference to the <a class="el" href="class_extended_move.html" title="Allows to define extended car control instuctions.">ExtendedMove</a> class. </p>
+
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00021">21</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
 </div>
@@ -556,7 +575,7 @@ Here is the caller graph for this function:</div>
 
 <p>Static reference to the singleton object. </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00012">12</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00013">13</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
 </div>
@@ -571,7 +590,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00013">13</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00014">14</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
 </div>
@@ -588,24 +607,7 @@ Here is the caller graph for this function:</div>
 
 <p>Saves the timestamp when the method liftCube is called to know when it's time to lift up again. </p>
 
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00016">16</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acfefe1c0364c233a5bf5e8b52bcab385"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boolean <a class="el" href="class_lift_cube.html#acfefe1c0364c233a5bf5e8b52bcab385">LiftCube::_liftingStarted</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">liftCube()</a>. </p>
-
-<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00021">21</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00017">17</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
 </div>
@@ -622,6 +624,23 @@ Here is the caller graph for this function:</div>
 
 <p>Will be set to true as soon as the cube is lifted. If set to true the cube will not be lifted again automatically (a parcours restart is needed first). </p>
 
+<p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00028">28</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3ef9d92dc8953be1cb25b47e3d1ba6a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean <a class="el" href="class_lift_cube.html#ac3ef9d92dc8953be1cb25b47e3d1ba6a">LiftCube::liftingStarted</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Will be set to true as soon as the cube lift process starts and will therefore prevent a second call to <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">liftCube()</a>. </p>
+
 <p>Definition at line <a class="el" href="_lift_cube_8h_source.html#l00027">27</a> of file <a class="el" href="_lift_cube_8h_source.html">LiftCube.h</a>.</p>
 
 </div>
@@ -636,7 +655,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_lift_cube.html">LiftCube</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:21 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:12 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

@@ -162,136 +162,163 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00064"></a>00064   digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, HIGH);
 <a name="l00065"></a>00065 }
 <a name="l00066"></a>00066 
-<a name="l00076"></a><a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">00076</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">Move::controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirLeftMotor, <span class="keywordtype">int</span> speedLeftMotor, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirRightMotor, <span class="keywordtype">int</span> speedRightMotor){
-<a name="l00077"></a>00077   <span class="keywordflow">if</span>(speedLeftMotor &gt; 255) speedLeftMotor = 255;
-<a name="l00078"></a>00078   <span class="keywordflow">if</span>(speedRightMotor &gt; 255) speedRightMotor = 255;
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080   <span class="keywordflow">if</span>(speedLeftMotor &lt; 0) speedLeftMotor = 0;
-<a name="l00081"></a>00081   <span class="keywordflow">if</span>(speedRightMotor &lt; 0) speedRightMotor = 0;
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083   <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a> = speedLeftMotor;
-<a name="l00084"></a>00084   <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a> = speedRightMotor;
-<a name="l00085"></a>00085   
-<a name="l00086"></a>00086   <span class="keywordtype">int</span> parameters[4];
-<a name="l00087"></a>00087   parameters[0] = <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>;
-<a name="l00088"></a>00088   parameters[1] = dirLeftMotor;
-<a name="l00089"></a>00089   parameters[2] = <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>;
-<a name="l00090"></a>00090   parameters[3] = dirRightMotor;
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(58, parameters, 4);
-<a name="l00093"></a>00093   
-<a name="l00094"></a>00094   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a129f685bdf9dfa543433ffe33b934b9f">movePwmLeftPin</a>, <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>);
-<a name="l00095"></a>00095   <a class="code" href="class_move.html#af6b1197771f0540b0becc4117d8d272f">setLeftMotorDirection</a>(dirLeftMotor);
-<a name="l00096"></a>00096   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ad384a39f446ac53af0e2ca60ea31544b">movePwmRightPin</a>, <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>);
-<a name="l00097"></a>00097   <a class="code" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">setRightMotorDirection</a>(dirRightMotor);
-<a name="l00098"></a>00098 }
-<a name="l00099"></a>00099 
-<a name="l00104"></a><a class="code" href="class_move.html#af6b1197771f0540b0becc4117d8d272f">00104</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#af6b1197771f0540b0becc4117d8d272f">Move::setLeftMotorDirection</a>(<span class="keyword">enum</span> <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dir){
-<a name="l00105"></a>00105   <span class="keywordtype">int</span> dirCode;
-<a name="l00106"></a>00106   <a class="code" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b" title="current direction of left motor">_dirLeftMotor</a> = dir;
-<a name="l00107"></a>00107   <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ac692b9392597318793a64449c874c723" title="Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimer...">phaseOut</a>){
-<a name="l00108"></a>00108     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, LOW);
-<a name="l00109"></a>00109     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, LOW);
-<a name="l00110"></a>00110     dirCode = 0;
-<a name="l00111"></a>00111   }
-<a name="l00112"></a>00112   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>){
-<a name="l00113"></a>00113     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, HIGH);
-<a name="l00114"></a>00114     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, LOW);
-<a name="l00115"></a>00115     dirCode = 1;
-<a name="l00116"></a>00116   }
-<a name="l00117"></a>00117   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>){
-<a name="l00118"></a>00118     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, LOW);
-<a name="l00119"></a>00119     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, HIGH);
-<a name="l00120"></a>00120     dirCode = 2;
-<a name="l00121"></a>00121   }
-<a name="l00122"></a>00122   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a25b14d88f35aee0f0638e63994a6a810" title="The motor is stopped immediately. This is done by shortly giving power in the other direction...">fastStop</a>){
-<a name="l00123"></a>00123     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, HIGH);
-<a name="l00124"></a>00124     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, HIGH);
-<a name="l00125"></a>00125     dirCode = 3;
-<a name="l00126"></a>00126   }
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128   <span class="comment">//_com-&gt;send(51, dirCode);</span>
-<a name="l00129"></a>00129 }
-<a name="l00130"></a>00130 
-<a name="l00135"></a><a class="code" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">00135</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">Move::setRightMotorDirection</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dir){
-<a name="l00136"></a>00136   <span class="keywordtype">int</span> dirCode;
-<a name="l00137"></a>00137   <a class="code" href="class_move.html#ace1041b9df6281fdc960013ccac5c32a" title="current direction of right motor">_dirRightMotor</a> = dir;
-<a name="l00138"></a>00138   <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ac692b9392597318793a64449c874c723" title="Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimer...">phaseOut</a>){
-<a name="l00139"></a>00139     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, LOW);
-<a name="l00140"></a>00140     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, LOW);
-<a name="l00141"></a>00141     dirCode = 0;
-<a name="l00142"></a>00142   }
-<a name="l00143"></a>00143   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>){
-<a name="l00144"></a>00144     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, HIGH);
-<a name="l00145"></a>00145     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, LOW);
-<a name="l00146"></a>00146     dirCode = 1;
-<a name="l00147"></a>00147   }
-<a name="l00148"></a>00148   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>){
-<a name="l00149"></a>00149     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, LOW);
-<a name="l00150"></a>00150     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, HIGH);
-<a name="l00151"></a>00151     dirCode = 2;
-<a name="l00152"></a>00152   }
-<a name="l00153"></a>00153   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a25b14d88f35aee0f0638e63994a6a810" title="The motor is stopped immediately. This is done by shortly giving power in the other direction...">fastStop</a>){
-<a name="l00154"></a>00154     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, HIGH);
-<a name="l00155"></a>00155     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, HIGH);
-<a name="l00156"></a>00156     dirCode = 3;
-<a name="l00157"></a>00157   }
+<a name="l00077"></a><a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">00077</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">Move::controlMotors</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirLeftMotor, <span class="keywordtype">int</span> speedLeftMotor, <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dirRightMotor, <span class="keywordtype">int</span> speedRightMotor){
+<a name="l00078"></a>00078   <span class="keywordflow">if</span>(dirLeftMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02af97e0b201a2ce53937529fe1869f76e1" title="The motor rotates forward or backwards depending on the speed set: positive int value --&gt; forward...">valueDependant</a>){
+<a name="l00079"></a>00079     <span class="keywordflow">if</span>(speedLeftMotor &gt; 0){
+<a name="l00080"></a>00080       dirLeftMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
+<a name="l00081"></a>00081     }
+<a name="l00082"></a>00082     <span class="keywordflow">else</span> <span class="keywordflow">if</span>(speedLeftMotor &lt; 0){
+<a name="l00083"></a>00083       dirLeftMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00084"></a>00084       speedLeftMotor = (-1) * speedLeftMotor;
+<a name="l00085"></a>00085     }
+<a name="l00086"></a>00086     <span class="keywordflow">else</span>{ <span class="comment">//0</span>
+<a name="l00087"></a>00087       dirLeftMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ac692b9392597318793a64449c874c723" title="Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimer...">phaseOut</a>;
+<a name="l00088"></a>00088     }
+<a name="l00089"></a>00089   }
+<a name="l00090"></a>00090   
+<a name="l00091"></a>00091   <span class="keywordflow">if</span>(dirRightMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02af97e0b201a2ce53937529fe1869f76e1" title="The motor rotates forward or backwards depending on the speed set: positive int value --&gt; forward...">valueDependant</a>){
+<a name="l00092"></a>00092     <span class="keywordflow">if</span>(speedRightMotor &gt; 0){
+<a name="l00093"></a>00093       dirRightMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>;
+<a name="l00094"></a>00094     }
+<a name="l00095"></a>00095     <span class="keywordflow">else</span> <span class="keywordflow">if</span>(speedRightMotor &lt; 0){
+<a name="l00096"></a>00096       dirRightMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>;
+<a name="l00097"></a>00097       speedRightMotor = (-1) * speedRightMotor;
+<a name="l00098"></a>00098     }
+<a name="l00099"></a>00099     <span class="keywordflow">else</span>{ <span class="comment">//0</span>
+<a name="l00100"></a>00100       dirRightMotor = <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ac692b9392597318793a64449c874c723" title="Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimer...">phaseOut</a>;
+<a name="l00101"></a>00101     }
+<a name="l00102"></a>00102   }
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104   <span class="keywordflow">if</span>(speedLeftMotor &gt; 255) speedLeftMotor = 255;
+<a name="l00105"></a>00105   <span class="keywordflow">if</span>(speedRightMotor &gt; 255) speedRightMotor = 255;
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107   <span class="keywordflow">if</span>(speedLeftMotor &lt; 0) speedLeftMotor = 0;
+<a name="l00108"></a>00108   <span class="keywordflow">if</span>(speedRightMotor &lt; 0) speedRightMotor = 0;
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110   <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a> = speedLeftMotor;
+<a name="l00111"></a>00111   <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a> = speedRightMotor;
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113   <span class="keywordtype">int</span> parameters[4];
+<a name="l00114"></a>00114   parameters[0] = <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>;
+<a name="l00115"></a>00115   parameters[1] = dirLeftMotor;
+<a name="l00116"></a>00116   parameters[2] = <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>;
+<a name="l00117"></a>00117   parameters[3] = dirRightMotor;
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(58, parameters, 4);
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a129f685bdf9dfa543433ffe33b934b9f">movePwmLeftPin</a>, <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>);
+<a name="l00122"></a>00122   <a class="code" href="class_move.html#af6b1197771f0540b0becc4117d8d272f">setLeftMotorDirection</a>(dirLeftMotor);
+<a name="l00123"></a>00123   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ad384a39f446ac53af0e2ca60ea31544b">movePwmRightPin</a>, <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>);
+<a name="l00124"></a>00124   <a class="code" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">setRightMotorDirection</a>(dirRightMotor);
+<a name="l00125"></a>00125 }
+<a name="l00126"></a>00126 
+<a name="l00132"></a><a class="code" href="class_move.html#af6b1197771f0540b0becc4117d8d272f">00132</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#af6b1197771f0540b0becc4117d8d272f">Move::setLeftMotorDirection</a>(<span class="keyword">enum</span> <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dir){
+<a name="l00133"></a>00133   <span class="keywordtype">int</span> dirCode;
+<a name="l00134"></a>00134   <a class="code" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b" title="current direction of left motor">_dirLeftMotor</a> = dir;
+<a name="l00135"></a>00135   <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ac692b9392597318793a64449c874c723" title="Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimer...">phaseOut</a>){
+<a name="l00136"></a>00136     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, LOW);
+<a name="l00137"></a>00137     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, LOW);
+<a name="l00138"></a>00138     dirCode = 0;
+<a name="l00139"></a>00139   }
+<a name="l00140"></a>00140   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>){
+<a name="l00141"></a>00141     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, HIGH);
+<a name="l00142"></a>00142     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, LOW);
+<a name="l00143"></a>00143     dirCode = 1;
+<a name="l00144"></a>00144   }
+<a name="l00145"></a>00145   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>){
+<a name="l00146"></a>00146     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, LOW);
+<a name="l00147"></a>00147     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, HIGH);
+<a name="l00148"></a>00148     dirCode = 2;
+<a name="l00149"></a>00149   }
+<a name="l00150"></a>00150   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a25b14d88f35aee0f0638e63994a6a810" title="The motor is stopped immediately. This is done by shortly giving power in the other direction...">fastStop</a>){
+<a name="l00151"></a>00151     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af7126167dea89663242c034a2133aa9a">moveModeFirstLeftPin</a>, HIGH);
+<a name="l00152"></a>00152     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a234d8d0b9c26332de99736c7025029c1">moveModeSecondLeftPin</a>, HIGH);
+<a name="l00153"></a>00153     dirCode = 3;
+<a name="l00154"></a>00154   }
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156   <span class="comment">//_com-&gt;send(51, dirCode);</span>
+<a name="l00157"></a>00157 }
 <a name="l00158"></a>00158 
-<a name="l00159"></a>00159   <span class="comment">//_com-&gt;send(52, dirCode);</span>
-<a name="l00160"></a>00160 }
-<a name="l00161"></a>00161 
-<a name="l00168"></a><a class="code" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c">00168</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c">Move::changeMotorSpeed</a>(<span class="keywordtype">int</span> changeLeftMotor, <span class="keywordtype">int</span> changeRightMotor){
-<a name="l00169"></a>00169   <span class="keywordtype">int</span> parameters[6];
-<a name="l00170"></a>00170   parameters[0] = <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>;
-<a name="l00171"></a>00171   parameters[1] = changeLeftMotor;
-<a name="l00172"></a>00172   parameters[3] = <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>;
-<a name="l00173"></a>00173   parameters[4] = changeRightMotor;
-<a name="l00174"></a>00174 
-<a name="l00175"></a>00175   parameters[2] = <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a> + changeLeftMotor;
-<a name="l00176"></a>00176   parameters[5] = <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a> + changeRightMotor;
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(53, parameters, 6);
-<a name="l00179"></a>00179 
-<a name="l00180"></a>00180   <a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b" title="current direction of left motor">_dirLeftMotor</a>, parameters[2], <a class="code" href="class_move.html#ace1041b9df6281fdc960013ccac5c32a" title="current direction of right motor">_dirRightMotor</a>, parameters[5]);
-<a name="l00181"></a>00181 }
-<a name="l00182"></a>00182 
-<a name="l00190"></a><a class="code" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5">00190</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5">Move::setMotorSpeed</a>(<span class="keywordtype">int</span> speedLeftMotor, <span class="keywordtype">int</span> speedRightMotor){
-<a name="l00191"></a>00191   <span class="keywordtype">int</span> parameters[2];
-<a name="l00192"></a>00192   parameters[0] = speedLeftMotor;
-<a name="l00193"></a>00193   parameters[1] = speedRightMotor;
-<a name="l00194"></a>00194 
-<a name="l00195"></a>00195   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(70, parameters, 2);
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197   <a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b" title="current direction of left motor">_dirLeftMotor</a>, speedLeftMotor, <a class="code" href="class_move.html#ace1041b9df6281fdc960013ccac5c32a" title="current direction of right motor">_dirRightMotor</a>, speedRightMotor);
-<a name="l00198"></a>00198 }
-<a name="l00199"></a>00199 
-<a name="l00205"></a><a class="code" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692">00205</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692">Move::equalizeMotorsSpeed</a>(){
-<a name="l00206"></a>00206   <span class="comment">//calculating the average speed. we don&#39;t care of misscalculation of 0.5</span>
-<a name="l00207"></a>00207   byte averageSpeed = (byte)((((<span class="keywordtype">int</span>)<a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>) + ((<span class="keywordtype">int</span>)<a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>)) / 2);
+<a name="l00164"></a><a class="code" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">00164</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a06e67dafd581bbd086da404a90c4eeec">Move::setRightMotorDirection</a>(<a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02">TMotorDirection</a> dir){
+<a name="l00165"></a>00165   <span class="keywordtype">int</span> dirCode;
+<a name="l00166"></a>00166   <a class="code" href="class_move.html#ace1041b9df6281fdc960013ccac5c32a" title="current direction of right motor">_dirRightMotor</a> = dir;
+<a name="l00167"></a>00167   <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ac692b9392597318793a64449c874c723" title="Phase out the motor. The power is taken away from the motor but the car can roll a couple of centimer...">phaseOut</a>){
+<a name="l00168"></a>00168     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, LOW);
+<a name="l00169"></a>00169     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, LOW);
+<a name="l00170"></a>00170     dirCode = 0;
+<a name="l00171"></a>00171   }
+<a name="l00172"></a>00172   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a726a0af5164861adac8c015a742dcf21" title="The motor rotates forward.">forward</a>){
+<a name="l00173"></a>00173     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, HIGH);
+<a name="l00174"></a>00174     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, LOW);
+<a name="l00175"></a>00175     dirCode = 1;
+<a name="l00176"></a>00176   }
+<a name="l00177"></a>00177   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02ab0b7e8cfed43da5fcfd380964736fadc" title="The motor rotates backward.">backwards</a>){
+<a name="l00178"></a>00178     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, LOW);
+<a name="l00179"></a>00179     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, HIGH);
+<a name="l00180"></a>00180     dirCode = 2;
+<a name="l00181"></a>00181   }
+<a name="l00182"></a>00182   <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dir == <a class="code" href="_move_8h.html#a4d576498f070661245f38f5f34d34f02a25b14d88f35aee0f0638e63994a6a810" title="The motor is stopped immediately. This is done by shortly giving power in the other direction...">fastStop</a>){
+<a name="l00183"></a>00183     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a36f12a77b8aad1e079eaf6f30f4b2f97">moveModeFirstRightPin</a>, HIGH);
+<a name="l00184"></a>00184     digitalWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#af2d3235df12d5a5e65da57d018d90e9a">moveModeSecondRightPin</a>, HIGH);
+<a name="l00185"></a>00185     dirCode = 3;
+<a name="l00186"></a>00186   }
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188   <span class="comment">//_com-&gt;send(52, dirCode);</span>
+<a name="l00189"></a>00189 }
+<a name="l00190"></a>00190 
+<a name="l00197"></a><a class="code" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c">00197</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a0d9285d4088aa0c6fdab04f0a0e5df2c">Move::changeMotorSpeed</a>(<span class="keywordtype">int</span> changeLeftMotor, <span class="keywordtype">int</span> changeRightMotor){
+<a name="l00198"></a>00198   <span class="keywordtype">int</span> parameters[6];
+<a name="l00199"></a>00199   parameters[0] = <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>;
+<a name="l00200"></a>00200   parameters[1] = changeLeftMotor;
+<a name="l00201"></a>00201   parameters[3] = <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>;
+<a name="l00202"></a>00202   parameters[4] = changeRightMotor;
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204   parameters[2] = <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a> + changeLeftMotor;
+<a name="l00205"></a>00205   parameters[5] = <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a> + changeRightMotor;
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(53, parameters, 6);
 <a name="l00208"></a>00208 
-<a name="l00209"></a>00209   <span class="keywordtype">int</span> parameters[] = {
-<a name="l00210"></a>00210     <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>, <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>, averageSpeed
-<a name="l00211"></a>00211   };
-<a name="l00212"></a>00212 
-<a name="l00213"></a>00213   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(54, parameters, 3);
-<a name="l00214"></a>00214   _speedLeft = averageSpeed;
-<a name="l00215"></a>00215   _speedRight = averageSpeed;
-<a name="l00216"></a>00216 
-<a name="l00217"></a>00217   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a129f685bdf9dfa543433ffe33b934b9f">movePwmLeftPin</a>, _speedLeft);
-<a name="l00218"></a>00218   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ad384a39f446ac53af0e2ca60ea31544b">movePwmRightPin</a>, _speedRight);
-<a name="l00219"></a>00219 }
-<a name="l00220"></a>00220 
-<a name="l00221"></a>00221 
-<a name="l00222"></a>00222 
+<a name="l00209"></a>00209   <a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b" title="current direction of left motor">_dirLeftMotor</a>, parameters[2], <a class="code" href="class_move.html#ace1041b9df6281fdc960013ccac5c32a" title="current direction of right motor">_dirRightMotor</a>, parameters[5]);
+<a name="l00210"></a>00210 }
+<a name="l00211"></a>00211 
+<a name="l00219"></a><a class="code" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5">00219</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a9d25d16f505526378fb4e43ee9e3b8c5">Move::setMotorSpeed</a>(<span class="keywordtype">int</span> speedLeftMotor, <span class="keywordtype">int</span> speedRightMotor){
+<a name="l00220"></a>00220   <span class="keywordtype">int</span> parameters[2];
+<a name="l00221"></a>00221   parameters[0] = speedLeftMotor;
+<a name="l00222"></a>00222   parameters[1] = speedRightMotor;
 <a name="l00223"></a>00223 
-<a name="l00224"></a>00224 
+<a name="l00224"></a>00224   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(70, parameters, 2);
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226   <a class="code" href="class_move.html#a9c5dc5c3a98abece0c2f40085c3601be">controlMotors</a>(<a class="code" href="class_move.html#a280c47406bd7e652c35c7900ca8c745b" title="current direction of left motor">_dirLeftMotor</a>, speedLeftMotor, <a class="code" href="class_move.html#ace1041b9df6281fdc960013ccac5c32a" title="current direction of right motor">_dirRightMotor</a>, speedRightMotor);
+<a name="l00227"></a>00227 }
+<a name="l00228"></a>00228 
+<a name="l00234"></a><a class="code" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692">00234</a> <span class="keywordtype">void</span> <a class="code" href="class_move.html#a8dfdbb462ec42c3a2b4682db5cd5c692">Move::equalizeMotorsSpeed</a>(){
+<a name="l00235"></a>00235   <span class="comment">//calculating the average speed. we don&#39;t care of misscalculation of 0.5</span>
+<a name="l00236"></a>00236   byte averageSpeed = (byte)((((<span class="keywordtype">int</span>)<a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>) + ((<span class="keywordtype">int</span>)<a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>)) / 2);
+<a name="l00237"></a>00237 
+<a name="l00238"></a>00238   <span class="keywordtype">int</span> parameters[] = {
+<a name="l00239"></a>00239     <a class="code" href="class_move.html#ada9423f195c9ee65b5448fcaabb96877" title="current speed of left motor (pwm value 0-255)">_speedLeft</a>, <a class="code" href="class_move.html#a13362460beddf2de2415d51f3ed70841" title="current speed of right motor (pwm value 0-255)">_speedRight</a>, averageSpeed
+<a name="l00240"></a>00240   };
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242   <a class="code" href="class_move.html#ae9e6d0860fc8dcf67798b19b961044cc" title="The reference to the serial communication class.">_com</a>-&gt;<a class="code" href="class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a">send</a>(54, parameters, 3);
+<a name="l00243"></a>00243   _speedLeft = averageSpeed;
+<a name="l00244"></a>00244   _speedRight = averageSpeed;
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#a129f685bdf9dfa543433ffe33b934b9f">movePwmLeftPin</a>, _speedLeft);
+<a name="l00247"></a>00247   analogWrite(<a class="code" href="class_move.html#ad5c8392b7540a9b46adf66918ef83fdb" title="The reference to the configuration class.">_conf</a>-&gt;<a class="code" href="class_configuration.html#ad384a39f446ac53af0e2ca60ea31544b">movePwmRightPin</a>, _speedRight);
+<a name="l00248"></a>00248 }
+<a name="l00249"></a>00249 
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251 
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254 
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="_move_8cpp.html">Move.cpp</a>      </li>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:20 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:11 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

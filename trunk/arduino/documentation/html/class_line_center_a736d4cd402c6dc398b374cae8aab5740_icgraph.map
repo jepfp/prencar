@@ -1,4 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="179,5,296,32"/>
-<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="344,5,488,32"/>
+<area shape="rect" id="node3" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="201,5,319,32"/>
+<area shape="rect" id="node7" href="$class_move_back_to_line.html#a2481a81f7c90dee23d229911c8821e65" title="MoveBackToLine::doJob" alt="" coords="179,56,341,83"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="389,31,533,57"/>
 </map>

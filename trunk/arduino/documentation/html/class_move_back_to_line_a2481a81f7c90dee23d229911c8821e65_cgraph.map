@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_line_follow.html#af85fe355ee0699cabc3c817d10aa8b9d" title="LineFollow::readLineSensors" alt="" coords="419,43,607,69"/>
+<area shape="rect" id="node5" href="$class_communication.html#a8679b3cb7ceef5527faa24454ce0f18a" title="Communication::send" alt="" coords="1491,144,1639,171"/>
+<area shape="rect" id="node8" href="$class_extended_move.html#ae80076eb8ea7ea00e7563e4bbf4657b6" title="ExtendedMove::stopCurrentQueue" alt="" coords="403,423,623,449"/>
+<area shape="rect" id="node10" href="$class_line_center.html#a736d4cd402c6dc398b374cae8aab5740" title="LineCenter::startIt" alt="" coords="731,93,856,120"/>
+<area shape="rect" id="node13" href="$class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="217,245,343,272"/>
+<area shape="rect" id="node18" href="$class_extended_move.html#a9bd37ba3d8f98170dd33c8726934735a" title="ExtendedMove::isExecutionInProcess" alt="" coords="393,372,634,399"/>
+<area shape="rect" id="node20" href="$class_move.html#a9c5dc5c3a98abece0c2f40085c3601be" title="Move::controlMotors" alt="" coords="1283,296,1421,323"/>
+<area shape="rect" id="node27" href="$class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="431,245,596,272"/>
+<area shape="rect" id="node23" href="$class_move.html#af6b1197771f0540b0becc4117d8d272f" title="Move::setLeftMotorDirection" alt="" coords="1474,271,1657,297"/>
+<area shape="rect" id="node25" href="$class_move.html#a06e67dafd581bbd086da404a90c4eeec" title="Move::setRightMotorDirection" alt="" coords="1469,321,1661,348"/>
+<area shape="rect" id="node29" href="$class_extended_move.html#a816f77b595c0ca03d44dd21b2d4de5ba" title="ExtendedMove::startCurrentQueue" alt="" coords="683,245,904,272"/>
+<area shape="rect" id="node32" href="$class_extended_move.html#adfe6e7de87eab16e9a85ad5434819fee" title="ExtendedMove::executeCommand" alt="" coords="983,296,1203,323"/>
+<area shape="rect" id="node36" href="$class_extended_move.html#a80ce42b3578e4fa17b6b2e3a05a70054" title="ExtendedMove::getCurrentCommandInQueue" alt="" coords="952,245,1235,272"/>
+</map>

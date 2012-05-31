@@ -1,5 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$class_communication.html" title="Communication" alt="" coords="5,96,117,123"/>
-<area shape="rect" id="node4" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="11,5,92,32"/>
-<area shape="rect" id="node7" href="$class_configuration.html" title="Configuration" alt="" coords="169,5,265,32"/>
+<area shape="rect" id="node2" href="$class_communication.html" title="Communication" alt="" coords="160,96,272,123"/>
+<area shape="rect" id="node11" href="$class_extended_move.html" title="Allows to define extended car control instuctions." alt="" coords="163,277,269,304"/>
+<area shape="rect" id="node13" href="$class_move.html" title="Move" alt="" coords="30,187,81,213"/>
+<area shape="rect" id="node4" href="$class_command.html" title="A Command object represents a command sent from the host software." alt="" coords="491,5,572,32"/>
+<area shape="rect" id="node7" href="$class_configuration.html" title="Configuration" alt="" coords="70,5,167,32"/>
+<area shape="rect" id="node20" href="$struct_move_command.html" title="MoveCommand" alt="" coords="278,187,388,213"/>
 </map>

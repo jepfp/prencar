@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$_move_back_to_line_8h.html" title="MoveBackToLine.h" alt="" coords="211,80,341,107"/>
+<area shape="rect" id="node14" href="$_configuration_8h.html" title="Configuration.h" alt="" coords="559,453,667,480"/>
+<area shape="rect" id="node20" href="$_move_8h.html" title="Move.h" alt="" coords="410,304,472,331"/>
+<area shape="rect" id="node8" href="$_line_follow_8h.html" title="LineFollow.h" alt="" coords="338,229,432,256"/>
+<area shape="rect" id="node24" href="$_extended_move_8h.html" title="ExtendedMove.h" alt="" coords="195,229,313,256"/>
+<area shape="rect" id="node28" href="$_line_center_8h.html" title="LineCenter.h" alt="" coords="339,155,433,181"/>
+<area shape="rect" id="node33" href="$_cube_approach_8h.html" title="CubeApproach.h" alt="" coords="94,155,212,181"/>
+<area shape="rect" id="node11" href="$_communication_8h.html" title="Communication.h" alt="" coords="311,379,433,405"/>
+<area shape="rect" id="node17" href="$_command_8h.html" title="Command.h" alt="" coords="290,453,381,480"/>
+</map>

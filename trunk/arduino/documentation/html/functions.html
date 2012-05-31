@@ -190,7 +190,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_configuration.html#a4ac462aa12ad49539d33d3ea718805c6">Configuration</a>
 </li>
 <li>_cubeApproach
-: <a class="el" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">StateMachine</a>
+: <a class="el" href="class_move_back_to_line.html#a55c0781433a2d6821e809326870d48fb">MoveBackToLine</a>
+, <a class="el" href="class_state_machine.html#a3c6370e9fff729723a0ccc5f08640912">StateMachine</a>
 </li>
 <li>_currentCommandIndexInQueue
 : <a class="el" href="class_extended_move.html#a778375b1b506e93fb882cafd2ccf5b76">ExtendedMove</a>
@@ -228,7 +229,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>_extMove
 : <a class="el" href="class_cube_approach.html#a4e47fc77ece35197d5c1e2dda55334be">CubeApproach</a>
 , <a class="el" href="class_curve_left.html#ab6a1d67f5cb502fa3620186cbc8ca50c">CurveLeft</a>
+, <a class="el" href="class_lift_cube.html#a581b0da85ced4d678fb8a61dd0a51aa4">LiftCube</a>
 , <a class="el" href="class_line_center.html#a9b09f8967dc05aa2e65db23b7eb0af47">LineCenter</a>
+, <a class="el" href="class_move_back_to_line.html#a84fbbb886c4d7e2433f66d15e94c9045">MoveBackToLine</a>
 , <a class="el" href="class_state_machine.html#a5d310dbe85beb16a46b672c1dcd46697">StateMachine</a>
 </li>
 <li>_hoistServo
@@ -241,22 +244,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_communication.html#ae3415ae474fb8d258f56ba70a4526627">Communication</a>
 </li>
 <li>_instance
-: <a class="el" href="class_move.html#a1ce3157933da403944e754b380365c93">Move</a>
-, <a class="el" href="class_communication.html#ab0959d51f9cb9ee0ea2547b74856f283">Communication</a>
+: <a class="el" href="class_communication.html#ab0959d51f9cb9ee0ea2547b74856f283">Communication</a>
 , <a class="el" href="class_configuration.html#a33a4ec5f460471c076a0b74b48aa7bbe">Configuration</a>
 , <a class="el" href="class_extended_move.html#a024e8f637662966bece3ae472feca23d">ExtendedMove</a>
 , <a class="el" href="class_lift_cube.html#a93b949abb4659fd6801c8b5c53d17f49">LiftCube</a>
+, <a class="el" href="class_move.html#a1ce3157933da403944e754b380365c93">Move</a>
 , <a class="el" href="class_sensor_debug.html#a0dee1ef0e2720f6e3108b2650a243d7e">SensorDebug</a>
 , <a class="el" href="class_state_machine.html#a3e925b470557acefe9e63fb9b883fd77">StateMachine</a>
 </li>
 <li>_instanceCreated
-: <a class="el" href="class_sensor_debug.html#a6f71fd740aa6a3dbc98776e6a35ebf05">SensorDebug</a>
+: <a class="el" href="class_state_machine.html#aa39880690c1770cd492706fe70f9036c">StateMachine</a>
+, <a class="el" href="class_extended_move.html#a54bdfab5b9684ba2ede313e438d11611">ExtendedMove</a>
 , <a class="el" href="class_communication.html#ad7d224755b1c47a1b5e6ce0d018492bb">Communication</a>
 , <a class="el" href="class_configuration.html#a30bcffe1c1a3b15d41d824f9a1570bf6">Configuration</a>
-, <a class="el" href="class_extended_move.html#a54bdfab5b9684ba2ede313e438d11611">ExtendedMove</a>
 , <a class="el" href="class_lift_cube.html#a4cec38045e6a075620851c7c848c0584">LiftCube</a>
 , <a class="el" href="class_move.html#ab5a52d3f029707c767ef27a44fa5269a">Move</a>
-, <a class="el" href="class_state_machine.html#aa39880690c1770cd492706fe70f9036c">StateMachine</a>
+, <a class="el" href="class_sensor_debug.html#a6f71fd740aa6a3dbc98776e6a35ebf05">SensorDebug</a>
 </li>
 <li>_lastBufferCharacter
 : <a class="el" href="class_communication.html#acfaf4176401e364e3b0476a6eb220817">Communication</a>
@@ -266,9 +269,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>_liftDownStartTimestamp
 : <a class="el" href="class_lift_cube.html#aeb1974f95c87f79df20161f44dd6c7bc">LiftCube</a>
-</li>
-<li>_liftingStarted
-: <a class="el" href="class_lift_cube.html#acfefe1c0364c233a5bf5e8b52bcab385">LiftCube</a>
 </li>
 <li>_lineCenteringStarted
 : <a class="el" href="class_curve_left.html#acd2447811c42de266003d47cf98606e5">CurveLeft</a>
@@ -284,12 +284,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>_move
 : <a class="el" href="class_cube_approach.html#a91fd46dd8a9d594c3d6e516406bc4440">CubeApproach</a>
+, <a class="el" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">LineFollow</a>
 , <a class="el" href="class_extended_move.html#a920b4f3eb82cd5d59a136f2e4a6d3be5">ExtendedMove</a>
 , <a class="el" href="class_state_machine.html#a9205e3d16700885cc78e8c9919f44d49">StateMachine</a>
-, <a class="el" href="class_line_follow.html#ac6fe17d43571248ea2e74fade7ceb5bd">LineFollow</a>
+</li>
+<li>_moveBackToLine
+: <a class="el" href="class_state_machine.html#a0b84a9d673ee44b695a28d7b3b625570">StateMachine</a>
 </li>
 <li>_queueExecutionInProgress
 : <a class="el" href="class_extended_move.html#a48469d3672fb0e89c02c81cc725528ff">ExtendedMove</a>
+</li>
+<li>_reachingLineFromLeft
+: <a class="el" href="class_move_back_to_line.html#abbdf24358628d0b06eb9969fc1d88135">MoveBackToLine</a>
 </li>
 <li>_READYCOMMANDSSIZE
 : <a class="el" href="class_communication.html#a9c8bdd0590074d523a055e50284f5ce1">Communication</a>
@@ -336,6 +342,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>_timeLastLineFollowCheck
 : <a class="el" href="class_line_follow.html#a9c31b9a1c2d0627dcbfdb2af0bf7778e">LineFollow</a>
 </li>
+<li>_timeLastMoveBackToLineCheck
+: <a class="el" href="class_move_back_to_line.html#a01f22d109c4c4d7e3596f6014ed96a5f">MoveBackToLine</a>
+</li>
 <li>_timeLastSensorDebugCheck
 : <a class="el" href="class_sensor_debug.html#a98cd6a619406c182a157fff82df60a46">SensorDebug</a>
 </li>
@@ -345,13 +354,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>_timeLineFollowStarted
 : <a class="el" href="class_line_follow.html#a0ef29e6c86e00848490a0ea4ee973ab5">LineFollow</a>
 </li>
+<li>_timeMoveBackToLineStarted
+: <a class="el" href="class_move_back_to_line.html#a5e5f03cfd5a5f8c4aa4baf179a4f4507">MoveBackToLine</a>
+</li>
 </ul>
 </div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
 
-    <li class="footer">Generated on Fri May 25 2012 11:01:21 for prencar by
+    <li class="footer">Generated on Thu May 31 2012 02:30:13 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

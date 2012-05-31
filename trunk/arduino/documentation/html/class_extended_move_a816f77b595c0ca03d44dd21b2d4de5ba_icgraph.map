@@ -1,9 +1,13 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="488,25,637,52"/>
-<area shape="rect" id="node7" href="$class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="289,25,426,52"/>
-<area shape="rect" id="node10" href="$class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="686,76,802,102"/>
-<area shape="rect" id="node13" href="$class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="275,126,440,153"/>
-<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="851,76,995,102"/>
-<area shape="rect" id="node15" href="$class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="499,126,626,153"/>
-<area shape="rect" id="node17" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="685,126,803,153"/>
+<area shape="rect" id="node3" href="$class_cube_approach.html#ac36a5c38b1108d4cd77172062e1795be" title="CubeApproach::doJob" alt="" coords="689,24,839,51"/>
+<area shape="rect" id="node7" href="$class_cube_approach.html#a7d68e4fab2b3f7590b21aef387855633" title="CubeApproach::turn" alt="" coords="386,50,523,76"/>
+<area shape="rect" id="node10" href="$class_curve_left.html#a2f70c4b1efef29cdf04dff01e6a90336" title="CurveLeft::startIt" alt="" coords="706,87,822,114"/>
+<area shape="rect" id="node13" href="$class_lift_cube.html#ab5d1090dfcf43a319666d905b374d4a6" title="LiftCube::doJob" alt="" coords="919,126,1030,152"/>
+<area shape="rect" id="node16" href="$class_line_center.html#a4496fa59d40b06887e2dbc881b9b4ce7" title="LineCenter::doCorrection" alt="" coords="372,202,537,228"/>
+<area shape="rect" id="node26" href="$class_move_back_to_line.html#a8b48709e127b00072dcce276cff5055b" title="MoveBackToLine::startIt" alt="" coords="683,264,845,291"/>
+<area shape="rect" id="node29" href="$class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1" title="StateMachine::startDriveOverFinishLineExtMoveCommand" alt="" coords="275,328,634,355"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78" title="StateMachine::doJob" alt="" coords="1104,176,1248,203"/>
+<area shape="rect" id="node18" href="$class_line_center.html#aa466b77cad70e564633e106efde81d4f" title="LineCenter::doJob" alt="" coords="701,202,827,228"/>
+<area shape="rect" id="node20" href="$class_curve_left.html#a34930d2641dbbd389c536999a560f158" title="CurveLeft::doJob" alt="" coords="916,176,1033,203"/>
+<area shape="rect" id="node23" href="$class_move_back_to_line.html#a2481a81f7c90dee23d229911c8821e65" title="MoveBackToLine::doJob" alt="" coords="893,227,1056,254"/>
 </map>
