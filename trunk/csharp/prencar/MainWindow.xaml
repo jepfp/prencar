@@ -3,7 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
         xmlns:p="clr-namespace:ch.hslu.prencar.Properties"
-        Title="MainWindow" Height="557" Width="870" Icon="/prencar;component/prencar.ico" xmlns:my="clr-namespace:System.Activities.Presentation.Toolbox;assembly=System.Activities.Presentation" Closing="Window_Closing">
+        xmlns:custom="clr-namespace:prencar"
+        Title="B-CEPS Master Control" Height="557" Width="870" Icon="/prencar;component/prencar.ico" xmlns:my="clr-namespace:System.Activities.Presentation.Toolbox;assembly=System.Activities.Presentation" Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static Member=custom:MainWindow.OpenConfiguration}" Executed="ExecutedOpenConfigurationCommand" />
+        <CommandBinding Command="{x:Static Member=custom:MainWindow.OpenLiveControl}" Executed="ExecutedOpenLiveControlCommand" />
+        <CommandBinding Command="{x:Static Member=custom:MainWindow.OpenSensorDebug}" Executed="ExecutedOpenSensorDebugCommand" />
+    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="23*" />
@@ -56,7 +62,7 @@
                 <Grid>
                     <Label Content="Com port:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" />
                     <TextBox Height="23" Margin="75,8,6,0" Name="tbComport" VerticalAlignment="Top" Text="{Binding Source={x:Static p:Settings.Default}, Path=Comport, Mode=TwoWay}" />
-                    <Button Height="23" Margin="75,40,6,0" Name="btnSerialConnectDisconnect" VerticalAlignment="Top" Content="Connect" Click="btnSerialConnectDisconnect_Click" />
+                    <Button Height="23" Margin="75,40,6,0" Name="btnSerialConnectDisconnect" VerticalAlignment="Top" Content="_Connect" Click="btnSerialConnectDisconnect_Click" />
                 </Grid>
             </Expander>
             <Expander Header="Chip Configuration / Commands" Name="expander2" IsExpanded="True">
@@ -69,7 +75,7 @@
                 <Grid>
                     <Label Content="00:00" Height="40" HorizontalAlignment="Right" Margin="0,20,6,0" Name="lblStopwatch" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" Padding="5,5,0,0" />
                     <Label Content="Stopwatch:" Height="28" HorizontalAlignment="Left" Margin="6,35,0,0" Name="lblStopwatchDescription" VerticalAlignment="Top" Padding="0,5,5,5" />
-                    <Button Content="Start" Height="23" Margin="6,6,6,0" Name="btnStartStoppParcours" VerticalAlignment="Top" Click="btnStartStoppParcours_Click" />
+                    <Button Content="_Start" Height="23" Margin="6,6,6,0" Name="btnStartStoppParcours" VerticalAlignment="Top" Click="btnStartStoppParcours_Click" IsDefault="True" />
                 </Grid>
             </Expander>
             <Expander Header="Raw Microcontroller Control" IsExpanded="False" Name="expander3">
@@ -82,18 +88,18 @@
         </StackPanel>
         <DockPanel Grid.ColumnSpan="2" Grid.RowSpan="1" HorizontalAlignment="Stretch" Name="dpToolbar">
             <ToolBar Name="toolBar1" HorizontalAlignment="Left" Height="26">
-                <Button Name="btnOpenMcConfigurationView" ToolTip="Save the selected configuration" Click="btnOpenMcConfigurationView_Click">
+                <Button Name="btnOpenMcConfigurationView" ToolTip="Save the selected configuration" Command="{x:Static custom:MainWindow.OpenConfiguration}">
                     <Image Name="image4" Stretch="Fill" Source="/prencar;component/Images/database_table.png" ToolTip="Open Configuration Dialog"/>
                     </Button>
-                <Button Name="btnOpenLiveControl" IsEnabled="True" Click="btnOpenLiveControl_Click">
+                <Button Name="btnOpenLiveControl" IsEnabled="True" Command="{x:Static custom:MainWindow.OpenLiveControl}">
                     <Image Name="image1" Stretch="Fill" Source="/prencar;component/Images/controller.png" ToolTip="Open Live Control" />
                 </Button>
                 </ToolBar>
             <ToolBar Name="toolBar2" HorizontalAlignment="Left" Height="26">
-                <Button Name="btnOpenSensorViewer" IsEnabled="True" Click="btnOpenSensorViewer_Click" ToolTip="Open Sensor Viewer" >
+                <Button Name="btnOpenSensorViewer" IsEnabled="True" ToolTip="Open Sensor Viewer" Click="btnOpenSensorViewer_Click">
                     <Image Name="image5" Stretch="Fill" Source="/prencar;component/Images/chart_curve.png" />
                 </Button>
-                <Button Name="btnOpenDebugSensorViewer" IsEnabled="True" ToolTip="View all sensor data" Click="btnOpenDebugSensorViewer_Click">
+                <Button Name="btnOpenDebugSensorViewer" IsEnabled="True" ToolTip="View all sensor data" Command="{x:Static custom:MainWindow.OpenSensorDebug}">
                     <Image Name="image7" Stretch="Fill" Source="/prencar;component/Images/eye.png" />
                 </Button>
             </ToolBar>

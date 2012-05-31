@@ -104,12 +104,15 @@ newAverageSpeed: %%");
             messages.Add(89, @"Car centering: Correction in progress.");
             messages.Add(90, @"Cube approach: Starting 'stop car' action (ext move command).");
             messages.Add(91, @"Cube approach: 'stop car' action (ext move command) has finished after %%ms.");
+            messages.Add(92, @"No state change from 'lift cube' to 'moveBackToLine' because extMove command 'stop car' from 'lift cube' is still in progress.");
+            messages.Add(93, @"Move back to line: Line has been found (left sensor value: %%, right sensor value: %%).");
             #endregion
 
             #region 100-149 Information
             messages.Add(100, @"Parcours state changed to %%.");
             messages.Add(101, @"Debug delay of %% milliseconds started...");
             messages.Add(102, @"New configuration saved.");
+            messages.Add(103, @"The cube end sensor detected the cube even though the program was not yet in the 'lift cube' state --> switching immediately to that state.");
             #endregion
 
             #region 150-199 Error
@@ -117,6 +120,9 @@ newAverageSpeed: %%");
             messages.Add(151, "The state %% does not exist or is not yet implemented. Highest implemented state at the moment: %%");
             messages.Add(152, @"Updating the configuration was not successful because the config versions don't match.
 The microcontrollers current configuration version is %%.");
+            messages.Add(153, "'Move back to line' process can not be started because there is no track back (cube approach recordings which have informations about how the line has been left are empty).");
+            messages.Add(154, "'Move back to line' process can not be started because there is no track back. The first cube approach record already says, that the cube is in the center. We don't know for sure in which direction the car has left the line.");
+            messages.Add(155, "'Move back to line' process can not be started because the track back is invalid: The first cube apporach record has neither set 'turnedRight' nor 'turnedLeft' to true.");
             #endregion
 
             #region 200-255 User Information
@@ -149,6 +155,7 @@ lineFollowReducedSpeedLeft:%%
 lineFollowReducedSpeedRight:%%
 lineFollowReduceSpeedTimeFirstLine:%%
 lineFollowReduceSpeedTimeSecondLine:%%
+lineFollowReduceSpeedTimeThirdLineToFinish:%%
 lineFollowActivateFrontSensorOffset:%%
 lineCenterInterval:%%
 lineCenterLineInMiddleDifference:%%
@@ -161,6 +168,8 @@ lineCenterDriveBackDuration:%%
 liftCubeUpPosition:%%
 liftCubeDownPosition:%%
 liftCubeDownUpDuration:%%
+liftCubeStopDuration:%%
+liftCubeStopSpeed:%%
 curveStopDuration:%%
 curveStopSpeed:%%
 curveInterval:%%
@@ -178,6 +187,12 @@ cubeApproachTurnDuration:%%
 cubeApproachTurnSpeedSlowMotor:%%
 cubeApproachTurnSpeedFastMotor:%%
 cubeApproachStraightSpeed:%%
+moveBackToLineInterval:%%
+moveBackToLine1stTurnDuration:%%
+moveBackToLine1stTurnSlowSpeed:%%
+moveBackToLine1stTurnFastSpeed:%%
+moveBackToLineStraightSpeed:%%
+finishLineDriveOverDuration:%%
 sensorDebugInterval:%%
 sensorDebugReadGap:%%");
             messages.Add(205, "Starting parcours at state %%.");

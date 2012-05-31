@@ -22,12 +22,19 @@ namespace ch.jep.McCommunication
     /// </summary>
     public partial class McConfigurationView : Window
     {
+        #region Commands
+        public static RoutedCommand UploadConfiguration = new RoutedCommand();
+        #endregion
+
         McConfiguration currentConf;
         SerialCommunication sc;
 
         public McConfigurationView(SerialCommunication sc, McConfiguration currentConf)
         {
             InitializeComponent();
+
+            UploadConfiguration.InputGestures.Add(new KeyGesture(Key.U, ModifierKeys.Control));
+
             this.currentConf = currentConf;
             this.sc = sc;
 
@@ -72,7 +79,7 @@ namespace ch.jep.McCommunication
             }
         }
 
-        private void btnLoadToMc_Click(object sender, RoutedEventArgs e)
+        private void ExecutedUploadConfigurationCommand(object sender, ExecutedRoutedEventArgs e)
         {
             dgSettings.CommitEdit(DataGridEditingUnit.Row, true);
 
@@ -80,22 +87,9 @@ namespace ch.jep.McCommunication
             String command = "101-" + confToUpload.settings.Count.ToString() + ":" + confToUpload.GetMcConfigurationDump();
             Debug.Print(command);
             sc.SendCommand(command);
-
-            /*McConfiguration c = new McConfiguration();
-            c.parseFileConfiguration(confToUpload.GetFileConfigurationDump());
-            c.Title = "Current Configuration on Car";
-            this.currentConf = c;*/
-
-            //refreshConfigurationList();
         }
 
-        private void btnSelectSourceFolder_Click(object sender, RoutedEventArgs e)
-        {
-            McConfiguration confToUpload = (McConfiguration)this.lbAvailableConfigurations.SelectedItem;
-            MessageBox.Show(confToUpload.get("doJobDelay"));
-        }
-
-        private void btnSaveConfigToDisk_Click(object sender, RoutedEventArgs e)
+        private void ExecutedSaveCommand(object sender, ExecutedRoutedEventArgs e)
         {
             if (lbAvailableConfigurations.SelectedIndex == 0)
             {
@@ -132,6 +126,31 @@ namespace ch.jep.McCommunication
         {
             MessageBox.Show(message.MessageCombined, "Error while updating the configuration", MessageBoxButton.OK, MessageBoxImage.Error);
             this.RefreshConfigurationList();
+        }
+
+        private void btnOpenSourceFolder_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                String path = Settings.Default.ConfigurationFilesPath;
+                string windir = Environment.GetEnvironmentVariable("WINDIR");
+                System.Diagnostics.Process prc = new System.Diagnostics.Process();
+                prc.StartInfo.FileName = windir + @"\explorer.exe";
+                prc.StartInfo.Arguments = path;
+                prc.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
         }
     }
 }

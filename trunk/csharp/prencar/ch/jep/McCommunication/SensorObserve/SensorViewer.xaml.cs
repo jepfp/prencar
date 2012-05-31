@@ -108,5 +108,14 @@ namespace ch.jep.McCommunication.SensorObserve
             ts = DateTime.Now - initTime;
             return (int)ts.TotalMilliseconds;
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Schliessen
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+        }
     }  
 }

@@ -27,6 +27,11 @@ namespace prencar
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Commands
+        public static RoutedCommand OpenConfiguration = new RoutedCommand();
+        public static RoutedCommand OpenLiveControl = new RoutedCommand();
+        public static RoutedCommand OpenSensorDebug = new RoutedCommand();
+        #endregion
         SerialCommunication sc = new SerialCommunication();
         McConfiguration conf = new McConfiguration();
         DebugOutputHandler debug;
@@ -53,6 +58,10 @@ namespace prencar
         public MainWindow()
         {
             InitializeComponent();
+
+            OpenConfiguration.InputGestures.Add(new KeyGesture(Key.Enter, ModifierKeys.Alt));
+            OpenLiveControl.InputGestures.Add(new KeyGesture(Key.L, ModifierKeys.Control));
+            OpenSensorDebug.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
 
             debug = new DebugOutputHandler(Settings.Default.DebugFilesPath);
 
@@ -145,16 +154,41 @@ namespace prencar
         #endregion
 
         #region GUI Events (Buttons etc.)
-        void conf_ConfigUpdated(object sender)
-        {
-            lblConfigurationVersion.Content = ((McConfiguration)sender).get("_CONFIGURATIONVERSION");
-        }
-
-        private void btnOpenMcConfigurationView_Click(object sender, RoutedEventArgs e)
+        private void ExecutedOpenConfigurationCommand(object sender, ExecutedRoutedEventArgs e)
         {
             configurationView = new McConfigurationView(sc, conf);
             configurationView.ShowDialog();
             configurationView = null;
+        }
+
+        private void ExecutedOpenSensorDebugCommand(object sender, ExecutedRoutedEventArgs e)
+        {
+            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
+
+            sensorConfig.Add(new SensorJunctionPoint(10, "left line", Brushes.MidnightBlue));
+            sensorConfig.Add(new SensorJunctionPoint(11, "right line", Brushes.SeaGreen));
+            sensorConfig.Add(new SensorJunctionPoint(12, "left front line", Brushes.PowderBlue));
+            sensorConfig.Add(new SensorJunctionPoint(13, "right front line", Brushes.Lime));
+            sensorConfig.Add(new SensorJunctionPoint(14, "left bottom distance", Brushes.Orange));
+            sensorConfig.Add(new SensorJunctionPoint(15, "left top distance", Brushes.Red));
+            sensorConfig.Add(new SensorJunctionPoint(16, "right bottom distance", Brushes.OrangeRed));
+            sensorConfig.Add(new SensorJunctionPoint(17, "right top distance", Brushes.DarkRed));
+
+            sendCommand("201-1:1");
+            SensorViewer sv = new SensorViewer(sc, sensorConfig);
+            sv.ShowDialog();
+            sendCommand("201-1:0");
+        }
+
+        private void ExecutedOpenLiveControlCommand(object sender, ExecutedRoutedEventArgs e)
+        {
+            LiveControl lc = new LiveControl(sc);
+            lc.ShowDialog();
+        }
+
+        void conf_ConfigUpdated(object sender)
+        {
+            lblConfigurationVersion.Content = ((McConfiguration)sender).get("_CONFIGURATIONVERSION");
         }
 
         private void btnSendDebugSerialCommand_Click(object sender, RoutedEventArgs e)
@@ -191,50 +225,6 @@ namespace prencar
             btnStartStoppParcours.Content = "wait for mc...";
         }
 
-        private void btnOpenLiveControl_Click(object sender, RoutedEventArgs e)
-        {
-            LiveControl lc = new LiveControl(sc);
-            lc.ShowDialog();
-        }
-
-        private void btnOpenSensorViewer_Click(object sender, RoutedEventArgs e)
-        {
-            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
-
-            sensorConfig.Add(new SensorJunctionPoint(2, "left line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(2, 1, "right line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(1, "left front line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(1, 1, "right front line sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(3, "delta sensor"));
-            sensorConfig.Add(new SensorJunctionPoint(4, "delta PWM"));
-
-            SensorViewer sv = new SensorViewer(sc, sensorConfig);
-            sv.Show();
-
-            /*sv.AddGraph(new SensorJunctionPoint(2, "left line sensor"));
-            sv.AddGraph(new SensorJunctionPoint(2, 1, "right line sensor"));*/
-        }
-
-
-        private void btnOpenDebugSensorViewer_Click(object sender, RoutedEventArgs e)
-        {
-            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
-
-            sensorConfig.Add(new SensorJunctionPoint(10, "left line", Brushes.MidnightBlue));
-            sensorConfig.Add(new SensorJunctionPoint(11, "right line", Brushes.SeaGreen));
-            sensorConfig.Add(new SensorJunctionPoint(12, "left front line", Brushes.PowderBlue));
-            sensorConfig.Add(new SensorJunctionPoint(13, "right front line", Brushes.Lime));
-            sensorConfig.Add(new SensorJunctionPoint(14, "left bottom distance", Brushes.Orange));
-            sensorConfig.Add(new SensorJunctionPoint(15, "left top distance", Brushes.Red));
-            sensorConfig.Add(new SensorJunctionPoint(16, "right bottom distance", Brushes.OrangeRed));
-            sensorConfig.Add(new SensorJunctionPoint(17, "right top distance", Brushes.DarkRed));
-
-            sendCommand("201-1:1");
-            SensorViewer sv = new SensorViewer(sc, sensorConfig);
-            sv.ShowDialog();
-            sendCommand("201-1:0");
-        }
-
         private void btnOpenLogfile_Click(object sender, RoutedEventArgs e)
         {
             String path = debug.LastAppendPath;
@@ -264,6 +254,21 @@ namespace prencar
             {
                 sc.SendCommand("102-1:1");
             }
+        }
+
+        private void btnOpenSensorViewer_Click(object sender, RoutedEventArgs e)
+        {
+            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
+
+            sensorConfig.Add(new SensorJunctionPoint(2, "left line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(2, 1, "right line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(1, "left front line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(1, 1, "right front line sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(3, "delta sensor"));
+            sensorConfig.Add(new SensorJunctionPoint(4, "delta PWM"));
+
+            SensorViewer sv = new SensorViewer(sc, sensorConfig);
+            sv.Show();
         }
         #endregion
 

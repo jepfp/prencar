@@ -113,11 +113,19 @@ namespace ch.hslu.prencar
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
 
-            //Nothalt
+            //Schliessen
             if (e.Key == Key.Escape)
             {
                 direction = "";
                 move();
+                Close();
+            }
+
+            //Hoist
+            if (e.Key == Key.H)
+            {
+                btnToggleHoist.IsChecked = !btnToggleHoist.IsChecked;
+                btnToggleHoist_Click(sender, e);
             }
 
             string key = e.Key.ToString().ToLower(); //not case sensitive
