@@ -2,9 +2,11 @@ var searchData=
 [
   ['messagecode',['messageCode',['../struct_t_sensor_junction_point.html#aebaf898d174781485a91415a9c605cc7',1,'TSensorJunctionPoint']]],
   ['messagefilterlevel',['messageFilterLevel',['../class_configuration.html#aa3d031d7c37b044ad2fa4558fc4d3c3b',1,'Configuration']]],
+  ['movebacktoline1stleftturnleftspeed',['moveBackToLine1stLeftTurnLeftSpeed',['../class_configuration.html#a3dc51cbab46e700385d6d4311772b7d3',1,'Configuration']]],
+  ['movebacktoline1stleftturnrightspeed',['moveBackToLine1stLeftTurnRightSpeed',['../class_configuration.html#a8c6e050f962f77e3a2f5ab2865a398a0',1,'Configuration']]],
+  ['movebacktoline1strightturnleftspeed',['moveBackToLine1stRightTurnLeftSpeed',['../class_configuration.html#a3270e1fdebe3b98878d7f3a02837ddb0',1,'Configuration']]],
+  ['movebacktoline1strightturnrightspeed',['moveBackToLine1stRightTurnRightSpeed',['../class_configuration.html#a03353b98be43a1f2df263b3972989a27',1,'Configuration']]],
   ['movebacktoline1stturnduration',['moveBackToLine1stTurnDuration',['../class_configuration.html#a86403c15f4b19c03c69c00a80ff3a7ae',1,'Configuration']]],
-  ['movebacktoline1stturnfastspeed',['moveBackToLine1stTurnFastSpeed',['../class_configuration.html#aa31d11e408c1b0c609f5972af9075d78',1,'Configuration']]],
-  ['movebacktoline1stturnslowspeed',['moveBackToLine1stTurnSlowSpeed',['../class_configuration.html#aec7d85c57ba130d0703008235ccfd42e',1,'Configuration']]],
   ['movebacktolineinterval',['moveBackToLineInterval',['../class_configuration.html#aee51769c3d69df9f58b55107f033dad4',1,'Configuration']]],
   ['movebacktolinestraightspeed',['moveBackToLineStraightSpeed',['../class_configuration.html#ac0f336a0ff78c823cf2fb2cea90237ed',1,'Configuration']]],
   ['movemodefirstleftpin',['moveModeFirstLeftPin',['../class_configuration.html#af7126167dea89663242c034a2133aa9a',1,'Configuration']]],
