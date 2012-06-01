@@ -189,8 +189,10 @@ cubeApproachTurnSpeedFastMotor:%%
 cubeApproachStraightSpeed:%%
 moveBackToLineInterval:%%
 moveBackToLine1stTurnDuration:%%
-moveBackToLine1stTurnSlowSpeed:%%
-moveBackToLine1stTurnFastSpeed:%%
+moveBackToLine1stLeftTurnLeftSpeed:%%
+moveBackToLine1stLeftTurnRightSpeed:%%
+moveBackToLine1stRightTurnLeftSpeed:%%
+moveBackToLine1stRightTurnRightSpeed:%%
 moveBackToLineStraightSpeed:%%
 finishLineDriveOverDuration:%%
 sensorDebugInterval:%%

@@ -133,12 +133,12 @@ namespace prencar
                 {
                     sc.NewMessage -= workMessage;
                     sc.Disconnect();
-                    btnSerialConnectDisconnect.Content = "Connect";
+                    btnSerialConnectDisconnect.Content = "_Connect";
                 }
                 else
                 {
                     sc.Connect(tbComport.Text);
-                    btnSerialConnectDisconnect.Content = "Disconnect";
+                    btnSerialConnectDisconnect.Content = "_Disconnect";
 
                     //tell the microcontroller to send the current configuration
                     sendCommand("100-0:");
@@ -281,12 +281,12 @@ namespace prencar
             btnStartStoppParcours.IsEnabled = true;
             if (parcoursState == ParcoursState.notStarted || parcoursState == ParcoursState.finished)
             {
-                btnStartStoppParcours.Content = "Start";
+                btnStartStoppParcours.Content = "_Start";
                 if (this.stopwatch != null) this.stopwatch.Stop();
             }
             else
             {
-                btnStartStoppParcours.Content = "Stop";
+                btnStartStoppParcours.Content = "_Stop";
             }
         }
 

@@ -123,6 +123,7 @@ namespace ch.jep.McCommunication
             try
             {
                 Console.WriteLine("Amount of characters that will be sent: " + command.Length.ToString());
+                Console.WriteLine("Command to send:" + command.ToString());
                 sp.WriteLine(command);
             }
             catch (Exception ex)

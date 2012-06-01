@@ -119,6 +119,7 @@ namespace ch.hslu.prencar
                 direction = "";
                 move();
                 Close();
+                return;
             }
 
             //Hoist
