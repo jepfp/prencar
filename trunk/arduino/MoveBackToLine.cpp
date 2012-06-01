@@ -59,13 +59,13 @@ void MoveBackToLine::startIt(CubeApproach* cubeApproach){
   mc[0].dirLeftMotor = valueDependant;
   mc[0].dirRightMotor = valueDependant;
   if(_cubeApproach->cubeDetections[0].turnedRight){
-    mc[0].speedLeftMotor = _conf->moveBackToLine1stTurnSlowSpeed;
-    mc[0].speedRightMotor = _conf->moveBackToLine1stTurnFastSpeed;
+    mc[0].speedLeftMotor = _conf->moveBackToLine1stLeftTurnLeftSpeed;
+    mc[0].speedRightMotor = _conf->moveBackToLine1stLeftTurnRightSpeed;
     _reachingLineFromLeft = false;
   }
   else if(_cubeApproach->cubeDetections[0].turnedLeft){
-    mc[0].speedLeftMotor = _conf->moveBackToLine1stTurnFastSpeed;
-    mc[0].speedRightMotor = _conf->moveBackToLine1stTurnSlowSpeed;
+    mc[0].speedLeftMotor = _conf->moveBackToLine1stRightTurnLeftSpeed;
+    mc[0].speedRightMotor = _conf->moveBackToLine1stRightTurnLeftSpeed;
     _reachingLineFromLeft = true;
   }
   else{

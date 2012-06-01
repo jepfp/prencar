@@ -17,7 +17,7 @@ public:
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.<br>
    * <b>Please make sure that the constant Command::_COMMANDMAXPARAMETERAMOUNT is big enough.</b>
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 56;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 58;
 
   //-----------------------------------
   //PIN ASSIGNMENT
@@ -188,15 +188,17 @@ public:
   int cubeApproachTurnSpeedSlowMotor; ///< Speed of slow motor during a turn when the cube has been detected. This value can be nagative.
   int cubeApproachTurnSpeedFastMotor; ///< Speed of fast motor during a turn when the cube has been detected. This value can be nagative.
   int cubeApproachStraightSpeed; ///< Speed during cube approach while the car is driving straight.
-  
+
   //-----------------------------------
   //MOVE BACK TO LINE
   int moveBackToLineInterval; ///< Interval in which during driving back to the line the line sensors shall be checked.
   int moveBackToLine1stTurnDuration; ///< Duration of the 1st turn to move / rotate the car in direction where the line is.
-  int moveBackToLine1stTurnSlowSpeed; ///< Speed of the slow motor during the 1st turn (can be a negative number). @see moveBackToLine1stTurnDuration
-  int moveBackToLine1stTurnFastSpeed; ///< Speed of the fast motor during the 1st turn (can be a negative number). @see moveBackToLine1stTurnDuration
+  int moveBackToLine1stLeftTurnLeftSpeed; ///< Speed of the left motor during the 1st turn (can be a negative) in case of a left turn. @see moveBackToLine1stTurnDuration
+  int moveBackToLine1stLeftTurnRightSpeed; ///< Speed of the right motor during the 1st turn (can be a negative) in case of a left turn. @see moveBackToLine1stTurnDuration
+  int moveBackToLine1stRightTurnLeftSpeed; ///< Speed of the left motor during the 1st turn (can be a negative) in case of a left turn. @see moveBackToLine1stTurnDuration
+  int moveBackToLine1stRightTurnRightSpeed; ///< Speed of the right motor during the 1st turn (can be a negative) in case of a left turn. @see moveBackToLine1stTurnDuration
   int moveBackToLineStraightSpeed; ///< Speed of the car when it drives straight back to the line.
-  
+
   //-----------------------------------
   //FINISH LINE
   /**
@@ -220,3 +222,5 @@ public:
 };
 
 #endif
+
+

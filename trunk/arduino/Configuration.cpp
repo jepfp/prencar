@@ -3,7 +3,7 @@
 Configuration Configuration::_instance; ///< Static reference to the singleton object
 boolean Configuration::_instanceCreated = false;
 
-byte const Configuration::_CONFIGURATIONVERSION = 3; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
+byte const Configuration::_CONFIGURATIONVERSION = 4; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
 long const Configuration::_SERIALSPEED = 9600; ///< Defines the serial data rate.
 
 /**
@@ -111,8 +111,10 @@ Configuration::Configuration(){
   //MOVE BACK TO LINE
   moveBackToLineInterval = 0;
   moveBackToLine1stTurnDuration = 1750;
-  moveBackToLine1stTurnSlowSpeed = 0;
-  moveBackToLine1stTurnFastSpeed = 180;
+  moveBackToLine1stLeftTurnLeftSpeed = 0;
+  moveBackToLine1stLeftTurnRightSpeed = 180;
+  moveBackToLine1stRightTurnLeftSpeed = 180;
+  moveBackToLine1stRightTurnRightSpeed = 0;
   moveBackToLineStraightSpeed = 180;
 
   //-----------------------------------
@@ -197,12 +199,14 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[47] = cubeApproachStraightSpeed;
   spaceForConfigValues[48] = moveBackToLineInterval;
   spaceForConfigValues[49] = moveBackToLine1stTurnDuration;
-  spaceForConfigValues[50] = moveBackToLine1stTurnSlowSpeed;
-  spaceForConfigValues[51] = moveBackToLine1stTurnFastSpeed;
-  spaceForConfigValues[52] = moveBackToLineStraightSpeed;
-  spaceForConfigValues[53] = finishLineDriveOverDuration;
-  spaceForConfigValues[54] = sensorDebugInterval;
-  spaceForConfigValues[55] = sensorDebugReadGap;
+  spaceForConfigValues[50] = moveBackToLine1stLeftTurnLeftSpeed;
+  spaceForConfigValues[51] = moveBackToLine1stLeftTurnRightSpeed;
+  spaceForConfigValues[52] = moveBackToLine1stRightTurnLeftSpeed;
+  spaceForConfigValues[53] = moveBackToLine1stRightTurnRightSpeed;
+  spaceForConfigValues[54] = moveBackToLineStraightSpeed;
+  spaceForConfigValues[55] = finishLineDriveOverDuration;
+  spaceForConfigValues[56] = sensorDebugInterval;
+  spaceForConfigValues[57] = sensorDebugReadGap;
 }
 
 /**
@@ -270,12 +274,14 @@ boolean Configuration::updateConfiguration(int* parameters){
   cubeApproachStraightSpeed = parameters[47];
   moveBackToLineInterval = parameters[48];
   moveBackToLine1stTurnDuration = parameters[49];
-  moveBackToLine1stTurnSlowSpeed = parameters[50];
-  moveBackToLine1stTurnFastSpeed = parameters[51];
-  moveBackToLineStraightSpeed = parameters[52];
-  finishLineDriveOverDuration = parameters[53];
-  sensorDebugInterval = parameters[54];
-  sensorDebugReadGap = parameters[55];
+  moveBackToLine1stLeftTurnLeftSpeed = parameters[50];
+  moveBackToLine1stLeftTurnRightSpeed = parameters[51];
+  moveBackToLine1stRightTurnLeftSpeed = parameters[52];
+  moveBackToLine1stRightTurnRightSpeed = parameters[53];
+  moveBackToLineStraightSpeed = parameters[54];
+  finishLineDriveOverDuration = parameters[55];
+  sensorDebugInterval = parameters[56];
+  sensorDebugReadGap = parameters[57];
   return true;
 }
 
@@ -296,6 +302,8 @@ int Configuration::getFreeMemory()
 
   return free_memory;
 }
+
+
 
 
 
