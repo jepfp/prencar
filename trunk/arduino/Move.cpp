@@ -75,7 +75,7 @@ void Move::performFastStop()
  * @param speedRightMotor speed of right motor (0-255)
  */
 void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMotorDirection dirRightMotor, int speedRightMotor){
-  if(dirLeftMotor = valueDependant){
+  if(dirLeftMotor == valueDependant){
     if(speedLeftMotor > 0){
       dirLeftMotor = forward;
     }
@@ -88,7 +88,7 @@ void Move::controlMotors(TMotorDirection dirLeftMotor, int speedLeftMotor, TMoto
     }
   }
   
-  if(dirRightMotor = valueDependant){
+  if(dirRightMotor == valueDependant){
     if(speedRightMotor > 0){
       dirRightMotor = forward;
     }
