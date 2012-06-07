@@ -166,6 +166,8 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a87c9f78ce74ac840afac408a4d321cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pin where the right bottom distance sensor is connected to.  <a href="#a87c9f78ce74ac840afac408a4d321cf1"></a><br/></td></tr>
 <tr class="memitem:ae0ce367a5bec000ca27cd7c80117646d"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#ae0ce367a5bec000ca27cd7c80117646d">cubeApproachRightTopSensor</a></td></tr>
 <tr class="memdesc:ae0ce367a5bec000ca27cd7c80117646d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pin where the right top distance sensor is connected to.  <a href="#ae0ce367a5bec000ca27cd7c80117646d"></a><br/></td></tr>
+<tr class="memitem:adeabc14547cb44f6d6f567ca99357796"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#adeabc14547cb44f6d6f567ca99357796">accuPin</a></td></tr>
+<tr class="memdesc:adeabc14547cb44f6d6f567ca99357796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analog input pin on which the battery voltage is measured.  <a href="#adeabc14547cb44f6d6f567ca99357796"></a><br/></td></tr>
 <tr class="memitem:aa3d031d7c37b044ad2fa4558fc4d3c3b"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#aa3d031d7c37b044ad2fa4558fc4d3c3b">messageFilterLevel</a></td></tr>
 <tr class="memdesc:aa3d031d7c37b044ad2fa4558fc4d3c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter that shall be applied to all outgoing messages (over serial interface).  <a href="#aa3d031d7c37b044ad2fa4558fc4d3c3b"></a><br/></td></tr>
 <tr class="memitem:a60b33a8e5b22cd2a2d4da9e4f2195269"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269">activateMessageFilter</a></td></tr>
@@ -343,7 +345,7 @@ Here is the caller graph for this function:</div>
 <p>Returns the version of the configuration. This value will be increased in case of a new set of configuration values is applied. </p>
 <dl class="section return"><dt>Returns:</dt><dd>version </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00135">135</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00137">137</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -378,7 +380,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00151">151</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00153">153</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -405,7 +407,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00294">294</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00296">296</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -472,7 +474,7 @@ Here is the caller graph for this function:</div>
 <p>Returns the serial data rate used for the communication between the board and the host computer. </p>
 <dl class="section return"><dt>Returns:</dt><dd>speed </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00143">143</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00145">145</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -512,7 +514,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>True if the configuration was updated successfully, false otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00223">223</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8cpp_source.html#l00225">225</a> of file <a class="el" href="_configuration_8cpp_source.html">Configuration.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -592,6 +594,23 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="adeabc14547cb44f6d6f567ca99357796"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte <a class="el" href="class_configuration.html#adeabc14547cb44f6d6f567ca99357796">Configuration::accuPin</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Analog input pin on which the battery voltage is measured. </p>
+
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00043">43</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a60b33a8e5b22cd2a2d4da9e4f2195269"></a>
 <div class="memitem">
 <div class="memproto">
@@ -605,7 +624,7 @@ Here is the caller graph for this function:</div>
 
 <p>True if _messageFilterLevel shall be taken into account. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00052">52</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00054">54</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -623,7 +642,7 @@ Here is the caller graph for this function:</div>
 <p>Threshold for the cube detection. </p>
 <p>Measuring a value higher than this threshold means that the cube has been detected with this sensor. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00185">185</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00187">187</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -640,7 +659,7 @@ Here is the caller graph for this function:</div>
 
 <p>Interval in milliseconds in which the distance sensors shall be checked. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00186">186</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00188">188</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +710,7 @@ Here is the caller graph for this function:</div>
 
 <p>The reduced speed of the left motor that can be assigned after a defined amount of time (see cubeApproachLineFollowReduceSpeedTime) during the cube approach line following process (speed 0-255). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00178">178</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00180">180</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -708,7 +727,7 @@ Here is the caller graph for this function:</div>
 
 <p>See cubeApproachLineFollowReducedSpeedLeft. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00179">179</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00181">181</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -725,7 +744,7 @@ Here is the caller graph for this function:</div>
 
 <p>The time in milliseconds (after a call to <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt()</a>) on the third line after which the line follow shall continue with the defined reduced speed cubeApproachLineFollowReducedSpeedLeft and cubeApproachLineFollowReducedSpeedRight (0 to disable this function). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00173">173</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00175">175</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -776,7 +795,7 @@ Here is the caller graph for this function:</div>
 
 <p>Speed during cube approach while the car is driving straight. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00190">190</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00192">192</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -793,7 +812,7 @@ Here is the caller graph for this function:</div>
 
 <p>Duration in milliseconds of a turn when the cube has been detected. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00187">187</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00189">189</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -810,7 +829,7 @@ Here is the caller graph for this function:</div>
 
 <p>Speed of fast motor during a turn when the cube has been detected. This value can be nagative. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00189">189</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00191">191</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -827,7 +846,7 @@ Here is the caller graph for this function:</div>
 
 <p>Speed of slow motor during a turn when the cube has been detected. This value can be nagative. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00188">188</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00190">190</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -844,7 +863,7 @@ Here is the caller graph for this function:</div>
 
 <p>If set to true the top sensors are taken into account during the cube approach process. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00168">168</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00170">170</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -862,7 +881,7 @@ Here is the caller graph for this function:</div>
 <p>Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated. </p>
 <p>In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left" procedure the left line sensor can still be on white ground we add a offset after which the check of this end sensor shall be started. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00164">164</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00166">166</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -879,7 +898,7 @@ Here is the caller graph for this function:</div>
 
 <p>The time after which the car shall drive straight again to find the line (no more curve is done). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00158">158</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00160">160</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -896,7 +915,7 @@ Here is the caller graph for this function:</div>
 
 <p>Interval in milliseconds in which the curve job shall be executed. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00155">155</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00157">157</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -913,7 +932,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of the faster motor (in a left curve, right motor) during a 90° curve. This value can go from -255 to +255. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00157">157</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00159">159</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -930,7 +949,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of the slower motor (in a left curve, left motor) during a 90° curve. This value can go from -255 to +255. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00156">156</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00158">158</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -948,7 +967,7 @@ Here is the caller graph for this function:</div>
 <p>Duration of the stop action. </p>
 <p>At the beginning of a curve the car has to stop because it's maybe still driving (cinetic energy). This value defines, how long the stop shall be. "Stopping" means that the motors are turning in the opposite direction for the time set in this config value. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00147">147</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00149">149</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -966,7 +985,7 @@ Here is the caller graph for this function:</div>
 <p>This value defines the speed that shall be set to both motors during a stop that has to stop the car which is currently in motion (note: the direction will be set to backwards). </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#aa88d485a2c671d043ff03b8222f3d880" title="Duration of the stop action.">curveStopDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00154">154</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00156">156</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -983,7 +1002,7 @@ Here is the caller graph for this function:</div>
 
 <p>Time in milliseconds to wait before each main loop starts. Can be used for debug purposes. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00053">53</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00055">55</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1020,7 @@ Here is the caller graph for this function:</div>
 <p>Time in milliseconds of how long the car shall drive straight to cross the finish line. </p>
 <p>The car is driving with lineFollowInitialSpeedLeft and lineFollowInitialSpeedRight. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00209">209</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00211">211</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1037,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pwm value to set if the hoist has to be moved up fully. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00126">126</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00128">128</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1035,7 +1054,7 @@ Here is the caller graph for this function:</div>
 
 <p>Time in milliseconds between the liftDown and the liftUp command of the method <a class="el" href="class_lift_cube.html#a11c5c99c275d5a4acfc778852976f6cd">LiftCube::liftCube()</a> </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00127">127</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00129">129</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1070,7 +1089,7 @@ Here is the caller graph for this function:</div>
 <p>Time for which the motors shall "rotate" backwards with the speed set in liftCubeStopSpeed. </p>
 <p>This stop action is performed right after the car has started lifting the cube. The goal of this action is to stop the car to prevent it from driving across the parcours boarders. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00135">135</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00137">137</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1088,7 +1107,7 @@ Here is the caller graph for this function:</div>
 <p>The speed for the stop action which is performed after the cube lifting process has started. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#af69fe1dd7d85d1b7b1772f5abfc1ab54" title="Time for which the motors shall &quot;rotate&quot; backwards with the speed set in liftCubeStopSpeed.">liftCubeStopDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00136">136</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00138">138</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1105,7 +1124,7 @@ Here is the caller graph for this function:</div>
 
 <p>Hardware pin to which the end switch is attached. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00128">128</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00130">130</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1141,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pwm value to set if the hoist has to be moved up fully. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00125">125</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00127">127</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1139,7 +1158,7 @@ Here is the caller graph for this function:</div>
 
 <p>The duration while the car during the correction is driving backwards. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00121">121</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00123">123</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1156,7 +1175,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of the left motor during the line centering process if the car is reaching the line from the left hand side. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00117">117</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00119">119</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1192,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of the right motor during the line centering process if the car is reaching the line from the left hand side. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00118">118</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00120">120</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1190,7 +1209,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of the left motor during the line centering process if the car is reaching the line from the right hand side. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00119">119</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00121">121</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1207,7 +1226,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of the right motor during the line centering process if the car is reaching the line from the right hand side. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00120">120</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00122">122</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1224,7 +1243,7 @@ Here is the caller graph for this function:</div>
 
 <p>Interval in milliseconds in which the line centering job shall be executed. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00111">111</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00113">113</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1241,7 +1260,7 @@ Here is the caller graph for this function:</div>
 
 <p>During line centering a value below this difference will mean, that the line centering process is finished. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00115">115</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00117">117</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1258,7 +1277,7 @@ Here is the caller graph for this function:</div>
 
 <p>The speed of both motors while driving straight during the line centering. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00116">116</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00118">118</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1276,7 +1295,7 @@ Here is the caller graph for this function:</div>
 <p>Milliseconds (after a call to <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt()</a>) after which the front line sensors shall be activated. </p>
 <p>This offset is helpful at the beginning of the parours in order to be able to start the parcours <b>behind</b> the start line and after driving a curve if at the end of the curve one of the front line sensors still is on top of the 90°-line. If set to 0 the front line sensors are always on. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00107">107</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00109">109</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1293,7 +1312,7 @@ Here is the caller graph for this function:</div>
 
 <p>The initial speed of the left motor when the parcours starts (0-255). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00064">64</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00066">66</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1310,7 +1329,7 @@ Here is the caller graph for this function:</div>
 
 <p>The initial speed of the left motor when the parcours starts (0-255). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00065">65</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00067">67</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1346,7 @@ Here is the caller graph for this function:</div>
 
 <p>Interval in milliseconds in which the line follow job shall be executed. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00063">63</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00065">65</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1362,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>D factor for the PD controller </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00073">73</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00075">75</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1359,7 +1378,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>P factor for the PD controller </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00069">69</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00071">71</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1407,7 +1426,7 @@ Here is the caller graph for this function:</div>
 <p>The reduced speed of the left motor that can be assigned after a defined amount of time (0-255). </p>
 <p>This value is used in combination with lineFollowReduceSpeedTimeFirstLine and lineFollowReduceSpeedTimeSecondLine. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00079">79</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00081">81</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1424,7 +1443,7 @@ Here is the caller graph for this function:</div>
 
 <p>See lineFollowReducedSpeedLeft. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00083">83</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00085">85</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1441,7 +1460,7 @@ Here is the caller graph for this function:</div>
 
 <p>The time in milliseconds (after a call to <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt()</a>) on the first line after which the line follow shall continue with the defined reduced speed (0 to disable this function). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00088">88</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00090">90</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1458,7 +1477,7 @@ Here is the caller graph for this function:</div>
 
 <p>The time in milliseconds (after a call to <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt()</a>) on the second line after which the line follow shall continue with the defined reduced speed (0 to disable this function). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00093">93</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00095">95</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1475,7 +1494,7 @@ Here is the caller graph for this function:</div>
 
 <p>The time in milliseconds (after a call to <a class="el" href="class_line_follow.html#a98fad8edd42d3096bb61f9e68293490c">LineFollow::startIt()</a>) on the third line and after the cube has been lifted after which the line follow shall continue with the defined reduced speed (0 to disable this function). </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00099">99</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00101">101</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1523,7 +1542,7 @@ Here is the caller graph for this function:</div>
 <p>Filter that shall be applied to all outgoing messages (over serial interface). </p>
 <p>Messages with a message code below or equals to the value set in here won't be sent over the serial interface. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00051">51</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00053">53</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1560,7 @@ Here is the caller graph for this function:</div>
 <p>Speed of the left motor during the 1st turn (can be a negative) in case of a left turn. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a86403c15f4b19c03c69c00a80ff3a7ae" title="Duration of the 1st turn to move / rotate the car in direction where the line is.">moveBackToLine1stTurnDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00196">196</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00198">198</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1559,7 +1578,7 @@ Here is the caller graph for this function:</div>
 <p>Speed of the right motor during the 1st turn (can be a negative) in case of a left turn. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a86403c15f4b19c03c69c00a80ff3a7ae" title="Duration of the 1st turn to move / rotate the car in direction where the line is.">moveBackToLine1stTurnDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00197">197</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00199">199</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1577,7 +1596,7 @@ Here is the caller graph for this function:</div>
 <p>Speed of the left motor during the 1st turn (can be a negative) in case of a left turn. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a86403c15f4b19c03c69c00a80ff3a7ae" title="Duration of the 1st turn to move / rotate the car in direction where the line is.">moveBackToLine1stTurnDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00198">198</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00200">200</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1595,7 +1614,7 @@ Here is the caller graph for this function:</div>
 <p>Speed of the right motor during the 1st turn (can be a negative) in case of a left turn. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_configuration.html#a86403c15f4b19c03c69c00a80ff3a7ae" title="Duration of the 1st turn to move / rotate the car in direction where the line is.">moveBackToLine1stTurnDuration</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00199">199</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00201">201</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1612,7 +1631,7 @@ Here is the caller graph for this function:</div>
 
 <p>Duration of the 1st turn to move / rotate the car in direction where the line is. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00195">195</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00197">197</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1629,7 +1648,7 @@ Here is the caller graph for this function:</div>
 
 <p>Interval in which during driving back to the line the line sensors shall be checked. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00194">194</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00196">196</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1646,7 +1665,7 @@ Here is the caller graph for this function:</div>
 
 <p>Speed of the car when it drives straight back to the line. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00200">200</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00202">202</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1753,7 +1772,7 @@ Here is the caller graph for this function:</div>
 
 <p>Interval in milliseconds in which the debug sensors. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00213">213</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00215">215</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1770,7 +1789,7 @@ Here is the caller graph for this function:</div>
 
 <p>Time in milliseconds between reading every sensor. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00214">214</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00216">216</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1806,7 +1825,7 @@ Here is the caller graph for this function:</div>
 
 <p>See lineFollowWhiteThresholdLineSensors. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00059">59</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00061">61</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1824,7 +1843,7 @@ Here is the caller graph for this function:</div>
 <p>Threshold value from black to white. </p>
 <p>If the sensor measures a value below that threshold value than the software considers that sensors physical position to be on "white" ground. </p>
 
-<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00058">58</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="_configuration_8h_source.html#l00060">60</a> of file <a class="el" href="_configuration_8h_source.html">Configuration.h</a>.</p>
 
 </div>
 </div>
@@ -1838,7 +1857,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_configuration.html">Configuration</a>      </li>
 
-    <li class="footer">Generated on Fri Jun 1 2012 20:09:49 for prencar by
+    <li class="footer">Generated on Thu Jun 7 2012 20:47:44 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

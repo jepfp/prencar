@@ -41,6 +41,11 @@ void StateMachine::begin(){
   _move = Move::getInstance();
   _liftCube = LiftCube::getInstance();
   _extMove = ExtendedMove::getInstance();
+
+  pinMode(_conf->accuPin, INPUT);
+  //make sure, the pull up resistors are off
+  digitalWrite(_conf->accuPin, LOW);
+
   lineFollow.begin();
   curveLeft.begin();
   _cubeApproach.begin();
@@ -236,6 +241,12 @@ void StateMachine::checkCommands(){
       }
     }
 
+    //check for command 103
+    if(_com->getAndRemoveCommandFromReadyCommands(&c, 103)){
+      int voltageLevel = getCurrentBatteryVoltageLevel();
+      _com->send(104, voltageLevel);
+    }
+
     /*----------- offline control car -----------*/
     //check for command 400
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 400)){
@@ -285,6 +296,8 @@ void StateMachine::startParcours(){
   changeState(followingFirstLine);
   //send the current configuration
   _com->sendCurrentConfiguration();
+  int voltageLevel = getCurrentBatteryVoltageLevel();
+  _com->send(104, voltageLevel);
   startParcoursTimestamp = millis();
   extMoveCommandDriveOverFinishLineStarted = false;
   lineFollow.startIt(_conf->lineFollowInitialSpeedLeft, _conf->lineFollowInitialSpeedRight,
@@ -364,6 +377,13 @@ void StateMachine::startDriveOverFinishLineExtMoveCommand(){
 
   _extMove->startCurrentQueue(2);
 }
+
+int StateMachine::getCurrentBatteryVoltageLevel(){
+  return analogRead(_conf->accuPin);
+}
+
+
+
 
 
 

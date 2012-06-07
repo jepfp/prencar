@@ -5,7 +5,7 @@
 Communication Communication::_instance; ///< Static reference to the singleton object
 boolean Communication::_instanceCreated = false;
 
-#define sc Serial1
+#define sc Serial
 
 /**
  * Get the Communication instance

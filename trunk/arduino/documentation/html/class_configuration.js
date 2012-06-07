@@ -11,6 +11,7 @@ var class_configuration =
     [ "_instance", "class_configuration.html#a33a4ec5f460471c076a0b74b48aa7bbe", null ],
     [ "_instanceCreated", "class_configuration.html#a30bcffe1c1a3b15d41d824f9a1570bf6", null ],
     [ "_SERIALSPEED", "class_configuration.html#a7e97b2bad64cee71271070bde2f71b74", null ],
+    [ "accuPin", "class_configuration.html#adeabc14547cb44f6d6f567ca99357796", null ],
     [ "activateMessageFilter", "class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269", null ],
     [ "cubeApproachDetectThreshold", "class_configuration.html#a31dba4b7dc79224cda66882244363829", null ],
     [ "cubeApproachInterval", "class_configuration.html#abab4e9ea7d056a9dbcd50dafbe24d6a0", null ],

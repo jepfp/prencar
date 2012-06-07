@@ -6,6 +6,7 @@ var class_state_machine =
     [ "changeState", "class_state_machine.html#a6f5d5d6b56b9b204725798ed786f6dcd", null ],
     [ "checkCommands", "class_state_machine.html#a26dd1980d9d8f24050b624fb16ac0e58", null ],
     [ "doJob", "class_state_machine.html#a32064aba8c9fa4afcb649d01aaf5fd78", null ],
+    [ "getCurrentBatteryVoltageLevel", "class_state_machine.html#af2e08cda15a6791502d2743e1f530357", null ],
     [ "getInstance", "class_state_machine.html#a7f7482a9af6910035a62f9c116165f60", null ],
     [ "startDriveOverFinishLineExtMoveCommand", "class_state_machine.html#ab3634a64f8a4065a7586fcd7b32883d1", null ],
     [ "startParcours", "class_state_machine.html#a2e269f59e372184da681ec60d9d3a02e", null ],

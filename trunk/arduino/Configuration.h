@@ -39,6 +39,8 @@ public:
   byte cubeApproachLeftTopSensor; ///< The pin where the left top distance sensor is connected to.
   byte cubeApproachRightBottomSensor; ///< The pin where the right bottom distance sensor is connected to.
   byte cubeApproachRightTopSensor; ///< The pin where the right top distance sensor is connected to.
+  
+  byte accuPin; ///< Analog input pin on which the battery voltage is measured.
 
   //-----------------------------------
   //GENERAL CONFIG VALUES

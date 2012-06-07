@@ -165,6 +165,8 @@ Static Private Attributes</h2></td></tr>
 <tr>
 <td>102</td><td>Activate / Deactivate "activateMessageFilter"</td><td>1 to activate the filter; 0 to deactivate it</td><td>Defines if the messageFilterLevel shall be taken into account during sending a message over the serial communication interface. See <a class="el" href="class_configuration.html#a60b33a8e5b22cd2a2d4da9e4f2195269" title="True if _messageFilterLevel shall be taken into account.">Configuration::activateMessageFilter</a> </td></tr>
 <tr>
+<td>103</td><td>Measure battery voltage and send.</td><td></td><td>Measures the current battery voltage and returns it's value over the serial interface. </td></tr>
+<tr>
 <td>201</td><td>Set state of <a class="el" href="class_sensor_debug.html">SensorDebug</a> module</td><td>1 --&gt; set module on</td><td>If enabled (parameter[0] = 1) the sensor debug module sends different sensor measurements in regular intervals. </td></tr>
 <tr>
 <td>300</td><td>Start parcours</td><td>State to start from as int number (first state = 0). <dl class="section see"><dt>See also:</dt><dd><a class="el" href="_state_machine_8h.html#ad5f3c64cf1a6afd0af12270f4a539ce8">TParcoursState</a></dd></dl>
@@ -179,7 +181,7 @@ Static Private Attributes</h2></td></tr>
 <td>402</td><td><a class="el" href="class_move.html">Move</a> hoist down or up</td><td>1 = move hoist down; 0 = move hoist up</td><td>Sets the hoist to the configured up / down position to crab the cube. </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00034">34</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00035">35</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18df2d81039392daeb0b78c346a70537"></a>
 <div class="memitem">
@@ -315,7 +317,7 @@ Here is the caller graph for this function:</div>
 
 <p>Defines, how many parameters a command can have. </p>
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00038">38</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00039">39</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +332,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00044">44</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00045">45</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -345,7 +347,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00042">42</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00043">43</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +362,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_command_8h_source.html#l00043">43</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
+<p>Definition at line <a class="el" href="_command_8h_source.html#l00044">44</a> of file <a class="el" href="_command_8h_source.html">Command.h</a>.</p>
 
 </div>
 </div>
@@ -374,7 +376,7 @@ Here is the caller graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="class_command.html">Command</a>      </li>
 
-    <li class="footer">Generated on Fri Jun 1 2012 20:09:49 for prencar by
+    <li class="footer">Generated on Thu Jun 7 2012 20:47:44 for prencar by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

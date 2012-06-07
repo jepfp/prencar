@@ -42,6 +42,8 @@ Configuration::Configuration(){
   cubeApproachLeftTopSensor = A1;
   cubeApproachRightBottomSensor = A2;
   cubeApproachRightTopSensor = A3;
+  
+  accuPin = A8;
 
   //-----------------------------------
   //GENERAL CONFIG VALUES

@@ -76,6 +76,7 @@ public:
   void startParcoursAtState(TParcoursState state);
   void stopParcours();
   void changeActivateMessageFilter(boolean newState);
+  int getCurrentBatteryVoltageLevel();
 };
 #endif
 
