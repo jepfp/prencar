@@ -37,6 +37,8 @@ namespace prencar
         DebugOutputHandler debug;
         private DispatcherTimer stopwatch;
         McConfigurationView configurationView = null;
+        List<Point> measuredVoltageLevels = new List<Point>();
+        private DateTime initTime = DateTime.Now;
 
         enum ParcoursState
         {
@@ -82,6 +84,11 @@ namespace prencar
                 conf.parseFileConfiguration(message.MessageCombined);
                 conf.Title = "Current Configuration on Car";
                 if (configurationView != null) configurationView.RefreshConfigurationList();
+            }
+            else if (message.MessageCode == 104)
+            {
+                measuredVoltageLevels.Add(new Point((double)getMillisSinceStart() / (1000*60), message.Parameters[0]));
+                lblAccuVoltageLevel.Content = message.Parameters[0].ToString();
             }
             else if (message.MessageCode == 152)
             {
@@ -270,6 +277,34 @@ namespace prencar
             SensorViewer sv = new SensorViewer(sc, sensorConfig);
             sv.Show();
         }
+
+        private void lblAccuVoltageLevel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            showAccuGraph();
+        }
+
+        private void btnUpdateAccuVoltageLevel_Click(object sender, RoutedEventArgs e)
+        {
+            sc.SendCommand("103");
+        }
+
+        private void btnShowAccuGraph_Click(object sender, RoutedEventArgs e)
+        {
+            showAccuGraph();
+        }
+
+        private void showAccuGraph()
+        {
+            List<SensorJunctionPoint> sensorConfig = new List<SensorJunctionPoint>();
+
+            SensorJunctionPoint sjp = new SensorJunctionPoint(104, "Accumulator voltage level");
+            sensorConfig.Add(sjp);
+            sjp.AddPointsToSource(measuredVoltageLevels);
+
+            SensorViewer sv = new SensorViewer(sc, sensorConfig);
+            sv.Show();
+            sv.Title = "Accumulator Voltage Level Graph Since " + initTime.TimeOfDay + "in decimal minutes.";
+        }
         #endregion
 
         #region Parcours state machine
@@ -329,6 +364,13 @@ namespace prencar
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             ch.hslu.prencar.Properties.Settings.Default.Save();
+        }
+
+        private int getMillisSinceStart()
+        {
+            TimeSpan ts = new TimeSpan();
+            ts = DateTime.Now - initTime;
+            return (int)ts.TotalMilliseconds;
         }
     }
 }

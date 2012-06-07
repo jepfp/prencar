@@ -126,6 +126,11 @@ namespace ch.jep.McCommunication.SensorObserve
             return this.name;
         }
 
+        public void AddPointsToSource(List<Point> points)
+        {
+            source.AppendMany(points);
+        }
+
 
     }
 }

@@ -113,6 +113,7 @@ newAverageSpeed: %%");
             messages.Add(101, @"Debug delay of %% milliseconds started...");
             messages.Add(102, @"New configuration saved.");
             messages.Add(103, @"The cube end sensor detected the cube even though the program was not yet in the 'lift cube' state --> switching immediately to that state.");
+            messages.Add(104, @"Current battery voltage level: %% mV");
             #endregion
 
             #region 150-199 Error

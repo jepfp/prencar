@@ -65,10 +65,12 @@
                     <Button Height="23" Margin="75,40,6,0" Name="btnSerialConnectDisconnect" VerticalAlignment="Top" Content="_Connect" Click="btnSerialConnectDisconnect_Click" />
                 </Grid>
             </Expander>
-            <Expander Header="Chip Configuration / Commands" Name="expander2" IsExpanded="True">
+            <Expander Header="General Information" Name="expander2" IsExpanded="True">
                 <Grid>
                     <Label Content="Configuration Version:" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label2" VerticalAlignment="Top" />
                     <Label Content="n.a." Height="28" Margin="0,0,6,0" Name="lblConfigurationVersion" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                    <Label Content="Accu Voltage Level (mV):" Height="28" HorizontalAlignment="Left" Margin="6,17,0,0" Name="label4" VerticalAlignment="Top" />
+                    <Label Content="n.a." Height="28" Margin="0,17,6,0" Name="lblAccuVoltageLevel" VerticalAlignment="Top" HorizontalAlignment="Right" MouseLeftButtonUp="lblAccuVoltageLevel_MouseLeftButtonUp" />
                 </Grid>
             </Expander>
             <Expander Header="Parcours" IsExpanded="True" Name="expander1">
@@ -101,6 +103,14 @@
                 </Button>
                 <Button Name="btnOpenDebugSensorViewer" IsEnabled="True" ToolTip="View all sensor data" Command="{x:Static custom:MainWindow.OpenSensorDebug}">
                     <Image Name="image7" Stretch="Fill" Source="/prencar;component/Images/eye.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Name="toolBar3" HorizontalAlignment="Left" Height="26">
+                <Button Name="btnUpdateAccuVoltageLevel" IsEnabled="True" ToolTip="Request current accumulator voltage level" Click="btnUpdateAccuVoltageLevel_Click">
+                    <Image Name="image10" Stretch="Fill" Source="/prencar;component/Images/lightning.png" />
+                </Button>
+                <Button Name="btnShowAccuGraph" IsEnabled="True" ToolTip="Show Accumulator Voltage Level Graph" Click="btnShowAccuGraph_Click">
+                    <Image Name="image9" Stretch="Fill" Source="/prencar;component/Images/page_lightning.png" />
                 </Button>
             </ToolBar>
         </DockPanel>
