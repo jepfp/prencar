@@ -3,7 +3,7 @@
 Configuration Configuration::_instance; ///< Static reference to the singleton object
 boolean Configuration::_instanceCreated = false;
 
-byte const Configuration::_CONFIGURATIONVERSION = 4; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
+byte const Configuration::_CONFIGURATIONVERSION = 5; ///< Returns the version of the configuration (number will be increased after a set of new configuration values is added)
 long const Configuration::_SERIALSPEED = 9600; ///< Defines the serial data rate.
 
 /**
@@ -42,7 +42,7 @@ Configuration::Configuration(){
   cubeApproachLeftTopSensor = A1;
   cubeApproachRightBottomSensor = A2;
   cubeApproachRightTopSensor = A3;
-  
+
   accuPin = A8;
 
   //-----------------------------------
@@ -70,6 +70,8 @@ Configuration::Configuration(){
   //-----------------------------------
   //LINE CENTER
   lineCenterInterval = 15;
+  lineCenterStopDuration = 650;
+  lineCenterStopSpeed = 140;
   lineCenterLineInMiddleDifference = 280;
   lineCenterStraightSpeed = 150;
   lineCenterFromLeftMotorLeft = 180;
@@ -94,6 +96,7 @@ Configuration::Configuration(){
   curveSpeedSlowMotor = 10;
   curveSpeedFastMotor = 180;
   curveDriveStraightTime = 1250;
+  curveDriveStraightSpeed = 125;
   curveActivateEndSensorOffset = 1500;
 
   //-----------------------------------
@@ -209,6 +212,9 @@ void Configuration::getCurrentConfiguration(long* spaceForConfigValues){
   spaceForConfigValues[55] = finishLineDriveOverDuration;
   spaceForConfigValues[56] = sensorDebugInterval;
   spaceForConfigValues[57] = sensorDebugReadGap;
+  spaceForConfigValues[58] = curveDriveStraightSpeed;
+  spaceForConfigValues[59] = lineCenterStopDuration;
+  spaceForConfigValues[60] = lineCenterStopSpeed;
 }
 
 /**
@@ -284,6 +290,9 @@ boolean Configuration::updateConfiguration(int* parameters){
   finishLineDriveOverDuration = parameters[55];
   sensorDebugInterval = parameters[56];
   sensorDebugReadGap = parameters[57];
+  curveDriveStraightSpeed = parameters[58];
+  lineCenterStopDuration = parameters[59];
+  lineCenterStopSpeed = parameters[60];
   return true;
 }
 
@@ -304,6 +313,9 @@ int Configuration::getFreeMemory()
 
   return free_memory;
 }
+
+
+
 
 
 

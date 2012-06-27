@@ -43,6 +43,8 @@ void LineCenter::startIt(boolean comingFromLeft){
   else{
     _com->send(85);
   }
+
+  doFirstStopCorrection();
 }
 
 /**
@@ -66,12 +68,13 @@ void LineCenter::doJob(){
     //first check, if the measured values are in the range defined in _conf->lineCenterLineInMiddleDifference
     int sensorGap = sensorValues[0] - sensorValues[1];
     if(sensorGap < 0) sensorGap *= -1;
-    if(sensorGap < _conf->lineCenterLineInMiddleDifference && sensorValues[0] > _conf->whiteThresholdLineSensors){
+    if((sensorGap < _conf->lineCenterLineInMiddleDifference) && (sensorValues[0] > _conf->whiteThresholdLineSensors)){
       _extMove->stopCurrentQueue();
       lineCenteringIsFinished = true;
       _com->send(86);
+      return;
     }
-    
+
     //if a correction is in progress, let it finish first
     if(_extMove->isExecutionInProcess()){
       _com->send(89);
@@ -92,7 +95,7 @@ void LineCenter::doJob(){
       }
     }
     else{
-      if(sensorValues[0] > _conf->whiteThresholdLineSensors){
+      if(sensorValues[1] > _conf->whiteThresholdLineSensors){
         _com->send(87, parameters, 3);
         _move->controlMotors(forward, _conf->lineCenterStraightSpeed, forward, _conf->lineCenterStraightSpeed);
       }
@@ -104,6 +107,38 @@ void LineCenter::doJob(){
   }
 }
 
+/**
+ * Performs a stop by turning both motors backwards for a defined
+ * amount of time. By increasing the value Configuration::lineCenterStopDuration
+ * this method can also be used to drive backwards to make sure
+ * that the car is behind the line before the line centering starts.
+ *
+ * @see lineCenterStopDuration
+ * @see lineCenterStopSpeed
+ */
+void LineCenter::doFirstStopCorrection(){
+  int params[2];
+  params[0] = _conf->lineCenterStopSpeed;
+  params[1] = _conf->lineCenterStopDuration;
+  _com->send(94, params, 2);
+
+  //create an extMove command and start it's execution
+  MoveCommand* mc = _extMove->commandQueue;
+  mc[0].duration = _conf->lineCenterStopDuration;
+  mc[0].dirLeftMotor = backwards;
+  mc[0].speedLeftMotor = _conf->lineCenterStopSpeed;
+  mc[0].dirRightMotor = backwards;
+  mc[0].speedRightMotor = _conf->lineCenterStopSpeed;
+
+  _extMove->startCurrentQueue(1);
+}
+
+/**
+ * Does the appropriate correction depending on the value _centeringFromLeft.
+ * 
+ * A correction means that the car drives backwards with a curve and then drives
+ * straight forwards again.
+ */
 void LineCenter::doCorrection(){
   //create an extMove command and start it's execution
   MoveCommand* mc = _extMove->commandQueue;
@@ -114,13 +149,16 @@ void LineCenter::doCorrection(){
   if(_centeringFromLeft){
     mc[0].speedLeftMotor = _conf->lineCenterFromLeftMotorLeft;
     mc[0].speedRightMotor = _conf->lineCenterFromLeftMotorRight;
-  }else{
+  }
+  else{
     mc[0].speedLeftMotor = _conf->lineCenterFromRightMotorLeft;
     mc[0].speedRightMotor = _conf->lineCenterFromRightMotorRight;
   }
 
   _extMove->startCurrentQueue(1);
 }
+
+
 
 
 

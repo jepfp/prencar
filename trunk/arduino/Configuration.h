@@ -17,7 +17,7 @@ public:
    * Update this, if you want to add new configuration values to the list of dynamic configuration values.<br>
    * <b>Please make sure that the constant Command::_COMMANDMAXPARAMETERAMOUNT is big enough.</b>
    */
-  static byte const SIZEOFDYNAMICCONFIGURATION = 58;
+  static byte const SIZEOFDYNAMICCONFIGURATION = 61;
 
   //-----------------------------------
   //PIN ASSIGNMENT
@@ -39,7 +39,7 @@ public:
   byte cubeApproachLeftTopSensor; ///< The pin where the left top distance sensor is connected to.
   byte cubeApproachRightBottomSensor; ///< The pin where the right bottom distance sensor is connected to.
   byte cubeApproachRightTopSensor; ///< The pin where the right top distance sensor is connected to.
-  
+
   byte accuPin; ///< Analog input pin on which the battery voltage is measured.
 
   //-----------------------------------
@@ -60,7 +60,7 @@ public:
   int whiteThresholdLineSensors;
   int whiteThresholdFrontSensors; ///< See lineFollowWhiteThresholdLineSensors
 
-    //-----------------------------------
+  //-----------------------------------
   //LINE FOLLOW
   int lineFollowInterval; ///< Interval in milliseconds in which the line follow job shall be executed.
   byte lineFollowInitialSpeedLeft; ///< The initial speed of the left motor when the parcours starts (0-255).
@@ -112,6 +112,21 @@ public:
   //LINE CENTER
   int lineCenterInterval; ///< Interval in milliseconds in which the line centering job shall be executed.
   /**
+   * \brief Duration of the stop action.
+   *
+   * At the beginning of the line centering the car has to stop and for sure be behind the line.
+   * This value defines, how long the stop shall be. "Stopping" means that the motors are turning in the opposite direction for the
+   * time set in this config value. A long duration can also have the effect to make sure, that the car is behind the line again.
+   */
+  int lineCenterStopDuration;
+  /**
+   * \brief This value defines the speed that shall be set to both motors during a stop that has to stop the car which is currently in
+   * motion (note: the direction will be set to backwards).
+   *
+   * @see lineCenterStopDuration
+   */
+  int lineCenterStopSpeed;
+  /**
    * \brief During line centering a value below this difference will mean, that the line centering process is finished.
    */
   int lineCenterLineInMiddleDifference;
@@ -158,6 +173,7 @@ public:
   int curveSpeedSlowMotor; ///< The speed of the slower motor (in a left curve, left motor) during a 90° curve. This value can go from -255 to +255.
   int curveSpeedFastMotor; ///< The speed of the faster motor (in a left curve, right motor) during a 90° curve. This value can go from -255 to +255.
   int curveDriveStraightTime; ///< The time after which the car shall drive straight again to find the line (no more curve is done).
+  int curveDriveStraightSpeed; ///< The speed of the left and right motor during the car drives straight again to find the line (no more curve is done).
   /** \brief Time in milliseconds after which the end sensor (end sensor = sensor that will recognize when the curve is driven fully) will be activated.
    *
    * In the case of the LeftCurve class the end sensor will be the left line sensor. Because of the fact that at the beginning of the "drive curve left"
@@ -224,5 +240,6 @@ public:
 };
 
 #endif
+
 
 

@@ -74,9 +74,9 @@ void CurveLeft::startIt(){
 
   mc[2].duration = 10000; //just long enough
   mc[2].dirLeftMotor = forward;
-  mc[2].speedLeftMotor = 150;
+  mc[2].speedLeftMotor = _conf->curveDriveStraightSpeed;
   mc[2].dirRightMotor = forward;
-  mc[2].speedRightMotor = 150;
+  mc[2].speedRightMotor = _conf->curveDriveStraightSpeed;
 
   _extMove->startCurrentQueue(3);
 }

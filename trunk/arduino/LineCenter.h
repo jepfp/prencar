@@ -47,6 +47,7 @@ private:
    */
   boolean _centeringFromLeft;
 
+  void doFirstStopCorrection();
   void doCorrection();
 
 

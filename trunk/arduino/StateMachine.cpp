@@ -175,7 +175,6 @@ void StateMachine::doJob(){
     }
   }
   else if(parcoursState == followingThirdLineToFinish){
-    //go to the next state if the car has detected the cube in the center
     if(lineFollow.hasReachedCurve || forceChangeState){
       if(!extMoveCommandDriveOverFinishLineStarted){
         startDriveOverFinishLineExtMoveCommand();
@@ -206,7 +205,7 @@ void StateMachine::checkCommands(){
     //check for command 300
     if(_com->getAndRemoveCommandFromReadyCommands(&c, 300)){
       int* parameters = c.parameters;
-      int highestImplementedState = 6;
+      int highestImplementedState = 9;
       if(parameters[0] > highestImplementedState){
         int p[2];
         p[0] = parameters[0];
