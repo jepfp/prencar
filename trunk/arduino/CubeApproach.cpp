@@ -75,11 +75,11 @@ void CubeApproach::doJob(boolean followLine){
     //If doJob is called the first time with lineFollow = false, then firt the car needs to be stopped.
     //See the comment of _stopCarExtMoveCommandId for details.
     MoveCommand* mc = _extMove->commandQueue;
-    mc[0].duration = 500;
+    mc[0].duration = 50;
     mc[0].dirLeftMotor = backwards;
-    mc[0].speedLeftMotor = 130;
+    mc[0].speedLeftMotor = 100;
     mc[0].dirRightMotor = backwards;
-    mc[0].speedRightMotor = 130;
+    mc[0].speedRightMotor = 100;
 
     _stopCarExtMoveCommandId = _extMove->startCurrentQueue(1);
     return;
