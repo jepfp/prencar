@@ -106,6 +106,7 @@ newAverageSpeed: %%");
             messages.Add(91, @"Cube approach: 'stop car' action (ext move command) has finished after %%ms.");
             messages.Add(92, @"No state change from 'lift cube' to 'moveBackToLine' because extMove command 'stop car' from 'lift cube' is still in progress.");
             messages.Add(93, @"Move back to line: Line has been found (left sensor value: %%, right sensor value: %%).");
+            messages.Add(94, @"Line center: Stopping the car and driving back a little bit (first correction; speed: %%, duration: %%).");
             #endregion
 
             #region 100-149 Information
@@ -140,13 +141,13 @@ _calibrationSensorWhiteMin: %%
 _calibrationSensorWhiteMax: %%
 oneThirdOfRange: %% ((BlackMin - WhiteMax) / 3)
 lineFollowWhiteThreshold: %% (WhiteMax + oneThirdOfRange)");
-            messages.Add(204, @"CONFIGURATIONVERSION:%%
-SERIALSPEED:%%
+            messages.Add(204, @"_CONFIGURATIONVERSION:%%
+_SERIALSPEED:%%
 messageFilterLevel:%%
-activateMessageFilter:%% 
+activateMessageFilter:%%
 doJobDelay:%%
 whiteThresholdLineSensors:%%
-whiteThresholdFrontSensors:%% 
+whiteThresholdFrontSensors:%%
 lineFollowInterval:%%
 lineFollowInitialSpeedLeft:%%
 lineFollowInitialSpeedRight:%%
@@ -197,7 +198,10 @@ moveBackToLine1stRightTurnRightSpeed:%%
 moveBackToLineStraightSpeed:%%
 finishLineDriveOverDuration:%%
 sensorDebugInterval:%%
-sensorDebugReadGap:%%");
+sensorDebugReadGap:%%
+curveDriveStraightSpeed:%%
+lineCenterStopDuration:%%
+lineCenterStopSpeed:%%");
             messages.Add(205, "Starting parcours at state %%.");
             messages.Add(206, "Debug module activated.");
             messages.Add(207, "Debug module deactivated.");
