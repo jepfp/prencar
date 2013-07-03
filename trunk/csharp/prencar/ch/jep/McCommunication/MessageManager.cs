@@ -115,6 +115,7 @@ newAverageSpeed: %%");
             messages.Add(102, @"New configuration saved.");
             messages.Add(103, @"The cube end sensor detected the cube even though the program was not yet in the 'lift cube' state --> switching immediately to that state.");
             messages.Add(104, @"Current battery voltage level: %% mV");
+            messages.Add(105, "The sensor measured at the first cube detection %% (0-1023). Because of that the car turns %% ms instead of %% ms.");
             #endregion
 
             #region 150-199 Error
